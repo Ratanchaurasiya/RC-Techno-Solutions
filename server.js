@@ -566,6 +566,12 @@ const server = http.createServer((req, res) => {
     });
 });
 
-server.listen(PORT, () => {
-    console.log(`RC Techno Solutions server is running at http://localhost:${PORT}/`);
-});
+// Export request listener for Vercel Serverless Function deployment
+module.exports = server;
+
+// Only start standalone HTTP listener when executed directly (e.g. node server.js)
+if (require.main === module) {
+    server.listen(PORT, () => {
+        console.log(`RC Techno Solutions server is running at http://localhost:${PORT}/`);
+    });
+}
