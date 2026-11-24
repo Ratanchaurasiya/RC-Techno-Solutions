@@ -56,6 +56,7 @@ const ROUTE_ALIASES = {
     '/privacy': '/privacy.html',
     '/terms': '/terms.html',
     '/404': '/404.html',
+    '/verify-certificate': '/verify-certificate.html',
     '/service-website-development': '/service-website-development.html',
     '/service-web-app-development': '/service-web-app-development.html',
     '/service-custom-software': '/service-custom-software.html',
@@ -376,6 +377,29 @@ const server = http.createServer((req, res) => {
             try {
                 const record = await dbStore.saveEnquiry({ name, email, phone, company, service, budget, message });
                 const ref = record.referenceId || record.id;
+
+                // Feature 6: Instant Lead Notification Dispatch (Webhook/Telegram/WhatsApp Bridge)
+                try {
+                    const leadAlertText = `🚨 *New Enterprise Lead Alert - RC Techno*\n\n*Ref:* ${ref}\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone || 'N/A'}\n*Service:* ${service || 'General'}\n*Budget:* ${budget || 'N/A'}\n*Message:* ${message || 'N/A'}`;
+                    console.log(`[LEAD DISPATCH] ${leadAlertText.replace(/\n/g, ' ')}`);
+
+                    // If optional WEBHOOK_URL or TELEGRAM_BOT_TOKEN is configured in env, notify automatically
+                    if (process.env.LEAD_WEBHOOK_URL) {
+                        const https = require('https');
+                        const url = new URL(process.env.LEAD_WEBHOOK_URL);
+                        const postData = JSON.stringify({ content: leadAlertText, text: leadAlertText });
+                        const alertReq = https.request(url, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(postData) }
+                        });
+                        alertReq.on('error', () => {});
+                        alertReq.write(postData);
+                        alertReq.end();
+                    }
+                } catch (notifyErr) {
+                    // Non-blocking notification failure
+                }
+
                 return sendJson(200, {
                     success: true,
                     referenceId: ref,

@@ -1854,3 +1854,167 @@ document.addEventListener('DOMContentLoaded', () => {
         const metricsSection = document.querySelector('.home-metrics-bar');
         if (metricsSection) counterObserver.observe(metricsSection);
     }
+
+    /* =========================================================================
+       FEATURE 1: INTERACTIVE PROJECT COST & TIMELINE ESTIMATOR
+       ========================================================================= */
+    const estProjectTypeInputs = document.querySelectorAll('input[name="estProjectType"]');
+    const estFeatureCheckboxes = document.querySelectorAll('.est-feature');
+    const estTimelineInputs = document.querySelectorAll('input[name="estTimeline"]');
+    const estTotalPriceEl = document.getElementById('estTotalPrice');
+    const estTimelineTextEl = document.getElementById('estTimelineText');
+    const estWhatsappBtn = document.getElementById('estWhatsappBtn');
+
+    function calculateEstimate() {
+        if (!estTotalPriceEl) return;
+
+        let baseCost = 15000;
+        let baseDays = 7;
+        let projectTitle = 'Business Website';
+
+        estProjectTypeInputs.forEach(input => {
+            if (input.checked) {
+                baseCost = parseInt(input.getAttribute('data-base') || '15000', 10);
+                baseDays = parseInt(input.getAttribute('data-days') || '7', 10);
+                projectTitle = input.parentElement.innerText.trim();
+            }
+        });
+
+        let addOnCost = 0;
+        let addOnDays = 0;
+        let selectedFeatures = [];
+        estFeatureCheckboxes.forEach(cb => {
+            if (cb.checked) {
+                addOnCost += parseInt(cb.getAttribute('data-cost') || '0', 10);
+                addOnDays += parseInt(cb.getAttribute('data-days') || '0', 10);
+                selectedFeatures.push(cb.parentElement.innerText.trim());
+            }
+        });
+
+        let timelineMult = 1.0;
+        let isExpress = false;
+        estTimelineInputs.forEach(input => {
+            if (input.checked) {
+                timelineMult = parseFloat(input.getAttribute('data-mult') || '1.0');
+                if (input.value === 'express') isExpress = true;
+            }
+        });
+
+        const totalCostLow = Math.round((baseCost + addOnCost) * timelineMult);
+        const totalCostHigh = Math.round(totalCostLow * 1.3);
+        const totalDays = isExpress ? Math.max(3, Math.round((baseDays + addOnDays) * 0.75)) : (baseDays + addOnDays);
+
+        estTotalPriceEl.innerText = `₹${totalCostLow.toLocaleString('en-IN')} – ₹${totalCostHigh.toLocaleString('en-IN')}`;
+        if (estTimelineTextEl) {
+            estTimelineTextEl.innerHTML = `<i class="fas fa-clock" style="color: #38bdf8;"></i> Approx. Delivery: <strong>${totalDays} to ${totalDays + 4} Working Days</strong> ${isExpress ? '<span style="color:#f59e0b;font-weight:700;">(Express Sprint)</span>' : ''}`;
+        }
+
+        if (estWhatsappBtn) {
+            const featText = selectedFeatures.length ? `%0A*Features:* ${encodeURIComponent(selectedFeatures.join(', '))}` : '';
+            const msg = `Hi Ratan, I calculated an engineering estimate on your website:%0A*Type:* ${encodeURIComponent(projectTitle)}${featText}%0A*Budget Range:* ₹${totalCostLow.toLocaleString('en-IN')} - ₹${totalCostHigh.toLocaleString('en-IN')}%0A*Timeline:* ${totalDays} Days%0AI'd like to discuss the scope and get a formal proposal.`;
+            estWhatsappBtn.href = `https://wa.me/916390035039?text=${msg}`;
+        }
+    }
+
+    if (estProjectTypeInputs.length) {
+        estProjectTypeInputs.forEach(i => i.addEventListener('change', calculateEstimate));
+        estFeatureCheckboxes.forEach(i => i.addEventListener('change', calculateEstimate));
+        estTimelineInputs.forEach(i => i.addEventListener('change', calculateEstimate));
+        calculateEstimate();
+    }
+
+    /* =========================================================================
+       FEATURE 4: INTERACTIVE CASE STUDY MODAL & METRIC VISUALIZER
+       ========================================================================= */
+    const caseStudiesData = {
+        restaurant: {
+            vertical: 'Food & Beverage / Retail',
+            title: 'Cloud POS & Real-Time Kitchen Order Telemetry',
+            problem: 'The client struggled with paper kitchen tickets, manual split-billing bottlenecks, table inventory sync delays, and 12% revenue leakage during peak hours.',
+            solution: 'Engineered a real-time reactive POS system powered by Node.js, WebSockets, and Redis. Introduced automated KOT routing, split bills in 2 clicks, and instant contactless QR ordering with dynamic offline resilience.',
+            impact: [
+                { label: 'Billing Speed', val: '+300%' },
+                { label: 'Table Turnover', val: '+45%' },
+                { label: 'Order Errors', val: '0.0%' }
+            ]
+        },
+        hospital: {
+            vertical: 'Healthcare & Clinical Administration',
+            title: 'HIPAA-Ready Electronic Health Records (EHR) Hub',
+            problem: 'Manual paper files across 6 departments caused patient wait times over 90 minutes, prescription mix-ups, and uncoordinated doctor appointment queues.',
+            solution: 'Architected a secure role-based EHR software on PostgreSQL with field-level encryption, multi-specialist scheduling calendar, and integrated pharmacy inventory point-of-sale.',
+            impact: [
+                { label: 'Wait Time Reduced', val: '-65%' },
+                { label: 'Record Retrieval', val: '< 200ms' },
+                { label: 'Audit Compliance', val: '100%' }
+            ]
+        },
+        telemetry: {
+            vertical: 'Logistics & Asset Management',
+            title: 'IoT Asset Telemetry & Predictive Maintenance Platform',
+            problem: 'Industrial equipment breakdowns caused unexpected factory downtime costing ₹4.5 Lakh per day without real-time temperature or operational telemetric tracking.',
+            solution: 'Built a high-throughput time-series pipeline using FastAPI and TimescaleDB with Kafka event streams. Implemented anomaly detection algorithms alerting engineers 48 hours before component failure.',
+            impact: [
+                { label: 'Downtime Prevented', val: '88%' },
+                { label: 'Annual ROI', val: '4.2x' },
+                { label: 'Sensors Monitored', val: '2,500+' }
+            ]
+        },
+        ecommerce: {
+            vertical: 'D2C & Retail E-Commerce',
+            title: 'High-Concurrency Multi-Vendor Marketplace',
+            problem: 'Flash sale traffic spikes caused database deadlock, cart drop-offs exceeding 60%, and delayed multi-vendor payout reconciliations.',
+            solution: 'Constructed an edge-cached Next.js storefront backed by Redis caching, microservices-based inventory locking, and automated webhooks for Razorpay and Stripe merchant settlements.',
+            impact: [
+                { label: 'Traffic Capacity', val: '50k Req/s' },
+                { label: 'Cart Conversion', val: '+38%' },
+                { label: 'Page Load LCP', val: '0.8s' }
+            ]
+        }
+    };
+
+    const caseStudyModal = document.getElementById('caseStudyModal');
+    const closeCaseStudyModal = document.getElementById('closeCaseStudyModal');
+    const closeCaseStudyBtn2 = document.getElementById('closeCaseStudyBtn2');
+    const openCaseStudyBtns = document.querySelectorAll('.open-case-study');
+
+    if (caseStudyModal && openCaseStudyBtns.length) {
+        openCaseStudyBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const pKey = btn.getAttribute('data-project') || 'restaurant';
+                const data = caseStudiesData[pKey] || caseStudiesData.restaurant;
+
+                document.getElementById('csVertical').innerText = data.vertical;
+                document.getElementById('csTitle').innerText = data.title;
+                document.getElementById('csProblem').innerText = data.problem;
+                document.getElementById('csSolution').innerText = data.solution;
+
+                const impactEl = document.getElementById('csImpact');
+                if (impactEl) {
+                    impactEl.innerHTML = data.impact.map(m => `
+                        <div style="background: #ffffff; border: 1px solid #dcfce7; padding: 10px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 1.25rem; font-weight: 800; color: #16a34a; font-family: 'Outfit', sans-serif;">${m.val}</div>
+                            <div style="font-size: 0.72rem; color: #64748b; text-transform: uppercase;">${m.label}</div>
+                        </div>
+                    `).join('');
+                }
+
+                const waBtn = document.getElementById('csWhatsappBtn');
+                if (waBtn) {
+                    waBtn.href = `https://wa.me/916390035039?text=Hi%20Ratan,%20I%20reviewed%20your%20Case%20Study:%20${encodeURIComponent(data.title)}.%20I%20have%20a%20similar%20project%20requirement%20to%20discuss.`;
+                }
+
+                caseStudyModal.style.display = 'flex';
+            });
+        });
+
+        function closeCsModal() {
+            caseStudyModal.style.display = 'none';
+        }
+
+        if (closeCaseStudyModal) closeCaseStudyModal.addEventListener('click', closeCsModal);
+        if (closeCaseStudyBtn2) closeCaseStudyBtn2.addEventListener('click', closeCsModal);
+        caseStudyModal.addEventListener('click', (e) => {
+            if (e.target === caseStudyModal) closeCsModal();
+        });
+    }
