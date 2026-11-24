@@ -90,6 +90,31 @@
             .iqs-item i {
                 color: #0084ff;
             }
+
+            @media (max-width: 650px) {
+                .internship-quick-strip {
+                    display: grid !important;
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 10px !important;
+                    max-width: 420px;
+                    margin: 0 auto 28px !important;
+                }
+                .iqs-item {
+                    font-size: 0.78rem !important;
+                    padding: 9px 10px !important;
+                    border-radius: 12px !important;
+                    justify-content: center !important;
+                    text-align: center !important;
+                    gap: 6px !important;
+                }
+                .iqs-item i {
+                    font-size: 0.85rem !important;
+                }
+                /* Make the 5th item span full width or center nicely */
+                .iqs-item:last-child {
+                    grid-column: span 2;
+                }
+            }
             .internship-hero-ctas {
                 display: flex;
                 align-items: center;
@@ -144,6 +169,33 @@
                 padding: 0 20px;
                 position: relative;
                 z-index: 10;
+            }
+            @media (max-width: 650px) {
+                .internship-overview-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 10px !important;
+                    padding: 0 14px !important;
+                    margin: -15px auto 40px !important;
+                }
+                .io-card {
+                    padding: 14px 12px !important;
+                    border-radius: 12px !important;
+                    gap: 10px !important;
+                }
+                .io-icon {
+                    width: 36px !important;
+                    height: 36px !important;
+                    font-size: 1rem !important;
+                    border-radius: 8px !important;
+                }
+                .io-info h4 {
+                    font-size: 0.72rem !important;
+                    margin-bottom: 2px !important;
+                }
+                .io-info p {
+                    font-size: 0.80rem !important;
+                    line-height: 1.25 !important;
+                }
             }
             .io-card {
                 background: #ffffff;
