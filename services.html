@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta name="description" content="Explore enterprise software engineering services by RC Techno Solutions: custom software development, web applications, AI agents, cloud architecture, and cybersecurity." />
+        <title>Our Services | RC Techno Solutions - Enterprise Software Engineering</title>
+        <link rel="canonical" href="https://rctechnosolutions.com/services" />
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Our Services | RC Techno Solutions" />
+        <meta property="og:description" content="Comprehensive software engineering capabilities: custom web apps, autonomous AI pipelines, cloud infrastructure, and enterprise systems." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://rctechnosolutions.com/services" />
+
+        <!-- Fonts & Styles -->
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+        <link href="style.css?v=4.5" rel="stylesheet" />
+        <link href="home.css?v=4.5" rel="stylesheet" />
+        <link href="responsive-core.css?v=4.5" rel="stylesheet" />
+        <link href="services.css?v=4.5" rel="stylesheet" />
+        <link href="pro-enhancements.css?v=4.5" rel="stylesheet" />
+        <link href="chatbot.css?v=4.5" rel="stylesheet" />
+
+        <style>
+            .services-page-hero {
+                padding: 130px 20px 60px;
+                background: radial-gradient(circle at 50% 20%, #eff6ff 0%, #ffffff 80%);
+                text-align: center;
+            }
+            .services-hero-eyebrow {
+                display: inline-block;
+                background: #e0f2fe;
+                color: #0284c7;
+                font-weight: 700;
+                font-size: 0.8rem;
+                letter-spacing: 0.06em;
+                padding: 6px 18px;
+                border-radius: 9999px;
+                margin-bottom: 20px;
+            }
+            .services-page-hero h1 {
+                font-size: clamp(2rem, 3.8vw, 3.2rem);
+                font-weight: 800;
+                color: #0f172a;
+                line-height: 1.2;
+                margin-bottom: 18px;
+            }
+            .services-page-hero h1 span {
+                color: #0084ff;
+            }
+            .services-page-hero p {
+                max-width: 780px;
+                margin: 0 auto 36px;
+                font-size: 1.05rem;
+                color: #475569;
+                line-height: 1.7;
+            }
+            /* Responsive 4 -> 3 -> 2 -> 1 Grid - 40-50% Compact Enterprise */
+            .all-services-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+                margin-top: 22px;
+            }
+            @media (max-width: 1140px) {
+                .all-services-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 10px;
+                }
+            }
+            @media (max-width: 820px) {
+                .all-services-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 10px !important;
+                }
+            }
+            @media (max-width: 650px) {
+                .all-services-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 10px !important;
+                }
+                /* Hide extra services initially on mobile until Load More is clicked */
+                .all-services-grid .service-extra-item:not(.show-item) {
+                    display: none !important;
+                }
+                .load-more-wrap {
+                    display: block !important;
+                    margin-top: 24px !important;
+                }
+            }
+            @media (max-width: 520px) {
+                .all-services-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 8px !important;
+                }
+            }
+
+            /* Load More Button for Comprehensive Services */
+            .btn-tech-load-more {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 24px;
+                border-radius: 9999px;
+                font-size: 0.85rem;
+                font-weight: 700;
+                font-family: inherit;
+                color: #0084ff;
+                background: #eff6ff;
+                border: 1.5px solid #bfdbfe;
+                cursor: pointer;
+                box-shadow: 0 2px 8px rgba(0, 132, 255, 0.08);
+                transition: all 0.25s ease;
+            }
+            .btn-tech-load-more:hover {
+                background: #0084ff;
+                color: #ffffff;
+                border-color: #0084ff;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 18px rgba(0, 132, 255, 0.25);
+            }
+            .btn-tech-load-more i {
+                transition: transform 0.25s ease;
+                font-size: 0.8rem;
+            }
+            .btn-tech-load-more.expanded i {
+                transform: rotate(180deg);
+            }
+
+            @media (min-width: 651px) {
+                .all-services-grid .service-extra-item:not(.show-item) {
+                    display: flex !important;
+                }
+                .load-more-wrap {
+                    display: none !important;
+                }
+            }
+
+            /* Compact Service Card (approx 40-50% height & volume reduction) */
+            .service-item-card {
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 10px;
+                padding: 13px 13px 11px 13px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                box-shadow: 0 2px 6px rgba(0, 132, 255, 0.02);
+                transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+                position: relative;
+                overflow: hidden;
+                box-sizing: border-box;
+                height: 100%;
+            }
+            .service-item-card:hover {
+                transform: translateY(-2px);
+                border-color: #93c5fd;
+                box-shadow: 0 6px 18px rgba(0, 132, 255, 0.08);
+            }
+            .service-item-card > div:first-child {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+            }
+            .service-card-icon-wrap {
+                width: 32px;
+                height: 32px;
+                border-radius: 7px;
+                background: #eff6ff;
+                color: #0084ff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.90rem;
+                margin-bottom: 8px;
+                transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+                flex-shrink: 0;
+            }
+            .service-item-card:hover .service-card-icon-wrap {
+                background: #0084ff;
+                color: #ffffff;
+                transform: scale(1.05);
+            }
+            .service-card-title {
+                font-size: 0.88rem;
+                font-weight: 700;
+                color: #0f172a;
+                margin: 0 0 4px;
+                line-height: 1.3;
+            }
+            .service-card-desc {
+                font-size: 0.76rem;
+                color: #64748b;
+                line-height: 1.38;
+                margin: 0 0 10px;
+                flex-grow: 1;
+            }
+            .btn-see-details {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                color: #0084ff;
+                background: #eff6ff;
+                font-weight: 600;
+                font-size: 0.74rem;
+                text-decoration: none;
+                transition: all 0.2s ease;
+                align-self: flex-start;
+                padding: 4px 10px;
+                border-radius: 6px;
+            }
+            .btn-see-details i {
+                font-size: 0.68rem;
+                transition: transform 0.2s ease;
+            }
+            .btn-see-details:hover {
+                background: #0084ff;
+                color: #ffffff;
+            }
+            .btn-see-details:hover i {
+                transform: translateX(3px);
+            }
+
+            @media (max-width: 480px) {
+                .service-item-card {
+                    padding: 12px 12px 10px 12px !important;
+                    border-radius: 8px !important;
+                }
+                .service-card-icon-wrap {
+                    width: 28px !important;
+                    height: 28px !important;
+                    border-radius: 6px !important;
+                    font-size: 0.84rem !important;
+                    margin-bottom: 6px !important;
+                }
+                .service-card-title {
+                    font-size: 0.85rem !important;
+                    margin-bottom: 3px !important;
+                }
+                .service-card-desc {
+                    font-size: 0.74rem !important;
+                    line-height: 1.35 !important;
+                    margin-bottom: 8px !important;
+                }
+                .btn-see-details {
+                    font-size: 0.72rem !important;
+                    padding: 3px 8px !important;
+                }
+            }
+
+            [data-theme="dark"] .service-item-card {
+                background: #1e293b;
+                border-color: #334155;
+            }
+            [data-theme="dark"] .service-card-icon-wrap {
+                background: rgba(0, 132, 255, 0.15);
+                color: #38bdf8;
+            }
+            [data-theme="dark"] .service-card-title {
+                color: #f8fafc;
+            }
+            [data-theme="dark"] .service-card-desc {
+                color: #94a3b8;
+            }
+            [data-theme="dark"] .btn-see-details {
+                background: rgba(0, 132, 255, 0.15);
+                color: #38bdf8;
+            }
+            [data-theme="dark"] .btn-see-details:hover {
+                background: #0084ff;
+                color: #ffffff;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="preloader"><div class="loader-circle"></div></div>
+
+        <!-- Global Header -->
+        <header id="header">
+            <div class="container nav-container">
+                <a class="logo" href="/" aria-label="RC Techno Solutions Home">
+                    <span class="logo-badge"><i class="fas fa-layer-group"></i></span>
+                    <span class="brand-text">RC <span>Techno</span></span>
+                    <span class="brand-studio">Enterprise</span>
+                </a>
+
+                <nav class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li><a class="nav-link" href="/">Home</a></li>
+                        <li><a class="nav-link active" href="/services">Services</a></li>
+                        <li><a class="nav-link" href="/work">Work</a></li>
+                        <li><a class="nav-link" href="/architecture">Architecture</a></li>
+                        <li><a class="nav-link" href="/about">About</a></li>
+                        <li><a class="nav-link" href="/faq">FAQ</a></li>
+                    </ul>
+
+                    <div class="mobile-nav-actions">
+                        <a class="btn-nav-nda" href="/nda"><i class="fas fa-file-shield"></i> Instant NDA</a>
+                        <a class="btn-nav-cta" href="/contact"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </nav>
+
+                <div class="nav-actions">
+                    <a class="btn-nav-nda" href="/nda" title="Fast-Track Mutual NDA"><i class="fas fa-file-shield"></i> Instant NDA</a>
+                    <a class="btn-nav-cta" href="/contact"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
+                    <button id="heroSoundToggle" class="hero-sound-toggle" aria-label="Toggle Voice Assistant" title="Toggle Voice Assistant">
+                        <span class="sound-wave-anim active"><span></span><span></span><span></span><span></span></span>
+                        <span class="sound-text">Voice: ON</span>
+                    </button>
+                    <button class="hamburger" aria-label="Toggle navigation" type="button"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Services Hero Section -->
+            <section class="services-page-hero">
+                <div class="container">
+                    <div class="services-hero-eyebrow">ENTERPRISE SOFTWARE CAPABILITIES</div>
+                    <h1>Fullstack Engineering &amp; <span data-typewriter='["Intelligent Platforms","Cloud Architecture","AI Integration","Digital Innovation"]' data-typewriter-speed="70">Intelligent Platforms</span></h1>
+                    <p>
+                        From bespoke web applications and autonomous AI agent workflows to cloud microservices and cybersecurity hardening, we build resilient software engineered to scale seamlessly.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 14 Services Grid Section -->
+            <section class="section" style="padding-top: 0;">
+                <div class="container full-width">
+                    <div class="text-center reveal" style="margin-bottom: 20px;">
+                        <span class="services-hero-eyebrow">WHAT WE DELIVER</span>
+                        <h2 class="section-title">Comprehensive Development Services</h2>
+                        <p class="section-subtitle">Every project is built with guaranteed sprint velocity, clean architecture, and 100% intellectual property ownership.</p>
+                    </div>
+
+                    <div class="all-services-grid" id="allServicesGrid">
+                        <!-- 1. Website Development -->
+                        <div class="service-item-card reveal">
+                            <div>
+                                <div class="service-card-icon-wrap"><i class="fas fa-laptop-code"></i></div>
+                                <h3 class="service-card-title">Website Development</h3>
+                                <p class="service-card-desc">High-performance corporate websites and digital showcases built with modern responsive frameworks, technical SEO, and sub-second load times.</p>
+                            </div>
+                            <a href="/service-website-development" class="btn-see-details">See Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <!-- 2. Web Application Development -->
+                        <div class="service-item-card reveal delay-1">
+                            <div>
+                                <div class="service-card-icon-wrap"><i class="fas fa-code"></i></div>
+                                <h3 class="service-card-title">Web Application Development</h3>
+                                <p class="service-card-desc">Complex, scalable web applications built with React, Next.js, and TypeScript, engineered for seamless user experiences and mission-critical workflows.</p>
+                            </div>
+                            <a href="/service-web-app-development" class="btn-see-details">See Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <!-- 3. Custom Software Development -->
+                        <div class="service-item-card reveal delay-2">
+                            <div>
+                                <div class="service-card-icon-wrap"><i class="fas fa-cogs"></i></div>
+                                <h3 class="service-card-title">Custom Software Development</h3>
+                                <p class="service-card-desc">Bespoke software platforms built to your exact business logic with modular architecture, strict data security, and zero technical debt.</p>
+                            </div>
+                            <a href="/service-custom-software" class="btn-see-details">See Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <!-- 4. E-Commerce Development -->
+                        <div class="service-item-card reveal">
+                            <div>
+                                <div class="service-card-icon-wrap"><i class="fas fa-shopping-cart"></i></div>
+                                <h3 class="service-card-title">E-Commerce Development</h3>
+                                <p class="service-card-desc">High-converting online storefronts, headless commerce backends, multi-currency payment integrations, and automated inventory sync.</p>
+                            </div>
+                            <a href="/service-ecommerce" class="btn-see-details">See Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <!-- 5. Enterprise Software Solutions -->
+                        <div class="service-item-card reveal delay-1">
+                            <div>
+                                <div class="service-card-icon-wrap"><i class="fas fa-building"></i></div>
+                                <h3 class="service-card-title">Enterprise Software Solutions</h3>
+                                <p class="service-card-desc">Multi-tenant SaaS architectures, distributed microservices, event streaming pipelines, and fault-tolerant cloud backends built for high concurrency.</p>
+                            </div>
+                            <a href="/service-enterprise-systems" class="btn-see-details">See Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <!-- 6. AI Integration & Automation -->
+                        <div class="service-item-card reveal delay-2">
+                            <div>
+                                <div class="service-card-icon-wrap"><i class="fas fa-robot"></i></div>
+                                <h3 class="service-card-title">AI Integration &amp; Automation</h3>
+                                <p class="service-card-desc">Integrating artificial intelligence models, computer vision, automated classification, and predictive algorithms into operational workflows.</p>
+                            </div>
+                            <a href="/service-ai-applications" class="btn-see-details">See Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <!-- 7. AI Agents & LLM Workflows -->
+                        <div class="service-item-card service-extra-item reveal">
+                            <div>
+                                <div class="service-card-icon-wrap"><i class="fas fa-brain"></i></div>
+                                <h3 class="service-card-title">AI Agents &amp; LLM Workflows</h3>
+                                <p class="service-card-desc">Autonomous multi-agent swarms, private enterprise RAG pipelines, semantic vector search, and custom domain-tuned copilots.</p>
+                            </div>
+                            <a href="/service-ai-agents" class="btn-see-details">See Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <!-- 8. Data Analytics & Dashboards -->
+                        <div class="service-item-card service-extra-item reveal delay-1">
+                            <div>
+                                <div class="service-card-icon-wrap"><i class="fas fa-chart-pie"></i></div>
+                                <h3 class="service-card-title">Data Analytics &amp; Dashboards</h3>
+                                <p class="service-card-desc">Transforming massive multi-source datasets into real-time interactive dashboards, business intelligence telemetry, and automated reports.</p>
+                            </div>
+                            <a href="/service-data-analytics" class="btn-see-details">See Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <!-- 9. Database Design -->
+                        <div class="service-item-card service-extra-item reveal delay-2">
+                            <div>
+                                <div class="service-card-icon-wrap"><i class="fas fa-database"></i></div>
+                                <h3 class="service-card-title">Database Design</h3>
+                                <p class="service-card-desc">High-availability transactional databases, normalized schemas, automated replication, index optimization, and distributed Redis caching.</p>
+                            </div>
+                            <a href="/service-database-design" class="btn-see-details">See Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <!-- 10. Business Management Systems -->
+                        <div class="service-item-card service-extra-item reveal">
+                            <div>
+                                <div class="service-card-icon-wrap"><i class="fas fa-sitemap"></i></div>
+                                <h3 class="service-card-title">Business Management Systems</h3>
+                                <p class="service-card-desc">Integrated ERP, CRM, and internal management tools that streamline operations, eliminate silos, and improve team productivity.</p>
+                            </div>
+                            <a href="/service-business-systems" class="btn-see-details">See Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <!-- 11. API Development & Integration -->
+                        <div class="service-item-card service-extra-item reveal delay-1">
+                            <div>
+                                <div class="service-card-icon-wrap"><i class="fas fa-network-wired"></i></div>
+                                <h3 class="service-card-title">API Development &amp; Integration</h3>
+                                <p class="service-card-desc">High-throughput RESTful and GraphQL APIs, third-party webhook integrations, rate-limiting, and comprehensive OpenAPI documentation.</p>
+                            </div>
+                            <a href="/service-api-integration" class="btn-see-details">See Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <!-- 12. Cloud Solutions -->
+                        <div class="service-item-card service-extra-item reveal delay-2">
+                            <div>
+                                <div class="service-card-icon-wrap"><i class="fas fa-cloud"></i></div>
+                                <h3 class="service-card-title">Cloud Solutions</h3>
+                                <p class="service-card-desc">Cloud migration, serverless deployments, automated infrastructure-as-code (Terraform), and container orchestration with Docker and Kubernetes.</p>
+                            </div>
+                            <a href="/service-cloud-deployment" class="btn-see-details">See Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <!-- 13. Cybersecurity -->
+                        <div class="service-item-card service-extra-item reveal">
+                            <div>
+                                <div class="service-card-icon-wrap"><i class="fas fa-shield-alt"></i></div>
+                                <h3 class="service-card-title">Cybersecurity</h3>
+                                <p class="service-card-desc">Zero-trust architecture, automated vulnerability scanning, OAuth 2.0 authorization, data encryption at rest and in transit, and security audits.</p>
+                            </div>
+                            <a href="/service-security" class="btn-see-details">See Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <!-- 14. Technical Consulting -->
+                        <div class="service-item-card service-extra-item reveal delay-1">
+                            <div>
+                                <div class="service-card-icon-wrap"><i class="fas fa-compass"></i></div>
+                                <h3 class="service-card-title">Technical Consulting</h3>
+                                <p class="service-card-desc">Strategic CTO advisory, architectural assessments, cloud cost optimization, and technology modernization roadmaps.</p>
+                            </div>
+                            <a href="/service-cloud-consulting" class="btn-see-details">See Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="load-more-wrap" style="text-align: center; margin-top: 28px;">
+                        <button type="button" class="btn-tech-load-more" id="loadMoreAllServicesBtn">
+                            <span class="btn-text">Load More Services (8 more)</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technologies Section -->
+            <section class="section bg-light" id="technologies">
+                <div class="container full-width">
+                    <div class="section-header reveal">
+                        <span class="services-hero-eyebrow">TECH STACK</span>
+                        <h2 class="section-title">Battle-Tested Technologies</h2>
+                        <p class="section-desc">We build upon modern, battle-tested programming languages, frameworks, and cloud services.</p>
+                    </div>
+                    <div class="tech-grid reveal delay-1">
+                        <div class="tech-card"><i class="fab fa-react"></i><span>React 19 / Next.js</span></div>
+                        <div class="tech-card"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                        <div class="tech-card"><i class="fab fa-python"></i><span>Python / FastAPI</span></div>
+                        <div class="tech-card"><i class="fab fa-js"></i><span>TypeScript</span></div>
+                        <div class="tech-card"><i class="fab fa-aws"></i><span>AWS Cloud</span></div>
+                        <div class="tech-card"><i class="fab fa-docker"></i><span>Docker</span></div>
+                        <div class="tech-card"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
+                        <div class="tech-card"><i class="fas fa-leaf"></i><span>MongoDB</span></div>
+                        <div class="tech-card"><i class="fas fa-robot"></i><span>AI &amp; LLMs</span></div>
+                        <div class="tech-card"><i class="fab fa-git-alt"></i><span>Git &amp; CI/CD</span></div>
+                        <div class="tech-card"><i class="fas fa-shield-alt"></i><span>Cybersecurity</span></div>
+                        <div class="tech-card"><i class="fas fa-cubes"></i><span>Kubernetes</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Animated Tech Stack Ribbon -->
+            <div class="tech-marquee-section">
+                <div class="tech-marquee-title">Trusted Enterprise Architecture &amp; Modern Tooling</div>
+                <div class="tech-marquee-track">
+                    <div class="tech-badge"><i class="fab fa-react"></i> React 19 &amp; Next.js</div>
+                    <div class="tech-badge"><i class="fab fa-node-js"></i> Node.js &amp; Express</div>
+                    <div class="tech-badge"><i class="fab fa-python"></i> Python &amp; FastAPI</div>
+                    <div class="tech-badge"><i class="fab fa-aws"></i> AWS Architecture</div>
+                    <div class="tech-badge"><i class="fab fa-docker"></i> Docker &amp; Kubernetes</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i> PostgreSQL &amp; Redis</div>
+                    <div class="tech-badge"><i class="fas fa-brain"></i> OpenAI &amp; Gemini API</div>
+                    <div class="tech-badge"><i class="fab fa-stripe"></i> Stripe Payments</div>
+                    <div class="tech-badge"><i class="fas fa-cubes"></i> Microservices</div>
+                    <!-- Duplicate for seamless infinite loop -->
+                    <div class="tech-badge"><i class="fab fa-react"></i> React 19 &amp; Next.js</div>
+                    <div class="tech-badge"><i class="fab fa-node-js"></i> Node.js &amp; Express</div>
+                    <div class="tech-badge"><i class="fab fa-python"></i> Python &amp; FastAPI</div>
+                    <div class="tech-badge"><i class="fab fa-aws"></i> AWS Architecture</div>
+                    <div class="tech-badge"><i class="fab fa-docker"></i> Docker &amp; Kubernetes</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i> PostgreSQL &amp; Redis</div>
+                    <div class="tech-badge"><i class="fas fa-brain"></i> OpenAI &amp; Gemini API</div>
+                    <div class="tech-badge"><i class="fab fa-stripe"></i> Stripe Payments</div>
+                    <div class="tech-badge"><i class="fas fa-cubes"></i> Microservices</div>
+                </div>
+            </div>
+
+            <!-- Pre-Footer CTA Rocket Banner -->
+            <section class="section-cta-wrap">
+                <div class="container">
+                    <div class="cta-banner-new">
+                        <div class="cta-banner-left">
+                            <div class="cta-rocket-visual"><img src="cta_rocket_clean.png" alt="Engineering Velocity Rocket" class="cta-rocket-img"></div>
+                            <div class="cta-text-group">
+                                <h3 class="cta-title-new">Ready to Build <span>Something Great?</span></h3>
+                                <p class="cta-subtitle-new">Partner with our software architects to transform your requirements into production software.</p>
+                                <div class="cta-actions-group">
+                                    <a href="/contact" class="btn-cta-action"><span>Schedule Consultation</span> <i class="fas fa-arrow-right"></i></a>
+                                    <a href="/nda" class="btn-cta-action btn-cta-secondary"><span>Instant NDA</span> <i class="fas fa-file-shield"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cta-badges-right">
+                            <div class="cta-trust-badge"><i class="fas fa-bolt badge-icon-electric"></i><span>Fast Response</span></div>
+                            <div class="cta-trust-badge"><i class="fas fa-shield-alt badge-icon-shield"></i><span>100% IP Ownership</span></div>
+                            <div class="cta-trust-badge"><i class="fas fa-handshake badge-icon-handshake"></i><span>60-Day SLA</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Global Enterprise Footer -->
+        <footer class="footer-new">
+            <div class="container">
+                <div class="footer-top-grid">
+                    <div class="footer-col-brand">
+                        <a class="footer-logo-link" href="/">
+                            <span class="footer-logo-box"><i class="fas fa-layer-group"></i></span>
+                            <span class="footer-logo-text">RC <span>Techno</span></span>
+                        </a>
+                        <p class="footer-brand-desc">Building modern, scalable, and secure digital solutions for tomorrow's businesses.</p>
+                        <div class="footer-social-row">
+                            <a href="https://www.linkedin.com/in/ratan-codespace" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Ratanchaurasiya" target="_blank" rel="noopener" aria-label="GitHub" class="social-circle"><i class="fab fa-github"></i></a>
+                            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="social-circle"><i class="fab fa-youtube"></i></a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" class="social-circle"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col-links">
+                        <h4 class="footer-col-title"><i class="fas fa-rocket title-icon"></i> Quick Links</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="/"><i class="fas fa-chevron-right arrow-icon"></i> Home</a></li>
+                            <li><a href="/about"><i class="fas fa-chevron-right arrow-icon"></i> About Us</a></li>
+                            <li><a href="/gallery"><i class="fas fa-chevron-right arrow-icon"></i> Office Gallery</a></li>
+                            <li><a href="/work"><i class="fas fa-chevron-right arrow-icon"></i> Portfolio</a></li>
+                            <li><a href="/architecture"><i class="fas fa-chevron-right arrow-icon"></i> Architecture</a></li>
+                            <li><a href="/faq"><i class="fas fa-chevron-right arrow-icon"></i> FAQ</a></li>
+                            <li><a href="/contact"><i class="fas fa-chevron-right arrow-icon"></i> Contact</a></li>
+                            <li><a href="/terms"><i class="fas fa-chevron-right arrow-icon"></i> Terms &amp; Conditions</a></li>
+                            <li><a href="/privacy"><i class="fas fa-chevron-right arrow-icon"></i> Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col-links">
+                        <h4 class="footer-col-title"><i class="fas fa-cog title-icon"></i> Services</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="/service-website-development"><i class="fas fa-chevron-right arrow-icon"></i> Web Development</a></li>
+                            <li><a href="/service-web-app-development"><i class="fas fa-chevron-right arrow-icon"></i> App Development</a></li>
+                            <li><a href="/service-custom-software"><i class="fas fa-chevron-right arrow-icon"></i> Custom Software</a></li>
+                            <li><a href="/service-ai-agents"><i class="fas fa-chevron-right arrow-icon"></i> AI Agents &amp; LLMs</a></li>
+                            <li><a href="/service-cloud-deployment"><i class="fas fa-chevron-right arrow-icon"></i> Cloud Solutions</a></li>
+                            <li><a href="/service-security"><i class="fas fa-chevron-right arrow-icon"></i> Cybersecurity</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col-contact">
+                        <h4 class="footer-col-title"><i class="fas fa-envelope title-icon"></i> Contact Info</h4>
+                        <div class="footer-contact-item"><i class="fas fa-map-marker-alt contact-pin-icon"></i><span>Vastral Gam, Ahmedabad</span></div>
+                        <div class="footer-contact-item"><i class="fas fa-envelope contact-pin-icon"></i><a href="mailto:ratanchaurasiya61@gmail.com">ratanchaurasiya61@gmail.com</a></div>
+                        <div class="footer-contact-item"><i class="fas fa-phone-alt contact-pin-icon"></i><a href="tel:+916390035039">+91 63900 35039</a></div>
+                        <div class="footer-contact-item"><i class="fas fa-globe contact-pin-icon"></i><a href="https://rctechnosolutions.com" target="_blank" rel="noopener">rctechnosolutions.com</a></div>
+                        <div class="footer-contact-item"><i class="fab fa-whatsapp contact-pin-icon" style="color: #25d366;"></i><a href="https://wa.me/916390035039?text=Hi%20RC%20Techno,%20I'd%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener">WhatsApp Chat</a></div>
+                    </div></div>
+
+                                <div class="footer-bottom-bar">
+                    <p>&copy; 2026 RC Techno Solutions. All Rights Reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy">Privacy Policy</a> &bull; 
+                        <a href="/terms">Terms &amp; Conditions</a> &bull; 
+                        <a href="/nda">Instant NDA</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="typewriter.js?v=1.0"></script>
+        <script src="script.js?v=4.5"></script>
+        <script src="nirvana-interactive.js?v=2.6"></script>
+        <script src="chatbot.js?v=4.5"></script>
+    </body>
+</html>

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enterprise Technical Architecture | RC Techno Solutions</title>
+    <meta name="description" content="Explore RC Techno Solutions' enterprise cloud architecture, autonomous AI pipelines, distributed microservices, and high-concurrency database designs." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://rctechnosolutions.com/architecture" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Enterprise Technical Architecture | RC Techno Solutions" />
+    <meta property="og:description" content="High-throughput cloud topologies, autonomous AI pipelines, and distributed microservices engineered for scale." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rctechnosolutions.com/architecture" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80" />
+
+    <!-- Fonts & Styles -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="style.css?v=4.5" rel="stylesheet" />
+    <link href="home.css?v=4.5" rel="stylesheet" />
+    <link href="services.css?v=4.5" rel="stylesheet" />
+    <link href="pro-enhancements.css?v=4.5" rel="stylesheet" />
+    <link href="chatbot.css?v=4.5" rel="stylesheet" />
+
+    <style>
+        .arch-page-hero {
+            padding: 130px 20px 60px;
+            background: radial-gradient(circle at 50% 20%, #eff6ff 0%, #ffffff 80%);
+            text-align: center;
+        }
+        .arch-page-hero .arch-eyebrow-pill {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0284c7;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.06em;
+            padding: 6px 18px;
+            border-radius: 9999px;
+            margin-bottom: 20px;
+        }
+        .arch-page-hero h1 {
+            font-size: clamp(2rem, 3.8vw, 3.2rem);
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+        .arch-page-hero h1 span {
+            color: #0084ff;
+        }
+        .arch-page-hero p {
+            max-width: 780px;
+            margin: 0 auto 36px;
+            font-size: 1.05rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .arch-page-hero .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        /* Deep Architecture Domains - 40-50% Compact Enterprise Grid */
+        .arch-domains-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        @media (max-width: 1180px) {
+            .arch-domains-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 10px !important;
+            }
+        }
+        @media (max-width: 780px) {
+            .arch-domains-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px !important;
+            }
+        }
+        @media (max-width: 650px) {
+            .arch-domains-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px !important;
+            }
+            /* Hide extra domain cards initially on mobile until Load More is clicked */
+            .arch-domains-grid .arch-extra-item:not(.show-item) {
+                display: none !important;
+            }
+            .load-more-wrap {
+                display: block !important;
+                margin-top: 24px !important;
+            }
+        }
+        @media (max-width: 520px) {
+            .arch-domains-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px !important;
+            }
+        }
+
+        /* Load More Button for Architecture Domains */
+        .btn-tech-load-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            font-family: inherit;
+            color: #0084ff;
+            background: #eff6ff;
+            border: 1.5px solid #bfdbfe;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 132, 255, 0.08);
+            transition: all 0.25s ease;
+        }
+        .btn-tech-load-more:hover {
+            background: #0084ff;
+            color: #ffffff;
+            border-color: #0084ff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 132, 255, 0.25);
+        }
+        .btn-tech-load-more i {
+            transition: transform 0.25s ease;
+            font-size: 0.8rem;
+        }
+        .btn-tech-load-more.expanded i {
+            transform: rotate(180deg);
+        }
+
+        @media (min-width: 651px) {
+            .arch-domains-grid .arch-extra-item:not(.show-item) {
+                display: flex !important;
+            }
+            .load-more-wrap {
+                display: none !important;
+            }
+        }
+        .arch-domain-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 9px;
+            padding: 12px 11px 10px 11px;
+            box-shadow: 0 1px 4px rgba(0, 132, 255, 0.02);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            height: 100%;
+        }
+        @media (max-width: 480px) {
+            .arch-domain-card {
+                padding: 11px 10px 9px 10px !important;
+            }
+        }
+        .arch-domain-card:hover {
+            transform: translateY(-2px);
+            border-color: #93c5fd;
+            box-shadow: 0 5px 14px rgba(0, 132, 255, 0.08);
+        }
+        .arch-domain-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: #eff6ff;
+            color: #0084ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            margin-bottom: 7px;
+            flex-shrink: 0;
+        }
+        .arch-domain-title {
+            font-size: 0.84rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 3px;
+            line-height: 1.3;
+        }
+        .arch-domain-desc {
+            font-size: 0.72rem;
+            color: #64748b;
+            line-height: 1.36;
+            margin-bottom: 7px;
+            flex-grow: 1;
+        }
+        .arch-tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+            margin-top: auto;
+        }
+        .arch-tag {
+            background: #f1f5f9;
+            color: #334155;
+            font-size: 0.62rem;
+            font-weight: 600;
+            padding: 1.5px 5px;
+            border-radius: 3px;
+            border: 1px solid #e2e8f0;
+            line-height: 1.2;
+        }
+        [data-theme="dark"] .arch-domain-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        [data-theme="dark"] .arch-domain-icon {
+            background: rgba(0, 132, 255, 0.15);
+            color: #38bdf8;
+        }
+        [data-theme="dark"] .arch-domain-title {
+            color: #f8fafc;
+        }
+        [data-theme="dark"] .arch-domain-desc {
+            color: #94a3b8;
+        }
+        [data-theme="dark"] .arch-tag {
+            background: #0f172a;
+            color: #94a3b8;
+            border-color: #334155;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Floating Navbar -->
+    <header id="header">
+        <div class="container nav-container">
+            <a class="logo" href="/" aria-label="RC Techno Solutions Home">
+                <span class="logo-badge"><i class="fas fa-layer-group"></i></span>
+                <span class="brand-text">RC <span>Techno</span></span>
+                <span class="brand-studio">Enterprise</span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="/">Home</a></li>
+                    <li><a class="nav-link" href="/services">Services</a></li>
+                    <li><a class="nav-link" href="/work">Work</a></li>
+                    <li><a class="nav-link active" href="/architecture">Architecture</a></li>
+                    <li><a class="nav-link" href="/about">About</a></li>
+                    <li><a class="nav-link" href="/faq">FAQ</a></li>
+                </ul>
+
+                <div class="mobile-nav-actions">
+                    <a class="btn-nav-nda" href="/nda"><i class="fas fa-file-shield"></i> Instant NDA</a>
+                    <a class="btn-nav-cta" href="/contact"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </nav>
+
+            <div class="nav-actions">
+                <a class="btn-nav-nda" href="/nda" title="Fast-Track Mutual NDA"><i class="fas fa-file-shield"></i> Instant NDA</a>
+                <a class="btn-nav-cta" href="/contact"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
+                <button id="heroSoundToggle" class="hero-sound-toggle" aria-label="Toggle Video Voice" title="Toggle Video Voice">
+                    <span class="sound-wave-anim active"><span></span><span></span><span></span><span></span></span>
+                    <span class="sound-text">Voice: ON</span>
+                </button>
+                <button class="hamburger" aria-label="Toggle navigation" type="button"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="arch-page-hero">
+            <div class="container">
+                <div class="arch-eyebrow-pill">ENTERPRISE TECHNICAL ARCHITECTURE</div>
+                <h1>Architecting Resilient Digital Platforms &amp; <span data-typewriter='["Intelligent Systems","Scalable Architecture","Cloud Infrastructure","Enterprise Platforms"]' data-typewriter-speed="70">Intelligent Systems</span></h1>
+                <p>
+                    Engineered for mission-critical reliability, extreme throughput, and seamless scalability. We design and deliver cloud-native distributed microservices, multi-tenant SaaS backends, and autonomous AI pipelines.
+                </p>
+                <div class="hero-actions">
+                    <a href="/contact" class="btn btn-hero-primary">
+                        <i class="fas fa-calendar-check" style="margin-right: 8px;"></i>
+                        <span>Schedule Technical Consultation</span>
+                        <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    </a>
+                    <a href="#topologyStudio" class="btn btn-hero-secondary">
+                        <i class="fas fa-network-wired" style="margin-right: 8px;"></i>
+                        <span>Explore Topology Studio</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Reference Mockup Grid -->
+        <section id="topologyStudio" class="section section-arch" style="padding-top: 20px;">
+            <div class="container container-arch-elevated">
+                <div class="text-center" style="margin-bottom: 32px;">
+                    <div class="arch-eyebrow-pill">SYSTEM TOPOLOGY BLUEPRINTS</div>
+                    <h2 class="arch-main-title">
+                        Production Architecture &amp; <span class="text-blue">Cloud Frameworks</span>
+                    </h2>
+                </div>
+
+                <div class="arch-mockup-grid">
+                    <!-- Top Row: 3 Equal Feature Cards -->
+                    <div class="arch-mockup-row-top">
+                        <div class="arch-feature-card arch-card-active" data-val="saas">
+                            <div class="arch-card-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#0084ff"/>
+                                    <path d="M2 12l10 5 10-5" stroke="#0084ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 17l10 5 10-5" stroke="#0084ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="arch-card-info">
+                                <h4>High-Velocity SaaS</h4>
+                                <p>Next-js 15, FastAPI, Multi-Tenant</p>
+                            </div>
+                        </div>
+
+                        <div class="arch-feature-card" data-val="ai">
+                            <div class="arch-card-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <rect x="4" y="9" width="16" height="11" rx="3" fill="#0084ff"/>
+                                    <circle cx="9" cy="14.5" r="1.75" fill="#ffffff"/>
+                                    <circle cx="15" cy="14.5" r="1.75" fill="#ffffff"/>
+                                    <path d="M12 3v3M9 6h6" stroke="#0084ff" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M2 14.5h2M20 14.5h2" stroke="#0084ff" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="arch-card-info">
+                                <h4>Autonomous AI Pipeline</h4>
+                                <p>RAG, Vector DB, Agent Workflows</p>
+                            </div>
+                        </div>
+
+                        <div class="arch-feature-card" data-val="storefront">
+                            <div class="arch-card-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M2 3h3.5l2.4 11.5a2 2 0 0 0 2 1.5h9.2a2 2 0 0 0 2-1.5L23 7H6.5" stroke="#0084ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="10" cy="20" r="1.75" fill="#0084ff"/>
+                                    <circle cx="18" cy="20" r="1.75" fill="#0084ff"/>
+                                </svg>
+                            </div>
+                            <div class="arch-card-info">
+                                <h4>Enterprise Storefront</h4>
+                                <p>Microservices, High Concurrency</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Row: Card 4 + Card 5 -->
+                    <div class="arch-mockup-row-bottom">
+                        <div class="arch-feature-card" data-val="mobile">
+                            <div class="arch-card-icon-box">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                    <rect x="5.5" y="2" width="13" height="20" rx="3" stroke="#0084ff" stroke-width="2"/>
+                                    <circle cx="12" cy="17.5" r="1.25" fill="#0084ff"/>
+                                    <path d="M10 5.5h4" stroke="#0084ff" stroke-width="1.8" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="arch-card-info">
+                                <h4>Realtime Mobile API</h4>
+                                <p>GraphQL, WebSockets, Pub/Sub</p>
+                            </div>
+                        </div>
+
+                        <div class="arch-cloud-container">
+                            <div class="arch-cloud-header">
+                                <i class="fas fa-cloud cloud-header-icon"></i>
+                                <span>Target Cloud Infrastructure</span>
+                            </div>
+                            <div class="arch-cloud-subgrid">
+                                <div class="cloud-subcard" data-cloud="aws">
+                                    <div class="cloud-subcard-icon">
+                                        <svg width="28" height="18" viewBox="0 0 65 38" fill="none">
+                                            <path d="M18.8 24.3c-2.4 0-4.3-.6-5.8-1.7-1.5-1.1-2.2-2.6-2.2-4.4 0-1.5.5-2.7 1.6-3.7 1.1-1 2.6-1.7 4.5-2.1 1.9-.4 4-.6 6.4-.7v-.9c0-1.5-.3-2.6-1-3.3-.7-.7-1.9-1.1-3.6-1.1-1.4 0-2.6.3-3.8.8-1.1.5-2.1 1.3-3 2.3l-2.6-2.6c1.3-1.4 2.8-2.5 4.6-3.2C15.7 3 17.8 2.6 20.2 2.6c3.2 0 5.6.8 7.2 2.4 1.6 1.6 2.4 4 2.4 7.1v11.7h-3.4v-2.8c-1.8 2.3-4.3 3.4-7.6 3.4zm1.1-3c2 0 3.7-.6 5-1.8 1.3-1.2 2-2.8 2-4.7v-1.6c-2.2.1-4 .4-5.4.8-1.4.4-2.4 1-3.1 1.7-.7.7-1 1.6-1 2.6 0 1.2.4 2.1 1.1 2.6.8.3 1.7.4 2.4.4zM39.6 24l-6.8-19.4h3.9l4.5 14.5 4.5-14.5h4.2l4.5 14.5 4.5-14.5h3.9L61.9 24h-3.9l-4.7-14.7L48.6 24h-4l-4.6-14.7L35.4 24h-4.2z" fill="#232F3E"/>
+                                            <path d="M60.6 29.5c-7.3 5.4-16.7 8.3-26.2 8.3-13.4 0-25.5-5.1-34.9-13.7-.9-.8-.9-1.9 0-2.5.9-.6 2.2-.6 2.8 0 8.8 8 20.2 12.8 32.5 12.8 8.6 0 17.2-2.5 23.8-7.3 1.2-.9 2.8-.3 3.4.9.6 1.2.1 2.8-1.4 3.5z" fill="#FF9900"/>
+                                            <path d="M64.4 24.8c-.8-1-5.1-.5-7.7-.2-.8.1-1-.6-.3-1.1 4.5-3.2 11.9-2.3 12.8-1.2.9 1.1-.3 8.5-4.8 11.7-.7.5-1.3.2-1-.5 1-2.4 2.3-6.9 1-8.7z" fill="#FF9900"/>
+                                        </svg>
+                                    </div>
+                                    <div class="cloud-subcard-info">
+                                        <h5>AWS Cloud</h5>
+                                        <p>ECS Fargate, Lambda, S3</p>
+                                    </div>
+                                </div>
+
+                                <div class="cloud-subcard" data-cloud="gcp">
+                                    <div class="cloud-subcard-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+                                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+                                        </svg>
+                                    </div>
+                                    <div class="cloud-subcard-info">
+                                        <h5>Google Cloud</h5>
+                                        <p>Cloud Run, BigQuery, GCS</p>
+                                    </div>
+                                </div>
+
+                                <div class="cloud-subcard" data-cloud="k8s">
+                                    <div class="cloud-subcard-icon">
+                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 2L3.5 6.9v9.8L12 21.6l8.5-4.9V6.9L12 2zm0 2.2l6.6 3.8v7.6L12 19.4 5.4 15.6V8L12 4.2zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" fill="#326CE5"/>
+                                        </svg>
+                                    </div>
+                                    <div class="cloud-subcard-info">
+                                        <h5>Kubernetes (K8s)</h5>
+                                        <p>Docker, K8s, Terraform</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deep Architecture Domains -->
+        <section class="section" style="background: #f8fafc; padding: 48px 0;">
+            <div class="container">
+                <div class="text-center">
+                    <div class="arch-eyebrow-pill">END-TO-END ENGINEERING</div>
+                    <h2 class="section-title">Comprehensive Technical Domains</h2>
+                    <p class="section-subtitle">A holistic view of our multi-layered engineering stack designed for zero failure.</p>
+                </div>
+
+                <div class="arch-domains-grid" id="archDomainsGrid">
+                    <!-- 1. Frontend -->
+                    <div class="arch-domain-card">
+                        <div class="arch-domain-icon"><i class="fas fa-desktop"></i></div>
+                        <h3 class="arch-domain-title">1. Modern Frontend Architecture</h3>
+                        <p class="arch-domain-desc">
+                            Ultra-fast, SEO-optimized user interfaces powered by Next.js App Router, React 19 Server Components, and responsive design systems.
+                        </p>
+                        <div class="arch-tag-list">
+                            <span class="arch-tag">React 19</span>
+                            <span class="arch-tag">Next.js 15</span>
+                            <span class="arch-tag">TypeScript</span>
+                            <span class="arch-tag">Tailwind CSS</span>
+                            <span class="arch-tag">Core Web Vitals</span>
+                        </div>
+                    </div>
+
+                    <!-- 2. Backend & Microservices -->
+                    <div class="arch-domain-card">
+                        <div class="arch-domain-icon"><i class="fas fa-server"></i></div>
+                        <h3 class="arch-domain-title">2. Distributed Microservices</h3>
+                        <p class="arch-domain-desc">
+                            Decoupled, high-concurrency microservices communicating over gRPC, GraphQL, and event-driven message queues for maximum throughput.
+                        </p>
+                        <div class="arch-tag-list">
+                            <span class="arch-tag">Node.js</span>
+                            <span class="arch-tag">FastAPI</span>
+                            <span class="arch-tag">Go Microservices</span>
+                            <span class="arch-tag">RabbitMQ</span>
+                            <span class="arch-tag">Kafka</span>
+                        </div>
+                    </div>
+
+                    <!-- 3. AI & Autonomous Pipelines -->
+                    <div class="arch-domain-card">
+                        <div class="arch-domain-icon"><i class="fas fa-brain"></i></div>
+                        <h3 class="arch-domain-title">3. Autonomous AI Pipelines</h3>
+                        <p class="arch-domain-desc">
+                            Retrieval-Augmented Generation (RAG) topologies with semantic vector databases, LLM agent workflows, and private enterprise fine-tuning.
+                        </p>
+                        <div class="arch-tag-list">
+                            <span class="arch-tag">Gemini API</span>
+                            <span class="arch-tag">OpenAI</span>
+                            <span class="arch-tag">Vector DB</span>
+                            <span class="arch-tag">LangChain</span>
+                            <span class="arch-tag">RAG Workflows</span>
+                        </div>
+                    </div>
+
+                    <!-- 4. Database & Storage -->
+                    <div class="arch-domain-card">
+                        <div class="arch-domain-icon"><i class="fas fa-database"></i></div>
+                        <h3 class="arch-domain-title">4. High-Availability Data Tier</h3>
+                        <p class="arch-domain-desc">
+                            Distributed transactional databases with automated read replicas, multi-AZ clustering, and low-latency Redis caching layers.
+                        </p>
+                        <div class="arch-tag-list">
+                            <span class="arch-tag">PostgreSQL Cluster</span>
+                            <span class="arch-tag">MongoDB Atlas</span>
+                            <span class="arch-tag">Redis Cache</span>
+                            <span class="arch-tag">AWS S3 / GCS</span>
+                        </div>
+                    </div>
+
+                    <!-- 5. Cloud Infrastructure -->
+                    <div class="arch-domain-card arch-extra-item">
+                        <div class="arch-domain-icon"><i class="fas fa-cloud"></i></div>
+                        <h3 class="arch-domain-title">5. Cloud Infrastructure</h3>
+                        <p class="arch-domain-desc">
+                            Multi-region, highly available cloud topologies engineered across AWS and Google Cloud with automated VPC peering, load balancers, and resilient subnets.
+                        </p>
+                        <div class="arch-tag-list">
+                            <span class="arch-tag">AWS Multi-AZ</span>
+                            <span class="arch-tag">Google Cloud</span>
+                            <span class="arch-tag">Cloudflare CDN</span>
+                            <span class="arch-tag">AWS ALB / NLB</span>
+                            <span class="arch-tag">99.9% SLA</span>
+                        </div>
+                    </div>
+
+                    <!-- 6. API Architecture -->
+                    <div class="arch-domain-card arch-extra-item">
+                        <div class="arch-domain-icon"><i class="fas fa-network-wired"></i></div>
+                        <h3 class="arch-domain-title">6. API Architecture &amp; Gateways</h3>
+                        <p class="arch-domain-desc">
+                            High-concurrency API gateways supporting OpenAPI 3.0 REST endpoints, GraphQL query federation, and bidirectional WebSocket event streams.
+                        </p>
+                        <div class="arch-tag-list">
+                            <span class="arch-tag">RESTful APIs</span>
+                            <span class="arch-tag">GraphQL</span>
+                            <span class="arch-tag">gRPC</span>
+                            <span class="arch-tag">WebSockets</span>
+                            <span class="arch-tag">API Gateway</span>
+                        </div>
+                    </div>
+
+                    <!-- 7. Security Policies & Hardening -->
+                    <div class="arch-domain-card arch-extra-item">
+                        <div class="arch-domain-icon"><i class="fas fa-shield-halved"></i></div>
+                        <h3 class="arch-domain-title">7. Security Policies &amp; Hardening</h3>
+                        <p class="arch-domain-desc">
+                            Zero-Trust architecture, TLS 1.3 in-transit, AES-256 data at rest, OAuth 2.0 / JWT session authentication, and continuous automated OWASP hardening.
+                        </p>
+                        <div class="arch-tag-list">
+                            <span class="arch-tag">Zero Trust</span>
+                            <span class="arch-tag">TLS 1.3 / AES-256</span>
+                            <span class="arch-tag">OAuth 2.0 / JWT</span>
+                            <span class="arch-tag">OWASP Hardened</span>
+                            <span class="arch-tag">Mutual NDA</span>
+                        </div>
+                    </div>
+
+                    <!-- 8. Scalability & Performance -->
+                    <div class="arch-domain-card arch-extra-item">
+                        <div class="arch-domain-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <h3 class="arch-domain-title">8. Scalability &amp; Performance</h3>
+                        <p class="arch-domain-desc">
+                            Deterministic sub-100ms P99 latency, horizontal pod autoscaling (HPA), distributed Redis caching, and edge asset distribution.
+                        </p>
+                        <div class="arch-tag-list">
+                            <span class="arch-tag">Auto-Scaling</span>
+                            <span class="arch-tag">Sub-100ms P99</span>
+                            <span class="arch-tag">Redis Cluster</span>
+                            <span class="arch-tag">Edge Caching</span>
+                            <span class="arch-tag">Load Tested</span>
+                        </div>
+                    </div>
+
+                    <!-- 9. Deployment & DevOps -->
+                    <div class="arch-domain-card arch-extra-item">
+                        <div class="arch-domain-icon"><i class="fas fa-cubes"></i></div>
+                        <h3 class="arch-domain-title">9. Deployment &amp; DevOps</h3>
+                        <p class="arch-domain-desc">
+                            Automated GitHub Actions CI/CD pipelines, containerized Docker artifacts, Kubernetes cluster orchestration, and declarative Terraform IaC.
+                        </p>
+                        <div class="arch-tag-list">
+                            <span class="arch-tag">Docker</span>
+                            <span class="arch-tag">Kubernetes</span>
+                            <span class="arch-tag">Terraform</span>
+                            <span class="arch-tag">GitHub Actions</span>
+                            <span class="arch-tag">Zero Downtime</span>
+                        </div>
+                    </div>
+
+                    <!-- 10. Application Architecture -->
+                    <div class="arch-domain-card arch-extra-item">
+                        <div class="arch-domain-icon"><i class="fas fa-layer-group"></i></div>
+                        <h3 class="arch-domain-title">10. Domain-Driven Application Architecture</h3>
+                        <p class="arch-domain-desc">
+                            Clean hexagonal architecture isolating core business domain logic from infrastructure dependencies, enabling rapid sprints and zero technical debt.
+                        </p>
+                        <div class="arch-tag-list">
+                            <span class="arch-tag">Clean Architecture</span>
+                            <span class="arch-tag">Domain Driven</span>
+                            <span class="arch-tag">Zero Tech Debt</span>
+                            <span class="arch-tag">SOLID Principles</span>
+                            <span class="arch-tag">Modular Monorepo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="load-more-wrap" style="text-align: center; margin-top: 24px;">
+                    <button type="button" class="btn-tech-load-more" id="loadMoreArchBtn">
+                        <span class="btn-text">Load More Technical Domains (6 more)</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Rocket Banner -->
+        <section class="section-cta-wrap">
+            <div class="container">
+                <div class="cta-banner-new">
+                    <div class="cta-banner-left">
+                        <div class="cta-rocket-visual">
+                            <img src="cta_rocket_clean.png" alt="Engineering Velocity Rocket" class="cta-rocket-img">
+                        </div>
+                        <div class="cta-text-group">
+                            <h3 class="cta-title-new">Ready to Build <span>Something Great?</span></h3>
+                            <p class="cta-subtitle-new">Partner with dedicated engineering architects to transform your vision into scalable software.</p>
+                            <div class="cta-actions-group">
+                                    <a href="/contact" class="btn-cta-action"><span>Schedule Consultation</span> <i class="fas fa-arrow-right"></i></a>
+                                    <a href="/nda" class="btn-cta-action btn-cta-secondary"><span>Instant NDA</span> <i class="fas fa-file-shield"></i></a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="cta-badges-right">
+                            <div class="cta-trust-badge"><i class="fas fa-bolt badge-icon-electric"></i><span>Fast Response</span></div>
+                            <div class="cta-trust-badge"><i class="fas fa-shield-alt badge-icon-shield"></i><span>100% IP Ownership</span></div>
+                            <div class="cta-trust-badge"><i class="fas fa-handshake badge-icon-handshake"></i><span>60-Day SLA</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    </main>
+
+    <!-- Global Professional Footer -->
+    <footer class="footer-new">
+        <div class="container">
+            <div class="footer-top-grid">
+                <!-- Col 1: Brand -->
+                <div class="footer-col-brand">
+                    <a class="footer-logo-link" href="/">
+                        <span class="footer-logo-box"><i class="fas fa-layer-group"></i></span>
+                        <span class="footer-logo-text">RC <span>Techno</span></span>
+                    </a>
+                    <p class="footer-brand-desc">
+                        Building modern, scalable, and secure digital solutions for tomorrow's businesses.
+                    </p>
+                    <div class="footer-social-row">
+                        <a href="https://www.linkedin.com/in/ratan-codespace" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Ratanchaurasiya" target="_blank" rel="noopener" aria-label="GitHub" class="social-circle"><i class="fab fa-github"></i></a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="social-circle"><i class="fab fa-youtube"></i></a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" class="social-circle"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="footer-col-links">
+                    <h4 class="footer-col-title"><i class="fas fa-rocket title-icon"></i> Quick Links</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="/"><i class="fas fa-chevron-right arrow-icon"></i> Home</a></li>
+                        <li><a href="/about"><i class="fas fa-chevron-right arrow-icon"></i> About Us</a></li>
+                            <li><a href="/gallery"><i class="fas fa-chevron-right arrow-icon"></i> Office Gallery</a></li>
+                        <li><a href="/work"><i class="fas fa-chevron-right arrow-icon"></i> Portfolio</a></li>
+                        <li><a href="/architecture"><i class="fas fa-chevron-right arrow-icon"></i> Architecture</a></li>
+                        <li><a href="/faq"><i class="fas fa-chevron-right arrow-icon"></i> FAQ</a></li>
+                        <li><a href="/contact"><i class="fas fa-chevron-right arrow-icon"></i> Contact</a></li>
+                        <li><a href="/terms"><i class="fas fa-chevron-right arrow-icon"></i> Terms &amp; Conditions</a></li>
+                        <li><a href="/privacy"><i class="fas fa-chevron-right arrow-icon"></i> Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Services -->
+                <div class="footer-col-links">
+                    <h4 class="footer-col-title"><i class="fas fa-cog title-icon"></i> Services</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="/service-website-development"><i class="fas fa-chevron-right arrow-icon"></i> Web Development</a></li>
+                        <li><a href="/service-web-app-development"><i class="fas fa-chevron-right arrow-icon"></i> App Development</a></li>
+                        <li><a href="/service-ui-ux"><i class="fas fa-chevron-right arrow-icon"></i> UI/UX Design</a></li>
+                        <li><a href="/service-ai-applications"><i class="fas fa-chevron-right arrow-icon"></i> AI Solutions</a></li>
+                        <li><a href="/service-cloud-deployment"><i class="fas fa-chevron-right arrow-icon"></i> Cloud Deployment</a></li>
+                        <li><a href="/service-security"><i class="fas fa-chevron-right arrow-icon"></i> Cybersecurity</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact Info -->
+                <div class="footer-col-contact">
+                        <h4 class="footer-col-title"><i class="fas fa-envelope title-icon"></i> Contact Info</h4>
+                        <div class="footer-contact-item"><i class="fas fa-map-marker-alt contact-pin-icon"></i><span>Vastral Gam, Ahmedabad</span></div>
+                        <div class="footer-contact-item"><i class="fas fa-envelope contact-pin-icon"></i><a href="mailto:ratanchaurasiya61@gmail.com">ratanchaurasiya61@gmail.com</a></div>
+                        <div class="footer-contact-item"><i class="fas fa-phone-alt contact-pin-icon"></i><a href="tel:+916390035039">+91 63900 35039</a></div>
+                        <div class="footer-contact-item"><i class="fas fa-globe contact-pin-icon"></i><a href="https://rctechnosolutions.com" target="_blank" rel="noopener">rctechnosolutions.com</a></div>
+                        <div class="footer-contact-item"><i class="fab fa-whatsapp contact-pin-icon" style="color: #25d366;"></i><a href="https://wa.me/916390035039?text=Hi%20RC%20Techno,%20I'd%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener">WhatsApp Chat</a></div>
+                    </div></div>
+
+                            <div class="footer-bottom-bar">
+                    <p>&copy; 2026 RC Techno Solutions. All Rights Reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy">Privacy Policy</a> &bull; 
+                        <a href="/terms">Terms &amp; Conditions</a> &bull; 
+                        <a href="/nda">Instant NDA</a>
+                    </div>
+                </div>
+        </div>
+    </footer>
+
+    <script src="typewriter.js?v=1.0"></script>
+    <script src="script.js?v=4.5"></script>
+    <script src="chatbot.js?v=4.5"></script>
+</body>
+</html>
