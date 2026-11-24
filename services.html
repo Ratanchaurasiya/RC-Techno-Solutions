@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
     <head>
         <meta charset="utf-8" />
@@ -84,11 +84,60 @@
                     grid-template-columns: repeat(2, 1fr) !important;
                     gap: 10px !important;
                 }
+                /* Hide extra services initially on mobile until Load More is clicked */
+                .all-services-grid .service-extra-item:not(.show-item) {
+                    display: none !important;
+                }
+                .load-more-wrap {
+                    display: block !important;
+                    margin-top: 24px !important;
+                }
             }
             @media (max-width: 520px) {
                 .all-services-grid {
                     grid-template-columns: repeat(2, 1fr) !important;
                     gap: 8px !important;
+                }
+            }
+
+            /* Load More Button for Comprehensive Services */
+            .btn-tech-load-more {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 24px;
+                border-radius: 9999px;
+                font-size: 0.85rem;
+                font-weight: 700;
+                font-family: inherit;
+                color: #0084ff;
+                background: #eff6ff;
+                border: 1.5px solid #bfdbfe;
+                cursor: pointer;
+                box-shadow: 0 2px 8px rgba(0, 132, 255, 0.08);
+                transition: all 0.25s ease;
+            }
+            .btn-tech-load-more:hover {
+                background: #0084ff;
+                color: #ffffff;
+                border-color: #0084ff;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 18px rgba(0, 132, 255, 0.25);
+            }
+            .btn-tech-load-more i {
+                transition: transform 0.25s ease;
+                font-size: 0.8rem;
+            }
+            .btn-tech-load-more.expanded i {
+                transform: rotate(180deg);
+            }
+
+            @media (min-width: 651px) {
+                .all-services-grid .service-extra-item:not(.show-item) {
+                    display: flex !important;
+                }
+                .load-more-wrap {
+                    display: none !important;
                 }
             }
 
@@ -289,7 +338,7 @@
                         <p class="section-subtitle">Every project is built with guaranteed sprint velocity, clean architecture, and 100% intellectual property ownership.</p>
                     </div>
 
-                    <div class="all-services-grid">
+                    <div class="all-services-grid" id="allServicesGrid">
                         <!-- 1. Website Development -->
                         <div class="service-item-card reveal">
                             <div>
@@ -351,7 +400,7 @@
                         </div>
 
                         <!-- 7. AI Agents & LLM Workflows -->
-                        <div class="service-item-card reveal">
+                        <div class="service-item-card service-extra-item reveal">
                             <div>
                                 <div class="service-card-icon-wrap"><i class="fas fa-brain"></i></div>
                                 <h3 class="service-card-title">AI Agents &amp; LLM Workflows</h3>
@@ -361,7 +410,7 @@
                         </div>
 
                         <!-- 8. Data Analytics & Dashboards -->
-                        <div class="service-item-card reveal delay-1">
+                        <div class="service-item-card service-extra-item reveal delay-1">
                             <div>
                                 <div class="service-card-icon-wrap"><i class="fas fa-chart-pie"></i></div>
                                 <h3 class="service-card-title">Data Analytics &amp; Dashboards</h3>
@@ -371,7 +420,7 @@
                         </div>
 
                         <!-- 9. Database Design -->
-                        <div class="service-item-card reveal delay-2">
+                        <div class="service-item-card service-extra-item reveal delay-2">
                             <div>
                                 <div class="service-card-icon-wrap"><i class="fas fa-database"></i></div>
                                 <h3 class="service-card-title">Database Design</h3>
@@ -381,7 +430,7 @@
                         </div>
 
                         <!-- 10. Business Management Systems -->
-                        <div class="service-item-card reveal">
+                        <div class="service-item-card service-extra-item reveal">
                             <div>
                                 <div class="service-card-icon-wrap"><i class="fas fa-sitemap"></i></div>
                                 <h3 class="service-card-title">Business Management Systems</h3>
@@ -391,7 +440,7 @@
                         </div>
 
                         <!-- 11. API Development & Integration -->
-                        <div class="service-item-card reveal delay-1">
+                        <div class="service-item-card service-extra-item reveal delay-1">
                             <div>
                                 <div class="service-card-icon-wrap"><i class="fas fa-network-wired"></i></div>
                                 <h3 class="service-card-title">API Development &amp; Integration</h3>
@@ -401,7 +450,7 @@
                         </div>
 
                         <!-- 12. Cloud Solutions -->
-                        <div class="service-item-card reveal delay-2">
+                        <div class="service-item-card service-extra-item reveal delay-2">
                             <div>
                                 <div class="service-card-icon-wrap"><i class="fas fa-cloud"></i></div>
                                 <h3 class="service-card-title">Cloud Solutions</h3>
@@ -411,7 +460,7 @@
                         </div>
 
                         <!-- 13. Cybersecurity -->
-                        <div class="service-item-card reveal">
+                        <div class="service-item-card service-extra-item reveal">
                             <div>
                                 <div class="service-card-icon-wrap"><i class="fas fa-shield-alt"></i></div>
                                 <h3 class="service-card-title">Cybersecurity</h3>
@@ -421,7 +470,7 @@
                         </div>
 
                         <!-- 14. Technical Consulting -->
-                        <div class="service-item-card reveal delay-1">
+                        <div class="service-item-card service-extra-item reveal delay-1">
                             <div>
                                 <div class="service-card-icon-wrap"><i class="fas fa-compass"></i></div>
                                 <h3 class="service-card-title">Technical Consulting</h3>
@@ -429,6 +478,13 @@
                             </div>
                             <a href="/service-cloud-consulting" class="btn-see-details">See Details <i class="fas fa-arrow-right"></i></a>
                         </div>
+                    </div>
+
+                    <div class="load-more-wrap" style="text-align: center; margin-top: 28px;">
+                        <button type="button" class="btn-tech-load-more" id="loadMoreAllServicesBtn">
+                            <span class="btn-text">Load More Services (8 more)</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
                     </div>
                 </div>
             </section>
