@@ -797,6 +797,20 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Internship Domain Cards Grid */
+.internship-domains-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+@media (max-width: 900px) {
+    .internship-domains-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+}
+
 /* 2. Mobile & Phones: 2 columns */
 @media (max-width: 768px) {
     .tech-projects-grid {
@@ -850,20 +864,30 @@ h1, h2, h3, h4, h5, h6 {
         gap: 12px !important; 
     }
     .stat-card-tech {
-        padding: 18px 14px !important;
+        padding: 16px 12px !important;
         border-radius: 14px !important;
     }
-    .stat-number-tech {
+    .stat-num-row {
+        margin-bottom: 2px !important;
+    }
+    .stat-num {
         font-size: 1.85rem !important;
-        margin-bottom: 4px !important;
     }
-    .stat-label-tech {
-        font-size: 0.88rem !important;
-        margin-bottom: 4px !important;
+    .stat-plus {
+        font-size: 1.25rem !important;
     }
-    .stat-desc-tech {
-        font-size: 0.72rem !important;
+    .stat-title {
+        font-size: 0.85rem !important;
+        margin-bottom: 4px !important;
+        line-height: 1.2 !important;
+    }
+    .stat-sub {
+        font-size: 0.70rem !important;
         line-height: 1.35 !important;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     .tech-services-grid { 
@@ -922,6 +946,13 @@ h1, h2, h3, h4, h5, h6 {
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
+    }
+
+    /* Internship Spotlight on Mobile: 2 clean columns */
+    .internship-domains-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
     }
 
     .tech-stack-grid { 
