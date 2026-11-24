@@ -897,8 +897,48 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 0.75rem !important;
     }
 
-    .why-pillars-grid { grid-template-columns: 1fr; }
-    .tech-stack-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-pillars-grid { 
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 12px !important; 
+    }
+    .why-pillar-card {
+        padding: 16px 12px !important;
+        border-radius: 14px !important;
+    }
+    .wpc-icon {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 1.05rem !important;
+        margin-bottom: 10px !important;
+    }
+    .why-pillar-card h4 {
+        font-size: 0.92rem !important;
+        margin-bottom: 4px !important;
+    }
+    .why-pillar-card p {
+        font-size: 0.72rem !important;
+        line-height: 1.35 !important;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .tech-stack-grid { 
+        grid-template-columns: repeat(3, 1fr) !important; 
+        gap: 10px !important; 
+    }
+    .tech-pill-box {
+        padding: 14px 8px !important;
+        border-radius: 12px !important;
+    }
+    .tech-pill-icon {
+        font-size: 1.6rem !important;
+        margin-bottom: 6px !important;
+    }
+    .tech-pill-name {
+        font-size: 0.75rem !important;
+    }
     .tech-float-card { display: none; }
 }
 
