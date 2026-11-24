@@ -630,7 +630,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupLoadMoreToggle('loadMoreArchBtn', 'archDomainsGrid', 'arch-extra-item', 'Load More Technical Domains (6 more)', 'Show Less');
     setupLoadMoreToggle('loadMoreAllServicesBtn', 'allServicesGrid', 'service-extra-item', 'Load More Services (8 more)', 'Show Less');
     setupLoadMoreToggle('loadMoreServicesBtn', 'techServicesGrid', 'service-extra-item', 'Load More Services', 'Show Less');
-    setupLoadMoreToggle('loadMoreProjectsBtn', 'techProjectsGrid', 'project-extra-item', 'Load More Projects (4 more)', 'Show Less');
+    setupLoadMoreToggle('loadMoreProjectsBtn', 'techProjectsGrid', 'project-extra-item', 'Load More Projects (6 more)', 'Show Less');
     setupLoadMoreToggle('loadMoreTechBtn', 'techStackGrid', 'tech-extra-item', 'Load More Technologies', 'Show Less');
     setupLoadMoreToggle('loadMoreWhyBtn', 'whyPillarsGrid', 'why-extra-item', 'Load More Advantages', 'Show Less');
 
