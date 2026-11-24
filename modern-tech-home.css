@@ -844,9 +844,59 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 650px) {
     .tech-hero-section { padding-top: 95px; }
-    .tech-trust-container { grid-template-columns: 1fr; }
-    .tech-stats-grid { grid-template-columns: 1fr; }
-    .tech-services-grid { grid-template-columns: 1fr; }
+    .tech-trust-container { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    .tech-stats-grid { 
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 12px !important; 
+    }
+    .stat-card-tech {
+        padding: 18px 14px !important;
+        border-radius: 14px !important;
+    }
+    .stat-number-tech {
+        font-size: 1.85rem !important;
+        margin-bottom: 4px !important;
+    }
+    .stat-label-tech {
+        font-size: 0.88rem !important;
+        margin-bottom: 4px !important;
+    }
+    .stat-desc-tech {
+        font-size: 0.72rem !important;
+        line-height: 1.35 !important;
+    }
+
+    .tech-services-grid { 
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 12px !important; 
+    }
+    .service-card-tech {
+        padding: 16px 14px !important;
+        border-radius: 14px !important;
+    }
+    .sct-icon-box {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 10px !important;
+    }
+    .sct-title {
+        font-size: 0.95rem !important;
+        margin-bottom: 4px !important;
+    }
+    .sct-desc {
+        font-size: 0.72rem !important;
+        line-height: 1.35 !important;
+        margin-bottom: 10px !important;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .sct-link {
+        font-size: 0.75rem !important;
+    }
+
     .why-pillars-grid { grid-template-columns: 1fr; }
     .tech-stack-grid { grid-template-columns: repeat(2, 1fr); }
     .tech-float-card { display: none; }
