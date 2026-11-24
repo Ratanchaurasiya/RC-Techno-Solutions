@@ -940,6 +940,71 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 0.75rem !important;
     }
     .tech-float-card { display: none; }
+
+    /* Mobile Load More behavior: initially hide extra items */
+    .tech-stack-grid .tech-extra-item:not(.show-item) {
+        display: none !important;
+    }
+    .why-pillars-grid .why-extra-item:not(.show-item) {
+        display: none !important;
+    }
+
+    .load-more-wrap {
+        display: block !important;
+        margin-top: 20px !important;
+    }
+}
+
+/* Modern Load More Buttons */
+.btn-tech-load-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: inherit;
+    color: var(--tech-primary);
+    background: #eff6ff;
+    border: 1.5px solid #bfdbfe;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 132, 255, 0.08);
+    transition: all 0.25s ease;
+}
+
+.btn-tech-load-more:hover {
+    background: var(--tech-primary);
+    color: #ffffff;
+    border-color: var(--tech-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 132, 255, 0.25);
+}
+
+.btn-tech-load-more i {
+    transition: transform 0.25s ease;
+    font-size: 0.8rem;
+}
+
+.btn-tech-load-more.expanded i {
+    transform: rotate(180deg);
+}
+
+/* On desktop, show all items or keep button hidden if desired */
+@media (min-width: 651px) {
+    .btn-tech-load-more {
+        display: inline-flex;
+    }
+    .tech-stack-grid .tech-extra-item:not(.show-item) {
+        display: flex;
+    }
+    .why-pillars-grid .why-extra-item:not(.show-item) {
+        display: block;
+    }
+    /* Hide Load More buttons on wide desktop screens where all items naturally fit */
+    .load-more-wrap {
+        display: none;
+    }
 }
 
 @media (max-width: 380px) {

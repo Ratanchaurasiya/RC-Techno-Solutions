@@ -539,6 +539,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    /* --- Tech Stack & Why Choose Pillars Load More / Show Less --- */
+    function setupLoadMoreToggle(btnId, gridId, itemClass, showText, hideText) {
+        const btn = document.getElementById(btnId);
+        const grid = document.getElementById(gridId);
+        if (!btn || !grid) return;
+
+        btn.addEventListener('click', () => {
+            const extraItems = grid.querySelectorAll('.' + itemClass);
+            const isExpanded = btn.classList.contains('expanded');
+            const btnText = btn.querySelector('.btn-text');
+
+            if (isExpanded) {
+                extraItems.forEach(item => item.classList.remove('show-item'));
+                btn.classList.remove('expanded');
+                if (btnText) btnText.textContent = showText;
+                grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                extraItems.forEach(item => item.classList.add('show-item'));
+                btn.classList.add('expanded');
+                if (btnText) btnText.textContent = hideText;
+            }
+        });
+    }
+
+    setupLoadMoreToggle('loadMoreTechBtn', 'techStackGrid', 'tech-extra-item', 'Load More Technologies', 'Show Less');
+    setupLoadMoreToggle('loadMoreWhyBtn', 'whyPillarsGrid', 'why-extra-item', 'Load More Advantages', 'Show Less');
+
     /* --- Gallery Lightbox and Load More --- */
     // Create Lightbox Elements
     const lightboxHTML = `
