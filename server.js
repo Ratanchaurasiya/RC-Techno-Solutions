@@ -355,7 +355,7 @@ const server = http.createServer((req, res) => {
 
     // 3. Contact Enquiry Submission
     if (req.method === 'POST' && req.url === '/api/contact') {
-        parseJsonBody(req, (err, data) => {
+        parseJsonBody(req, async (err, data) => {
             if (err || !data) return sendJson(400, { success: false, error: 'Invalid payload' });
             if (data.trap || data.website_trap) return sendJson(200, { success: true, message: 'Enquiry received.' });
 
@@ -371,8 +371,21 @@ const server = http.createServer((req, res) => {
             if (!name || name.length < 2) return sendJson(400, { success: false, error: 'Please enter a valid full name.' });
             if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return sendJson(400, { success: false, error: 'Please enter a valid email.' });
 
-            const record = dbStore.saveEnquiry({ name, email, phone, company, service, budget, message });
-            return sendJson(200, { success: true, enquiryId: record.id, message: 'Your consultation enquiry has been recorded.' });
+            try {
+                const record = await dbStore.saveEnquiry({ name, email, phone, company, service, budget, message });
+                const ref = record.referenceId || record.id;
+                return sendJson(200, {
+                    success: true,
+                    referenceId: ref,
+                    inquiryId: ref,
+                    enquiryId: ref,
+                    data: { referenceId: ref, id: record.id },
+                    message: 'Your consultation enquiry has been recorded.'
+                });
+            } catch (saveErr) {
+                console.error('Error saving enquiry:', saveErr);
+                return sendJson(500, { success: false, error: 'Failed to record enquiry. Please try again.' });
+            }
         });
         return;
     }

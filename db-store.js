@@ -348,8 +348,23 @@ module.exports = {
 
     saveEnquiry: async (enquiryData) => {
         const id = 'enq_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 7);
+        const list = readTable('enquiries');
+        
+        // Generate unique collision-safe reference ID: RC-ENQ-2026-0001
+        const currentYear = new Date().getFullYear();
+        const nextSeq = list.length + 1;
+        const seqStr = String(nextSeq).padStart(4, '0');
+        let referenceId = `RC-ENQ-${currentYear}-${seqStr}`;
+        
+        // Fallback collision check
+        if (list.some(e => e.referenceId === referenceId)) {
+            const randSuffix = Math.floor(1000 + Math.random() * 9000);
+            referenceId = `RC-ENQ-${currentYear}-${randSuffix}`;
+        }
+
         const record = {
             id,
+            referenceId,
             name: enquiryData.name,
             email: enquiryData.email,
             phone: enquiryData.phone || '',
@@ -367,7 +382,6 @@ module.exports = {
             } catch (e) { }
         }
 
-        const list = readTable('enquiries');
         list.unshift(record);
         writeTable('enquiries', list);
         return record;

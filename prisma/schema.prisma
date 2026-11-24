@@ -113,6 +113,7 @@ model Certificate {
 // 6. Contact & Project Enquiries
 model ContactEnquiry {
   id          String    @id @default(uuid())
+  referenceId String?   @unique // e.g. RC-ENQ-2026-0001
   name        String
   email       String
   phone       String?
@@ -125,6 +126,7 @@ model ContactEnquiry {
   updatedAt   DateTime  @updatedAt
 
   @@index([email])
+  @@index([referenceId])
   @@index([status])
   @@map("contact_enquiries")
 }

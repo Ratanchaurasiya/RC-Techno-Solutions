@@ -490,6 +490,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const data = await resp.json();
 
                 if (resp.ok && data.success) {
+                    const refId = data.referenceId || data.inquiryId || data.enquiryId || (data.data && data.data.referenceId) || 'RC-ENQ-2026-CONFIRMED';
+                    
                     if (statusBox) {
                         statusBox.style.background = '#f0fdf4';
                         statusBox.style.color = '#166534';
@@ -498,11 +500,14 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div style="display: flex; align-items: flex-start; gap: 12px;">
                                 <i class="fas fa-check-circle" style="font-size: 1.4rem; color: #16a34a; margin-top: 2px;"></i>
                                 <div style="flex: 1;">
-                                    <strong style="display: block; font-size: 1rem; margin-bottom: 4px;">Enquiry Registered Successfully!</strong>
-                                    <p style="margin: 0 0 10px 0; font-size: 0.92rem; line-height: 1.5;">${data.message}</p>
+                                    <strong style="display: block; font-size: 1.05rem; margin-bottom: 4px;">Enquiry Registered Successfully!</strong>
+                                    <p style="margin: 0 0 10px 0; font-size: 0.92rem; line-height: 1.5;">${data.message || 'Your consultation enquiry has been recorded.'}</p>
                                     <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
-                                        <span style="font-family: monospace; background: #dcfce7; color: #15803d; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">Reference: ${data.inquiryId}</span>
-                                        <a href="https://wa.me/916390035039?text=${encodeURIComponent(`Hi RC Techno, I submitted inquiry Ref ${data.inquiryId} regarding ${service}. Looking forward to discussing next steps.`)}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; background: #25d366; color: #ffffff; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600;">
+                                        <span style="font-family: monospace; background: #dcfce7; color: #15803d; padding: 5px 12px; border-radius: 6px; font-weight: 800; font-size: 0.88rem; border: 1px solid #86efac; letter-spacing: 0.5px;">Reference: ${refId}</span>
+                                        <button type="button" onclick="navigator.clipboard.writeText('${refId}'); this.innerHTML='<i class=\\'fas fa-check\\'></i> Copied!'; setTimeout(() => this.innerHTML='<i class=\\'fas fa-copy\\'></i> Copy Ref', 2000);" style="display: inline-flex; align-items: center; gap: 5px; background: #ffffff; color: #15803d; border: 1px solid #86efac; padding: 5px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: all 0.2s;">
+                                            <i class="fas fa-copy"></i> Copy Ref
+                                        </button>
+                                        <a href="https://wa.me/916390035039?text=${encodeURIComponent(`Hi RC Techno, I submitted enquiry Ref: ${refId} regarding ${service}. Looking forward to discussing next steps.`)}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; background: #25d366; color: #ffffff; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600;">
                                             <i class="fab fa-whatsapp"></i> Also Discuss on WhatsApp
                                         </a>
                                     </div>
@@ -510,7 +515,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         `;
                     }
-                    window.showRCToast?.(`Enquiry submitted! Ref: ${data.inquiryId}`);
+                    window.showRCToast?.(`Enquiry submitted! Ref: ${refId}`);
                     contactForm.reset();
                 } else {
                     showFormError(data.error || 'Submission failed. Please check your inputs and try again.');
