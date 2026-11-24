@@ -489,7 +489,7 @@ const server = http.createServer((req, res) => {
             };
 
             try {
-                const ndaFile = path.join(__dirname, 'nda_records.json');
+                const ndaFile = process.env.VERCEL ? path.join('/tmp', 'nda_records.json') : path.join(__dirname, 'nda_records.json');
                 let ndaList = [];
                 if (fs.existsSync(ndaFile)) ndaList = JSON.parse(fs.readFileSync(ndaFile, 'utf8') || '[]');
                 ndaList.push(record);

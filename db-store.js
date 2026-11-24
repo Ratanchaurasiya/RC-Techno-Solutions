@@ -46,15 +46,22 @@ if (DATABASE_URL && !DATABASE_URL.includes('your_password')) {
 
 // -------------------------------------------------------------
 // LOCAL DATA PERSISTENCE LAYER (Always synchronized)
+// On Vercel / AWS Lambda, root directories are read-only (EROFS).
+// In serverless environments, we use /tmp for writes, falling back gracefully.
 // -------------------------------------------------------------
-const DATA_DIR = path.join(__dirname, 'data');
-if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-}
+const isServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+const DATA_DIR = isServerless ? path.join('/tmp', 'rcts_data') : path.join(__dirname, 'data');
+const UPLOADS_DIR = isServerless ? path.join('/tmp', 'rcts_uploads', 'resumes') : path.join(__dirname, 'uploads', 'resumes');
 
-const UPLOADS_DIR = path.join(__dirname, 'uploads', 'resumes');
-if (!fs.existsSync(UPLOADS_DIR)) {
-    fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+try {
+    if (!fs.existsSync(DATA_DIR)) {
+        fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+    if (!fs.existsSync(UPLOADS_DIR)) {
+        fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+    }
+} catch (e) {
+    console.warn('Storage directory initialization warning (read-only environment):', e.message);
 }
 
 const DB_FILES = {
@@ -73,13 +80,23 @@ const DB_FILES = {
 
 function readTable(tableName) {
     const file = DB_FILES[tableName];
-    if (!file || !fs.existsSync(file)) return [];
-    try {
-        const raw = fs.readFileSync(file, 'utf8');
-        return JSON.parse(raw || '[]');
-    } catch (e) {
-        return [];
+    if (file && fs.existsSync(file)) {
+        try {
+            const raw = fs.readFileSync(file, 'utf8');
+            return JSON.parse(raw || '[]');
+        } catch (e) {}
     }
+    // Also check root data folder if running in serverless
+    if (isServerless) {
+        const fallbackFile = path.join(__dirname, 'data', `${tableName}.json`);
+        if (fs.existsSync(fallbackFile)) {
+            try {
+                const raw = fs.readFileSync(fallbackFile, 'utf8');
+                return JSON.parse(raw || '[]');
+            } catch (e) {}
+        }
+    }
+    return [];
 }
 
 function writeTable(tableName, data) {
@@ -88,7 +105,8 @@ function writeTable(tableName, data) {
     try {
         fs.writeFileSync(file, JSON.stringify(data, null, 2), 'utf8');
     } catch (e) {
-        console.error(`Error writing table ${tableName}:`, e);
+        // Silently log in serverless without crashing
+        console.warn(`Write table ${tableName} notice:`, e.message);
     }
 }
 
