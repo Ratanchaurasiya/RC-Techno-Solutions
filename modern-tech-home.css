@@ -982,6 +982,9 @@ h1, h2, h3, h4, h5, h6 {
     .why-pillars-grid .why-extra-item:not(.show-item) {
         display: none !important;
     }
+    .tech-projects-grid .project-extra-item:not(.show-item) {
+        display: none !important;
+    }
 
     .load-more-wrap {
         display: block !important;
@@ -1024,7 +1027,7 @@ h1, h2, h3, h4, h5, h6 {
     transform: rotate(180deg);
 }
 
-/* On desktop, show all items or keep button hidden if desired */
+/* Hide default load-more on desktop except for sections with explicit load-more */
 @media (min-width: 651px) {
     .btn-tech-load-more {
         display: inline-flex;
@@ -1038,9 +1041,11 @@ h1, h2, h3, h4, h5, h6 {
     .why-pillars-grid .why-extra-item:not(.show-item) {
         display: block;
     }
-    /* Hide Load More buttons on wide desktop screens where all items naturally fit */
-    .load-more-wrap {
-        display: none;
+    .tech-projects-grid .project-extra-item:not(.show-item) {
+        display: none !important;
+    }
+    #techProjectsGrid + .load-more-wrap {
+        display: block !important;
     }
 }
 

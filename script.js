@@ -630,6 +630,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupLoadMoreToggle('loadMoreArchBtn', 'archDomainsGrid', 'arch-extra-item', 'Load More Technical Domains (6 more)', 'Show Less');
     setupLoadMoreToggle('loadMoreAllServicesBtn', 'allServicesGrid', 'service-extra-item', 'Load More Services (8 more)', 'Show Less');
     setupLoadMoreToggle('loadMoreServicesBtn', 'techServicesGrid', 'service-extra-item', 'Load More Services', 'Show Less');
+    setupLoadMoreToggle('loadMoreProjectsBtn', 'techProjectsGrid', 'project-extra-item', 'Load More Projects (4 more)', 'Show Less');
     setupLoadMoreToggle('loadMoreTechBtn', 'techStackGrid', 'tech-extra-item', 'Load More Technologies', 'Show Less');
     setupLoadMoreToggle('loadMoreWhyBtn', 'whyPillarsGrid', 'why-extra-item', 'Load More Advantages', 'Show Less');
 
@@ -2014,6 +2015,83 @@ document.addEventListener('DOMContentLoaded', () => {
                 { label: 'Traffic Capacity', val: '50k Req/s' },
                 { label: 'Cart Conversion', val: '+38%' },
                 { label: 'Page Load LCP', val: '0.8s' }
+            ]
+        },
+        erp: {
+            vertical: 'Manufacturing & Enterprise SaaS',
+            title: 'Custom ERP Management & Supply Chain Architecture',
+            problem: 'Disjointed spreadsheets across manufacturing plants caused inventory leakage, billing delays, and unaccounted raw material waste.',
+            solution: 'Built a unified role-based ERP on Next.js and PostgreSQL with automated GST invoicing, purchase order approval flows, and real-time ledger accounting.',
+            impact: [
+                { label: 'Inventory Leakage', val: '0.0%' },
+                { label: 'Billing Speed', val: '+250%' },
+                { label: 'Operational Cost', val: '-32%' }
+            ]
+        },
+        realestate: {
+            vertical: 'Real Estate & Property Management',
+            title: 'Real Estate CRM, Lead Pipeline & Booking Hub',
+            problem: 'Brokers lost 40% of potential buyers due to uncoordinated site visit scheduling, manual call tracking, and delayed token payment processing.',
+            solution: 'Architected a mobile-responsive property CRM with automated WhatsApp lead capture, 360-degree unit virtual viewings, and online unit reservation deposits.',
+            impact: [
+                { label: 'Site Visits', val: '+65%' },
+                { label: 'Lead Response', val: '< 5 Mins' },
+                { label: 'Deal Closures', val: '+28%' }
+            ]
+        },
+        school: {
+            vertical: 'Education & Institutional EdTech',
+            title: 'School & College Academic ERP with Parent Portal',
+            problem: 'Manual paper fees, examination grading delays, and lack of parent communication hindered institutional efficiency across 2,000+ students.',
+            solution: 'Constructed a comprehensive academic ERP with automated fee receipts via payment gateways, biometric student attendance, and parent mobile portal.',
+            impact: [
+                { label: 'Fee Collection', val: '99.4%' },
+                { label: 'Staff Workload', val: '-50%' },
+                { label: 'Parent Engagement', val: '+80%' }
+            ]
+        },
+        crm: {
+            vertical: 'Sales & Lead Automation',
+            title: 'Omnichannel B2B CRM & Pipeline Automation',
+            problem: 'Sales executives missed follow-ups across email, phone, and WhatsApp without centralized deal stage tracking or automated drip campaigns.',
+            solution: 'Engineered a real-time sales CRM with Kanban deal stages, automated WhatsApp follow-ups, VoIP dialer logs, and executive commission analytics.',
+            impact: [
+                { label: 'Lead Conversion', val: '+42%' },
+                { label: 'Follow-up Time', val: '-70%' },
+                { label: 'Pipeline Visibility', val: '100%' }
+            ]
+        },
+        construction: {
+            vertical: 'Civil Construction & Infrastructure',
+            title: 'Multi-Site Project Telemetry & Contractor Hub',
+            problem: 'Uncontrolled site material wastage, contractor attendance mismatches, and delayed daily progress logs cost civil builders millions in penalties.',
+            solution: 'Built a mobile-first field telemetry system tracking daily cement/steel consumption, subcontractor milestone sign-offs, and Gantt project timelines.',
+            impact: [
+                { label: 'Material Waste', val: '-24%' },
+                { label: 'Delivery Delay', val: '0 Days' },
+                { label: 'Subcontractor Audit', val: '100%' }
+            ]
+        },
+        inventory: {
+            vertical: 'Warehouse Logistics & Distribution',
+            title: 'Multi-Warehouse Inventory & Barcode Billing Hub',
+            problem: 'Multi-branch distributors experienced frequent stockouts, manual barcode entry errors, and disconnected tax invoices.',
+            solution: 'Engineered a high-speed warehouse inventory engine with camera barcode/QR scanning, automated low-stock re-order alerts, and instant e-Way bills.',
+            impact: [
+                { label: 'Order Picking Speed', val: '+180%' },
+                { label: 'Stock Accuracy', val: '99.9%' },
+                { label: 'Billing Sync', val: 'Instant' }
+            ]
+        },
+        hrms: {
+            vertical: 'Corporate HR & Workforce Management',
+            title: 'Automated Payroll, Attendance & HRMS Suite',
+            problem: 'End-of-month salary computation with PF/ESI/TDS tax deductions took 7 days of manual HR calculation with frequent slip errors.',
+            solution: 'Architected a cloud HRMS with 1-click automated salary slips, biometric API clock-in, leave approval hierarchy, and employee self-service portal.',
+            impact: [
+                { label: 'Payroll Time', val: '5 Mins' },
+                { label: 'Tax Accuracy', val: '100%' },
+                { label: 'Employee Satisfaction', val: '96%' }
             ]
         }
     };
