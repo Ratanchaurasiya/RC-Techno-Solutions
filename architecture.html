@@ -87,10 +87,65 @@
                 gap: 8px !important;
             }
         }
+        @media (max-width: 650px) {
+            .arch-domains-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px !important;
+            }
+            /* Hide extra domain cards initially on mobile until Load More is clicked */
+            .arch-domains-grid .arch-extra-item:not(.show-item) {
+                display: none !important;
+            }
+            .load-more-wrap {
+                display: block !important;
+                margin-top: 24px !important;
+            }
+        }
         @media (max-width: 520px) {
             .arch-domains-grid {
-                grid-template-columns: 1fr !important;
+                grid-template-columns: repeat(2, 1fr) !important;
                 gap: 8px !important;
+            }
+        }
+
+        /* Load More Button for Architecture Domains */
+        .btn-tech-load-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            font-family: inherit;
+            color: #0084ff;
+            background: #eff6ff;
+            border: 1.5px solid #bfdbfe;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 132, 255, 0.08);
+            transition: all 0.25s ease;
+        }
+        .btn-tech-load-more:hover {
+            background: #0084ff;
+            color: #ffffff;
+            border-color: #0084ff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 132, 255, 0.25);
+        }
+        .btn-tech-load-more i {
+            transition: transform 0.25s ease;
+            font-size: 0.8rem;
+        }
+        .btn-tech-load-more.expanded i {
+            transform: rotate(180deg);
+        }
+
+        @media (min-width: 651px) {
+            .arch-domains-grid .arch-extra-item:not(.show-item) {
+                display: flex !important;
+            }
+            .load-more-wrap {
+                display: none !important;
             }
         }
         .arch-domain-card {
@@ -379,7 +434,7 @@
                     <p class="section-subtitle">A holistic view of our multi-layered engineering stack designed for zero failure.</p>
                 </div>
 
-                <div class="arch-domains-grid">
+                <div class="arch-domains-grid" id="archDomainsGrid">
                     <!-- 1. Frontend -->
                     <div class="arch-domain-card">
                         <div class="arch-domain-icon"><i class="fas fa-desktop"></i></div>
@@ -444,7 +499,7 @@
                     </div>
 
                     <!-- 5. Cloud Infrastructure -->
-                    <div class="arch-domain-card">
+                    <div class="arch-domain-card arch-extra-item">
                         <div class="arch-domain-icon"><i class="fas fa-cloud"></i></div>
                         <h3 class="arch-domain-title">5. Cloud Infrastructure</h3>
                         <p class="arch-domain-desc">
@@ -460,7 +515,7 @@
                     </div>
 
                     <!-- 6. API Architecture -->
-                    <div class="arch-domain-card">
+                    <div class="arch-domain-card arch-extra-item">
                         <div class="arch-domain-icon"><i class="fas fa-network-wired"></i></div>
                         <h3 class="arch-domain-title">6. API Architecture &amp; Gateways</h3>
                         <p class="arch-domain-desc">
@@ -476,7 +531,7 @@
                     </div>
 
                     <!-- 7. Security Policies & Hardening -->
-                    <div class="arch-domain-card">
+                    <div class="arch-domain-card arch-extra-item">
                         <div class="arch-domain-icon"><i class="fas fa-shield-halved"></i></div>
                         <h3 class="arch-domain-title">7. Security Policies &amp; Hardening</h3>
                         <p class="arch-domain-desc">
@@ -492,7 +547,7 @@
                     </div>
 
                     <!-- 8. Scalability & Performance -->
-                    <div class="arch-domain-card">
+                    <div class="arch-domain-card arch-extra-item">
                         <div class="arch-domain-icon"><i class="fas fa-tachometer-alt"></i></div>
                         <h3 class="arch-domain-title">8. Scalability &amp; Performance</h3>
                         <p class="arch-domain-desc">
@@ -508,7 +563,7 @@
                     </div>
 
                     <!-- 9. Deployment & DevOps -->
-                    <div class="arch-domain-card">
+                    <div class="arch-domain-card arch-extra-item">
                         <div class="arch-domain-icon"><i class="fas fa-cubes"></i></div>
                         <h3 class="arch-domain-title">9. Deployment &amp; DevOps</h3>
                         <p class="arch-domain-desc">
@@ -524,7 +579,7 @@
                     </div>
 
                     <!-- 10. Application Architecture -->
-                    <div class="arch-domain-card">
+                    <div class="arch-domain-card arch-extra-item">
                         <div class="arch-domain-icon"><i class="fas fa-layer-group"></i></div>
                         <h3 class="arch-domain-title">10. Domain-Driven Application Architecture</h3>
                         <p class="arch-domain-desc">
@@ -538,6 +593,13 @@
                             <span class="arch-tag">Modular Monorepo</span>
                         </div>
                     </div>
+                </div>
+
+                <div class="load-more-wrap" style="text-align: center; margin-top: 24px;">
+                    <button type="button" class="btn-tech-load-more" id="loadMoreArchBtn">
+                        <span class="btn-text">Load More Technical Domains (6 more)</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
                 </div>
             </div>
         </section>

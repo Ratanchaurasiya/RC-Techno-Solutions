@@ -563,6 +563,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    setupLoadMoreToggle('loadMoreArchBtn', 'archDomainsGrid', 'arch-extra-item', 'Load More Technical Domains (6 more)', 'Show Less');
     setupLoadMoreToggle('loadMoreAllServicesBtn', 'allServicesGrid', 'service-extra-item', 'Load More Services (8 more)', 'Show Less');
     setupLoadMoreToggle('loadMoreServicesBtn', 'techServicesGrid', 'service-extra-item', 'Load More Services', 'Show Less');
     setupLoadMoreToggle('loadMoreTechBtn', 'techStackGrid', 'tech-extra-item', 'Load More Technologies', 'Show Less');
