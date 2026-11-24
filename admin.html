@@ -616,6 +616,87 @@
             </main>
         </div>
 
+        <!-- 1-Click Offer Letter Modal for Admin -->
+        <div id="adminOfferModal" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 100000; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(8px);">
+            <div style="background: #ffffff; border-radius: 20px; max-width: 740px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 36px 32px; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.3);">
+                <button type="button" onclick="document.getElementById('adminOfferModal').style.display='none';" style="position: absolute; top: 20px; right: 20px; background: #f1f5f9; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; color: #475569;">&times;</button>
+                
+                <div id="printableOfferLetter">
+                    <!-- Letterhead -->
+                    <div style="border-bottom: 2px solid #0084ff; padding-bottom: 16px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <div style="font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 800; color: #0f172a;">
+                                RC Techno <span style="color: #0084ff;">Solutions</span>
+                            </div>
+                            <div style="font-size: 0.8rem; color: #64748b;">Enterprise Software Engineering &bull; Cloud Infrastructure</div>
+                        </div>
+                        <div style="text-align: right; font-size: 0.8rem; color: #475569;">
+                            <div><strong>Ref No:</strong> <span id="admOfferRef" style="font-family: monospace; color: #0084ff; font-weight: 700;"></span></div>
+                            <div><strong>Date:</strong> <span id="admOfferDate"></span></div>
+                            <div style="color: #10b981; font-weight: 700;"><i class="fas fa-check-circle"></i> Officially Approved</div>
+                        </div>
+                    </div>
+
+                    <!-- Letter Body -->
+                    <div style="font-size: 0.92rem; color: #334155; line-height: 1.7;">
+                        <p style="margin: 0 0 12px;"><strong>To,</strong><br>
+                        <strong>Name:</strong> <span id="admOfferName" style="color: #0f172a; font-weight: 700;"></span><br>
+                        <strong>College:</strong> <span id="admOfferCollege"></span><br>
+                        <strong>Email:</strong> <span id="admOfferEmail"></span> | <strong>Mobile:</strong> <span id="admOfferMobile"></span></p>
+
+                        <p style="margin: 0 0 12px; font-weight: 800; color: #0f172a; font-size: 1.05rem; text-decoration: underline;">
+                            Subject: Official Internship Offer Letter – Batch 2026
+                        </p>
+
+                        <p style="margin: 0 0 12px;">
+                            Dear <strong id="admOfferDearName"></strong>,
+                        </p>
+                        <p style="margin: 0 0 12px;">
+                            We are pleased to inform you that based on your credentials and technical application, you have been selected for the <strong>30-Day Virtual Internship Program</strong> at <strong>RC Techno Solutions</strong> in the domain of <strong id="admOfferDomain" style="color: #0284c7;"></strong>.
+                        </p>
+
+                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin: 16px 0;">
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; font-size: 0.88rem;">
+                                <div><strong style="color: #64748b;">Role:</strong><br><span style="color: #0f172a; font-weight: 600;">Technical Project Intern</span></div>
+                                <div><strong style="color: #64748b;">Duration:</strong><br><span style="color: #0f172a; font-weight: 600;">1 Month (30 Working Days)</span></div>
+                                <div><strong style="color: #64748b;">Mode:</strong><br><span style="color: #0f172a; font-weight: 600;">Remote / Virtual Workstation</span></div>
+                                <div><strong style="color: #64748b;">Verification:</strong><br><span style="color: #0f172a; font-weight: 600;">rctechnosolutions.com/verify-certificate</span></div>
+                            </div>
+                        </div>
+
+                        <p style="margin: 0 0 16px;">
+                            You will be assigned hands-on architectural tasks, commercial capstone milestones, and direct mentorship. We look forward to your impactful contributions during this tenure.
+                        </p>
+
+                        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 28px; padding-top: 16px; border-top: 1px dashed #cbd5e1;">
+                            <div>
+                                <div style="font-family: 'Brush Script MT', cursive, sans-serif; font-size: 1.5rem; color: #0284c7;">Ratan Chaurasiya</div>
+                                <div style="font-weight: 700; color: #0f172a; font-size: 0.88rem;">Director &amp; Principal Architect</div>
+                                <div style="font-size: 0.78rem; color: #64748b;">RC Techno Solutions, Ahmedabad</div>
+                            </div>
+                            <div style="text-align: center; border: 2px dashed #0084ff; border-radius: 10px; padding: 8px 16px; background: rgba(0,132,255,0.04);">
+                                <i class="fas fa-stamp" style="font-size: 1.4rem; color: #0084ff;"></i>
+                                <div style="font-size: 0.7rem; font-weight: 800; color: #0084ff;">OFFICIAL SEAL</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Admin Action Buttons -->
+                <div style="margin-top: 24px; display: flex; justify-content: flex-end; gap: 12px; flex-wrap: wrap; border-top: 1px solid #e2e8f0; padding-top: 16px;">
+                    <a id="admOfferWhatsappBtn" href="#" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; background: #25d366; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 0.88rem; padding: 10px 18px; border-radius: 10px;">
+                        <i class="fab fa-whatsapp"></i> Send on WhatsApp
+                    </a>
+                    <button type="button" onclick="window.print()" style="background: #0284c7; color: #ffffff; font-weight: 700; font-size: 0.88rem; padding: 10px 18px; border-radius: 10px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                        <i class="fas fa-print"></i> Print / Save as PDF
+                    </button>
+                    <button type="button" onclick="document.getElementById('adminOfferModal').style.display='none';" style="background: #e2e8f0; color: #334155; font-weight: 600; font-size: 0.88rem; padding: 10px 16px; border-radius: 10px; border: none; cursor: pointer;">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <script>
             var allInternships = [];
             var authToken = localStorage.getItem('rc_admin_token') || '';
@@ -723,13 +804,16 @@
                         '<td>' + resumeLink + '</td>' +
                         '<td><span class="status-badge ' + statusClass + '">' + (app.status || 'Pending') + '</span></td>' +
                         '<td>' +
-                            '<select onchange="updateAppStatus(\'' + app.id + '\', this.value)" style="padding:4px 8px; border-radius:6px; border:1px solid #cbd5e1; font-size:0.8rem;">' +
-                                '<option value="" disabled selected>Update Status</option>' +
-                                '<option value="Pending">Pending</option>' +
-                                '<option value="Shortlisted">Shortlisted</option>' +
-                                '<option value="Selected">Selected</option>' +
-                                '<option value="Rejected">Rejected</option>' +
-                            '</select>' +
+                            '<div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">' +
+                                '<select onchange="updateAppStatus(\'' + app.id + '\', this.value)" style="padding:4px 8px; border-radius:6px; border:1px solid #cbd5e1; font-size:0.8rem;">' +
+                                    '<option value="" disabled selected>Update Status</option>' +
+                                    '<option value="Pending">Pending</option>' +
+                                    '<option value="Shortlisted">Shortlisted</option>' +
+                                    '<option value="Selected">Selected</option>' +
+                                    '<option value="Rejected">Rejected</option>' +
+                                '</select>' +
+                                '<button type="button" class="btn-action-sm btn-action-primary" onclick="generateOfferLetterModal(\'' + (app.referenceId || app.id) + '\', \'' + (app.fullName || '').replace(/'/g, "\\'") + '\', \'' + (app.domain || 'Full Stack Web Development').replace(/'/g, "\\'") + '\', \'' + (app.college || '').replace(/'/g, "\\'") + '\', \'' + (app.email || '') + '\', \'' + (app.mobile || '') + '\')" title="Generate Offer Letter"><i class="fas fa-file-contract"></i> Offer Letter</button>' +
+                            '</div>' +
                         '</td>' +
                     '</tr>';
                 });
@@ -773,6 +857,23 @@
                     }
                 })
                 .catch(function(e) { console.error(e); });
+            }
+
+            function generateOfferLetterModal(refId, fullName, domain, college, email, mobile) {
+                document.getElementById('admOfferRef').textContent = refId || 'RC-INT-2026';
+                document.getElementById('admOfferDate').textContent = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+                document.getElementById('admOfferName').textContent = fullName || 'Applicant';
+                document.getElementById('admOfferDearName').textContent = fullName || 'Applicant';
+                document.getElementById('admOfferCollege').textContent = college || 'Institute of Technology';
+                document.getElementById('admOfferEmail').textContent = email || 'N/A';
+                document.getElementById('admOfferMobile').textContent = mobile || 'N/A';
+                document.getElementById('admOfferDomain').textContent = domain || 'Full Stack Web Development';
+
+                var cleanMobile = (mobile || '').replace(/\D/g, '');
+                var waText = encodeURIComponent('Congratulations ' + fullName + '! Here is your Official 30-Day Internship Offer Letter from RC Techno Solutions.\n\nRef: ' + refId + '\nDomain: ' + domain + '\nDuration: 1 Month (Remote)\n\nPlease review and confirm your acceptance.');
+                document.getElementById('admOfferWhatsappBtn').href = cleanMobile ? ('https://wa.me/' + cleanMobile + '?text=' + waText) : ('https://wa.me/?text=' + waText);
+
+                document.getElementById('adminOfferModal').style.display = 'flex';
             }
 
             function loadEnquiries() {

@@ -624,6 +624,85 @@
                 <div class="internship-hero-ctas">
                     <a href="#apply" class="btn-cta-apply"><i class="fas fa-paper-plane"></i> Apply for Internship</a>
                     <a href="#domains" class="btn-cta-explore"><i class="fas fa-compass"></i> Explore Domains</a>
+                    <button type="button" id="openSampleOfferBtn" class="btn-cta-explore" style="background: #f8fafc; border-color: #38bdf8; color: #0284c7; cursor: pointer;">
+                        <i class="fas fa-file-contract" style="color: #0284c7;"></i> View Sample Offer Letter
+                    </button>
+                </div>
+
+                <!-- Sample Offer Letter Preview Modal -->
+                <div id="sampleOfferModal" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 100000; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(8px);">
+                    <div style="background: #ffffff; border-radius: 20px; max-width: 720px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 36px 32px; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.3); border: 1px solid #cbd5e1;">
+                        <button type="button" id="closeSampleOfferBtn" style="position: absolute; top: 20px; right: 20px; background: #f1f5f9; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; color: #475569; display: flex; align-items: center; justify-content: center;">&times;</button>
+                        
+                        <!-- Official Letterhead Header -->
+                        <div style="border-bottom: 2px solid #0084ff; padding-bottom: 16px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
+                            <div>
+                                <div style="display: flex; align-items: center; gap: 8px; font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: #0f172a;">
+                                    <span style="background: #0084ff; color: #fff; width: 32px; height: 32px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center;"><i class="fas fa-layer-group"></i></span>
+                                    RC Techno <span style="color: #0084ff;">Solutions</span>
+                                </div>
+                                <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">Enterprise Software Engineering &bull; Cloud Infrastructure &bull; AI</div>
+                            </div>
+                            <div style="text-align: right; font-size: 0.8rem; color: #475569;">
+                                <div><strong>Ref:</strong> <span style="font-family: monospace; color: #0084ff;">RC-INT-OFFER-2026-SAMPLE</span></div>
+                                <div><strong>Date:</strong> 24 November 2026</div>
+                                <div style="color: #10b981; font-weight: 700;"><i class="fas fa-check-circle"></i> College TPO Approved Format</div>
+                            </div>
+                        </div>
+
+                        <!-- Letter Content -->
+                        <div style="font-size: 0.9rem; color: #334155; line-height: 1.7;">
+                            <p style="margin: 0 0 12px;"><strong>To,</strong><br>
+                            <strong>Candidate Name:</strong> [Student Full Name]<br>
+                            <strong>College / University:</strong> [Engineering Institute / University Name]<br>
+                            <strong>Department:</strong> B.Tech / BCA / MCA / Diploma (Computer Science / IT)</p>
+
+                            <p style="margin: 0 0 12px; font-weight: 700; color: #0f172a; font-size: 1rem; text-decoration: underline;">
+                                Subject: Offer of 30-Day Technical Internship – Batch 2026
+                            </p>
+
+                            <p style="margin: 0 0 12px;">
+                                Dear <strong>[Candidate Name]</strong>,
+                            </p>
+                            <p style="margin: 0 0 12px;">
+                                Following your technical application and initial assessment, we are delighted to offer you a virtual technical internship with <strong>RC Techno Solutions</strong> in the <strong>Full Stack Engineering / Selected Domain</strong> specialization.
+                            </p>
+
+                            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin: 16px 0;">
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 0.88rem;">
+                                    <div><strong style="color: #64748b;">Position:</strong><br><span style="color: #0f172a; font-weight: 600;">Technical Project Intern</span></div>
+                                    <div><strong style="color: #64748b;">Duration:</strong><br><span style="color: #0f172a; font-weight: 600;">1 Month (30 Days Active)</span></div>
+                                    <div><strong style="color: #64748b;">Location / Mode:</strong><br><span style="color: #0f172a; font-weight: 600;">Remote / Online Workstation</span></div>
+                                    <div><strong style="color: #64748b;">Deliverables:</strong><br><span style="color: #0f172a; font-weight: 600;">Live Capstone + Verified Certificate</span></div>
+                                </div>
+                            </div>
+
+                            <p style="margin: 0 0 16px;">
+                                During this internship, you will work under senior architect mentorship, commit production code on GitHub, and build your industry portfolio. On successful completion, you will receive an industry-verifiable completion certificate with QR validation.
+                            </p>
+
+                            <!-- Signatures & Official Stamp -->
+                            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 28px; padding-top: 16px; border-top: 1px dashed #cbd5e1; flex-wrap: wrap; gap: 16px;">
+                                <div>
+                                    <div style="font-family: 'Brush Script MT', cursive, sans-serif; font-size: 1.5rem; color: #0284c7; margin-bottom: 4px;">Ratan Chaurasiya</div>
+                                    <div style="font-weight: 700; color: #0f172a; font-size: 0.88rem;">Director &amp; Principal Architect</div>
+                                    <div style="font-size: 0.78rem; color: #64748b;">RC Techno Solutions, Ahmedabad</div>
+                                </div>
+
+                                <div style="text-align: center; border: 2px dashed #0084ff; border-radius: 12px; padding: 10px 18px; background: rgba(0, 132, 255, 0.04);">
+                                    <i class="fas fa-stamp" style="font-size: 1.6rem; color: #0084ff; margin-bottom: 4px;"></i>
+                                    <div style="font-size: 0.72rem; font-weight: 800; color: #0084ff; text-transform: uppercase; letter-spacing: 0.05em;">Authorized Institutional Stamp</div>
+                                    <div style="font-size: 0.68rem; color: #64748b;">Verify at: rctechnosolutions.com</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 24px; text-align: center;">
+                            <a href="#apply" onclick="document.getElementById('sampleOfferModal').style.display='none';" class="btn-cta-apply" style="padding: 12px 24px; font-size: 0.92rem;">
+                                <i class="fas fa-paper-plane"></i> Apply Now to Claim Your Seat
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1218,6 +1297,26 @@
                             errorAlert.style.display = 'flex';
                             successAlert.style.display = 'none';
                         });
+                    });
+                }
+                // Sample Offer Letter Modal Handlers
+                var openSampleOfferBtn = document.getElementById('openSampleOfferBtn');
+                var sampleOfferModal = document.getElementById('sampleOfferModal');
+                var closeSampleOfferBtn = document.getElementById('closeSampleOfferBtn');
+
+                if (openSampleOfferBtn && sampleOfferModal) {
+                    openSampleOfferBtn.addEventListener('click', function() {
+                        sampleOfferModal.style.display = 'flex';
+                    });
+                    if (closeSampleOfferBtn) {
+                        closeSampleOfferBtn.addEventListener('click', function() {
+                            sampleOfferModal.style.display = 'none';
+                        });
+                    }
+                    sampleOfferModal.addEventListener('click', function(e) {
+                        if (e.target === sampleOfferModal) {
+                            sampleOfferModal.style.display = 'none';
+                        }
                     });
                 }
             });
