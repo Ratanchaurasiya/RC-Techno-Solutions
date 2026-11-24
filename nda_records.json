@@ -1,0 +1,32 @@
+[
+  {
+    "agreementId": "NDA-RC-MWPNIG5I-212",
+    "clientName": "Alexander Wright",
+    "companyName": "Nexus Dynamics LLC",
+    "signatoryRole": "Chief Technology Officer",
+    "purpose": "Proprietary AI Platform Development",
+    "status": "EXECUTED_BILATERAL",
+    "timestamp": "2026-11-21T00:09:51.174Z",
+    "ip": "::1"
+  },
+  {
+    "agreementId": "NDA-RC-MWQ6FFYD-823",
+    "clientName": "Vikram Patel",
+    "companyName": "Apex Global Infotech",
+    "signatoryRole": "Chief Technology Officer",
+    "purpose": "Technical Architecture Evaluation & Cloud Software Engineering",
+    "status": "EXECUTED_BILATERAL",
+    "timestamp": "2026-11-21T08:59:23.654Z",
+    "ip": "::1"
+  },
+  {
+    "agreementId": "NDA-RC-MWS0W8M6-697",
+    "clientName": "Jane Executive",
+    "companyName": "Acme Cloud Corp",
+    "signatoryRole": "VP Engineering",
+    "purpose": "Technical Architecture Evaluation & Cloud Software Engineering",
+    "status": "EXECUTED_BILATERAL",
+    "timestamp": "2026-11-22T16:00:01.950Z",
+    "ip": "::1"
+  }
+]

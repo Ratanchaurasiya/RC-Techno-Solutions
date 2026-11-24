@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta name="description" content="Explore RC Techno Solutions' modern engineering workspaces, cloud architecture pods, collaborative conference rooms, and development floor." />
+        <title>Our Workspace &amp; Office Gallery | RC Techno Solutions</title>
+        <link rel="canonical" href="https://rctechnosolutions.com/gallery" />
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Our Workspace &amp; Office Gallery | RC Techno Solutions" />
+        <meta property="og:description" content="A transparent look at our collaborative development pods, engineering workstations, and tech atmosphere." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://rctechnosolutions.com/gallery" />
+
+        <!-- Fonts & Styles -->
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+        <link href="style.css?v=4.5" rel="stylesheet" />
+        <link href="home.css?v=4.5" rel="stylesheet" />
+        <link href="responsive-core.css?v=4.5" rel="stylesheet" />
+        <link href="pro-enhancements.css?v=4.5" rel="stylesheet" />
+        <link href="chatbot.css?v=4.5" rel="stylesheet" />
+
+        <style>
+            .gallery-page-hero {
+                padding: 110px 20px 36px;
+                background: radial-gradient(circle at 50% 20%, #eff6ff 0%, #ffffff 80%);
+                text-align: center;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            .gallery-hero-eyebrow {
+                display: inline-block;
+                background: #e0f2fe;
+                color: #0284c7;
+                font-weight: 700;
+                font-size: 0.75rem;
+                letter-spacing: 0.05em;
+                padding: 4px 14px;
+                border-radius: 9999px;
+                margin-bottom: 12px;
+                text-transform: uppercase;
+            }
+            .gallery-page-hero h1 {
+                font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+                font-weight: 800;
+                color: #0f172a;
+                line-height: 1.25;
+                margin-bottom: 10px;
+                letter-spacing: -0.02em;
+            }
+            .gallery-page-hero h1 span {
+                color: #0084ff;
+            }
+            .gallery-page-hero p {
+                max-width: 680px;
+                margin: 0 auto 20px;
+                font-size: 0.90rem;
+                color: #475569;
+                line-height: 1.6;
+            }
+            .gallery-category-bar {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 6px;
+                margin: 18px auto 26px;
+            }
+            .gallery-cat-btn {
+                background: #ffffff;
+                color: #475569;
+                border: 1px solid #cbd5e1;
+                font-size: 0.76rem;
+                font-weight: 600;
+                padding: 5px 14px;
+                border-radius: 9999px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+            .gallery-cat-btn:hover {
+                color: #0084ff;
+                border-color: #0084ff;
+                background: #eff6ff;
+            }
+            .gallery-cat-btn.active {
+                background: #0084ff;
+                color: #ffffff;
+                border-color: #0084ff;
+                box-shadow: 0 2px 8px rgba(0, 132, 255, 0.25);
+            }
+
+            /* 12 Space Gallery Grid */
+            .office-gallery-grid {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 18px !important;
+            }
+            @media (max-width: 960px) {
+                .office-gallery-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 14px !important;
+                }
+            }
+            @media (max-width: 580px) {
+                .office-gallery-grid {
+                    grid-template-columns: 1fr !important;
+                    gap: 14px !important;
+                }
+            }
+
+            .gallery-item,
+            .office-gallery-grid .gallery-item,
+            .office-gallery-grid .gallery-item {
+                background: #ffffff !important;
+                border: 1px solid #e2e8f0 !important;
+                border-radius: 12px !important;
+                overflow: hidden !important;
+                box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05) !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                height: auto !important;
+                min-height: 100% !important;
+                transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, box-shadow 0.28s ease !important;
+                cursor: pointer !important;
+                box-sizing: border-box !important;
+            }
+            .gallery-item:hover,
+            .office-gallery-grid .gallery-item:hover {
+                transform: translateY(-4px) !important;
+                border-color: #0084ff !important;
+                box-shadow: 0 12px 28px rgba(0, 132, 255, 0.15) !important;
+            }
+            .gallery-item-inner,
+            .office-gallery-grid .gallery-item-inner {
+                position: relative !important;
+                height: 200px !important;
+                width: 100% !important;
+                overflow: hidden !important;
+                background: #f1f5f9 !important;
+            }
+            .gallery-item-inner img,
+            .gallery-img,
+            .office-gallery-grid .gallery-img {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                object-position: center !important;
+                display: block !important;
+                transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            }
+            .gallery-item:hover .gallery-item-inner img,
+            .gallery-item:hover .gallery-img,
+            .office-gallery-grid .gallery-item:hover .gallery-img {
+                transform: scale(1.06) !important;
+            }
+            [data-theme="dark"] .office-gallery-grid .gallery-item {
+                background: #111c38 !important;
+                border-color: #1e293b !important;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+            }
+            [data-theme="dark"] .gallery-caption-box {
+                background: #111c38 !important;
+            }
+            [data-theme="dark"] .gallery-card-title {
+                color: #f8fafc !important;
+            }
+            [data-theme="dark"] .gallery-card-desc {
+                color: #94a3b8 !important;
+            }
+            [data-theme="dark"] .gallery-card-footer {
+                border-top-color: #1e293b !important;
+            }
+            [data-theme="dark"] .gallery-space-badge {
+                color: #cbd5e1 !important;
+            }
+            [data-theme="dark"] .office-gallery-grid .gallery-item {
+                background: #111c38 !important;
+                border-color: #1e293b !important;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+            }
+            [data-theme="dark"] .gallery-caption-box {
+                background: #111c38 !important;
+            }
+            [data-theme="dark"] .gallery-card-title {
+                color: #f8fafc !important;
+            }
+            [data-theme="dark"] .gallery-card-desc {
+                color: #94a3b8 !important;
+            }
+            [data-theme="dark"] .gallery-card-footer {
+                border-top-color: #1e293b !important;
+            }
+            [data-theme="dark"] .gallery-space-badge {
+                color: #cbd5e1 !important;
+            }
+            .gallery-category-pill {
+                position: absolute !important;
+                top: 10px !important;
+                left: 10px !important;
+                background: rgba(15, 23, 42, 0.85) !important;
+                backdrop-filter: blur(6px) !important;
+                color: #ffffff !important;
+                font-size: 0.65rem !important;
+                font-weight: 700 !important;
+                padding: 3px 10px !important;
+                border-radius: 9999px !important;
+                letter-spacing: 0.03em !important;
+                text-transform: uppercase !important;
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                z-index: 2 !important;
+            }
+            .gallery-click-zoom {
+                position: absolute !important;
+                bottom: 8px !important;
+                right: 8px !important;
+                background: rgba(15, 23, 42, 0.75) !important;
+                backdrop-filter: blur(4px) !important;
+                color: #ffffff !important;
+                font-size: 0.65rem !important;
+                font-weight: 600 !important;
+                padding: 3px 8px !important;
+                border-radius: 6px !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                gap: 4px !important;
+                opacity: 0.9 !important;
+                transition: opacity 0.2s, background 0.2s !important;
+                z-index: 2 !important;
+            }
+            .gallery-item:hover .gallery-click-zoom {
+                opacity: 1 !important;
+                background: #0084ff !important;
+            }
+            .gallery-caption-box {
+                padding: 12px 14px 12px 14px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                flex-grow: 1 !important;
+                background: #ffffff !important;
+            }
+            .gallery-card-title {
+                font-size: 0.90rem !important;
+                font-weight: 700 !important;
+                color: #0f172a !important;
+                margin: 0 0 4px 0 !important;
+                line-height: 1.3 !important;
+            }
+            .gallery-card-desc {
+                font-size: 0.76rem !important;
+                color: #475569 !important;
+                line-height: 1.4 !important;
+                margin: 0 0 10px 0 !important;
+                flex-grow: 1 !important;
+            }
+            .gallery-card-footer {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                padding-top: 8px !important;
+                border-top: 1px solid #f1f5f9 !important;
+            }
+            .gallery-space-badge {
+                font-size: 0.68rem !important;
+                font-weight: 600 !important;
+                color: #64748b !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                gap: 4px !important;
+            }
+            .gallery-space-badge i {
+                color: #0084ff !important;
+            }
+            .gallery-view-btn {
+                font-size: 0.70rem !important;
+                font-weight: 700 !important;
+                color: #0084ff !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                gap: 4px !important;
+                transition: transform 0.2s ease !important;
+            }
+            .gallery-item:hover .gallery-view-btn {
+                transform: translateX(2px) !important;
+            }
+            .gallery-transparency-note {
+                max-width: 780px;
+                margin: 28px auto 0;
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                padding: 12px 18px;
+                font-size: 0.80rem;
+                color: #64748b;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                text-align: left;
+            }
+            .gallery-transparency-note i {
+                color: #0084ff;
+                font-size: 1rem;
+                flex-shrink: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="preloader"><div class="loader-circle"></div></div>
+
+        <!-- Global Header -->
+        <header id="header">
+            <div class="container nav-container">
+                <a class="logo" href="/" aria-label="RC Techno Solutions Home">
+                    <span class="logo-badge"><i class="fas fa-layer-group"></i></span>
+                    <span class="brand-text">RC <span>Techno</span></span>
+                    <span class="brand-studio">Enterprise</span>
+                </a>
+
+                <nav class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li><a class="nav-link" href="/">Home</a></li>
+                        <li><a class="nav-link" href="/services">Services</a></li>
+                        <li><a class="nav-link" href="/work">Work</a></li>
+                        <li><a class="nav-link" href="/architecture">Architecture</a></li>
+                        <li><a class="nav-link" href="/about">About</a></li>
+                        <li><a class="nav-link" href="/internship"><span style="background:#e0f2fe;color:#0284c7;font-size:10px;font-weight:800;padding:2px 6px;border-radius:4px;margin-right:5px;">30-DAY</span>Internship</a></li>
+                        <li><a class="nav-link" href="/faq">FAQ</a></li>
+                    </ul>
+
+                    <div class="mobile-nav-actions">
+                        <a class="btn-nav-nda" href="/nda"><i class="fas fa-file-shield"></i> Instant NDA</a>
+                        <a class="btn-nav-cta" href="/contact"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </nav>
+
+                <div class="nav-actions">
+                    <a class="btn-nav-nda" href="/nda" title="Fast-Track Mutual NDA"><i class="fas fa-file-shield"></i> Instant NDA</a>
+                    <a class="btn-nav-cta" href="/contact"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
+                    <button id="heroSoundToggle" class="hero-sound-toggle" aria-label="Toggle Voice Assistant" title="Toggle Voice Assistant">
+                        <span class="sound-wave-anim active"><span></span><span></span><span></span><span></span></span>
+                        <span class="sound-text">Voice: ON</span>
+                    </button>
+                    <button class="hamburger" aria-label="Toggle navigation" type="button"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Page Hero -->
+            <section class="gallery-page-hero">
+                <div class="container">
+                    <div class="gallery-hero-eyebrow">OUR PHYSICAL &amp; DIGITAL INFRASTRUCTURE</div>
+                    <h1>Our Workspace &amp; <span>Office Gallery</span></h1>
+                    <p>A transparent look at our collaborative engineering culture, high-performance infrastructure, executive conference suites, and developer workstations.</p>
+
+                    <!-- Category Filter Bar -->
+                    <div class="gallery-category-bar reveal">
+                        <button class="gallery-cat-btn active" data-cat="all">All Spaces (12)</button>
+                        <button class="gallery-cat-btn" data-cat="overview">Overview</button>
+                        <button class="gallery-cat-btn" data-cat="workstations">Workstations</button>
+                        <button class="gallery-cat-btn" data-cat="dev-area">Development Pods</button>
+                        <button class="gallery-cat-btn" data-cat="conference">Conference &amp; Boardrooms</button>
+                        <button class="gallery-cat-btn" data-cat="collaboration">Team Collaboration</button>
+                        <button class="gallery-cat-btn" data-cat="infra">Cloud &amp; DevOps</button>
+                        <button class="gallery-cat-btn" data-cat="breakout">Lounge &amp; Cafe</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 12 Space Gallery Grid -->
+            <section class="section" style="padding-top: 24px;">
+                <div class="container full-width">
+                    <div class="gallery-grid office-gallery-grid" id="galleryGrid">
+                        <!-- Space 01: Modern Open-Concept Development Floor -->
+                        <div class="gallery-item reveal" data-category="overview">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Office Overview</span>
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="Modern Open-Concept Development Floor" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Modern Open-Concept Development Floor</h4>
+                                <p class="gallery-card-desc">Spacious, natural-light engineering floor built for cross-functional sprint pods and focus.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Office Overview</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 02: Ergonomic Developer Workstations -->
+                        <div class="gallery-item reveal delay-1" data-category="workstations">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Workspace & Desks</span>
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1000&q=80" alt="Ergonomic Developer Workstations" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Ergonomic Developer Workstations</h4>
+                                <p class="gallery-card-desc">Dual-monitor setups, mechanical keyboards, and adjustable sit-stand developer desks.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Workspace & Desks</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 03: High-Performance Engineering Pods -->
+                        <div class="gallery-item reveal delay-2" data-category="dev-area">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Development Area</span>
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&q=80" alt="High-Performance Engineering Pods" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">High-Performance Engineering Pods</h4>
+                                <p class="gallery-card-desc">Dedicated high-speed fiber workstations for high-concurrency cloud and AI model development.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Development Area</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 04: Architecture & Sprint Review Room -->
+                        <div class="gallery-item reveal" data-category="conference">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Meeting & Conference</span>
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80" alt="Architecture & Sprint Review Room" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Architecture & Sprint Review Room</h4>
+                                <p class="gallery-card-desc">Acoustic conference suite equipped with 4K interactive presentation displays and teleconferencing.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Meeting & Conference</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 05: Agile Standup & Brainstorming Hub -->
+                        <div class="gallery-item reveal delay-1" data-category="collaboration">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Team Collaboration</span>
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Agile Standup & Brainstorming Hub" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Agile Standup & Brainstorming Hub</h4>
+                                <p class="gallery-card-desc">Collaborative whiteboard area for daily sprint standups, PR reviews, and architectural discovery.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Team Collaboration</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 06: Cloud Infrastructure & CI/CD Telemetry -->
+                        <div class="gallery-item reveal delay-2" data-category="infra">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Technology & Infrastructure</span>
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80" alt="Cloud Infrastructure & CI/CD Telemetry" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Cloud Infrastructure & CI/CD Telemetry</h4>
+                                <p class="gallery-card-desc">High-availability server infrastructure with continuous integration monitoring and telemetry.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Technology & Infrastructure</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 07: Creative Breakout & Recharge Lounge -->
+                        <div class="gallery-item reveal" data-category="breakout">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Office Environment</span>
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=1000&q=80" alt="Creative Breakout & Recharge Lounge" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Creative Breakout & Recharge Lounge</h4>
+                                <p class="gallery-card-desc">Relaxed lounge environment for informal team syncs, technical reading, and creative recharge.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Office Environment</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 08: Client Presentation & Strategy Suite -->
+                        <div class="gallery-item reveal delay-1" data-category="conference">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Executive Boardroom</span>
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=1000&q=80" alt="Client Presentation & Strategy Suite" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Client Presentation & Strategy Suite</h4>
+                                <p class="gallery-card-desc">Executive boardroom with high-definition presentation screens for enterprise roadmap consultations.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Executive Boardroom</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 09: Cloud & DevOps Operations Center -->
+                        <div class="gallery-item reveal delay-2" data-category="infra">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">DevOps Operations</span>
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80" alt="Cloud & DevOps Operations Center" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Cloud & DevOps Operations Center</h4>
+                                <p class="gallery-card-desc">Dedicated network operations center monitoring live cluster uptime, latency, and automated deployments.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> DevOps Operations</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 10: Product Design & Wireframing Lab -->
+                        <div class="gallery-item reveal" data-category="dev-area">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">UI/UX Design Lab</span>
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1000&q=80" alt="Product Design & Wireframing Lab" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Product Design & Wireframing Lab</h4>
+                                <p class="gallery-card-desc">Specialized design station for responsive Figma prototypes, user testing, and design system authoring.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> UI/UX Design Lab</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 11: Deep Engineering & Focus Zone -->
+                        <div class="gallery-item reveal delay-1" data-category="workstations">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Quiet Focus Pods</span>
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?auto=format&fit=crop&w=1000&q=80" alt="Deep Engineering & Focus Zone" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Deep Engineering & Focus Zone</h4>
+                                <p class="gallery-card-desc">Noise-isolated focus booths engineered for uninterrupted code reviews, algorithmic design, and debugging.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Quiet Focus Pods</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 12: Team Cafe & Community Hub -->
+                        <div class="gallery-item reveal delay-2" data-category="breakout">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Cafeteria & Lounge</span>
+                                <img loading="lazy" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80" alt="Team Cafe & Community Hub" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Team Cafe & Community Hub</h4>
+                                <p class="gallery-card-desc">Social pantry and espresso bar fostering spontaneous conversations, team lunches, and informal catchups.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Cafeteria & Lounge</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transparency Note -->
+                    <div class="gallery-transparency-note reveal">
+                        <i class="fas fa-info-circle"></i>
+                        <span><strong>Engineering Environment Note:</strong> Visual representation of our engineering pods, high-performance developer setups, and collaborative spaces. Click any image to view in full-screen high-definition with keyboard navigation.</span>
+                    </div>
+
+                    <!-- Return & Action Bar -->
+                    <div style="text-align: center; margin-top: 36px;">
+                        <a href="/about" class="btn btn-secondary" style="padding: 10px 22px; border-radius: 9999px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; font-size: 0.82rem; margin-right: 10px;">
+                            <i class="fas fa-arrow-left"></i> <span>Back to About Company</span>
+                        </a>
+                        <a href="/contact" class="btn btn-primary" style="padding: 10px 24px; border-radius: 9999px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; font-size: 0.82rem;">
+                            <span>Visit Our Office &bull; Schedule Call</span> <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pre-Footer CTA Rocket Banner -->
+            <section class="section-cta-wrap">
+                <div class="container">
+                    <div class="cta-banner-new">
+                        <div class="cta-banner-left">
+                            <div class="cta-rocket-visual"><img src="cta_rocket_clean.png" alt="Engineering Velocity Rocket" class="cta-rocket-img"></div>
+                            <div class="cta-text-group">
+                                <h3 class="cta-title-new">Ready to Engineer <span>With Us?</span></h3>
+                                <p class="cta-subtitle-new">Partner with our experienced engineering team to build scalable digital systems.</p>
+                                <div class="cta-actions-group">
+                                    <a href="/contact" class="btn-cta-action"><span>Schedule Consultation</span> <i class="fas fa-arrow-right"></i></a>
+                                    <a href="/nda" class="btn-cta-action btn-cta-secondary"><span>Instant NDA</span> <i class="fas fa-file-shield"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cta-badges-right">
+                            <div class="cta-trust-badge"><i class="fas fa-bolt badge-icon-electric"></i><span>Fast Response</span></div>
+                            <div class="cta-trust-badge"><i class="fas fa-shield-alt badge-icon-shield"></i><span>100% IP Ownership</span></div>
+                            <div class="cta-trust-badge"><i class="fas fa-handshake badge-icon-handshake"></i><span>60-Day SLA</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Global Footer -->
+        <footer class="footer-new">
+            <div class="container">
+                <div class="footer-top-grid">
+                    <div class="footer-col-brand">
+                        <a class="footer-logo-link" href="/">
+                            <span class="footer-logo-box"><i class="fas fa-layer-group"></i></span>
+                            <span class="footer-logo-text">RC <span>Techno</span></span>
+                        </a>
+                        <p class="footer-brand-desc">Building modern, scalable, and secure digital solutions for tomorrow's businesses.</p>
+                        <div class="footer-social-row">
+                            <a href="https://www.linkedin.com/in/ratan-codespace" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Ratanchaurasiya" target="_blank" rel="noopener" aria-label="GitHub" class="social-circle"><i class="fab fa-github"></i></a>
+                            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="social-circle"><i class="fab fa-youtube"></i></a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" class="social-circle"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col-links">
+                        <h4 class="footer-col-title"><i class="fas fa-rocket title-icon"></i> Quick Links</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="/"><i class="fas fa-chevron-right arrow-icon"></i> Home</a></li>
+                            <li><a href="/about"><i class="fas fa-chevron-right arrow-icon"></i> About Us</a></li>
+                            <li><a href="/work"><i class="fas fa-chevron-right arrow-icon"></i> Portfolio</a></li>
+                            <li><a href="/gallery"><i class="fas fa-chevron-right arrow-icon"></i> Office Gallery</a></li>
+                            <li><a href="/architecture"><i class="fas fa-chevron-right arrow-icon"></i> Architecture</a></li>
+                            <li><a href="/faq"><i class="fas fa-chevron-right arrow-icon"></i> FAQ</a></li>
+                            <li><a href="/contact"><i class="fas fa-chevron-right arrow-icon"></i> Contact</a></li>
+                            <li><a href="/terms"><i class="fas fa-chevron-right arrow-icon"></i> Terms &amp; Conditions</a></li>
+                            <li><a href="/privacy"><i class="fas fa-chevron-right arrow-icon"></i> Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col-links">
+                        <h4 class="footer-col-title"><i class="fas fa-cog title-icon"></i> Services</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="/service-website-development"><i class="fas fa-chevron-right arrow-icon"></i> Web Development</a></li>
+                            <li><a href="/service-web-app-development"><i class="fas fa-chevron-right arrow-icon"></i> App Development</a></li>
+                            <li><a href="/service-custom-software"><i class="fas fa-chevron-right arrow-icon"></i> Custom Software</a></li>
+                            <li><a href="/service-ai-agents"><i class="fas fa-chevron-right arrow-icon"></i> AI Agents &amp; LLMs</a></li>
+                            <li><a href="/service-cloud-deployment"><i class="fas fa-chevron-right arrow-icon"></i> Cloud Solutions</a></li>
+                            <li><a href="/service-security"><i class="fas fa-chevron-right arrow-icon"></i> Cybersecurity</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col-contact">
+                        <h4 class="footer-col-title"><i class="fas fa-envelope title-icon"></i> Contact Info</h4>
+                        <div class="footer-contact-item"><i class="fas fa-map-marker-alt contact-pin-icon"></i><span>Vastral Gam, Ahmedabad</span></div>
+                        <div class="footer-contact-item"><i class="fas fa-envelope contact-pin-icon"></i><a href="mailto:ratanchaurasiya61@gmail.com">ratanchaurasiya61@gmail.com</a></div>
+                        <div class="footer-contact-item"><i class="fas fa-phone-alt contact-pin-icon"></i><a href="tel:+916390035039">+91 63900 35039</a></div>
+                        <div class="footer-contact-item"><i class="fas fa-globe contact-pin-icon"></i><a href="https://rctechnosolutions.com" target="_blank" rel="noopener">rctechnosolutions.com</a></div>
+                        <div class="footer-contact-item"><i class="fab fa-whatsapp contact-pin-icon" style="color: #25d366;"></i><a href="https://wa.me/916390035039?text=Hi%20RC%20Techno,%20I'd%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener">WhatsApp Chat</a></div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom-bar">
+                    <p>&copy; 2026 RC Techno Solutions. All Rights Reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy">Privacy Policy</a> &bull; 
+                        <a href="/terms">Terms &amp; Conditions</a> &bull; 
+                        <a href="/nda">Instant NDA</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="script.js?v=4.5"></script>
+        <script src="chatbot.js?v=4.5"></script>
+        <script>
+        // Gallery Category Tab Filtering
+        document.querySelectorAll('.gallery-cat-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var cat = this.getAttribute('data-cat');
+                document.querySelectorAll('.gallery-cat-btn').forEach(function(b) { b.classList.remove('active'); });
+                this.classList.add('active');
+                document.querySelectorAll('#galleryGrid .gallery-item').forEach(function(item) {
+                    if (cat === 'all' || item.getAttribute('data-category') === cat) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        </script>
+    
+        <!-- ================================================================= -->
+        <!-- RC TECHNO SOLUTIONS - HIGH-FIDELITY OFFICE GALLERY LIGHTBOX MODAL -->
+        <!-- ================================================================= -->
+        <div id="rcGalleryModal" class="rc-gallery-modal" aria-hidden="true" role="dialog" aria-modal="true">
+            <div class="rc-modal-overlay" id="rcModalOverlay"></div>
+            
+            <div class="rc-modal-container" id="rcModalContainer">
+                <!-- Top Toolbar Header -->
+                <div class="rc-modal-topbar">
+                    <div class="rc-modal-meta">
+                        <span id="rcModalCategory" class="rc-modal-badge">Office Overview</span>
+                        <h3 id="rcModalTitle" class="rc-modal-heading">Gallery Preview</h3>
+                        <span id="rcModalCounter" class="rc-modal-counter">1 of 12</span>
+                    </div>
+
+                    <div class="rc-modal-actions">
+                        <button id="rcModalFullscreenBtn" class="rc-modal-btn" title="Toggle Fullscreen (F)" aria-label="Toggle Fullscreen">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                        <button id="rcModalCloseBtn" class="rc-modal-btn rc-modal-close" title="Close Preview (ESC)" aria-label="Close Preview">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Main Image Preview Stage -->
+                <div class="rc-modal-stage" id="rcModalStage">
+                    <button id="rcModalPrevBtn" class="rc-modal-nav rc-nav-prev" title="Previous Image (Left Arrow)" aria-label="Previous Image">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div class="rc-modal-img-wrap" id="rcModalImgWrap">
+                        <img id="rcModalImage" src="" alt="Office Gallery Preview" class="rc-modal-image" />
+                        <div id="rcModalSpinner" class="rc-modal-spinner" style="display: none;">
+                            <i class="fas fa-circle-notch fa-spin"></i>
+                        </div>
+                    </div>
+
+                    <button id="rcModalNextBtn" class="rc-modal-nav rc-nav-next" title="Next Image (Right Arrow)" aria-label="Next Image">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Bottom Description & Keyboard Shortcuts Bar -->
+                <div class="rc-modal-footer">
+                    <p id="rcModalDesc" class="rc-modal-desc"></p>
+                    <div class="rc-modal-shortcuts-hint">
+                        <span><kbd>&larr;</kbd> <kbd>&rarr;</kbd> Navigate</span>
+                        <span><kbd>F</kbd> Fullscreen</span>
+                        <span><kbd>ESC</kbd> Close</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            /* Gallery Lightbox Modal Styles */
+            .rc-gallery-modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: 999999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.28s;
+            }
+            .rc-gallery-modal.is-active {
+                opacity: 1;
+                visibility: visible;
+            }
+            .rc-modal-overlay {
+                position: absolute;
+                inset: 0;
+                background: rgba(10, 15, 29, 0.92);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                z-index: 1;
+            }
+            .rc-modal-container {
+                position: relative;
+                z-index: 2;
+                width: 94vw;
+                max-width: 1200px;
+                height: 90vh;
+                max-height: 850px;
+                display: flex;
+                flex-direction: column;
+                background: rgba(15, 23, 42, 0.95);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 16px;
+                box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+                overflow: hidden;
+                transform: scale(0.96);
+                transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .rc-gallery-modal.is-active .rc-modal-container {
+                transform: scale(1);
+            }
+
+            /* Fullscreen API Native overrides */
+            :fullscreen .rc-modal-container,
+            :-webkit-full-screen .rc-modal-container {
+                width: 100vw !important;
+                height: 100vh !important;
+                max-width: 100vw !important;
+                max-height: 100vh !important;
+                border-radius: 0 !important;
+                border: none !important;
+                background: #000000 !important;
+            }
+
+            .rc-modal-topbar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 14px 24px;
+                background: rgba(15, 23, 42, 0.85);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                flex-shrink: 0;
+            }
+            .rc-modal-meta {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+            .rc-modal-badge {
+                background: #0284c7;
+                color: #ffffff;
+                font-size: 0.72rem;
+                font-weight: 700;
+                padding: 3px 10px;
+                border-radius: 9999px;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+            }
+            .rc-modal-heading {
+                font-size: 1.05rem;
+                font-weight: 700;
+                color: #f8fafc;
+                margin: 0;
+            }
+            .rc-modal-counter {
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: #94a3b8;
+                background: rgba(255, 255, 255, 0.06);
+                padding: 2px 8px;
+                border-radius: 6px;
+            }
+
+            .rc-modal-actions {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .rc-modal-btn {
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                color: #e2e8f0;
+                width: 38px;
+                height: 38px;
+                border-radius: 10px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.95rem;
+                cursor: pointer;
+                transition: background 0.2s, color 0.2s, transform 0.15s;
+            }
+            .rc-modal-btn:hover {
+                background: #0084ff;
+                color: #ffffff;
+                border-color: #0084ff;
+                transform: translateY(-1px);
+            }
+            .rc-modal-close:hover {
+                background: #ef4444;
+                border-color: #ef4444;
+            }
+
+            /* Stage & Image */
+            .rc-modal-stage {
+                position: relative;
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 16px 20px;
+                overflow: hidden;
+                background: radial-gradient(circle at center, #1e293b 0%, #090d16 100%);
+            }
+            .rc-modal-img-wrap {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .rc-modal-image {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+                box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+                transition: opacity 0.25s ease;
+                user-select: none;
+            }
+
+            .rc-modal-spinner {
+                position: absolute;
+                font-size: 2.2rem;
+                color: #0084ff;
+            }
+
+            /* Nav buttons */
+            .rc-modal-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 10;
+                width: 46px;
+                height: 46px;
+                border-radius: 50%;
+                background: rgba(15, 23, 42, 0.75);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                color: #ffffff;
+                font-size: 1.1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                backdrop-filter: blur(4px);
+                transition: background 0.2s, transform 0.2s, border-color 0.2s;
+            }
+            .rc-modal-nav:hover {
+                background: #0084ff;
+                border-color: #0084ff;
+                transform: translateY(-50%) scale(1.08);
+            }
+            .rc-nav-prev {
+                left: 18px;
+            }
+            .rc-nav-next {
+                right: 18px;
+            }
+
+            /* Footer */
+            .rc-modal-footer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 12px 24px;
+                background: rgba(15, 23, 42, 0.85);
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                flex-shrink: 0;
+                gap: 16px;
+                flex-wrap: wrap;
+            }
+            .rc-modal-desc {
+                font-size: 0.85rem;
+                color: #cbd5e1;
+                margin: 0;
+                flex-grow: 1;
+                line-height: 1.4;
+            }
+            .rc-modal-shortcuts-hint {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 0.75rem;
+                color: #94a3b8;
+            }
+            .rc-modal-shortcuts-hint kbd {
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 4px;
+                padding: 1px 6px;
+                font-size: 0.7rem;
+                color: #f1f5f9;
+            }
+
+            /* Mobile Responsiveness */
+            @media (max-width: 768px) {
+                .rc-modal-container {
+                    width: 100vw;
+                    height: 100vh;
+                    max-width: 100vw;
+                    max-height: 100vh;
+                    border-radius: 0;
+                }
+                .rc-modal-topbar {
+                    padding: 10px 14px;
+                }
+                .rc-modal-heading {
+                    font-size: 0.95rem;
+                }
+                .rc-modal-nav {
+                    width: 38px;
+                    height: 38px;
+                    font-size: 0.9rem;
+                }
+                .rc-nav-prev { left: 8px; }
+                .rc-nav-next { right: 8px; }
+                .rc-modal-shortcuts-hint { display: none; }
+            }
+        </style>
+
+        <script>
+        (function() {
+            // Collect all gallery items in the DOM
+            var galleryItems = [];
+            var currentIndex = 0;
+
+            function scanGalleryItems() {
+                galleryItems = [];
+                var items = document.querySelectorAll('#galleryGrid .gallery-item');
+                items.forEach(function(item, idx) {
+                    var img = item.querySelector('.gallery-img');
+                    var title = item.querySelector('.gallery-card-title');
+                    var desc = item.querySelector('.gallery-card-desc');
+                    var category = item.querySelector('.gallery-category-pill') || item.querySelector('.gallery-space-badge');
+                    
+                    if (img) {
+                        galleryItems.push({
+                            index: idx,
+                            src: img.getAttribute('src'),
+                            alt: img.getAttribute('alt') || (title ? title.textContent.trim() : 'Office Space'),
+                            title: title ? title.textContent.trim() : 'Office Space',
+                            desc: desc ? desc.textContent.trim() : '',
+                            category: category ? category.textContent.trim() : 'Office Overview',
+                            element: item
+                        });
+                    }
+                });
+            }
+
+            scanGalleryItems();
+
+            var modal = document.getElementById('rcGalleryModal');
+            var overlay = document.getElementById('rcModalOverlay');
+            var modalContainer = document.getElementById('rcModalContainer');
+            var modalImg = document.getElementById('rcModalImage');
+            var modalTitle = document.getElementById('rcModalTitle');
+            var modalDesc = document.getElementById('rcModalDesc');
+            var modalCategory = document.getElementById('rcModalCategory');
+            var modalCounter = document.getElementById('rcModalCounter');
+            var modalCloseBtn = document.getElementById('rcModalCloseBtn');
+            var modalPrevBtn = document.getElementById('rcModalPrevBtn');
+            var modalNextBtn = document.getElementById('rcModalNextBtn');
+            var modalFullscreenBtn = document.getElementById('rcModalFullscreenBtn');
+
+            function getVisibleItems() {
+                return galleryItems.filter(function(item) {
+                    return item.element.style.display !== 'none';
+                });
+            }
+
+            function openModal(index, enterFullscreen) {
+                var visible = getVisibleItems();
+                if (!visible.length) return;
+                
+                // Find matching index in visible items
+                var targetIdx = 0;
+                for (var i = 0; i < visible.length; i++) {
+                    if (visible[i].index === index) {
+                        targetIdx = i;
+                        break;
+                    }
+                }
+                currentIndex = targetIdx;
+                renderItem(visible[currentIndex]);
+
+                modal.classList.add('is-active');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+
+                if (enterFullscreen) {
+                    toggleBrowserFullscreen(true);
+                }
+            }
+
+            function closeModal() {
+                modal.classList.remove('is-active');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                if (document.fullscreenElement) {
+                    try { document.exitFullscreen(); } catch (e) {}
+                }
+            }
+
+            function renderItem(item) {
+                if (!item) return;
+                var visible = getVisibleItems();
+                modalImg.style.opacity = '0.3';
+                modalImg.src = item.src;
+                modalImg.alt = item.alt;
+                modalImg.onload = function() {
+                    modalImg.style.opacity = '1';
+                };
+                modalTitle.textContent = item.title;
+                modalDesc.textContent = item.desc;
+                modalCategory.textContent = item.category;
+                modalCounter.textContent = (currentIndex + 1) + ' of ' + visible.length;
+            }
+
+            function prevImage() {
+                var visible = getVisibleItems();
+                if (!visible.length) return;
+                currentIndex = (currentIndex - 1 + visible.length) % visible.length;
+                renderItem(visible[currentIndex]);
+            }
+
+            function nextImage() {
+                var visible = getVisibleItems();
+                if (!visible.length) return;
+                currentIndex = (currentIndex + 1) % visible.length;
+                renderItem(visible[currentIndex]);
+            }
+
+            function toggleBrowserFullscreen(forceEnter) {
+                var container = modalContainer || modal;
+                if (!document.fullscreenElement || forceEnter === true) {
+                    if (container.requestFullscreen) {
+                        container.requestFullscreen().catch(function(err){ console.warn(err); });
+                    } else if (container.webkitRequestFullscreen) {
+                        container.webkitRequestFullscreen();
+                    } else if (container.msRequestFullscreen) {
+                        container.msRequestFullscreen();
+                    }
+                    if (modalFullscreenBtn) {
+                        modalFullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+                        modalFullscreenBtn.title = 'Exit Fullscreen (F / ESC)';
+                    }
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen().catch(function(err){ console.warn(err); });
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    }
+                    if (modalFullscreenBtn) {
+                        modalFullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+                        modalFullscreenBtn.title = 'Toggle Fullscreen (F)';
+                    }
+                }
+            }
+
+            document.addEventListener('fullscreenchange', function() {
+                if (!document.fullscreenElement && modalFullscreenBtn) {
+                    modalFullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+                    modalFullscreenBtn.title = 'Toggle Fullscreen (F)';
+                } else if (modalFullscreenBtn) {
+                    modalFullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+                    modalFullscreenBtn.title = 'Exit Fullscreen (F / ESC)';
+                }
+            });
+
+            // Bind click events on gallery cards
+            document.querySelectorAll('#galleryGrid .gallery-item').forEach(function(card, idx) {
+                // Clicking View button
+                var viewBtn = card.querySelector('.gallery-view-btn');
+                if (viewBtn) {
+                    viewBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        openModal(idx, false);
+                    });
+                }
+
+                // Clicking Fullscreen badge on image
+                var zoomBtn = card.querySelector('.gallery-click-zoom');
+                if (zoomBtn) {
+                    zoomBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        openModal(idx, true);
+                    });
+                }
+
+                // Clicking anywhere on card
+                card.addEventListener('click', function(e) {
+                    openModal(idx, false);
+                });
+            });
+
+            // Modal Controls
+            if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+            if (overlay) overlay.addEventListener('click', closeModal);
+            if (modalPrevBtn) modalPrevBtn.addEventListener('click', prevImage);
+            if (modalNextBtn) modalNextBtn.addEventListener('click', nextImage);
+            if (modalFullscreenBtn) modalFullscreenBtn.addEventListener('click', function() { toggleBrowserFullscreen(); });
+
+            // Keyboard navigation
+            window.addEventListener('keydown', function(e) {
+                if (!modal.classList.contains('is-active')) return;
+
+                if (e.key === 'Escape') {
+                    if (document.fullscreenElement) {
+                        document.exitFullscreen().catch(function(){});
+                    } else {
+                        closeModal();
+                    }
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                } else if (e.key === 'f' || e.key === 'F') {
+                    toggleBrowserFullscreen();
+                }
+            });
+        })();
+        </script>
+
+    </body>
+</html>

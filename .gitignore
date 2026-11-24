@@ -1,0 +1,9 @@
+hero-bg-original-with-watermark.mp4
+.DS_Store
+Thumbs.db
+node_modules/
+.env
+data/
+uploads/
+npm-debug.log*
+*.log

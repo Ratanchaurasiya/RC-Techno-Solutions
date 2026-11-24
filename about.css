@@ -1,0 +1,752 @@
+/* ==========================================================================
+   ABOUT US SECTION – RC TECHNO SOLUTIONS (ENTERPRISE CORPORATE REDESIGN)
+   Sophisticated Corporate Architecture: Deep Navy, Pristine White & Royal Blue
+   ========================================================================== */
+
+/* Main Section Wrapper */
+.about-corporate-section {
+    position: relative;
+    background-color: var(--clr-white, #ffffff);
+    padding: clamp(60px, 8vw, 110px) 0;
+    overflow: hidden;
+}
+
+/* Subtle corporate ambient background element */
+.about-corporate-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.035) 0%, rgba(255, 255, 255, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-corporate-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Section Header (Minimal & Authoritative) */
+.about-corporate-header {
+    text-align: center;
+    margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+.about-corp-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--clr-primary, #2563eb);
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 3px rgba(37, 99, 235, 0.06);
+}
+
+.about-corp-eyebrow i {
+    font-size: 0.75rem;
+}
+
+.about-corp-title {
+    font-size: clamp(2rem, 3.8vw, 2.75rem);
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    margin-bottom: 12px;
+}
+
+.about-corp-subtitle {
+    font-size: 1.05rem;
+    color: #64748b;
+    font-weight: 500;
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   1. Modern Two-Column Layout (Company Intro & Visual Representation)
+   -------------------------------------------------------------------------- */
+.about-two-col {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+    margin-bottom: clamp(56px, 8vw, 88px);
+}
+
+/* Left Column: Content & Narrative */
+.about-left-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-company-heading {
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.28;
+    letter-spacing: -0.02em;
+    margin-bottom: 22px;
+}
+
+.about-lead-paragraph {
+    font-size: 1.12rem;
+    font-weight: 500;
+    color: #334155;
+    line-height: 1.75;
+    margin-bottom: 16px;
+}
+
+.about-body-paragraph {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.75;
+    margin-bottom: 30px;
+}
+
+/* Value Highlights Grid */
+.about-value-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 34px;
+    padding: 20px 0;
+    border-top: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.about-val-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.val-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: #eff6ff;
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.val-text strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.35;
+    margin-bottom: 2px;
+}
+
+.val-text span {
+    display: block;
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* Corporate Call to Action Group */
+.about-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn-corp-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #2563eb;
+    color: #ffffff !important;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 13px 26px;
+    border-radius: 8px;
+    border: 1px solid #2563eb;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+}
+
+.btn-corp-primary:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+    color: #ffffff !important;
+}
+
+.btn-corp-primary i {
+    font-size: 0.82rem;
+    transition: transform 0.2s ease;
+}
+
+.btn-corp-primary:hover i {
+    transform: translateX(3px);
+}
+
+.btn-corp-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    color: #0f172a !important;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 13px 24px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-corp-secondary:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+/* --------------------------------------------------------------------------
+   Right Column: Premium Visual Representation of Technology & Innovation
+   -------------------------------------------------------------------------- */
+.about-right-col {
+    position: relative;
+}
+
+.tech-visual-card {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: 0 10px 24px -6px rgba(15, 23, 42, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    color: #f8fafc;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle tech ambient accent */
+.tech-visual-card::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, rgba(15, 23, 42, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.tech-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.tech-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tech-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.tech-header-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.tech-header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    padding: 3px 10px;
+    border-radius: 6px;
+}
+
+/* System Architecture Layers */
+.tech-layers-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.tech-tier-card {
+    background: rgba(30, 41, 59, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 16px 18px;
+    transition: all 0.25s ease;
+}
+
+.tech-tier-card:hover {
+    background: rgba(30, 41, 59, 0.98);
+    border-color: rgba(59, 130, 246, 0.4);
+    transform: translateX(4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.tier-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.tier-code-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #60a5fa;
+}
+
+.tier-status-pill {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.tier-content-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.tier-icon-container {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(37, 99, 235, 0.14);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #60a5fa;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+}
+
+.tier-meta h5 {
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 3px;
+    line-height: 1.3;
+}
+
+.tier-meta p {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    line-height: 1.45;
+    margin: 0;
+}
+
+/* Layer Connector Flow */
+.tech-layer-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 14px;
+    margin: -4px 0;
+    color: rgba(96, 165, 250, 0.35);
+    font-size: 0.72rem;
+}
+
+/* Visual Card Telemetry Footer */
+.tech-card-footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.telemetry-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.telemetry-num {
+    font-size: 1.18rem;
+    font-weight: 800;
+    color: #38bdf8;
+    line-height: 1.2;
+}
+
+.telemetry-label {
+    font-size: 0.74rem;
+    color: #94a3b8;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Mission & Vision Section (Clean Horizontal Two-Card Layout)
+   -------------------------------------------------------------------------- */
+.about-mv-section {
+    margin-bottom: clamp(56px, 8vw, 88px);
+}
+
+.about-mv-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(20px, 3.5vw, 32px);
+}
+
+.mv-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: 0 2px 8px -1px rgba(15, 23, 42, 0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.mv-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #2563eb, #38bdf8);
+    opacity: 0;
+    transition: opacity 0.28s ease;
+}
+
+.mv-card:hover {
+    transform: translateY(-3px);
+    border-color: #bfdbfe;
+    box-shadow: 0 12px 28px -4px rgba(37, 99, 235, 0.1);
+}
+
+.mv-card:hover::before {
+    opacity: 1;
+}
+
+.mv-icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2563eb;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: all 0.28s ease;
+}
+
+.mv-card:hover .mv-icon-box {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
+}
+
+.mv-content-box {
+    flex: 1;
+}
+
+.mv-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #2563eb;
+    margin-bottom: 6px;
+}
+
+.mv-title {
+    font-size: 1.32rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+
+.mv-description {
+    font-size: 0.98rem;
+    color: #475569;
+    line-height: 1.68;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. What We Do Section (Core Expertise Minimal Grid)
+   -------------------------------------------------------------------------- */
+.about-what-we-do {
+    position: relative;
+}
+
+.what-we-do-header {
+    text-align: center;
+    margin-bottom: clamp(36px, 5vw, 48px);
+}
+
+.wwd-tag {
+    display: inline-block;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: #2563eb;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    padding: 5px 14px;
+    border-radius: 9999px;
+    margin-bottom: 12px;
+}
+
+.wwd-title {
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.wwd-subtitle {
+    font-size: 0.98rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.what-we-do-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(18px, 2.5vw, 26px);
+}
+
+.wwd-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: clamp(22px, 3vw, 28px);
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
+}
+
+.wwd-card:hover {
+    transform: translateY(-3px);
+    border-color: #bfdbfe;
+    box-shadow: 0 10px 24px -4px rgba(37, 99, 235, 0.1);
+}
+
+.wwd-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2563eb;
+    font-size: 1.25rem;
+    margin-bottom: 18px;
+    transition: all 0.28s ease;
+}
+
+.wwd-card:hover .wwd-icon-box {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.2);
+}
+
+.wwd-item-title {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.wwd-item-desc {
+    font-size: 0.88rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+
+/* Tablet (Max 1024px) */
+@media (max-width: 1024px) {
+    .about-two-col {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-right-col {
+        max-width: 620px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .what-we-do-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Mobile (Max 768px) */
+@media (max-width: 768px) {
+    .about-corporate-section {
+        padding: 50px 0;
+    }
+
+    .about-corporate-header {
+        margin-bottom: 36px;
+    }
+
+    .about-value-highlights {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 28px;
+    }
+
+    .about-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-corp-primary,
+    .btn-corp-secondary {
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .about-mv-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .mv-card {
+        padding: 22px;
+        gap: 16px;
+    }
+
+    .mv-icon-box {
+        width: 46px;
+        height: 46px;
+        font-size: 1.2rem;
+        border-radius: 10px;
+    }
+
+    .what-we-do-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .wwd-card {
+        padding: 20px;
+    }
+}
+
+/* Small Mobile (Max 480px) */
+@media (max-width: 480px) {
+    .tech-visual-card {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .tech-tier-card {
+        padding: 12px 14px;
+    }
+
+    .tier-icon-container {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .tech-card-footer {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: left;
+    }
+
+    .telemetry-item {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px 0;
+    }
+
+    .telemetry-num {
+        font-size: 1.05rem;
+    }
+
+    .mv-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

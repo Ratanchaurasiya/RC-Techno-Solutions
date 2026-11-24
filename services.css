@@ -1,0 +1,573 @@
+/* -----------------------
+   SERVICES SECTION
+----------------------- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.service-card {
+    background: var(--clr-white);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    text-align: center;
+    border-bottom: 4px solid transparent;
+    display: none;
+}
+
+.service-card:nth-child(-n+6) {
+    display: block;
+}
+
+.service-card.show {
+    display: block;
+    animation: zoomFade 0.5s ease forwards;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-bottom-color: var(--clr-primary);
+}
+
+.icon-box {
+    width: 70px;
+    height: 70px;
+    background: rgba(246, 248, 249, 0.1);
+    color: var(--clr-primary);
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    transition: var(--transition);
+}
+
+.service-card:hover .icon-box {
+    background: var(--clr-primary);
+    color: var(--clr-white);
+    transform: rotateY(360deg);
+}
+
+/* -----------------------
+   TECHNOLOGIES
+----------------------- */
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+    gap: 15px;
+}
+
+.tech-card {
+    background: var(--clr-glass);
+    border: 1px solid var(--clr-glass-border);
+    padding: 15px 10px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+    min-width: 100px;
+    flex: 1 1 40%;
+}
+
+.tech-card i {
+    font-size: 3rem;
+    color: var(--clr-primary);
+    transition: var(--transition);
+}
+
+.tech-card:hover {
+    transform: translateY(-4px);
+    background: var(--clr-primary-light);
+    border-color: var(--clr-primary-border);
+}
+
+.tech-card:hover i {
+    color: var(--clr-primary);
+}
+
+/* -----------------------
+   PORTFOLIO
+----------------------- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.portfolio-card {
+    background: var(--clr-white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.portfolio-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-card:hover .portfolio-img img {
+    transform: scale(1.1);
+}
+
+.portfolio-info {
+    padding: 25px;
+}
+
+.portfolio-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.portfolio-info p {
+    color: var(--clr-text-dark);
+    margin-bottom: 20px;
+}
+
+/* -----------------------
+   WHY CHOOSE US
+----------------------- */
+.why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.feature-card {
+    background: var(--clr-glass);
+    border: 1px solid var(--clr-glass-border);
+    padding: 30px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: var(--transition);
+}
+
+.feature-card i {
+    font-size: 2.5rem;
+    color: var(--clr-primary);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--clr-primary);
+}
+
+/* -----------------------
+   TEAM
+----------------------- */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.team-card {
+    background: var(--clr-white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.team-img img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.team-info {
+    padding: 20px;
+}
+
+.team-info p {
+    color: var(--clr-primary);
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    width: 35px;
+    height: 35px;
+    background: var(--clr-light);
+    color: var(--clr-text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.social-icons a:hover {
+    background: var(--clr-primary);
+    color: var(--clr-white);
+}
+
+/* ==========================================================================
+   OUR EXPERTISE SECTION – RC TECHNO SOLUTIONS (COMPACT CORPORATE REDESIGN)
+   Dark Navy Background, Blue Accents, 3-Column Equal-Height Grid
+   ========================================================================== */
+
+#services,
+.section#services {
+    background-color: #0b1329 !important; /* Deep Dark Navy */
+    color: #f8fafc !important;
+    padding: clamp(38px, 4.5vw, 56px) 0 !important; /* ~30-35% height reduction */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle ambient dark navy gradient overlay */
+#services::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 350px;
+    background: radial-gradient(ellipse at top, rgba(37, 99, 235, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+#services .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 5. Section Heading (Compact & Elegant) */
+#services .section-header {
+    text-align: center;
+    margin-bottom: 26px !important; /* Reduced space between heading & cards */
+}
+
+#services .section-title {
+    font-size: clamp(1.6rem, 2.5vw, 2.15rem) !important; /* Slightly reduced */
+    font-weight: 800 !important;
+    color: #f8fafc !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 6px !important;
+    text-shadow: none !important;
+}
+
+/* FULLSTACK SOLUTIONS badge: smaller and more elegant */
+#services .section-subtitle {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase !important;
+    color: #60a5fa !important;
+    background: rgba(37, 99, 235, 0.14) !important;
+    border: 1px solid rgba(59, 130, 246, 0.28) !important;
+    padding: 3px 12px !important;
+    border-radius: 9999px !important;
+    margin-top: 4px !important;
+    box-shadow: none !important;
+}
+
+/* 2. Grid Layout Format (3 columns on desktop, 2 on tablet, 1 on mobile) */
+#services .bento-services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* Desktop: 3 columns */
+    gap: 16px !important; /* Reduced gap between cards */
+    max-width: 1140px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+}
+
+/* 3. Service Cards Redesign */
+#services .bento-service-card {
+    background: #151f32 !important; /* Dark Slate Navy */
+    border: 1px solid rgba(255, 255, 255, 0.08) !important; /* Subtle border */
+    border-radius: 12px !important; /* Reduced rounded corners */
+    padding: 0 !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16) !important; /* Soft, subtle shadow */
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    position: relative;
+    overflow: hidden;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    display: none; /* Controlled by nth-child & .show */
+}
+
+/* Initial 6 items shown (2 full rows of 3) */
+#services .bento-service-card:nth-child(-n+6),
+#services .bento-service-card.show {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Remove excessive glowing blob and pulse animation */
+#services .service-glow-blob {
+    display: none !important;
+}
+
+#services .bento-service-card:hover {
+    transform: translateY(-3px) !important; /* Slight card lift */
+    border-color: rgba(59, 130, 246, 0.45) !important;
+    background: #19263e !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 0 12px rgba(37, 99, 235, 0.12) !important;
+    animation: none !important; /* Removed pulse glow */
+}
+
+/* Content Container Inside Card */
+#services .bento-service-content {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 16px 18px !important; /* Reduced inner padding by ~28% */
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    z-index: 1 !important;
+}
+
+/* Small, Elegant Service Icon */
+#services .bento-service-icon {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 8px !important;
+    background: rgba(37, 99, 235, 0.12) !important;
+    border: 1px solid rgba(59, 130, 246, 0.25) !important;
+    color: #60a5fa !important;
+    font-size: 1rem !important; /* Proportionally reduced icon */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 10px !important;
+    flex-shrink: 0 !important;
+    transition: all 0.2s ease !important;
+}
+
+#services .bento-service-card:hover .bento-service-icon {
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border-color: #2563eb !important;
+}
+
+/* Clear Service Title */
+#services .bento-service-content h3,
+#services .bento-service-card h3 {
+    font-size: 1.02rem !important; /* Reduced heading size */
+    font-weight: 700 !important;
+    color: #f8fafc !important;
+    line-height: 1.32 !important;
+    margin-bottom: 6px !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* Short Description (max 2 lines) */
+#services .bento-service-content p,
+#services .bento-service-card p {
+    font-size: 0.82rem !important;
+    color: #94a3b8 !important;
+    line-height: 1.45 !important;
+    margin-bottom: 12px !important;
+    margin-top: 0 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    flex-grow: 1 !important;
+}
+
+/* Compact See More Button / Subtle Link */
+#services .see-more-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 4px 10px !important; /* Compact button */
+    font-size: 0.76rem !important;
+    font-weight: 600 !important;
+    color: #38bdf8 !important;
+    background: rgba(56, 189, 248, 0.08) !important;
+    border: 1px solid rgba(56, 189, 248, 0.2) !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    margin-top: auto !important;
+    align-self: flex-start !important;
+    transition: all 0.2s ease !important;
+}
+
+#services .see-more-btn:hover {
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border-color: #2563eb !important;
+    transform: translateX(2px) !important;
+}
+
+#services .see-more-btn i {
+    font-size: 0.7rem !important;
+    transition: transform 0.2s ease !important;
+}
+
+#services .see-more-btn:hover i {
+    transform: translateX(2px) !important;
+}
+
+/* Align Last Row (Centered in 3-column layout on Desktop) */
+@media (min-width: 993px) {
+    #services .bento-service-card:last-child:nth-child(3n + 1) {
+        grid-column: 2 / 3 !important; /* Center single leftover card in 3-col layout */
+    }
+}
+
+/* Load More Button Wrapper */
+#services .services-actions {
+    text-align: center !important;
+    margin-top: 22px !important; /* Reduced space */
+}
+
+#services .load-more-services-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #151f32 !important;
+    color: #38bdf8 !important;
+    border: 1px solid rgba(56, 189, 248, 0.3) !important;
+    padding: 8px 20px !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    transition: all 0.22s ease !important;
+    animation: none !important;
+}
+
+#services .load-more-services-btn:hover {
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border-color: #2563eb !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25) !important;
+}
+
+/* Responsive Queries */
+/* Tablet (Max 992px): 2 Columns */
+@media (max-width: 992px) {
+    #services .bento-services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 14px !important;
+    }
+    
+    #services .bento-service-card:last-child:nth-child(2n + 1) {
+        grid-column: span 2 !important;
+        max-width: 460px !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+    }
+}
+
+/* Mobile (Max 640px): 1 Column */
+@media (max-width: 640px) {
+    #services {
+        padding: 34px 0 !important;
+    }
+
+    #services .section-header {
+        margin-bottom: 18px !important;
+    }
+
+    #services .bento-services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    #services .bento-service-card {
+        padding: 0 !important;
+    }
+
+    #services .bento-service-content {
+        padding: 14px 16px !important;
+    }
+
+    #services .bento-service-card:last-child:nth-child(2n + 1) {
+        grid-column: 1 !important;
+        max-width: 100% !important;
+    }
+}
+
+/* -----------------------
+   RESPONSIVE QUERIES (Mobile-First)
+----------------------- */
+@media (min-width: 768px) {
+    .services-grid,
+    .portfolio-grid,
+    .why-us-grid,
+    .team-grid {
+        gap: 30px;
+    }
+    
+    .service-card {
+        padding: 22px 20px;
+    }
+
+    .tech-grid {
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .tech-card {
+        flex: 0 1 auto;
+        padding: 8px 12px;
+        min-width: 80px;
+    }
+}
+
+/* ==========================================================================
+   SERVICES RESPONSIVE OVERRIDES
+   ========================================================================== */
+@media (max-width: 992px) {
+    .services-grid, .why-us-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+}
+@media (max-width: 768px) {
+    .services-grid, .why-us-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+    .service-card { padding: 14px 14px !important; }
+}

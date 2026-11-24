@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Admin Management Portal | RC Techno Solutions</title>
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+        <!-- Google Fonts & FontAwesome -->
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+        <style>
+            :root {
+                --primary: #0084ff;
+                --primary-dark: #0066cc;
+                --bg: #f8fafc;
+                --sidebar-bg: #0f172a;
+                --card-bg: #ffffff;
+                --text-main: #0f172a;
+                --text-muted: #64748b;
+                --border: #e2e8f0;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: 'Poppins', -apple-system, sans-serif;
+                background: var(--bg);
+                color: var(--text-main);
+                min-height: 100vh;
+                display: flex;
+            }
+
+            /* Login Screen Overlay */
+            #loginView {
+                position: fixed;
+                inset: 0;
+                background: radial-gradient(circle at 50% 20%, #1e293b 0%, #0f172a 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 99999;
+                padding: 20px;
+            }
+            .login-card {
+                background: #ffffff;
+                border-radius: 20px;
+                padding: 40px;
+                width: 100%;
+                max-width: 440px;
+                box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+                text-align: center;
+            }
+            .login-logo {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 1.4rem;
+                font-weight: 800;
+                color: #0f172a;
+                margin-bottom: 8px;
+            }
+            .login-logo span {
+                color: var(--primary);
+            }
+            .login-card p {
+                font-size: 0.88rem;
+                color: var(--text-muted);
+                margin-bottom: 28px;
+            }
+            .login-form input {
+                width: 100%;
+                padding: 13px 16px;
+                border: 1.5px solid var(--border);
+                border-radius: 10px;
+                font-size: 0.95rem;
+                margin-bottom: 18px;
+                outline: none;
+                transition: border-color 0.2s;
+            }
+            .login-form input:focus {
+                border-color: var(--primary);
+            }
+            .btn-login {
+                width: 100%;
+                padding: 13px;
+                background: var(--primary);
+                color: #ffffff;
+                border: none;
+                border-radius: 10px;
+                font-size: 1rem;
+                font-weight: 700;
+                cursor: pointer;
+                transition: background 0.2s;
+            }
+            .btn-login:hover {
+                background: var(--primary-dark);
+            }
+
+            /* Dashboard Layout */
+            #adminDashboard {
+                display: none;
+                width: 100%;
+                min-height: 100vh;
+            }
+            .admin-sidebar {
+                width: 260px;
+                background: var(--sidebar-bg);
+                color: #ffffff;
+                padding: 24px 20px;
+                display: flex;
+                flex-direction: column;
+                flex-shrink: 0;
+            }
+            .sidebar-brand {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 1.25rem;
+                font-weight: 800;
+                color: #ffffff;
+                margin-bottom: 36px;
+                text-decoration: none;
+            }
+            .sidebar-brand span {
+                color: #38bdf8;
+            }
+            .sidebar-nav {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                flex-grow: 1;
+            }
+            .sidebar-nav a {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 16px;
+                border-radius: 10px;
+                color: #94a3b8;
+                text-decoration: none;
+                font-size: 0.92rem;
+                font-weight: 600;
+                transition: background 0.2s, color 0.2s;
+            }
+            .sidebar-nav a:hover,
+            .sidebar-nav a.active {
+                background: rgba(255, 255, 255, 0.08);
+                color: #ffffff;
+            }
+            .sidebar-nav a.active {
+                background: var(--primary);
+                color: #ffffff;
+            }
+            .sidebar-footer {
+                padding-top: 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .btn-logout {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: #f87171;
+                background: none;
+                border: none;
+                font-size: 0.9rem;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+            /* Main Content Stage */
+            .admin-main {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                overflow-x: hidden;
+            }
+            .admin-topbar {
+                background: #ffffff;
+                border-bottom: 1px solid var(--border);
+                padding: 16px 32px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .topbar-title h2 {
+                font-family: 'Outfit', sans-serif;
+                font-size: 1.45rem;
+                font-weight: 800;
+                color: var(--text-main);
+            }
+            .topbar-user {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .topbar-badge {
+                background: #dcfce7;
+                color: #15803d;
+                font-size: 0.75rem;
+                font-weight: 800;
+                padding: 3px 10px;
+                border-radius: 9999px;
+            }
+
+            .admin-body {
+                padding: 32px;
+                flex-grow: 1;
+            }
+
+            /* Metrics Cards */
+            .metrics-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 20px;
+                margin-bottom: 32px;
+            }
+            .metric-box {
+                background: #ffffff;
+                border: 1px solid var(--border);
+                border-radius: 16px;
+                padding: 24px;
+                box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .metric-info h5 {
+                font-size: 0.8rem;
+                color: var(--text-muted);
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+                margin-bottom: 6px;
+            }
+            .metric-info h3 {
+                font-size: 1.8rem;
+                font-weight: 800;
+                color: var(--text-main);
+            }
+            .metric-icon-wrap {
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.3rem;
+            }
+
+            /* Tab Panels */
+            .tab-panel {
+                display: none;
+            }
+            .tab-panel.active {
+                display: block;
+            }
+
+            /* Filter Bar & Data Table */
+            .table-container-card {
+                background: #ffffff;
+                border: 1px solid var(--border);
+                border-radius: 16px;
+                box-shadow: 0 4px 18px rgba(15, 23, 42, 0.03);
+                overflow: hidden;
+            }
+            .table-header-bar {
+                padding: 20px 24px;
+                border-bottom: 1px solid var(--border);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+            .table-filter-group {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+            .table-filter-group select,
+            .table-filter-group input {
+                padding: 8px 14px;
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                font-size: 0.88rem;
+                outline: none;
+            }
+            .data-table {
+                width: 100%;
+                border-collapse: collapse;
+                text-align: left;
+                font-size: 0.88rem;
+            }
+            .data-table th {
+                background: #f8fafc;
+                padding: 14px 20px;
+                font-weight: 700;
+                color: #475569;
+                border-bottom: 1px solid var(--border);
+            }
+            .data-table td {
+                padding: 14px 20px;
+                border-bottom: 1px solid var(--border);
+                color: var(--text-main);
+            }
+            .data-table tr:hover {
+                background: #f8fafc;
+            }
+            .status-badge {
+                display: inline-block;
+                padding: 3px 10px;
+                border-radius: 9999px;
+                font-size: 0.75rem;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+            .status-pending { background: #fef3c7; color: #b45309; }
+            .status-shortlisted { background: #e0f2fe; color: #0369a1; }
+            .status-selected { background: #dcfce7; color: #15803d; }
+            .status-rejected { background: #fee2e2; color: #b91c1c; }
+
+            .btn-action-sm {
+                padding: 5px 10px;
+                border-radius: 6px;
+                font-size: 0.78rem;
+                font-weight: 600;
+                border: 1px solid var(--border);
+                background: #ffffff;
+                cursor: pointer;
+                transition: background 0.15s;
+                text-decoration: none;
+                color: inherit;
+            }
+            .btn-action-sm:hover {
+                background: #f1f5f9;
+            }
+            .btn-action-primary {
+                background: var(--primary);
+                color: #ffffff;
+                border-color: var(--primary);
+            }
+            .btn-action-primary:hover {
+                background: var(--primary-dark);
+            }
+
+            /* Responsive */
+            @media (max-width: 900px) {
+                body { flex-direction: column; }
+                .admin-sidebar { width: 100%; }
+                .admin-body { padding: 16px; }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 1. Admin Login View -->
+        <div id="loginView">
+            <div class="login-card">
+                <div class="login-logo">
+                    <i class="fas fa-layer-group" style="color: #0084ff;"></i>
+                    <span>RC Techno</span> Admin
+                </div>
+                <p>Enter administrator credentials to manage internship applications, inquiries, and platform records.</p>
+
+                <div id="loginError" style="display: none; background: #fee2e2; color: #b91c1c; padding: 10px; border-radius: 8px; font-size: 0.85rem; margin-bottom: 16px;"></div>
+
+                <form id="adminLoginForm" class="login-form">
+                    <input type="text" id="adminUser" placeholder="Username / Email" value="admin@rctechnosolutions.com" required />
+                    <input type="password" id="adminPass" placeholder="Password" value="Admin@RC2026!" required />
+                    <button type="submit" class="btn-login"><i class="fas fa-lock"></i> Secure Sign In</button>
+                </form>
+                <div style="margin-top: 14px; font-size: 0.76rem; color: #94a3b8;">
+                    Protected PostgreSQL-backed Administration Portal &bull; RC Techno Solutions
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Main Admin Dashboard -->
+        <div id="adminDashboard">
+            <aside class="admin-sidebar">
+                <a href="/" class="sidebar-brand">
+                    <i class="fas fa-layer-group" style="color: #38bdf8;"></i>
+                    <span>RC Techno</span>
+                </a>
+
+                <ul class="sidebar-nav">
+                    <li><a href="#internships" class="nav-item active" onclick="switchTab('internships')"><i class="fas fa-user-graduate"></i> Internship Apps</a></li>
+                    <li><a href="#enquiries" class="nav-item" onclick="switchTab('enquiries')"><i class="fas fa-envelope-open-text"></i> Client Inquiries</a></li>
+                    <li><a href="#chatleads" class="nav-item" onclick="switchTab('chatleads')"><i class="fas fa-comments"></i> Chatbot Leads</a></li>
+                    <li><a href="#batches" class="nav-item" onclick="switchTab('batches')"><i class="fas fa-calendar-check"></i> Batches &amp; Progress</a></li>
+                    <li><a href="#system" class="nav-item" onclick="switchTab('system')"><i class="fas fa-database"></i> Database &amp; System</a></li>
+                </ul>
+
+                <div class="sidebar-footer">
+                    <button class="btn-logout" onclick="logoutAdmin()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+                </div>
+            </aside>
+
+            <main class="admin-main">
+                <div class="admin-topbar">
+                    <div class="topbar-title">
+                        <h2 id="topbarHeader">Internship Applications Management</h2>
+                    </div>
+                    <div class="topbar-user">
+                        <span class="topbar-badge"><i class="fas fa-shield-alt"></i> Super Admin</span>
+                        <span style="font-size: 0.88rem; font-weight: 600;">Ratan Chaurasiya</span>
+                    </div>
+                </div>
+
+                <div class="admin-body">
+                    <!-- Metrics Bar -->
+                    <div class="metrics-grid">
+                        <div class="metric-box">
+                            <div class="metric-info">
+                                <h5>Total Applications</h5>
+                                <h3 id="statTotalApps">0</h3>
+                            </div>
+                            <div class="metric-icon-wrap" style="background: #e0f2fe; color: #0284c7;">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                        </div>
+
+                        <div class="metric-box">
+                            <div class="metric-info">
+                                <h5>Selected / Active</h5>
+                                <h3 id="statSelectedApps">0</h3>
+                            </div>
+                            <div class="metric-icon-wrap" style="background: #dcfce7; color: #16a34a;">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                        </div>
+
+                        <div class="metric-box">
+                            <div class="metric-info">
+                                <h5>Client Inquiries</h5>
+                                <h3 id="statTotalInquiries">0</h3>
+                            </div>
+                            <div class="metric-icon-wrap" style="background: #fef3c7; color: #d97706;">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                        </div>
+
+                        <div class="metric-box">
+                            <div class="metric-info">
+                                <h5>Chatbot Leads</h5>
+                                <h3 id="statTotalLeads">0</h3>
+                            </div>
+                            <div class="metric-icon-wrap" style="background: #ede9fe; color: #7c3aed;">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 1: Internship Applications -->
+                    <div id="tab-internships" class="tab-panel active">
+                        <div class="table-container-card">
+                            <div class="table-header-bar">
+                                <div class="table-filter-group">
+                                    <input type="text" id="searchInternship" placeholder="Search applicant, college, email..." oninput="filterInternships()" />
+                                    <select id="filterDomain" onchange="filterInternships()">
+                                        <option value="ALL">All Domains</option>
+                                        <option value="Web Development">Web Development</option>
+                                        <option value="Python Development">Python Development</option>
+                                        <option value="Full Stack Development">Full Stack Development</option>
+                                        <option value="Data Analytics">Data Analytics</option>
+                                        <option value="UI/UX Design">UI/UX Design</option>
+                                        <option value="Digital Marketing & SEO">Digital Marketing & SEO</option>
+                                    </select>
+                                    <select id="filterStatus" onchange="filterInternships()">
+                                        <option value="ALL">All Statuses</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Shortlisted">Shortlisted</option>
+                                        <option value="Selected">Selected</option>
+                                        <option value="Rejected">Rejected</option>
+                                    </select>
+                                </div>
+                                <button class="btn-action-sm btn-action-primary" onclick="loadInternships()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                            </div>
+
+                            <div style="overflow-x: auto;">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Ref ID</th>
+                                            <th>Applicant Name</th>
+                                            <th>Domain</th>
+                                            <th>College &amp; Course</th>
+                                            <th>Mobile &amp; Email</th>
+                                            <th>Resume</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="internshipTableBody">
+                                        <tr><td colspan="8" style="text-align: center; color: #94a3b8;">Loading applications...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: Client Enquiries -->
+                    <div id="tab-enquiries" class="tab-panel">
+                        <div class="table-container-card">
+                            <div class="table-header-bar">
+                                <h3>Website Contact &amp; Project Inquiries</h3>
+                                <button class="btn-action-sm btn-action-primary" onclick="loadEnquiries()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                            </div>
+                            <div style="overflow-x: auto;">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Client Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Service</th>
+                                            <th>Budget</th>
+                                            <th>Message</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="enquiryTableBody">
+                                        <tr><td colspan="7" style="text-align: center; color: #94a3b8;">Loading inquiries...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: Chatbot Leads -->
+                    <div id="tab-chatleads" class="tab-panel">
+                        <div class="table-container-card">
+                            <div class="table-header-bar">
+                                <h3>Conversational AI Chatbot Leads</h3>
+                                <button class="btn-action-sm btn-action-primary" onclick="loadChatLeads()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                            </div>
+                            <div style="overflow-x: auto;">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Time</th>
+                                            <th>Session ID</th>
+                                            <th>Visitor Contact</th>
+                                            <th>Enquiry Type</th>
+                                            <th>Last Message</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="chatLeadTableBody">
+                                        <tr><td colspan="6" style="text-align: center; color: #94a3b8;">Loading chat leads...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 4: Batches & Progress -->
+                    <div id="tab-batches" class="tab-panel">
+                        <div class="table-container-card" style="padding: 24px;">
+                            <h3 style="margin-bottom: 12px;">Active Internship Batches (2026)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 24px;">Track student milestones across the 4-week program and issue verifiable certificates.</p>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                                <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; background: #f8fafc;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                        <h4 style="font-size: 1.1rem; color: #0f172a;">Batch 2026-Alpha (Ongoing)</h4>
+                                        <span class="status-badge status-selected">Active</span>
+                                    </div>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">Duration: 30 Days &bull; Students: 24 Enrolled</p>
+                                    <div style="background: #e2e8f0; border-radius: 9999px; height: 8px; margin-bottom: 12px; overflow: hidden;">
+                                        <div style="background: #10b981; width: 65%; height: 100%;"></div>
+                                    </div>
+                                    <span style="font-size: 0.78rem; color: #475569;">Milestone: Week 3 - Live Project Development Phase</span>
+                                </div>
+
+                                <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; background: #f8fafc;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                        <h4 style="font-size: 1.1rem; color: #0f172a;">Batch 2026-Beta (Upcoming)</h4>
+                                        <span class="status-badge status-shortlisted">Admissions Open</span>
+                                    </div>
+                                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">Starts: 1st of Next Month &bull; Capacity: 30 Seats</p>
+                                    <div style="background: #e2e8f0; border-radius: 9999px; height: 8px; margin-bottom: 12px; overflow: hidden;">
+                                        <div style="background: #0084ff; width: 25%; height: 100%;"></div>
+                                    </div>
+                                    <span style="font-size: 0.78rem; color: #475569;">Milestone: Candidate Evaluation &amp; Shortlisting</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 5: Database & System -->
+                    <div id="tab-system" class="tab-panel">
+                        <div class="table-container-card" style="padding: 24px;">
+                            <h3 style="margin-bottom: 12px;">PostgreSQL Database Architecture &amp; ORM Status</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 24px;">System database connector status, relational tables, migrations, and health checks.</p>
+
+                            <div style="background: #0f172a; color: #38bdf8; padding: 20px; border-radius: 12px; font-family: monospace; font-size: 0.88rem; line-height: 1.6; margin-bottom: 20px;">
+                                <div>[Database] Engine: Relational PostgreSQL Schema via Prisma ORM</div>
+                                <div>[Entities] internship_applications, contact_enquiries, chat_sessions, chat_messages, chat_leads, admin_users</div>
+                                <div>[Connection] REST API Backend via Express.js (localhost:3000)</div>
+                                <div>[Storage] Resumes stored in /uploads/resumes with unique UUID &amp; mime verification</div>
+                                <div>[Status] Operational &bull; Ready for Cloud / Local Database Sync</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+
+        <script>
+            var allInternships = [];
+            var authToken = localStorage.getItem('rc_admin_token') || '';
+
+            // Handle login
+            document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                var u = document.getElementById('adminUser').value.trim();
+                var p = document.getElementById('adminPass').value;
+                var errDiv = document.getElementById('loginError');
+
+                fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: u, password: p })
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(res) {
+                    if (res.success && res.token) {
+                        authToken = res.token;
+                        localStorage.setItem('rc_admin_token', authToken);
+                        document.getElementById('loginView').style.display = 'none';
+                        document.getElementById('adminDashboard').style.display = 'flex';
+                        loadAllData();
+                    } else {
+                        errDiv.textContent = res.error || 'Invalid administrator credentials.';
+                        errDiv.style.display = 'block';
+                    }
+                })
+                .catch(function(err) {
+                    errDiv.textContent = 'Connection error. Ensure backend server is running.';
+                    errDiv.style.display = 'block';
+                });
+            });
+
+            // Check existing login
+            if (authToken) {
+                document.getElementById('loginView').style.display = 'none';
+                document.getElementById('adminDashboard').style.display = 'flex';
+                loadAllData();
+            }
+
+            function logoutAdmin() {
+                localStorage.removeItem('rc_admin_token');
+                window.location.reload();
+            }
+
+            function switchTab(tabId) {
+                document.querySelectorAll('.tab-panel').forEach(function(el) { el.classList.remove('active'); });
+                document.querySelectorAll('.sidebar-nav a').forEach(function(el) { el.classList.remove('active'); });
+                var target = document.getElementById('tab-' + tabId);
+                if (target) target.classList.add('active');
+                
+                var navLink = document.querySelector('.sidebar-nav a[href="#' + tabId + '"]');
+                if (navLink) navLink.classList.add('active');
+
+                var headers = {
+                    'internships': 'Internship Applications Management',
+                    'enquiries': 'Website Contact & Project Inquiries',
+                    'chatleads': 'Conversational AI Chatbot Leads',
+                    'batches': 'Batches & Student Milestones',
+                    'system': 'Database & System Configuration'
+                };
+                document.getElementById('topbarHeader').textContent = headers[tabId] || 'Admin Portal';
+            }
+
+            function loadAllData() {
+                loadInternships();
+                loadEnquiries();
+                loadChatLeads();
+            }
+
+            function loadInternships() {
+                fetch('/api/admin/internships', {
+                    headers: { 'Authorization': 'Bearer ' + authToken }
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        allInternships = data.applications || [];
+                        renderInternships(allInternships);
+                        document.getElementById('statTotalApps').textContent = allInternships.length;
+                        document.getElementById('statSelectedApps').textContent = allInternships.filter(function(a){ return a.status === 'Selected'; }).length;
+                    }
+                })
+                .catch(function(e){ console.error(e); });
+            }
+
+            function renderInternships(list) {
+                var tbody = document.getElementById('internshipTableBody');
+                if (!list.length) {
+                    tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; color: #94a3b8; padding: 24px;">No internship applications found matching your criteria.</td></tr>';
+                    return;
+                }
+                var html = '';
+                list.forEach(function(app) {
+                    var statusClass = 'status-' + (app.status || 'pending').toLowerCase();
+                    var resumeLink = app.resumeUrl ? '<a href="' + app.resumeUrl + '" target="_blank" class="btn-action-sm"><i class="fas fa-file-pdf" style="color:#ef4444;"></i> View PDF</a>' : '<span style="color:#94a3b8;">No file</span>';
+                    html += '<tr>' +
+                        '<td><strong>' + (app.referenceId || app.id) + '</strong></td>' +
+                        '<td><strong>' + app.fullName + '</strong><br><small style="color:#64748b;">Applied: ' + (app.createdAt ? new Date(app.createdAt).toLocaleDateString() : 'Recent') + '</small></td>' +
+                        '<td><span style="font-weight:600; color:#0284c7;">' + app.domain + '</span></td>' +
+                        '<td>' + (app.college || 'N/A') + '<br><small style="color:#64748b;">' + (app.course || '') + ' (' + (app.semester || '') + ')</small></td>' +
+                        '<td><i class="fas fa-phone-alt" style="font-size:11px; color:#10b981;"></i> ' + app.mobile + '<br><small><i class="fas fa-envelope" style="font-size:11px; color:#0084ff;"></i> ' + app.email + '</small></td>' +
+                        '<td>' + resumeLink + '</td>' +
+                        '<td><span class="status-badge ' + statusClass + '">' + (app.status || 'Pending') + '</span></td>' +
+                        '<td>' +
+                            '<select onchange="updateAppStatus(\'' + app.id + '\', this.value)" style="padding:4px 8px; border-radius:6px; border:1px solid #cbd5e1; font-size:0.8rem;">' +
+                                '<option value="" disabled selected>Update Status</option>' +
+                                '<option value="Pending">Pending</option>' +
+                                '<option value="Shortlisted">Shortlisted</option>' +
+                                '<option value="Selected">Selected</option>' +
+                                '<option value="Rejected">Rejected</option>' +
+                            '</select>' +
+                        '</td>' +
+                    '</tr>';
+                });
+                tbody.innerHTML = html;
+            }
+
+            function filterInternships() {
+                var search = document.getElementById('searchInternship').value.toLowerCase();
+                var domain = document.getElementById('filterDomain').value;
+                var status = document.getElementById('filterStatus').value;
+
+                var filtered = allInternships.filter(function(app) {
+                    var matchSearch = !search || 
+                        (app.fullName && app.fullName.toLowerCase().includes(search)) ||
+                        (app.email && app.email.toLowerCase().includes(search)) ||
+                        (app.college && app.college.toLowerCase().includes(search)) ||
+                        (app.referenceId && app.referenceId.toLowerCase().includes(search));
+                    var matchDomain = domain === 'ALL' || app.domain === domain;
+                    var matchStatus = status === 'ALL' || (app.status || 'Pending') === status;
+                    return matchSearch && matchDomain && matchStatus;
+                });
+                renderInternships(filtered);
+            }
+
+            function updateAppStatus(id, newStatus) {
+                if (!newStatus) return;
+                fetch('/api/admin/internships/' + id + '/status', {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + authToken
+                    },
+                    body: JSON.stringify({ status: newStatus })
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(res) {
+                    if (res.success) {
+                        loadInternships();
+                    } else {
+                        alert(res.error || 'Failed to update status.');
+                    }
+                })
+                .catch(function(e) { console.error(e); });
+            }
+
+            function loadEnquiries() {
+                fetch('/api/admin/enquiries', {
+                    headers: { 'Authorization': 'Bearer ' + authToken }
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        var list = data.enquiries || [];
+                        document.getElementById('statTotalInquiries').textContent = list.length;
+                        var tbody = document.getElementById('enquiryTableBody');
+                        if (!list.length) {
+                            tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: #94a3b8; padding: 20px;">No client inquiries recorded yet.</td></tr>';
+                            return;
+                        }
+                        var html = '';
+                        list.forEach(function(enq) {
+                            html += '<tr>' +
+                                '<td>' + (enq.createdAt ? new Date(enq.createdAt).toLocaleDateString() : 'N/A') + '</td>' +
+                                '<td><strong>' + (enq.name || 'Anonymous') + '</strong><br><small style="color:#64748b;">' + (enq.company || '') + '</small></td>' +
+                                '<td><a href="mailto:' + enq.email + '" style="color:#0084ff; text-decoration:none;">' + (enq.email || '') + '</a></td>' +
+                                '<td>' + (enq.phone || 'N/A') + '</td>' +
+                                '<td><span class="topbar-badge">' + (enq.service || 'Consultation') + '</span></td>' +
+                                '<td>' + (enq.budget || 'Custom') + '</td>' +
+                                '<td style="max-width: 250px; font-size: 0.82rem; color: #475569;">' + (enq.message || '') + '</td>' +
+                            '</tr>';
+                        });
+                        tbody.innerHTML = html;
+                    }
+                })
+                .catch(function(e){ console.error(e); });
+            }
+
+            function loadChatLeads() {
+                fetch('/api/admin/chatleads', {
+                    headers: { 'Authorization': 'Bearer ' + authToken }
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        var list = data.leads || [];
+                        document.getElementById('statTotalLeads').textContent = list.length;
+                        var tbody = document.getElementById('chatLeadTableBody');
+                        if (!list.length) {
+                            tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: #94a3b8; padding: 20px;">No chatbot leads captured yet.</td></tr>';
+                            return;
+                        }
+                        var html = '';
+                        list.forEach(function(l) {
+                            html += '<tr>' +
+                                '<td>' + (l.createdAt ? new Date(l.createdAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : 'N/A') + '</td>' +
+                                '<td><code>' + (l.sessionId || 'Session') + '</code></td>' +
+                                '<td><strong>' + (l.name || 'Visitor') + '</strong><br><small>' + (l.email || l.phone || 'Captured via Bot') + '</small></td>' +
+                                '<td><span class="status-badge status-shortlisted">' + (l.enquiryType || 'General') + '</span></td>' +
+                                '<td style="max-width:240px; font-size:0.82rem;">' + (l.lastMessage || '') + '</td>' +
+                                '<td><span class="status-badge status-selected">' + (l.status || 'Active') + '</span></td>' +
+                            '</tr>';
+                        });
+                        tbody.innerHTML = html;
+                    }
+                })
+                .catch(function(e){ console.error(e); });
+            }
+        </script>
+    </body>
+</html>

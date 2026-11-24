@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found | RC Techno Solutions</title>
+    <meta name="description" content="The page you are looking for does not exist. Explore RC Techno Solutions services, architecture, and case studies." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://rctechnosolutions.com/404" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="style.css?v=4.5" rel="stylesheet" />
+    <link href="home.css?v=4.5" rel="stylesheet" />
+    <link href="pro-enhancements.css?v=4.5" rel="stylesheet" />
+    <link href="chatbot.css?v=4.5" rel="stylesheet" />
+    <style>
+        .error-page-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 60px;
+            background: radial-gradient(circle at 50% 30%, #eff6ff 0%, #ffffff 70%);
+            text-align: center;
+        }
+        .error-card {
+            max-width: 620px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 48px 36px;
+            box-shadow: 0 20px 45px rgba(0, 132, 255, 0.08);
+        }
+        .error-badge {
+            display: inline-block;
+            background: #fee2e2;
+            color: #dc2626;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            margin-bottom: 20px;
+            letter-spacing: 0.05em;
+        }
+        .error-code {
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 1;
+            color: #0f172a;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .error-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+        .error-desc {
+            font-size: 0.98rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+        .error-actions {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-return-home {
+            background: #0084ff;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(0, 132, 255, 0.3);
+        }
+        .btn-return-home:hover {
+            background: #0070d6;
+            transform: translateY(-2px);
+        }
+        .btn-contact-support {
+            background: #ffffff;
+            color: #0f172a;
+            border: 1px solid #e2e8f0;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+        .btn-contact-support:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container nav-container">
+            <a class="logo" href="/" aria-label="RC Techno Solutions Home">
+                <span class="logo-badge"><i class="fas fa-layer-group"></i></span>
+                <span class="brand-text">RC <span>Techno</span></span>
+                <span class="brand-studio">Enterprise</span>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="/">Home</a></li>
+                    <li><a class="nav-link" href="/services">Services</a></li>
+                    <li><a class="nav-link" href="/work">Work</a></li>
+                    <li><a class="nav-link" href="/architecture">Architecture</a></li>
+                    <li><a class="nav-link" href="/about">About</a></li>
+                    <li><a class="nav-link" href="/faq">FAQ</a></li>
+                </ul>
+
+                <div class="mobile-nav-actions">
+                    <a class="btn-nav-nda" href="/nda"><i class="fas fa-file-shield"></i> Instant NDA</a>
+                    <a class="btn-nav-cta" href="/contact"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </nav>
+            <div class="nav-actions">
+                <a class="btn-nav-nda" href="/nda" title="Fast-Track Mutual NDA"><i class="fas fa-file-shield"></i> Instant NDA</a>
+                <a class="btn-nav-cta" href="/contact"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
+                <button id="heroSoundToggle" class="hero-sound-toggle" aria-label="Toggle Voice Assistant" title="Toggle Voice Assistant">
+                    <span class="sound-wave-anim active"><span></span><span></span><span></span><span></span></span>
+                    <span class="sound-text">Voice: ON</span>
+                </button>
+                <button class="hamburger" aria-label="Toggle navigation" type="button"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="error-page-section">
+        <div class="error-card">
+            <div class="error-badge">RESOURCE NOT FOUND</div>
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page Does Not Exist</h1>
+            <p class="error-desc">
+                The resource or URL you requested could not be located on RC Techno Solutions. The page may have been moved, renamed, or is temporarily unavailable.
+            </p>
+            <div class="error-actions">
+                <a href="/" class="btn-return-home">
+                    <i class="fas fa-home"></i> Return to Homepage
+                </a>
+                <a href="/contact" class="btn-contact-support">
+                    <i class="fas fa-headset"></i> Contact Engineering
+                </a>
+            </div>
+        </div>
+    </main>
+
+        <footer class="footer-new">
+            <div class="container">
+                <div class="footer-top-grid">
+                    <div class="footer-col-brand">
+                        <a class="footer-logo-link" href="/">
+                            <span class="footer-logo-box"><i class="fas fa-layer-group"></i></span>
+                            <span class="footer-logo-text">RC <span>Techno</span></span>
+                        </a>
+                        <p class="footer-brand-desc">Building modern, scalable, and secure digital solutions for tomorrow's businesses.</p>
+                        <div class="footer-social-row">
+                            <a href="https://www.linkedin.com/in/ratan-codespace" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Ratanchaurasiya" target="_blank" rel="noopener" aria-label="GitHub" class="social-circle"><i class="fab fa-github"></i></a>
+                            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="social-circle"><i class="fab fa-youtube"></i></a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" class="social-circle"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col-links">
+                        <h4 class="footer-col-title"><i class="fas fa-rocket title-icon"></i> Quick Links</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="/"><i class="fas fa-chevron-right arrow-icon"></i> Home</a></li>
+                            <li><a href="/about"><i class="fas fa-chevron-right arrow-icon"></i> About Us</a></li>
+                            <li><a href="/work"><i class="fas fa-chevron-right arrow-icon"></i> Portfolio</a></li>
+                            <li><a href="/architecture"><i class="fas fa-chevron-right arrow-icon"></i> Architecture</a></li>
+                            <li><a href="/faq"><i class="fas fa-chevron-right arrow-icon"></i> FAQ</a></li>
+                            <li><a href="/contact"><i class="fas fa-chevron-right arrow-icon"></i> Contact</a></li>
+                            <li><a href="/terms"><i class="fas fa-chevron-right arrow-icon"></i> Terms &amp; Conditions</a></li>
+                            <li><a href="/privacy"><i class="fas fa-chevron-right arrow-icon"></i> Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col-links">
+                        <h4 class="footer-col-title"><i class="fas fa-cog title-icon"></i> Services</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="/service-website-development"><i class="fas fa-chevron-right arrow-icon"></i> Web Development</a></li>
+                            <li><a href="/service-web-app-development"><i class="fas fa-chevron-right arrow-icon"></i> App Development</a></li>
+                            <li><a href="/service-custom-software"><i class="fas fa-chevron-right arrow-icon"></i> Custom Software</a></li>
+                            <li><a href="/service-ai-agents"><i class="fas fa-chevron-right arrow-icon"></i> AI Agents &amp; LLMs</a></li>
+                            <li><a href="/service-cloud-deployment"><i class="fas fa-chevron-right arrow-icon"></i> Cloud Solutions</a></li>
+                            <li><a href="/service-security"><i class="fas fa-chevron-right arrow-icon"></i> Cybersecurity</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col-contact">
+                        <h4 class="footer-col-title"><i class="fas fa-envelope title-icon"></i> Contact Info</h4>
+                        <div class="footer-contact-item"><i class="fas fa-map-marker-alt contact-pin-icon"></i><span>Vastral Gam, Ahmedabad</span></div>
+                        <div class="footer-contact-item"><i class="fas fa-envelope contact-pin-icon"></i><a href="mailto:ratanchaurasiya61@gmail.com">ratanchaurasiya61@gmail.com</a></div>
+                        <div class="footer-contact-item"><i class="fas fa-phone-alt contact-pin-icon"></i><a href="tel:+916390035039">+91 63900 35039</a></div>
+                        <div class="footer-contact-item"><i class="fas fa-globe contact-pin-icon"></i><a href="https://rctechnosolutions.com" target="_blank" rel="noopener">rctechnosolutions.com</a></div>
+                        <div class="footer-contact-item"><i class="fab fa-whatsapp contact-pin-icon" style="color: #25d366;"></i><a href="https://wa.me/916390035039?text=Hi%20RC%20Techno,%20I'd%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener">WhatsApp Chat</a></div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom-bar">
+                    <p>&copy; 2026 RC Techno Solutions. All Rights Reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy">Privacy Policy</a> &bull; 
+                        <a href="/terms">Terms &amp; Conditions</a> &bull; 
+                        <a href="/nda">Instant NDA</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <script src="script.js?v=4.5"></script>
+    <script src="chatbot.js?v=4.5"></script>
+</body>
+</html>

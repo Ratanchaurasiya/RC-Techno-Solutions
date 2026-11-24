@@ -1,0 +1,513 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta name="description" content="Contact RC Techno Solutions. Schedule a technical consultation, request an enterprise software estimate, or inquire about custom web development, cloud solutions, and AI agents." />
+        <title>Contact Us | RC Techno Solutions - Engineering Consultation &amp; Inquiries</title>
+        <link rel="canonical" href="https://rctechnosolutions.com/contact" />
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Contact Us | RC Techno Solutions" />
+        <meta property="og:description" content="Connect with senior software architects. Get an accurate project estimate, architecture roadmap, and fast-track mutual NDA." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://rctechnosolutions.com/contact" />
+
+        <!-- Fonts & Styles -->
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+        <link href="style.css?v=4.5" rel="stylesheet" />
+        <link href="home.css?v=4.5" rel="stylesheet" />
+        <link href="responsive-core.css?v=4.5" rel="stylesheet" />
+        <link href="contact.css?v=4.5" rel="stylesheet" />
+        <link href="pro-enhancements.css?v=4.5" rel="stylesheet" />
+        <link href="chatbot.css?v=4.5" rel="stylesheet" />
+
+        <style>
+            .contact-page-hero {
+                padding: 130px 20px 40px;
+                background: radial-gradient(circle at 50% 20%, #eff6ff 0%, #ffffff 80%);
+                text-align: center;
+            }
+            .contact-hero-pill {
+                display: inline-block;
+                background: #e0f2fe;
+                color: #0284c7;
+                font-weight: 700;
+                font-size: 0.8rem;
+                letter-spacing: 0.06em;
+                padding: 6px 18px;
+                border-radius: 9999px;
+                margin-bottom: 20px;
+            }
+            .contact-page-hero h1 {
+                font-size: clamp(2rem, 3.8vw, 3.2rem);
+                font-weight: 800;
+                color: #0f172a;
+                line-height: 1.2;
+                margin-bottom: 18px;
+            }
+            .contact-page-hero h1 span {
+                color: #0084ff;
+            }
+            .contact-page-hero p {
+                max-width: 760px;
+                margin: 0 auto 30px;
+                font-size: 1.05rem;
+                color: #475569;
+                line-height: 1.7;
+            }
+            .contact-main-grid {
+                display: grid;
+                grid-template-columns: 420px 1fr;
+                gap: 40px;
+                max-width: 1200px;
+                margin: 0 auto;
+                align-items: start;
+            }
+            @media (max-width: 960px) {
+                .contact-main-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .contact-info-panel {
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 20px;
+                padding: 36px 30px;
+                box-shadow: 0 6px 24px rgba(0, 132, 255, 0.04);
+            }
+            .contact-info-panel h3 {
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: #0f172a;
+                margin-bottom: 12px;
+            }
+            .contact-info-panel p {
+                font-size: 0.94rem;
+                color: #64748b;
+                line-height: 1.6;
+                margin-bottom: 28px;
+            }
+            .contact-detail-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+            .contact-detail-icon {
+                width: 34px;
+                height: 34px;
+                border-radius: 8px;
+                background: #eff6ff;
+                color: #0084ff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.95rem;
+                flex-shrink: 0;
+            }
+            .contact-detail-text h4 {
+                font-size: 0.92rem;
+                font-weight: 700;
+                color: #0f172a;
+                margin: 0 0 2px;
+            }
+            .contact-detail-text p,
+            .contact-detail-text a {
+                font-size: 0.84rem;
+                color: #475569;
+                text-decoration: none;
+                margin: 0;
+                transition: color 0.2s;
+            }
+            .contact-detail-text a:hover {
+                color: #0084ff;
+            }
+            .consultation-cta-card {
+                background: #eff6ff;
+                border: 1px solid #bfdbfe;
+                border-radius: 10px;
+                padding: 14px 16px;
+                margin-top: 20px;
+            }
+            .consultation-cta-card h4 {
+                font-size: 0.92rem;
+                font-weight: 700;
+                color: #1e3a8a;
+                margin: 0 0 4px;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .consultation-cta-card p {
+                font-size: 0.80rem;
+                color: #3b82f6;
+                margin: 0 0 10px;
+                line-height: 1.45;
+            }
+            .btn-book-consultation {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: #0084ff;
+                color: #ffffff;
+                font-size: 0.88rem;
+                font-weight: 600;
+                padding: 10px 18px;
+                border-radius: 8px;
+                text-decoration: none;
+                transition: background 0.2s;
+            }
+            .btn-book-consultation:hover {
+                background: #0056b3;
+            }
+            .contact-form-panel {
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 20px;
+                padding: 40px 36px;
+                box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+            }
+            .form-grid-2col {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            @media (max-width: 600px) {
+                .form-grid-2col {
+                    grid-template-columns: 1fr;
+                }
+            }
+            @media (max-width: 480px) {
+                .contact-info-panel,
+                .contact-form-panel {
+                    padding: 24px 16px !important;
+                }
+            }
+            .form-field-group {
+                margin-bottom: 20px;
+            }
+            .form-field-group label {
+                display: block;
+                font-size: 0.86rem;
+                font-weight: 600;
+                color: #334155;
+                margin-bottom: 6px;
+            }
+            .form-field-group input,
+            .form-field-group select,
+            .form-field-group textarea {
+                width: 100%;
+                padding: 13px 16px;
+                border: 1px solid #cbd5e1;
+                border-radius: 10px;
+                font-size: 0.94rem;
+                color: #0f172a;
+                outline: none;
+                box-sizing: border-box;
+                font-family: inherit;
+                transition: border-color 0.2s, box-shadow 0.2s;
+                background: #ffffff;
+            }
+            .form-field-group input:focus,
+            .form-field-group select:focus,
+            .form-field-group textarea:focus {
+                border-color: #0084ff;
+                box-shadow: 0 0 0 3px rgba(0, 132, 255, 0.12);
+            }
+            .contact-map-container {
+                max-width: 1200px;
+                margin: 60px auto 0;
+                border-radius: 20px;
+                overflow: hidden;
+                border: 1px solid #e2e8f0;
+                box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="preloader"><div class="loader-circle"></div></div>
+
+        <!-- Global Header -->
+        <header id="header">
+            <div class="container nav-container">
+                <a class="logo" href="/" aria-label="RC Techno Solutions Home">
+                    <span class="logo-badge"><i class="fas fa-layer-group"></i></span>
+                    <span class="brand-text">RC <span>Techno</span></span>
+                    <span class="brand-studio">Enterprise</span>
+                </a>
+
+                <nav class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li><a class="nav-link" href="/">Home</a></li>
+                        <li><a class="nav-link" href="/services">Services</a></li>
+                        <li><a class="nav-link" href="/work">Work</a></li>
+                        <li><a class="nav-link" href="/architecture">Architecture</a></li>
+                        <li><a class="nav-link" href="/about">About</a></li>
+                        <li><a class="nav-link" href="/faq">FAQ</a></li>
+                    </ul>
+
+                    <div class="mobile-nav-actions">
+                        <a class="btn-nav-nda" href="/nda"><i class="fas fa-file-shield"></i> Instant NDA</a>
+                        <a class="btn-nav-cta active" href="/contact"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </nav>
+
+                <div class="nav-actions">
+                    <a class="btn-nav-nda" href="/nda" title="Fast-Track Mutual NDA"><i class="fas fa-file-shield"></i> Instant NDA</a>
+                    <a class="btn-nav-cta active" href="/contact"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
+                    <button id="heroSoundToggle" class="hero-sound-toggle" aria-label="Toggle Voice Assistant" title="Toggle Voice Assistant">
+                        <span class="sound-wave-anim active"><span></span><span></span><span></span><span></span></span>
+                        <span class="sound-text">Voice: ON</span>
+                    </button>
+                    <button class="hamburger" aria-label="Toggle navigation" type="button"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero -->
+            <section class="contact-page-hero">
+                <div class="container">
+                    <div class="contact-hero-pill">GET IN TOUCH</div>
+                    <h1>Let's Engineer Your <span data-typewriter='["Next Project","Vision","Goals","Success"]' data-typewriter-speed="70">Next Project</span></h1>
+                    <p>
+                        Speak directly with our senior software architects. Request a technical quote, schedule a consultation, or execute an instant bilateral mutual NDA.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Main Contact Section -->
+            <section class="section" style="padding-top: 0;">
+                <div class="container">
+                    <div class="contact-main-grid">
+
+                        <!-- Left Column: Direct Contact Info & Consultation Booking -->
+                        <div class="contact-info-panel reveal">
+                            <h3>Contact Information</h3>
+                            <p>We are ready to assist you. Reach out via email, phone, or instant WhatsApp chat.</p>
+
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="contact-detail-text">
+                                    <h4>Office Location</h4>
+                                    <p>Vastral Gam, Ahmedabad, Gujarat 382418, India</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+                                <div class="contact-detail-text">
+                                    <h4>Email Address</h4>
+                                    <p><a href="mailto:ratanchaurasiya61@gmail.com">ratanchaurasiya61@gmail.com</a></p>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div class="contact-detail-text">
+                                    <h4>Direct Phone</h4>
+                                    <p><a href="tel:+916390035039">+91 63900 35039</a></p>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon" style="color: #25d366; background: #dcfce7;"><i class="fab fa-whatsapp"></i></div>
+                                <div class="contact-detail-text">
+                                    <h4>WhatsApp Direct Chat</h4>
+                                    <p><a href="https://wa.me/916390035039?text=Hello!%20I%20would%20like%20to%20discuss%20a%20software%20engineering%20project." target="_blank" rel="noopener">+91 63900 35039 (Fast Response)</a></p>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
+                                <div class="contact-detail-text">
+                                    <h4>Business Hours</h4>
+                                    <p>Monday &ndash; Saturday: 9:00 AM &ndash; 7:00 PM IST<br>Emergency SLA Pods: 24/7 Support</p>
+                                </div>
+                            </div>
+
+                                                        <div class="contact-detail-item">
+                                <div class="contact-detail-icon" style="color: #0a66c2; background: #e0f2fe;"><i class="fab fa-linkedin-in"></i></div>
+                                <div class="contact-detail-text">
+                                    <h4>LinkedIn Profile</h4>
+                                    <p><a href="https://www.linkedin.com/in/ratan-codespace" target="_blank" rel="noopener">www.linkedin.com/in/ratan-codespace</a></p>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon" style="color: #24292e; background: #f1f5f9;"><i class="fab fa-github"></i></div>
+                                <div class="contact-detail-text">
+                                    <h4>GitHub Portfolio</h4>
+                                    <p><a href="https://github.com/Ratanchaurasiya" target="_blank" rel="noopener">github.com/Ratanchaurasiya</a></p>
+                                </div>
+                            </div>
+
+                            <!-- Consultation Booking CTA -->
+                            <div class="consultation-cta-card">
+                                <h4><i class="fas fa-calendar-check"></i> Free Technical Consultation</h4>
+                                <p>Book a dedicated 20-minute architecture review session with our lead software architect.</p>
+                                <a href="https://wa.me/916390035039?text=Hi%20RC%20Techno,%20I'd%20like%20to%20schedule%20a%20technical%20consultation" target="_blank" rel="noopener" class="btn-book-consultation">
+                                    <i class="fas fa-calendar-plus"></i> Schedule Consultation
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Interactive Contact Form -->
+                        <div class="contact-form-panel reveal delay-1">
+                            <form class="contact-form" id="contactForm" novalidate>
+                                <!-- Anti-spam Honeypot (hidden from human users) -->
+                                <input type="text" name="website_trap" id="website_trap" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                                <div class="form-grid-2col">
+                                    <div class="form-field-group">
+                                        <label for="contactName">Your Full Name *</label>
+                                        <input type="text" id="contactName" name="name" placeholder="John Doe" required autocomplete="name" />
+                                    </div>
+                                    <div class="form-field-group">
+                                        <label for="contactEmail">Work Email *</label>
+                                        <input type="email" id="contactEmail" name="email" placeholder="john@company.com" required autocomplete="email" />
+                                    </div>
+                                </div>
+
+                                <div class="form-grid-2col">
+                                    <div class="form-field-group">
+                                        <label for="contactPhone">Phone Number</label>
+                                        <input type="tel" id="contactPhone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel" />
+                                    </div>
+                                    <div class="form-field-group">
+                                        <label for="contactCompany">Company / Organization</label>
+                                        <input type="text" id="contactCompany" name="company" placeholder="Acme Inc." autocomplete="organization" />
+                                    </div>
+                                </div>
+
+                                <div class="form-grid-2col">
+                                    <div class="form-field-group">
+                                        <label for="contactService">Service Required *</label>
+                                        <select id="contactService" name="service" required>
+                                            <option value="" disabled selected>Select a Service</option>
+                                            <option value="Website Development">Website Development</option>
+                                            <option value="Web Application Development">Web Application Development</option>
+                                            <option value="Custom Software Development">Custom Software Development</option>
+                                            <option value="E-Commerce Development">E-Commerce Development</option>
+                                            <option value="Enterprise Software Solutions">Enterprise Software Solutions</option>
+                                            <option value="AI Integration & Automation">AI Integration & Automation</option>
+                                            <option value="AI Agents & LLM Workflows">AI Agents & LLM Workflows</option>
+                                            <option value="Data Analytics & Dashboards">Data Analytics & Dashboards</option>
+                                            <option value="Database Design">Database Design</option>
+                                            <option value="Business Management Systems">Business Management Systems</option>
+                                            <option value="API Development & Integration">API Development & Integration</option>
+                                            <option value="Cloud Solutions">Cloud Solutions</option>
+                                            <option value="Cybersecurity">Cybersecurity</option>
+                                            <option value="Technical Consulting">Technical Consulting</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-field-group">
+                                        <label for="contactBudget">Project Budget (Optional)</label>
+                                        <select id="contactBudget" name="budget">
+                                            <option value="" selected>Select Budget Range</option>
+                                            <option value="Under $5,000">Under $5,000</option>
+                                            <option value="$5,000 - $15,000">$5,000 &ndash; $15,000</option>
+                                            <option value="$15,000 - $50,000">$15,000 &ndash; $50,000</option>
+                                            <option value="$50,000+">$50,000+</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-field-group">
+                                    <label for="contactMessage">Project Description &amp; Technical Requirements *</label>
+                                    <textarea id="contactMessage" name="message" rows="5" placeholder="Describe your product vision, target timeline, technical preferences, or specific business problems to solve..." required></textarea>
+                                </div>
+
+                                <!-- Dynamic Feedback Status Box -->
+                                <div id="contactFormStatus" style="display:none; margin-bottom: 20px; padding: 14px 18px; border-radius: 10px; font-size: 0.92rem; font-weight: 500;"></div>
+
+                                <button type="submit" id="contactSubmitBtn" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1rem; border-radius: 10px; cursor: pointer;">
+                                    <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Submit Enquiry
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Map Embed -->
+                    <div class="contact-map-container reveal delay-2">
+                        <iframe title="RC Techno Solutions Location" allowfullscreen height="360" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Vastral+Gam,+Ahmedabad&hl=en&z=14&output=embed" style="border:0;" width="100%"></iframe>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Global Enterprise Footer -->
+        <footer class="footer-new">
+            <div class="container">
+                <div class="footer-top-grid">
+                    <div class="footer-col-brand">
+                        <a class="footer-logo-link" href="/">
+                            <span class="footer-logo-box"><i class="fas fa-layer-group"></i></span>
+                            <span class="footer-logo-text">RC <span>Techno</span></span>
+                        </a>
+                        <p class="footer-brand-desc">Building modern, scalable, and secure digital solutions for tomorrow's businesses.</p>
+                        <div class="footer-social-row">
+                            <a href="https://www.linkedin.com/in/ratan-codespace" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Ratanchaurasiya" target="_blank" rel="noopener" aria-label="GitHub" class="social-circle"><i class="fab fa-github"></i></a>
+                            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="social-circle"><i class="fab fa-youtube"></i></a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" class="social-circle"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col-links">
+                        <h4 class="footer-col-title"><i class="fas fa-rocket title-icon"></i> Quick Links</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="/"><i class="fas fa-chevron-right arrow-icon"></i> Home</a></li>
+                            <li><a href="/about"><i class="fas fa-chevron-right arrow-icon"></i> About Us</a></li>
+                            <li><a href="/gallery"><i class="fas fa-chevron-right arrow-icon"></i> Office Gallery</a></li>
+                            <li><a href="/work"><i class="fas fa-chevron-right arrow-icon"></i> Portfolio</a></li>
+                            <li><a href="/architecture"><i class="fas fa-chevron-right arrow-icon"></i> Architecture</a></li>
+                            <li><a href="/faq"><i class="fas fa-chevron-right arrow-icon"></i> FAQ</a></li>
+                            <li><a href="/contact"><i class="fas fa-chevron-right arrow-icon"></i> Contact</a></li>
+                            <li><a href="/terms"><i class="fas fa-chevron-right arrow-icon"></i> Terms &amp; Conditions</a></li>
+                            <li><a href="/privacy"><i class="fas fa-chevron-right arrow-icon"></i> Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col-links">
+                        <h4 class="footer-col-title"><i class="fas fa-cog title-icon"></i> Services</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="/service-website-development"><i class="fas fa-chevron-right arrow-icon"></i> Web Development</a></li>
+                            <li><a href="/service-web-app-development"><i class="fas fa-chevron-right arrow-icon"></i> App Development</a></li>
+                            <li><a href="/service-custom-software"><i class="fas fa-chevron-right arrow-icon"></i> Custom Software</a></li>
+                            <li><a href="/service-ai-agents"><i class="fas fa-chevron-right arrow-icon"></i> AI Agents &amp; LLMs</a></li>
+                            <li><a href="/service-cloud-deployment"><i class="fas fa-chevron-right arrow-icon"></i> Cloud Solutions</a></li>
+                            <li><a href="/service-security"><i class="fas fa-chevron-right arrow-icon"></i> Cybersecurity</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col-contact">
+                        <h4 class="footer-col-title"><i class="fas fa-envelope title-icon"></i> Contact Info</h4>
+                        <div class="footer-contact-item"><i class="fas fa-map-marker-alt contact-pin-icon"></i><span>Vastral Gam, Ahmedabad</span></div>
+                        <div class="footer-contact-item"><i class="fas fa-envelope contact-pin-icon"></i><a href="mailto:ratanchaurasiya61@gmail.com">ratanchaurasiya61@gmail.com</a></div>
+                        <div class="footer-contact-item"><i class="fas fa-phone-alt contact-pin-icon"></i><a href="tel:+916390035039">+91 63900 35039</a></div>
+                        <div class="footer-contact-item"><i class="fas fa-globe contact-pin-icon"></i><a href="https://rctechnosolutions.com" target="_blank" rel="noopener">rctechnosolutions.com</a></div>
+                        <div class="footer-contact-item"><i class="fab fa-whatsapp contact-pin-icon" style="color: #25d366;"></i><a href="https://wa.me/916390035039?text=Hi%20RC%20Techno,%20I'd%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener">WhatsApp Chat</a></div>
+                    </div></div>
+
+                                <div class="footer-bottom-bar">
+                    <p>&copy; 2026 RC Techno Solutions. All Rights Reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy">Privacy Policy</a> &bull; 
+                        <a href="/terms">Terms &amp; Conditions</a> &bull; 
+                        <a href="/nda">Instant NDA</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="typewriter.js?v=1.0"></script>
+        <script src="script.js?v=4.5"></script>
+        <script src="nirvana-interactive.js?v=2.6"></script>
+        <script src="chatbot.js?v=4.5"></script>
+    </body>
+</html>

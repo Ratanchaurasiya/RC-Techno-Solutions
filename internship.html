@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta name="description" content="1-Month Practical Skill-Based Internship Program by RC Techno Solutions. Real-world projects, live industry mentorship, and verifiable completion certificate for college students and freshers." />
+        <title>1-Month Internship Program | RC Techno Solutions - College Students &amp; Freshers</title>
+        <link rel="canonical" href="https://rctechnosolutions.com/internship" />
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="1-Month Practical Internship Program | RC Techno Solutions" />
+        <meta property="og:description" content="Launch your tech career with a 30-day practical internship. Web Development, Python, Full Stack, Data Analytics, UI/UX, and Digital Marketing." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://rctechnosolutions.com/internship" />
+
+        <!-- Fonts & Styles -->
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+        <link href="style.css?v=4.5" rel="stylesheet" />
+        <link href="home.css?v=4.5" rel="stylesheet" />
+        <link href="responsive-core.css?v=4.5" rel="stylesheet" />
+        <link href="pro-enhancements.css?v=4.5" rel="stylesheet" />
+        <link href="chatbot.css?v=4.5" rel="stylesheet" />
+
+        <style>
+            .internship-hero {
+                padding: 125px 20px 48px;
+                background: radial-gradient(circle at 50% 20%, #eff6ff 0%, #ffffff 80%);
+                text-align: center;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            .internship-badge-top {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: #dcfce7;
+                border: 1px solid #86efac;
+                color: #15803d;
+                font-size: 0.8rem;
+                font-weight: 800;
+                padding: 6px 18px;
+                border-radius: 9999px;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-bottom: 18px;
+            }
+            .internship-hero h1 {
+                font-family: 'Outfit', sans-serif;
+                font-size: clamp(2rem, 3.8vw, 3.2rem);
+                font-weight: 800;
+                color: #0f172a;
+                line-height: 1.2;
+                margin-bottom: 18px;
+                letter-spacing: -0.025em;
+            }
+            .internship-hero h1 span {
+                color: #0084ff;
+            }
+            .internship-hero p {
+                max-width: 780px;
+                margin: 0 auto 30px;
+                font-size: 1.05rem;
+                color: #475569;
+                line-height: 1.7;
+            }
+            .internship-quick-strip {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 24px;
+                flex-wrap: wrap;
+                margin-bottom: 32px;
+            }
+            .iqs-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: #334155;
+                background: #ffffff;
+                padding: 8px 16px;
+                border-radius: 9999px;
+                border: 1px solid #e2e8f0;
+                box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+            }
+            .iqs-item i {
+                color: #0084ff;
+            }
+            .internship-hero-ctas {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 16px;
+                flex-wrap: wrap;
+            }
+            .btn-cta-apply {
+                background: #0084ff;
+                color: #ffffff;
+                font-weight: 700;
+                font-size: 0.95rem;
+                padding: 13px 28px;
+                border-radius: 10px;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                box-shadow: 0 4px 14px rgba(0, 132, 255, 0.35);
+                transition: transform 0.2s, background 0.2s;
+            }
+            .btn-cta-apply:hover {
+                background: #006dd4;
+                transform: translateY(-2px);
+            }
+            .btn-cta-explore {
+                background: #ffffff;
+                color: #0f172a;
+                border: 1.5px solid #cbd5e1;
+                font-weight: 700;
+                font-size: 0.95rem;
+                padding: 12px 24px;
+                border-radius: 10px;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                transition: border-color 0.2s, color 0.2s;
+            }
+            .btn-cta-explore:hover {
+                border-color: #0084ff;
+                color: #0084ff;
+            }
+
+            /* Overview Meta Cards */
+            .internship-overview-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 20px;
+                max-width: 1200px;
+                margin: -30px auto 60px;
+                padding: 0 20px;
+                position: relative;
+                z-index: 10;
+            }
+            .io-card {
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 14px;
+                padding: 22px;
+                box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+                display: flex;
+                align-items: flex-start;
+                gap: 14px;
+            }
+            .io-icon {
+                width: 44px;
+                height: 44px;
+                border-radius: 10px;
+                background: #eff6ff;
+                color: #0084ff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                flex-shrink: 0;
+            }
+            .io-info h4 {
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: #64748b;
+                margin: 0 0 4px 0;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+            }
+            .io-info p {
+                font-size: 1.05rem;
+                font-weight: 700;
+                color: #0f172a;
+                margin: 0;
+            }
+
+            /* Domains Section */
+            .domain-cards-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 24px;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+            @media (max-width: 480px) {
+                .domain-cards-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .domain-card {
+                background: #ffffff;
+                border: 1.5px solid #e2e8f0;
+                border-radius: 16px;
+                padding: 28px;
+                box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+            }
+            .domain-card:hover {
+                transform: translateY(-5px);
+                border-color: #0084ff;
+                box-shadow: 0 14px 34px rgba(0, 132, 255, 0.12);
+            }
+            .domain-icon-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 18px;
+            }
+            .domain-icon {
+                width: 52px;
+                height: 52px;
+                border-radius: 14px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.45rem;
+            }
+            .domain-tag {
+                font-size: 0.72rem;
+                font-weight: 700;
+                padding: 3px 10px;
+                border-radius: 9999px;
+                text-transform: uppercase;
+            }
+            .domain-card h3 {
+                font-size: 1.25rem;
+                font-weight: 800;
+                color: #0f172a;
+                margin: 0 0 8px 0;
+            }
+            .domain-card p {
+                font-size: 0.9rem;
+                color: #64748b;
+                line-height: 1.5;
+                margin-bottom: 18px;
+            }
+            .domain-features-list {
+                list-style: none;
+                padding: 0;
+                margin: 0 0 24px 0;
+            }
+            .domain-features-list li {
+                font-size: 0.85rem;
+                color: #334155;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 8px;
+            }
+            .domain-features-list li i {
+                color: #22c55e;
+                font-size: 0.85rem;
+            }
+            .domain-card-btn {
+                background: #f8fafc;
+                border: 1px solid #cbd5e1;
+                color: #0f172a;
+                font-size: 0.88rem;
+                font-weight: 700;
+                padding: 10px 18px;
+                border-radius: 8px;
+                text-align: center;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                transition: background 0.2s, color 0.2s, border-color 0.2s;
+            }
+            .domain-card-btn:hover {
+                background: #0084ff;
+                border-color: #0084ff;
+                color: #ffffff;
+            }
+
+            /* Roadmap / Structure */
+            .roadmap-timeline-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 20px;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+            .roadmap-card {
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 16px;
+                padding: 24px;
+                position: relative;
+                box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+            }
+            .roadmap-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 24px;
+                right: 24px;
+                height: 4px;
+                border-radius: 4px;
+            }
+            .rm-w1::before { background: #0084ff; }
+            .rm-w2::before { background: #10b981; }
+            .rm-w3::before { background: #f59e0b; }
+            .rm-w4::before { background: #8b5cf6; }
+
+            .roadmap-card-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 8px;
+                margin-bottom: 12px;
+            }
+            .roadmap-week-badge {
+                font-size: 0.75rem;
+                font-weight: 800;
+                padding: 3px 10px;
+                border-radius: 6px;
+                text-transform: uppercase;
+            }
+            .rm-w1 .roadmap-week-badge { background: #eff6ff; color: #0084ff; }
+            .rm-w2 .roadmap-week-badge { background: #dcfce7; color: #15803d; }
+            .rm-w3 .roadmap-week-badge { background: #fef3c7; color: #b45309; }
+            .rm-w4 .roadmap-week-badge { background: #ede9fe; color: #6d28d9; }
+
+            .roadmap-card h4 {
+                font-size: 1.15rem;
+                font-weight: 800;
+                color: #0f172a;
+                margin: 0 0 8px 0;
+            }
+            .roadmap-card p {
+                font-size: 0.88rem;
+                color: #64748b;
+                line-height: 1.6;
+                margin: 0;
+            }
+
+            /* Benefits Grid */
+            .benefits-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 22px;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+            .benefit-item {
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 14px;
+                padding: 22px;
+                display: flex;
+                align-items: flex-start;
+                gap: 16px;
+                box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
+            }
+            .benefit-icon {
+                width: 44px;
+                height: 44px;
+                border-radius: 12px;
+                background: #eff6ff;
+                color: #0084ff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.25rem;
+                flex-shrink: 0;
+            }
+            .benefit-content h4 {
+                font-size: 1rem;
+                font-weight: 700;
+                color: #0f172a;
+                margin: 0 0 6px 0;
+            }
+            .benefit-content p {
+                font-size: 0.86rem;
+                color: #64748b;
+                line-height: 1.5;
+                margin: 0;
+            }
+
+            /* Application Form Section */
+            .application-form-wrapper {
+                background: #ffffff;
+                border: 1.5px solid #bfdbfe;
+                border-radius: 20px;
+                padding: 44px 38px;
+                max-width: 860px;
+                margin: 0 auto;
+                box-shadow: 0 12px 40px rgba(0, 132, 255, 0.08);
+            }
+            @media (max-width: 600px) {
+                .application-form-wrapper {
+                    padding: 28px 18px;
+                }
+            }
+            .form-grid-2 {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+            }
+            @media (max-width: 680px) {
+                .form-grid-2 {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .form-group-item {
+                margin-bottom: 20px;
+            }
+            .form-group-item label {
+                display: block;
+                font-size: 0.86rem;
+                font-weight: 600;
+                color: #334155;
+                margin-bottom: 7px;
+            }
+            .form-group-item label .req {
+                color: #ef4444;
+            }
+            .form-group-item input,
+            .form-group-item select,
+            .form-group-item textarea {
+                width: 100%;
+                padding: 12px 16px;
+                border: 1px solid #cbd5e1;
+                border-radius: 10px;
+                font-size: 0.94rem;
+                color: #0f172a;
+                outline: none;
+                box-sizing: border-box;
+                font-family: inherit;
+                background: #ffffff;
+                transition: border-color 0.2s, box-shadow 0.2s;
+            }
+            .form-group-item input:focus,
+            .form-group-item select:focus,
+            .form-group-item textarea:focus {
+                border-color: #0084ff;
+                box-shadow: 0 0 0 3px rgba(0, 132, 255, 0.12);
+            }
+            .file-upload-box {
+                border: 2px dashed #93c5fd;
+                border-radius: 10px;
+                padding: 18px;
+                background: #f8fafc;
+                text-align: center;
+                cursor: pointer;
+                transition: background 0.2s, border-color 0.2s;
+            }
+            .file-upload-box:hover {
+                background: #eff6ff;
+                border-color: #0084ff;
+            }
+            .submit-btn-block {
+                text-align: center;
+                margin-top: 24px;
+            }
+            .btn-submit-internship {
+                background: #0084ff;
+                color: #ffffff;
+                border: none;
+                font-size: 1rem;
+                font-weight: 700;
+                padding: 14px 36px;
+                border-radius: 10px;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                box-shadow: 0 6px 20px rgba(0, 132, 255, 0.3);
+                transition: background 0.2s, transform 0.2s;
+            }
+            .btn-submit-internship:hover {
+                background: #006dd4;
+                transform: translateY(-2px);
+            }
+            .btn-submit-internship:disabled {
+                opacity: 0.65;
+                cursor: not-allowed;
+            }
+
+            /* Alert Messages */
+            .app-alert {
+                padding: 16px 20px;
+                border-radius: 10px;
+                margin-bottom: 24px;
+                display: none;
+                font-size: 0.92rem;
+                line-height: 1.5;
+            }
+            .app-alert-success {
+                background: #ecfdf5;
+                border: 1px solid #6ee7b7;
+                color: #065f46;
+            }
+            .app-alert-error {
+                background: #fef2f2;
+                border: 1px solid #fca5a5;
+                color: #991b1b;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="preloader"><div class="loader-circle"></div></div>
+
+        <!-- Global Header -->
+        <header id="header">
+            <div class="container nav-container">
+                <a class="logo" href="/" aria-label="RC Techno Solutions Home">
+                    <span class="logo-badge"><i class="fas fa-layer-group"></i></span>
+                    <span class="brand-text">RC <span>Techno</span></span>
+                    <span class="brand-studio">Enterprise</span>
+                </a>
+
+                <nav class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li><a class="nav-link" href="/">Home</a></li>
+                        <li><a class="nav-link" href="/services">Services</a></li>
+                        <li><a class="nav-link" href="/work">Work</a></li>
+                        <li><a class="nav-link" href="/architecture">Architecture</a></li>
+                        <li><a class="nav-link" href="/about">About</a></li>
+                        <li><a class="nav-link active" href="/internship"><span style="background:#e0f2fe;color:#0284c7;font-size:10px;font-weight:800;padding:2px 6px;border-radius:4px;margin-right:5px;">30-DAY</span>Internship</a></li>
+                        <li><a class="nav-link" href="/faq">FAQ</a></li>
+                    </ul>
+
+                    <div class="mobile-nav-actions">
+                        <a class="btn-nav-nda" href="/nda"><i class="fas fa-file-shield"></i> Instant NDA</a>
+                        <a class="btn-nav-cta" href="/contact"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </nav>
+
+                <div class="nav-actions">
+                    <a class="btn-nav-nda" href="/nda" title="Fast-Track Mutual NDA"><i class="fas fa-file-shield"></i> Instant NDA</a>
+                    <a class="btn-nav-cta" href="/contact"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
+                    <button class="hamburger" aria-label="Toggle navigation" type="button"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Hero Section -->
+        <section class="internship-hero">
+            <div class="container" style="max-width: 1200px; margin: 0 auto;">
+                <div class="internship-badge-top">
+                    <i class="fas fa-check-circle"></i> RC Techno Solutions &bull; Batch 2026 Admissions Open
+                </div>
+                <h1>Launch Your Career with a <br><span>30-Day Internship Program</span></h1>
+                <p>
+                    A hands-on, practical engineering internship designed for college students, B.Tech, BCA, MCA, Diploma students, and freshers. Work on commercial-grade software products, gain direct mentorship from senior architects, build your GitHub portfolio, and earn an industry-verifiable completion certificate.
+                </p>
+
+                <div class="internship-quick-strip">
+                    <div class="iqs-item"><i class="fas fa-calendar-alt"></i> 1 Month (30 Days)</div>
+                    <div class="iqs-item"><i class="fas fa-laptop-code"></i> Online / Remote Mode</div>
+                    <div class="iqs-item"><i class="fas fa-certificate"></i> Verified Certificate</div>
+                    <div class="iqs-item"><i class="fas fa-users"></i> 1-on-1 Mentorship</div>
+                    <div class="iqs-item"><i class="fas fa-folder-open"></i> Live Client Capstone</div>
+                </div>
+
+                <div class="internship-hero-ctas">
+                    <a href="#apply" class="btn-cta-apply"><i class="fas fa-paper-plane"></i> Apply for Internship</a>
+                    <a href="#domains" class="btn-cta-explore"><i class="fas fa-compass"></i> Explore Domains</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Program Overview Fast Stats -->
+        <section style="background: #ffffff; padding: 0 0 40px;">
+            <div class="internship-overview-grid">
+                <div class="io-card">
+                    <div class="io-icon"><i class="fas fa-building"></i></div>
+                    <div class="io-info">
+                        <h4>Company</h4>
+                        <p>RC Techno Solutions</p>
+                    </div>
+                </div>
+                <div class="io-card">
+                    <div class="io-icon"><i class="fas fa-stopwatch"></i></div>
+                    <div class="io-info">
+                        <h4>Program Duration</h4>
+                        <p>1 Month (30 Days)</p>
+                    </div>
+                </div>
+                <div class="io-card">
+                    <div class="io-icon"><i class="fas fa-user-graduate"></i></div>
+                    <div class="io-info">
+                        <h4>Eligibility</h4>
+                        <p>B.Tech, BCA, MCA, Diploma &amp; Freshers</p>
+                    </div>
+                </div>
+                <div class="io-card">
+                    <div class="io-icon"><i class="fas fa-award"></i></div>
+                    <div class="io-info">
+                        <h4>Certification</h4>
+                        <p>Performance-based Certificate</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Available Internship Domains -->
+        <section id="domains" style="background: #f8fafc; padding: 70px 20px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+            <div class="container" style="max-width: 1200px; margin: 0 auto;">
+                <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+                    <span style="font-size: 11px; font-weight: 800; color: #0084ff; text-transform: uppercase; letter-spacing: 0.05em; background: #eff6ff; padding: 4px 14px; border-radius: 9999px;">Curated Specializations</span>
+                    <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 10px;">Available Internship Domains</h2>
+                    <p style="font-size: 0.95rem; color: #64748b;">Choose your focus area and master production skills through targeted engineering assignments.</p>
+                </div>
+
+                <div class="domain-cards-grid">
+                    <!-- 1. Web Development -->
+                    <div class="domain-card">
+                        <div>
+                            <div class="domain-icon-row">
+                                <div class="domain-icon" style="background: #e0f2fe; color: #0284c7;"><i class="fas fa-code"></i></div>
+                                <span class="domain-tag" style="background: #e0f2fe; color: #0284c7;">Frontend</span>
+                            </div>
+                            <h3>Web Development</h3>
+                            <p>Build modern, responsive, and performance-optimized websites using industry-standard frontend workflows.</p>
+                            <ul class="domain-features-list">
+                                <li><i class="fas fa-check"></i> HTML5, CSS3, Modern JavaScript (ES6+)</li>
+                                <li><i class="fas fa-check"></i> Responsive Website Development (Mobile-First)</li>
+                                <li><i class="fas fa-check"></i> React.js Fundamentals &amp; Component Lifecycle</li>
+                                <li><i class="fas fa-check"></i> Real-World Production Website Projects</li>
+                            </ul>
+                        </div>
+                        <a href="#apply" onclick="selectDomain('Web Development')" class="domain-card-btn">Apply in Web Dev <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- 2. Python Development -->
+                    <div class="domain-card">
+                        <div>
+                            <div class="domain-icon-row">
+                                <div class="domain-icon" style="background: #fef3c7; color: #d97706;"><i class="fab fa-python"></i></div>
+                                <span class="domain-tag" style="background: #fef3c7; color: #d97706;">Backend</span>
+                            </div>
+                            <h3>Python Development</h3>
+                            <p>Develop automated workflows, clean algorithms, and scalable backend REST APIs using Python.</p>
+                            <ul class="domain-features-list">
+                                <li><i class="fas fa-check"></i> Python Programming &amp; Clean Code Architecture</li>
+                                <li><i class="fas fa-check"></i> Algorithmic Problem Solving &amp; Logic Building</li>
+                                <li><i class="fas fa-check"></i> Backend Development Basics (FastAPI / Flask)</li>
+                                <li><i class="fas fa-check"></i> Python Mini Projects &amp; Automation Scripts</li>
+                            </ul>
+                        </div>
+                        <a href="#apply" onclick="selectDomain('Python Development')" class="domain-card-btn">Apply in Python <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- 3. Full Stack Development -->
+                    <div class="domain-card">
+                        <div>
+                            <div class="domain-icon-row">
+                                <div class="domain-icon" style="background: #ede9fe; color: #7c3aed;"><i class="fas fa-layer-group"></i></div>
+                                <span class="domain-tag" style="background: #ede9fe; color: #7c3aed;">Full Stack</span>
+                            </div>
+                            <h3>Full Stack Development</h3>
+                            <p>Engineer full-lifecycle web applications bridging frontend React with Node.js and SQL/NoSQL databases.</p>
+                            <ul class="domain-features-list">
+                                <li><i class="fas fa-check"></i> Frontend Architecture &amp; State Management</li>
+                                <li><i class="fas fa-check"></i> Backend Server Development (Node.js &amp; Express)</li>
+                                <li><i class="fas fa-check"></i> Database Integration (PostgreSQL / MongoDB)</li>
+                                <li><i class="fas fa-check"></i> Complete Web Application Capstone Project</li>
+                            </ul>
+                        </div>
+                        <a href="#apply" onclick="selectDomain('Full Stack Development')" class="domain-card-btn">Apply in Full Stack <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- 4. Data Analytics -->
+                    <div class="domain-card">
+                        <div>
+                            <div class="domain-icon-row">
+                                <div class="domain-icon" style="background: #fee2e2; color: #dc2626;"><i class="fas fa-chart-line"></i></div>
+                                <span class="domain-tag" style="background: #fee2e2; color: #dc2626;">Analytics</span>
+                            </div>
+                            <h3>Data Analytics</h3>
+                            <p>Transform raw datasets into actionable executive insights with Python, SQL, and interactive dashboards.</p>
+                            <ul class="domain-features-list">
+                                <li><i class="fas fa-check"></i> Python for Data Analysis (Pandas &amp; NumPy)</li>
+                                <li><i class="fas fa-check"></i> Advanced Excel Modeling &amp; Relational SQL</li>
+                                <li><i class="fas fa-check"></i> Data Cleaning &amp; Preprocessing Techniques</li>
+                                <li><i class="fas fa-check"></i> Data Visualization &amp; Report Storytelling</li>
+                            </ul>
+                        </div>
+                        <a href="#apply" onclick="selectDomain('Data Analytics')" class="domain-card-btn">Apply in Data Analytics <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- 5. UI/UX Design -->
+                    <div class="domain-card">
+                        <div>
+                            <div class="domain-icon-row">
+                                <div class="domain-icon" style="background: #fdf4ff; color: #c026d3;"><i class="fas fa-palette"></i></div>
+                                <span class="domain-tag" style="background: #fdf4ff; color: #c026d3;">Design</span>
+                            </div>
+                            <h3>UI/UX Design</h3>
+                            <p>Design stunning, accessible, and user-friendly digital interfaces following enterprise design systems in Figma.</p>
+                            <ul class="domain-features-list">
+                                <li><i class="fas fa-check"></i> Figma Fundamentals, Auto-Layout &amp; Components</li>
+                                <li><i class="fas fa-check"></i> Website &amp; Mobile App UI Design</li>
+                                <li><i class="fas fa-check"></i> Low &amp; High Fidelity Wireframing</li>
+                                <li><i class="fas fa-check"></i> Responsive UI Design &amp; Prototype Flow</li>
+                            </ul>
+                        </div>
+                        <a href="#apply" onclick="selectDomain('UI/UX Design')" class="domain-card-btn">Apply in UI/UX <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- 6. Digital Marketing & SEO -->
+                    <div class="domain-card">
+                        <div>
+                            <div class="domain-icon-row">
+                                <div class="domain-icon" style="background: #ecfdf5; color: #059669;"><i class="fas fa-bullhorn"></i></div>
+                                <span class="domain-tag" style="background: #ecfdf5; color: #059669;">Marketing</span>
+                            </div>
+                            <h3>Digital Marketing &amp; SEO</h3>
+                            <p>Master search visibility, keyword dominance, on-page optimization, and data-driven marketing campaigns.</p>
+                            <ul class="domain-features-list">
+                                <li><i class="fas fa-check"></i> Search Engine Optimization (SEO) Fundamentals</li>
+                                <li><i class="fas fa-check"></i> High-Intent Keyword Research &amp; Analysis</li>
+                                <li><i class="fas fa-check"></i> On-Page &amp; Technical SEO Optimization</li>
+                                <li><i class="fas fa-check"></i> Website Performance &amp; Traffic Growth Strategies</li>
+                            </ul>
+                        </div>
+                        <a href="#apply" onclick="selectDomain('Digital Marketing & SEO')" class="domain-card-btn">Apply in SEO &amp; Growth <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 30-Day Internship Roadmap -->
+        <section style="background: #ffffff; padding: 70px 20px;">
+            <div class="container" style="max-width: 1200px; margin: 0 auto;">
+                <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+                    <span style="font-size: 11px; font-weight: 800; color: #0084ff; text-transform: uppercase; letter-spacing: 0.05em; background: #eff6ff; padding: 4px 14px; border-radius: 9999px;">Structured Progress</span>
+                    <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 10px;">30-Day Internship Structure</h2>
+                    <p style="font-size: 0.95rem; color: #64748b;">A structured 4-week step-by-step roadmap to take you from foundational understanding to commercial execution.</p>
+                </div>
+
+                <div class="roadmap-timeline-grid">
+                    <div class="roadmap-card rm-w1">
+                        <div class="roadmap-card-header">
+                            <span class="roadmap-week-badge">Week 1</span>
+                            <span style="font-size: 0.78rem; color: #94a3b8; font-weight: 600;">Days 1–7</span>
+                        </div>
+                        <h4>Learning &amp; Foundation</h4>
+                        <p>Orientation, technology fundamentals, developer environment setup, Git repo initialization, and foundational architecture principles.</p>
+                    </div>
+
+                    <div class="roadmap-card rm-w2">
+                        <div class="roadmap-card-header">
+                            <span class="roadmap-week-badge">Week 2</span>
+                            <span style="font-size: 0.78rem; color: #94a3b8; font-weight: 600;">Days 8–14</span>
+                        </div>
+                        <h4>Practical Training</h4>
+                        <p>Hands-on engineering tasks, problem-solving coding exercises, architectural assignments, and personalized mentor code review.</p>
+                    </div>
+
+                    <div class="roadmap-card rm-w3">
+                        <div class="roadmap-card-header">
+                            <span class="roadmap-week-badge">Week 3</span>
+                            <span style="font-size: 0.78rem; color: #94a3b8; font-weight: 600;">Days 15–21</span>
+                        </div>
+                        <h4>Live Project Development</h4>
+                        <p>Work on a production-grade commercial project under the direct guidance of senior engineers and tech architects.</p>
+                    </div>
+
+                    <div class="roadmap-card rm-w4">
+                        <div class="roadmap-card-header">
+                            <span class="roadmap-week-badge">Week 4</span>
+                            <span style="font-size: 0.78rem; color: #94a3b8; font-weight: 600;">Days 22–30</span>
+                        </div>
+                        <h4>Final Project &amp; Evaluation</h4>
+                        <p>Complete project deliverables, submit code, receive comprehensive performance evaluation, and obtain your verified Completion Certificate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Internship Benefits -->
+        <section style="background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%); padding: 70px 20px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+            <div class="container" style="max-width: 1200px; margin: 0 auto;">
+                <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+                    <span style="font-size: 11px; font-weight: 800; color: #16a34a; text-transform: uppercase; letter-spacing: 0.05em; background: #dcfce7; padding: 4px 14px; border-radius: 9999px;">Why Join RC Techno</span>
+                    <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 10px;">Program Highlights &amp; Benefits</h2>
+                    <p style="font-size: 0.95rem; color: #64748b;">Engineered to give you a real competitive edge in technical job interviews and campus placements.</p>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-briefcase"></i></div>
+                        <div class="benefit-content">
+                            <h4>Practical Industry Experience</h4>
+                            <p>Ditch textbook theories and work inside real industry engineering patterns, version control workflows, and codebases.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-rocket"></i></div>
+                        <div class="benefit-content">
+                            <h4>Real-World Project Exposure</h4>
+                            <p>Build software that solves actual business problems, preparing you for immediate day-one contribution in software firms.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-tools"></i></div>
+                        <div class="benefit-content">
+                            <h4>Technical Skill Development</h4>
+                            <p>Strengthen modern programming fundamentals, clean code practices, modular component patterns, and database operations.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div class="benefit-content">
+                            <h4>Professional Mentorship</h4>
+                            <p>Direct weekly check-ins, architectural advice, and code reviews led by senior engineers and industry practitioners.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-file-code"></i></div>
+                        <div class="benefit-content">
+                            <h4>Portfolio &amp; GitHub Building</h4>
+                            <p>Deploy a live, working project with clean commits, structured documentation, and README that impress tech recruiters.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-stamp"></i></div>
+                        <div class="benefit-content">
+                            <h4>Verified Completion Certificate</h4>
+                            <p>Official Internship Completion Certificate with unique verification ID validating your domain, project, and duration.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Internship Application Form -->
+        <section id="apply" style="background: #ffffff; padding: 80px 20px;">
+            <div class="container" style="max-width: 1200px; margin: 0 auto;">
+                <div style="text-align: center; max-width: 680px; margin: 0 auto 40px;">
+                    <span style="font-size: 11px; font-weight: 800; color: #0084ff; text-transform: uppercase; letter-spacing: 0.05em; background: #eff6ff; padding: 4px 14px; border-radius: 9999px;">Step Forward</span>
+                    <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 10px;">Apply for 1-Month Internship</h2>
+                    <p style="font-size: 0.95rem; color: #64748b;">Fill in your academic and technical details below. Our admissions review panel evaluates applications within 24–48 hours.</p>
+                </div>
+
+                <div class="application-form-wrapper">
+                    <div id="internshipAlertSuccess" class="app-alert app-alert-success">
+                        <i class="fas fa-check-circle" style="font-size: 1.2rem; margin-right: 8px;"></i>
+                        <div>
+                            <strong>Application Submitted Successfully!</strong>
+                            <p style="margin: 4px 0 0 0;" id="successRefMsg">Your Application Reference ID has been generated. Our team will contact you via email and WhatsApp shortly.</p>
+                        </div>
+                    </div>
+
+                    <div id="internshipAlertError" class="app-alert app-alert-error">
+                        <i class="fas fa-exclamation-circle" style="font-size: 1.2rem; margin-right: 8px;"></i>
+                        <div>
+                            <strong>Submission Error</strong>
+                            <p style="margin: 4px 0 0 0;" id="errorRefMsg">Please verify all required fields.</p>
+                        </div>
+                    </div>
+
+                    <form id="internshipApplicationForm" enctype="multipart/form-data">
+                        <!-- Honeypot anti-spam -->
+                        <input type="text" name="student_trap" style="display:none !important;" tabindex="-1" autocomplete="off" />
+
+                        <div class="form-grid-2">
+                            <div class="form-group-item">
+                                <label for="fullName">Full Name <span class="req">*</span></label>
+                                <input type="text" id="fullName" name="fullName" placeholder="e.g. Rahul Sharma" required minlength="2" maxlength="100" />
+                            </div>
+
+                            <div class="form-group-item">
+                                <label for="email">Email Address <span class="req">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="e.g. rahul.sharma@example.com" required maxlength="100" />
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="form-group-item">
+                                <label for="mobile">Mobile Number (10 Digits) <span class="req">*</span></label>
+                                <input type="tel" id="mobile" name="mobile" placeholder="e.g. 9876543210" required pattern="^[6-9]\d{9}$" title="Enter a valid 10-digit Indian mobile number" />
+                            </div>
+
+                            <div class="form-group-item">
+                                <label for="college">College / University Name <span class="req">*</span></label>
+                                <input type="text" id="college" name="college" placeholder="e.g. Gujarat Technological University" required maxlength="150" />
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="form-group-item">
+                                <label for="course">Current Course <span class="req">*</span></label>
+                                <select id="course" name="course" required>
+                                    <option value="" disabled selected>Select Your Course</option>
+                                    <option value="B.Tech / B.E. (Computer Science / IT)">B.Tech / B.E. (CSE / IT)</option>
+                                    <option value="B.Tech (Other Branches)">B.Tech (Other Branches)</option>
+                                    <option value="BCA (Bachelor of Computer Applications)">BCA</option>
+                                    <option value="MCA (Master of Computer Applications)">MCA</option>
+                                    <option value="B.Sc / M.Sc (Computer Science / IT)">B.Sc / M.Sc (CS/IT)</option>
+                                    <option value="Diploma in Engineering">Diploma in Engineering</option>
+                                    <option value="Fresher / Recent Graduate">Fresher / Recent Graduate</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group-item">
+                                <label for="semester">Current Year / Semester <span class="req">*</span></label>
+                                <select id="semester" name="semester" required>
+                                    <option value="" disabled selected>Select Current Year / Sem</option>
+                                    <option value="1st Year">1st Year</option>
+                                    <option value="2nd Year">2nd Year</option>
+                                    <option value="3rd Year">3rd Year</option>
+                                    <option value="4th Year (Final Year)">4th Year (Final Year)</option>
+                                    <option value="Graduated / Completed">Graduated / Completed</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group-item">
+                            <label for="domain">Internship Domain <span class="req">*</span></label>
+                            <select id="domain" name="domain" required>
+                                <option value="" disabled selected>Choose Desired Internship Specialization</option>
+                                <option value="Web Development">Web Development (HTML, CSS, JS, React)</option>
+                                <option value="Python Development">Python Development (Core, Backend, Automation)</option>
+                                <option value="Full Stack Development">Full Stack Development (MERN / Node.js &amp; SQL)</option>
+                                <option value="Data Analytics">Data Analytics (Python, SQL, Dashboards)</option>
+                                <option value="UI/UX Design">UI/UX Design (Figma, Prototyping, Design Systems)</option>
+                                <option value="Digital Marketing & SEO">Digital Marketing &amp; SEO (On-Page, Growth, Analytics)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group-item">
+                            <label for="skills">Key Technical Skills / Familiar Tools</label>
+                            <input type="text" id="skills" name="skills" placeholder="e.g. C++, Java, Python, HTML/CSS, Git, Figma (separated by commas)" maxlength="200" />
+                        </div>
+
+                        <div class="form-group-item">
+                            <label for="whyJoin">Why do you want to join this internship? <span class="req">*</span></label>
+                            <textarea id="whyJoin" name="whyJoin" rows="3" placeholder="Briefly explain your learning goals and what you hope to achieve during these 30 days..." required maxlength="500"></textarea>
+                        </div>
+
+                        <div class="form-group-item">
+                            <label>Resume Upload (PDF Format, Max 5MB) <span class="req">*</span></label>
+                            <div class="file-upload-box" onclick="document.getElementById('resumeFile').click();">
+                                <i class="fas fa-file-pdf" style="font-size: 2rem; color: #ef4444; margin-bottom: 8px;"></i>
+                                <div id="resumeFileName" style="font-size: 0.9rem; font-weight: 600; color: #334155;">Click to select your PDF resume</div>
+                                <span style="font-size: 0.75rem; color: #94a3b8;">Accepts .pdf files only &bull; Max 5 MB</span>
+                            </div>
+                            <input type="file" id="resumeFile" name="resume" accept="application/pdf" style="display: none;" required />
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="form-group-item">
+                                <label for="linkedin">LinkedIn Profile URL (Optional)</label>
+                                <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile" />
+                            </div>
+
+                            <div class="form-group-item">
+                                <label for="github">GitHub Profile URL (Optional)</label>
+                                <input type="url" id="github" name="github" placeholder="https://github.com/yourhandle" />
+                            </div>
+                        </div>
+
+                        <div class="submit-btn-block">
+                            <button type="submit" id="internshipSubmitBtn" class="btn-submit-internship">
+                                <span>Apply for Internship</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                            <p style="font-size: 0.78rem; color: #64748b; margin-top: 10px;">
+                                <i class="fas fa-lock" style="color: #10b981;"></i> Your information and uploaded resume are encrypted and securely stored.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Corporate Footer -->
+        <footer class="footer-new">
+            <div class="container">
+                <div class="footer-top-grid">
+                    <div class="footer-col-brand">
+                        <a class="footer-logo-link" href="/">
+                            <span class="footer-logo-box"><i class="fas fa-layer-group"></i></span>
+                            <span class="footer-logo-text">RC <span>Techno</span></span>
+                        </a>
+                        <p class="footer-brand-desc">High-performance engineering, scalable software systems, and industry-recognized 30-day technology internships.</p>
+                        <div class="footer-social-row">
+                            <a href="https://www.linkedin.com/in/ratan-codespace" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Ratanchaurasiya" target="_blank" rel="noopener" aria-label="GitHub" class="social-circle"><i class="fab fa-github"></i></a>
+                            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="social-circle"><i class="fab fa-youtube"></i></a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" class="social-circle"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col-links">
+                        <h4 class="footer-col-title"><i class="fas fa-graduation-cap title-icon"></i> Internship Domains</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="/internship#domains"><i class="fas fa-chevron-right arrow-icon"></i> Web Development</a></li>
+                            <li><a href="/internship#domains"><i class="fas fa-chevron-right arrow-icon"></i> Python Development</a></li>
+                            <li><a href="/internship#domains"><i class="fas fa-chevron-right arrow-icon"></i> Full Stack Development</a></li>
+                            <li><a href="/internship#domains"><i class="fas fa-chevron-right arrow-icon"></i> Data Analytics</a></li>
+                            <li><a href="/internship#domains"><i class="fas fa-chevron-right arrow-icon"></i> UI/UX Design</a></li>
+                            <li><a href="/internship#domains"><i class="fas fa-chevron-right arrow-icon"></i> Digital Marketing &amp; SEO</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col-links">
+                        <h4 class="footer-col-title"><i class="fas fa-rocket title-icon"></i> Quick Navigation</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="/"><i class="fas fa-chevron-right arrow-icon"></i> Home</a></li>
+                            <li><a href="/services"><i class="fas fa-chevron-right arrow-icon"></i> Engineering Services</a></li>
+                            <li><a href="/work"><i class="fas fa-chevron-right arrow-icon"></i> Portfolio</a></li>
+                            <li><a href="/architecture"><i class="fas fa-chevron-right arrow-icon"></i> Architecture</a></li>
+                            <li><a href="/gallery"><i class="fas fa-chevron-right arrow-icon"></i> Office Gallery</a></li>
+                            <li><a href="/admin" target="_blank"><i class="fas fa-chevron-right arrow-icon"></i> Admin Portal</a></li>
+                            <li><a href="/contact"><i class="fas fa-chevron-right arrow-icon"></i> Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col-contact">
+                        <h4 class="footer-col-title"><i class="fas fa-envelope title-icon"></i> Contact Info</h4>
+                        <div class="footer-contact-item"><i class="fas fa-map-marker-alt contact-pin-icon"></i><span>Vastral Gam, Ahmedabad, Gujarat</span></div>
+                        <div class="footer-contact-item"><i class="fas fa-envelope contact-pin-icon"></i><a href="mailto:ratanchaurasiya61@gmail.com">ratanchaurasiya61@gmail.com</a></div>
+                        <div class="footer-contact-item"><i class="fas fa-phone-alt contact-pin-icon"></i><a href="tel:+916390035039">+91 63900 35039</a></div>
+                        <div class="footer-contact-item"><i class="fas fa-globe contact-pin-icon"></i><a href="https://rctechnosolutions.com" target="_blank" rel="noopener">rctechnosolutions.com</a></div>
+                        <div class="footer-contact-item"><i class="fab fa-whatsapp contact-pin-icon" style="color: #25d366;"></i><a href="https://wa.me/916390035039?text=Hi%20Ratan,%20I'd%20like%20to%20enquire%20about%20the%20Internship%20Program" target="_blank" rel="noopener">WhatsApp Chat</a></div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom-bar">
+                    <p>&copy; 2026 RC Techno Solutions. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy">Privacy Policy</a> &bull; 
+                        <a href="/terms">Terms &amp; Conditions</a> &bull; 
+                        <a href="/nda">Instant NDA</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="script.js?v=4.5"></script>
+        <script src="chatbot.js?v=4.5"></script>
+        <script>
+            // Helper function to pre-select domain from cards or query params
+            function selectDomain(domainName) {
+                var select = document.getElementById('domain');
+                if (select) {
+                    select.value = domainName;
+                }
+            }
+
+            // Check URL query param for domain selection
+            window.addEventListener('DOMContentLoaded', function() {
+                var urlParams = new URLSearchParams(window.location.search);
+                var dParam = urlParams.get('domain');
+                if (dParam) {
+                    var map = {
+                        'web-development': 'Web Development',
+                        'python-development': 'Python Development',
+                        'full-stack-development': 'Full Stack Development',
+                        'data-analytics': 'Data Analytics',
+                        'ui-ux-design': 'UI/UX Design',
+                        'digital-marketing': 'Digital Marketing & SEO'
+                    };
+                    if (map[dParam]) selectDomain(map[dParam]);
+                }
+
+                // File input label update
+                var fileInput = document.getElementById('resumeFile');
+                var fileNameDisplay = document.getElementById('resumeFileName');
+                if (fileInput) {
+                    fileInput.addEventListener('change', function() {
+                        if (this.files && this.files[0]) {
+                            var file = this.files[0];
+                            if (!file.name.toLowerCase().endsWith('.pdf')) {
+                                alert('Please select a valid PDF file (.pdf)');
+                                this.value = '';
+                                fileNameDisplay.textContent = 'Click to select your PDF resume';
+                                return;
+                            }
+                            if (file.size > 5 * 1024 * 1024) {
+                                alert('Resume file size must not exceed 5MB.');
+                                this.value = '';
+                                fileNameDisplay.textContent = 'Click to select your PDF resume';
+                                return;
+                            }
+                            fileNameDisplay.innerHTML = '<span style="color:#15803d;"><i class="fas fa-file-pdf"></i> ' + file.name + ' (' + (file.size / 1024).toFixed(1) + ' KB)</span>';
+                        }
+                    });
+                }
+
+                // Form submission handler
+                var form = document.getElementById('internshipApplicationForm');
+                var submitBtn = document.getElementById('internshipSubmitBtn');
+                var successAlert = document.getElementById('internshipAlertSuccess');
+                var errorAlert = document.getElementById('internshipAlertError');
+                var successRefMsg = document.getElementById('successRefMsg');
+                var errorRefMsg = document.getElementById('errorRefMsg');
+
+                if (form) {
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault();
+
+                        // Mobile number regex validation
+                        var mobile = document.getElementById('mobile').value.trim();
+                        var cleanMobile = mobile.replace(/[\s\-\(\)\+]/g, '');
+                        if (cleanMobile.startsWith('91') && cleanMobile.length === 12) {
+                            cleanMobile = cleanMobile.substring(2);
+                        }
+                        if (!/^[6-9]\d{9}$/.test(cleanMobile)) {
+                            errorRefMsg.textContent = 'Please enter a valid 10-digit Indian mobile number (e.g., 9876543210).';
+                            errorAlert.style.display = 'flex';
+                            successAlert.style.display = 'none';
+                            return;
+                        }
+
+                        submitBtn.disabled = true;
+                        submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Submitting Application...';
+                        successAlert.style.display = 'none';
+                        errorAlert.style.display = 'none';
+
+                        var formData = new FormData(form);
+
+                        fetch('/api/internship/apply', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(function(res) {
+                            return res.json().then(function(data) {
+                                return { status: res.status, data: data };
+                            });
+                        })
+                        .then(function(resObj) {
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = '<span>Apply for Internship</span> <i class="fas fa-paper-plane"></i>';
+
+                            if (resObj.data.success) {
+                                successRefMsg.innerHTML = 'Your Application Reference ID is <strong>' + resObj.data.referenceId + '</strong> for domain <strong>' + resObj.data.domain + '</strong>.<br>We have sent confirmation details to <strong>' + resObj.data.email + '</strong>.';
+                                successAlert.style.display = 'flex';
+                                errorAlert.style.display = 'none';
+                                form.reset();
+                                fileNameDisplay.textContent = 'Click to select your PDF resume';
+                                successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            } else {
+                                errorRefMsg.textContent = resObj.data.error || 'Failed to submit application. Please verify your details.';
+                                errorAlert.style.display = 'flex';
+                                successAlert.style.display = 'none';
+                                errorAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                        })
+                        .catch(function(err) {
+                            console.error('Submission error:', err);
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = '<span>Apply for Internship</span> <i class="fas fa-paper-plane"></i>';
+                            errorRefMsg.textContent = 'Server communication error. Please check your network and try again.';
+                            errorAlert.style.display = 'flex';
+                            successAlert.style.display = 'none';
+                        });
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>

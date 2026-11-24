@@ -1,0 +1,283 @@
+// Prisma Schema for RC Techno Solutions
+// Designed for PostgreSQL relational production deployment
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 1. Administrative Users & Access Control
+model AdminUser {
+  id           String    @id @default(uuid())
+  email        String    @unique
+  name         String
+  passwordHash String
+  role         String    @default("SUPER_ADMIN") // SUPER_ADMIN, EDITOR, MODERATOR
+  isActive     Boolean   @default(true)
+  lastLogin    DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  activityLogs ActivityLog[]
+
+  @@map("admin_users")
+}
+
+// 2. Internship Applications
+model InternshipApplication {
+  id             String    @id @default(uuid())
+  referenceId    String    @unique // e.g. RC-INT-2026-XXXX
+  fullName       String
+  email          String
+  mobile         String
+  college        String
+  course         String
+  semester       String
+  domain         String    // Web Development, Python Development, Full Stack, Data Analytics, UI/UX, Digital Marketing
+  skills         String?
+  whyJoin        String?   @db.Text
+  resumeUrl      String?   // Upload path or cloud storage URL
+  linkedinUrl    String?
+  githubUrl      String?
+  status         String    @default("Pending") // Pending, Shortlisted, Selected, Rejected
+  batchId        String?
+  certificateId  String?   @unique
+  notes          String?   @db.Text
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  batch          InternshipBatch? @relation(fields: [batchId], references: [id])
+  certificate    Certificate?     @relation(fields: [certificateId], references: [id])
+  progress       StudentProgress[]
+
+  @@index([email])
+  @@index([domain])
+  @@index([status])
+  @@map("internship_applications")
+}
+
+// 3. Internship Batches
+model InternshipBatch {
+  id           String    @id @default(uuid())
+  batchName    String    @unique // e.g. Batch 2026-Alpha
+  startDate    DateTime
+  endDate      DateTime
+  capacity     Int       @default(30)
+  status       String    @default("UPCOMING") // UPCOMING, ACTIVE, COMPLETED
+  currentWeek  Int       @default(1)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  applications InternshipApplication[]
+
+  @@map("internship_batches")
+}
+
+// 4. Student Progress Tracking
+model StudentProgress {
+  id             String    @id @default(uuid())
+  applicationId  String
+  weekNumber     Int       // 1, 2, 3, 4
+  milestoneTitle String
+  status         String    @default("IN_PROGRESS") // NOT_STARTED, IN_PROGRESS, COMPLETED
+  score          Int?
+  feedback       String?   @db.Text
+  reviewedBy     String?
+  updatedAt      DateTime  @updatedAt
+
+  application    InternshipApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@unique([applicationId, weekNumber])
+  @@map("student_progress")
+}
+
+// 5. Completion Certificates
+model Certificate {
+  id              String    @id @default(uuid())
+  certificateNo   String    @unique // e.g. RCTS-CERT-2026-XXXX
+  studentName     String
+  domain          String
+  issueDate       DateTime  @default(now())
+  verificationUrl String
+  isRevoked       Boolean   @default(false)
+  
+  application     InternshipApplication?
+
+  @@map("certificates")
+}
+
+// 6. Contact & Project Enquiries
+model ContactEnquiry {
+  id          String    @id @default(uuid())
+  name        String
+  email       String
+  phone       String?
+  company     String?
+  service     String?
+  budget      String?
+  message     String    @db.Text
+  status      String    @default("NEW") // NEW, CONTACTED, IN_DISCUSSION, CLOSED
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@map("contact_enquiries")
+}
+
+// 7. Services Management (Dynamic)
+model Service {
+  id          String    @id @default(uuid())
+  title       String    @unique
+  slug        String    @unique
+  description String    @db.Text
+  category    String    // Software, AI, Cloud, Data, Design, Consulting
+  iconClass   String    @default("fas fa-code")
+  isActive    Boolean   @default(true)
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("services")
+}
+
+// 8. Projects & Case Studies (Dynamic Portfolio)
+model Project {
+  id          String         @id @default(uuid())
+  title       String         @unique
+  slug        String         @unique
+  category    String
+  client      String?
+  description String         @db.Text
+  techStack   String         // Comma-separated or JSON string
+  projectUrl  String?
+  imageUrl    String?
+  isFeatured  Boolean        @default(false)
+  status      String         @default("PUBLISHED") // DRAFT, PUBLISHED, ARCHIVED
+  sortOrder   Int            @default(0)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  images      ProjectImage[]
+
+  @@map("projects")
+}
+
+model ProjectImage {
+  id        String   @id @default(uuid())
+  projectId String
+  imageUrl  String
+  caption   String?
+  sortOrder Int      @default(0)
+
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@map("project_images")
+}
+
+// 9. Blog & Technology Articles
+model BlogPost {
+  id             String    @id @default(uuid())
+  title          String
+  slug           String    @unique
+  excerpt        String?   @db.Text
+  content        String    @db.Text
+  author         String    @default("RC Engineering Team")
+  category       String
+  tags           String?   // Comma-separated
+  featuredImage  String?
+  status         String    @default("PUBLISHED") // DRAFT, PUBLISHED, ARCHIVED
+  seoTitle       String?
+  seoDescription String?
+  publishedAt    DateTime? @default(now())
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([category])
+  @@index([status])
+  @@map("blog_posts")
+}
+
+// 10. Testimonials & Client Reviews
+model Testimonial {
+  id           String    @id @default(uuid())
+  clientName   String
+  company      String
+  designation  String
+  feedback     String    @db.Text
+  rating       Int       @default(5)
+  avatarUrl    String?
+  isApproved   Boolean   @default(true)
+  isFeatured   Boolean   @default(false)
+  sortOrder    Int       @default(0)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@map("testimonials")
+}
+
+// 11. AI Chatbot Sessions
+model ChatSession {
+  id         String        @id @default(uuid())
+  visitorId  String?
+  ipAddress  String?
+  userAgent  String?
+  startTime  DateTime      @default(now())
+  lastActive DateTime      @default(now())
+
+  messages   ChatMessage[]
+  leads      ChatLead[]
+
+  @@map("chat_sessions")
+}
+
+// 12. AI Chatbot Messages
+model ChatMessage {
+  id        String      @id @default(uuid())
+  sessionId String
+  sender    String      // user, bot, agent
+  message   String      @db.Text
+  createdAt DateTime    @default(now())
+
+  session   ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@map("chat_messages")
+}
+
+// 13. AI Chatbot Leads Captured
+model ChatLead {
+  id          String       @id @default(uuid())
+  sessionId   String?
+  name        String?
+  email       String?
+  phone       String?
+  enquiryType String?      // general, services, internship, custom
+  lastMessage String?      @db.Text
+  status      String       @default("NEW") // NEW, FOLLOWED_UP, CONVERTED, ARCHIVED
+  createdAt   DateTime     @default(now())
+
+  session     ChatSession? @relation(fields: [sessionId], references: [id])
+
+  @@index([email])
+  @@index([phone])
+  @@map("chat_leads")
+}
+
+// 14. Activity & Audit Logs
+model ActivityLog {
+  id          String     @id @default(uuid())
+  adminUserId String?
+  action      String     // LOGIN, UPDATE_STATUS, CREATE_PROJECT, etc.
+  details     String?    @db.Text
+  ipAddress   String?
+  createdAt   DateTime   @default(now())
+
+  adminUser   AdminUser? @relation(fields: [adminUserId], references: [id])
+
+  @@map("activity_logs")
+}
