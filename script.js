@@ -2063,3 +2063,115 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target === caseStudyModal) closeCsModal();
         });
     }
+
+    /* =========================================================================
+       NEW FEATURE 1: AI ARCHITECTURE & PROJECT PROPOSAL GENERATOR
+       ========================================================================= */
+    const aiIdeaInput = document.getElementById('aiIdeaInput');
+    const generateProposalBtn = document.getElementById('generateProposalBtn');
+    const aiProposalLoader = document.getElementById('aiProposalLoader');
+    const aiProposalResult = document.getElementById('aiProposalResult');
+    const aiExampleChips = document.querySelectorAll('.ai-example-chip');
+
+    if (generateProposalBtn && aiIdeaInput) {
+        aiExampleChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                aiIdeaInput.value = chip.getAttribute('data-prompt') || '';
+                doGenerateProposal();
+            });
+        });
+
+        generateProposalBtn.addEventListener('click', doGenerateProposal);
+        aiIdeaInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') doGenerateProposal();
+        });
+
+        function doGenerateProposal() {
+            const rawIdea = aiIdeaInput.value.trim();
+            if (!rawIdea || rawIdea.length < 3) {
+                alert('Please describe your project idea or software requirement.');
+                aiIdeaInput.focus();
+                return;
+            }
+
+            aiProposalResult.style.display = 'none';
+            aiProposalLoader.style.display = 'block';
+
+            setTimeout(() => {
+                aiProposalLoader.style.display = 'none';
+
+                // Intelligent dynamic rule matching
+                const lower = rawIdea.toLowerCase();
+                let title = 'Custom Enterprise Application Architecture';
+                let stack = 'React / Next.js, Node.js REST API, Redis, TailwindCSS';
+                let db = 'PostgreSQL with Prisma ORM (ACID Compliant)';
+                let timeline = '14 to 21 Working Days';
+                let budget = '₹25,000 – ₹45,000';
+                let milestones = [
+                    '<strong>Sprint 1:</strong> System Design, Wireframing, API Schema & Auth Setup (Days 1–5)',
+                    '<strong>Sprint 2:</strong> Core Features, Business Logic, Payment/Webhooks & Database Relations (Days 6–14)',
+                    '<strong>Sprint 3:</strong> Security Audit, OWASP Top 10 Hardening, End-to-End Testing (Days 15–18)',
+                    '<strong>Sprint 4:</strong> Production Deployment on AWS/Render with Zero-Downtime DNS (Days 19–21)'
+                ];
+
+                if (lower.includes('deliver') || lower.includes('grocery') || lower.includes('e-commerce') || lower.includes('shop') || lower.includes('cart')) {
+                    title = 'High-Concurrency E-Commerce & Telemetry Platform';
+                    stack = 'Next.js 14 (App Router), Redis Cache, Razorpay / Stripe SDK, TailwindCSS';
+                    db = 'PostgreSQL + TimescaleDB (Order Stream & Geo Tracking)';
+                    timeline = '20 to 28 Working Days';
+                    budget = '₹40,000 – ₹65,000';
+                    milestones = [
+                        '<strong>Sprint 1:</strong> Catalog Engine, Multi-Vendor Schema, Elastic Search (Days 1–7)',
+                        '<strong>Sprint 2:</strong> Cart Checkout, Payment Gateway & Order Inventory Locking (Days 8–15)',
+                        '<strong>Sprint 3:</strong> Live Order Telemetry & WhatsApp Order Notifications (Days 16–22)',
+                        '<strong>Sprint 4:</strong> Stress Testing (50,000 Req/s) & Cloud Launch (Days 23–28)'
+                    ];
+                } else if (lower.includes('clinic') || lower.includes('hospital') || lower.includes('doctor') || lower.includes('health') || lower.includes('ehr')) {
+                    title = 'HIPAA-Ready Clinical Administration & EHR System';
+                    stack = 'React Enterprise, Express.js / TypeScript, Role-Based Access Control (RBAC)';
+                    db = 'PostgreSQL with Field-Level PII Encryption & Audit Logs';
+                    timeline = '25 to 35 Working Days';
+                    budget = '₹55,000 – ₹85,000';
+                    milestones = [
+                        '<strong>Sprint 1:</strong> Patient & Doctor Role Schema, HIPAA Encryption Layer (Days 1–8)',
+                        '<strong>Sprint 2:</strong> Appointment Scheduling Calendar & Digital Prescription Engine (Days 9–18)',
+                        '<strong>Sprint 3:</strong> Pharmacy Inventory POS & Billing Invoicing (Days 19–26)',
+                        '<strong>Sprint 4:</strong> Compliance Verification, Penetration Testing & Deployment (Days 27–32)'
+                    ];
+                } else if (lower.includes('ai') || lower.includes('bot') || lower.includes('llm') || lower.includes('rag') || lower.includes('agent')) {
+                    title = 'Autonomous AI Agent & RAG Knowledge Engine';
+                    stack = 'FastAPI / Python, LangChain, Next.js Dashboard, OpenAI / Gemini Embeddings';
+                    db = 'pgvector (PostgreSQL Vector Search) + Redis Event Queue';
+                    timeline = '15 to 25 Working Days';
+                    budget = '₹45,000 – ₹70,000';
+                    milestones = [
+                        '<strong>Sprint 1:</strong> Vector Indexing Pipeline, Document Chunking & Ingestion (Days 1–6)',
+                        '<strong>Sprint 2:</strong> Multi-Turn Conversational Reasoning & Function Calling (Days 7–14)',
+                        '<strong>Sprint 3:</strong> Admin Analytics, Context Memory & Hallucination Guardrails (Days 15–20)',
+                        '<strong>Sprint 4:</strong> Containerized Docker Deployment with Auto-Scaling (Days 21–25)'
+                    ];
+                }
+
+                document.getElementById('propSystemTitle').innerText = title;
+                document.getElementById('propTargetSummary').innerText = `Engineered specifically for: "${rawIdea}"`;
+                document.getElementById('propStack').innerText = stack;
+                document.getElementById('propDatabase').innerText = db;
+                document.getElementById('propTimeline').innerText = timeline;
+                document.getElementById('propBudget').innerText = budget;
+
+                const msEl = document.getElementById('propMilestones');
+                if (msEl) {
+                    msEl.innerHTML = milestones.map(m => `<div style="padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">${m}</div>`).join('');
+                }
+
+                const waBtn = document.getElementById('propDownloadWhatsAppBtn');
+                if (waBtn) {
+                    const waText = encodeURIComponent(`Hi Ratan, I generated an AI Architecture Proposal on your website!\n\n*Idea:* ${rawIdea}\n*System Title:* ${title}\n*Recommended Stack:* ${stack}\n*Database:* ${db}\n*Timeline:* ${timeline}\n*Estimated Budget:* ${budget}\n\nI want to finalize the scope and schedule our kickoff call.`);
+                    waBtn.href = `https://wa.me/916390035039?text=${waText}`;
+                }
+
+                aiProposalResult.style.display = 'block';
+                aiProposalResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 1200);
+        }
+    }

@@ -955,6 +955,99 @@
     </section>
 
     <!-- ================================================================= -->
+    <!-- 8.8 AI ARCHITECTURE & PROJECT PROPOSAL GENERATOR (NEW FEATURE 1) -->
+    <!-- ================================================================= -->
+    <section class="section" id="ai-architect" style="background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%), #0b0f19; color: #ffffff; padding: 80px 20px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <div class="container" style="max-width: 1100px; margin: 0 auto;">
+            <div style="text-align: center; max-width: 760px; margin: 0 auto 40px;">
+                <span style="display: inline-flex; align-items: center; gap: 6px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-size: 12px; font-weight: 800; padding: 5px 16px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px; border: 1px solid rgba(56, 189, 248, 0.3);">
+                    <i class="fas fa-brain"></i> AI Architectural Engine
+                </span>
+                <h2 style="font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 3.5vw, 2.7rem); font-weight: 800; color: #ffffff; margin-bottom: 12px;">
+                    Generate an Instant <span style="background: linear-gradient(90deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Engineering Proposal</span>
+                </h2>
+                <p style="font-size: 1rem; color: #94a3b8; line-height: 1.6;">
+                    Describe your software idea or business problem in simple words. Our AI engine will architect the database schema, optimal technology stack, cloud topology, and development timeline in seconds.
+                </p>
+            </div>
+
+            <div style="background: #131b2e; border: 1px solid rgba(255,255,255,0.12); border-radius: 24px; padding: 36px 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+                <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                    <input type="text" id="aiIdeaInput" placeholder="e.g. Real estate portal with verified tenant bookings, Razorpay token deposits, and agent CRM dashboard" style="flex: 1; min-width: 280px; background: #0a0f1d; border: 1.5px solid #334155; padding: 16px 20px; border-radius: 14px; color: #ffffff; font-size: 1rem; outline: none; transition: border-color 0.2s;" autocomplete="off" />
+                    <button type="button" id="generateProposalBtn" style="background: linear-gradient(135deg, #0084ff, #0066cc); color: #ffffff; font-weight: 700; font-size: 1rem; padding: 16px 28px; border-radius: 14px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 20px rgba(0,132,255,0.4); transition: transform 0.2s ease;">
+                        <i class="fas fa-sparkles"></i> <span>Architect System</span>
+                    </button>
+                </div>
+
+                <!-- Quick Presets -->
+                <div style="margin-top: 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 0.82rem; color: #64748b;">
+                    <span>Try examples:</span>
+                    <button type="button" class="ai-example-chip" data-prompt="Multi-vendor grocery delivery app with real-time delivery rider tracking and WhatsApp order updates" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #cbd5e1; padding: 4px 10px; border-radius: 9999px; cursor: pointer; font-size: 0.8rem;">📦 Grocery Delivery &amp; Telemetry</button>
+                    <button type="button" class="ai-example-chip" data-prompt="Hospital clinical management platform with doctor appointment scheduling and HIPAA EHR storage" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #cbd5e1; padding: 4px 10px; border-radius: 9999px; cursor: pointer; font-size: 0.8rem;">🏥 Clinic &amp; EHR Admin</button>
+                    <button type="button" class="ai-example-chip" data-prompt="AI agent customer support assistant integrated with custom company PDF documentation" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #cbd5e1; padding: 4px 10px; border-radius: 9999px; cursor: pointer; font-size: 0.8rem;">🤖 RAG AI Document Bot</button>
+                </div>
+
+                <!-- Generation Loader -->
+                <div id="aiProposalLoader" style="display: none; text-align: center; padding: 40px 20px;">
+                    <div class="loader-circle" style="margin: 0 auto 16px; border-top-color: #38bdf8;"></div>
+                    <div style="color: #38bdf8; font-weight: 700; font-size: 1.1rem; font-family: 'Outfit', sans-serif;">Synthesizing Architecture Blueprint...</div>
+                    <div style="color: #64748b; font-size: 0.85rem; margin-top: 6px;">Analyzing microservices, relational schemas, latency budgets, and security posture</div>
+                </div>
+
+                <!-- Generated Architecture Proposal Result Card -->
+                <div id="aiProposalResult" style="display: none; margin-top: 32px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 18px; padding: 30px; animation: fadeIn 0.3s ease;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; margin-bottom: 24px;">
+                        <div>
+                            <span style="background: rgba(34, 197, 94, 0.15); color: #4ade80; font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 9999px; text-transform: uppercase;">
+                                <i class="fas fa-check-double"></i> Enterprise Verified Proposal
+                            </span>
+                            <h3 id="propSystemTitle" style="font-family: 'Outfit', sans-serif; font-size: 1.6rem; color: #ffffff; margin: 8px 0 4px;"></h3>
+                            <p id="propTargetSummary" style="color: #94a3b8; font-size: 0.9rem; margin: 0;"></p>
+                        </div>
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <a id="propDownloadWhatsAppBtn" href="#" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; background: #25d366; color: #ffffff; padding: 10px 18px; border-radius: 10px; font-weight: 700; font-size: 0.88rem; text-decoration: none;">
+                                <i class="fab fa-whatsapp"></i> Finalize with Architect
+                            </a>
+                            <button type="button" onclick="window.print()" style="background: #1e293b; color: #f8fafc; border: 1px solid #334155; padding: 10px 14px; border-radius: 10px; cursor: pointer; font-size: 0.88rem; font-weight: 600;">
+                                <i class="fas fa-print"></i> Print Proposal
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 4-Pillar Grid -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                        <div style="background: rgba(30, 41, 59, 0.6); padding: 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.06);">
+                            <div style="font-size: 0.8rem; color: #38bdf8; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;"><i class="fas fa-layer-group"></i> Optimal Tech Stack</div>
+                            <div id="propStack" style="font-size: 0.95rem; color: #ffffff; font-weight: 600; line-height: 1.5;"></div>
+                        </div>
+
+                        <div style="background: rgba(30, 41, 59, 0.6); padding: 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.06);">
+                            <div style="font-size: 0.8rem; color: #a855f7; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;"><i class="fas fa-database"></i> Database Architecture</div>
+                            <div id="propDatabase" style="font-size: 0.95rem; color: #ffffff; font-weight: 600; line-height: 1.5;"></div>
+                        </div>
+
+                        <div style="background: rgba(30, 41, 59, 0.6); padding: 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.06);">
+                            <div style="font-size: 0.8rem; color: #10b981; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;"><i class="fas fa-calendar-check"></i> Estimated Timeline</div>
+                            <div id="propTimeline" style="font-size: 0.95rem; color: #ffffff; font-weight: 600; line-height: 1.5;"></div>
+                        </div>
+
+                        <div style="background: rgba(30, 41, 59, 0.6); padding: 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.06);">
+                            <div style="font-size: 0.8rem; color: #f59e0b; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;"><i class="fas fa-tag"></i> Estimated Investment</div>
+                            <div id="propBudget" style="font-size: 0.95rem; color: #38bdf8; font-weight: 700; line-height: 1.5;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Development Roadmap Sprints -->
+                    <div style="background: rgba(10, 15, 29, 0.8); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 20px;">
+                        <h4 style="margin: 0 0 12px; font-size: 0.95rem; color: #f8fafc; font-family: 'Outfit', sans-serif;"><i class="fas fa-stream" style="color: #38bdf8;"></i> Recommended Sprint Milestones:</h4>
+                        <div id="propMilestones" style="display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; color: #cbd5e1;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
     <!-- 9. 1-MONTH STUDENT INTERNSHIP PROGRAM PROMOTIONAL SECTION -->
     <!-- ================================================================= -->
     <section class="section" id="internship-spotlight"
