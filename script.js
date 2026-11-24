@@ -33,6 +33,51 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    /* --- WhatsApp Quick-Action Floating Speed Dial Menu --- */
+    if (!document.getElementById('waFloatingWidget')) {
+        const waWrap = document.createElement('div');
+        waWrap.id = 'waFloatingWidget';
+        waWrap.innerHTML = `
+            <div id="waQuickMenu" style="display: none; position: fixed; bottom: 85px; right: 24px; z-index: 99999; background: #ffffff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); border: 1px solid #e2e8f0; width: 280px; overflow: hidden; animation: fadeIn 0.2s ease;">
+                <div style="background: #25d366; color: #ffffff; padding: 14px 16px; font-weight: 700; font-size: 0.92rem; display: flex; align-items: center; justify-content: space-between;">
+                    <span><i class="fab fa-whatsapp"></i> Quick Assistance</span>
+                    <button id="closeWaQuickMenu" style="background: none; border: none; color: #ffffff; font-size: 1.1rem; cursor: pointer;">&times;</button>
+                </div>
+                <div style="padding: 10px 8px; display: flex; flex-direction: column; gap: 6px;">
+                    <a href="https://wa.me/916390035039?text=Hi%20Ratan,%20I%20want%20to%20discuss%20an%20engineering%20project%20requirement." target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #1e293b; text-decoration: none; font-size: 0.85rem; font-weight: 600; background: #f8fafc; transition: background 0.2s;">
+                        <i class="fas fa-laptop-code" style="color: #0284c7;"></i> Discuss New Project
+                    </a>
+                    <a href="https://wa.me/916390035039?text=Hi,%20I'm%20interested%20in%20the%2030-Day%20Technical%20Internship%20Program." target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #1e293b; text-decoration: none; font-size: 0.85rem; font-weight: 600; background: #f8fafc; transition: background 0.2s;">
+                        <i class="fas fa-graduation-cap" style="color: #10b981;"></i> 30-Day Internship Inquiry
+                    </a>
+                    <a href="https://wa.me/916390035039?text=Hi,%20I%20have%20a%20query%20regarding%20Offer%20Letter%20or%20Certificate%20Verification." target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #1e293b; text-decoration: none; font-size: 0.85rem; font-weight: 600; background: #f8fafc; transition: background 0.2s;">
+                        <i class="fas fa-certificate" style="color: #eab308;"></i> Offer / Certificate Support
+                    </a>
+                </div>
+            </div>
+            <button id="waTriggerBtn" style="position: fixed; bottom: 20px; right: 24px; z-index: 99998; width: 54px; height: 54px; border-radius: 50%; background: #25d366; color: #ffffff; border: none; box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; transition: transform 0.2s ease;">
+                <i class="fab fa-whatsapp"></i>
+            </button>
+        `;
+        document.body.appendChild(waWrap);
+
+        const waTrigger = document.getElementById('waTriggerBtn');
+        const waMenu = document.getElementById('waQuickMenu');
+        const closeWa = document.getElementById('closeWaQuickMenu');
+
+        if (waTrigger && waMenu) {
+            waTrigger.addEventListener('click', () => {
+                waMenu.style.display = waMenu.style.display === 'none' ? 'block' : 'none';
+            });
+            if (closeWa) {
+                closeWa.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    waMenu.style.display = 'none';
+                });
+            }
+        }
+    }
+
     /* --- Sticky Header & Back to Top --- */
     const header = document.getElementById('header');
     

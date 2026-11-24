@@ -1239,6 +1239,19 @@
                 var errorRefMsg = document.getElementById('errorRefMsg');
 
                 if (form) {
+                    // Auto-restore saved draft if available
+                    var draftFields = ['fullName', 'email', 'mobile', 'college', 'course', 'semester', 'domain'];
+                    draftFields.forEach(function(field) {
+                        var el = form.querySelector('[name="' + field + '"]');
+                        if (el) {
+                            var saved = localStorage.getItem('rc_intern_draft_' + field);
+                            if (saved) el.value = saved;
+                            el.addEventListener('input', function() {
+                                localStorage.setItem('rc_intern_draft_' + field, el.value);
+                            });
+                        }
+                    });
+
                     form.addEventListener('submit', function(e) {
                         e.preventDefault();
 
@@ -1280,6 +1293,7 @@
                                 successAlert.style.display = 'flex';
                                 errorAlert.style.display = 'none';
                                 form.reset();
+                                draftFields.forEach(function(f) { localStorage.removeItem('rc_intern_draft_' + f); });
                                 fileNameDisplay.textContent = 'Click to select your PDF resume';
                                 successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
                             } else {

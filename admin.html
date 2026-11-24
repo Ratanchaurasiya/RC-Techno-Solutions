@@ -482,7 +482,10 @@
                                         <option value="Rejected">Rejected</option>
                                     </select>
                                 </div>
-                                <button class="btn-action-sm btn-action-primary" onclick="loadInternships()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="btn-action-sm" onclick="exportInternshipsToCSV()" style="background: #10b981; color: #fff; border: none; cursor: pointer;"><i class="fas fa-file-excel"></i> Export CSV</button>
+                                    <button class="btn-action-sm btn-action-primary" onclick="loadInternships()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                                </div>
                             </div>
 
                             <div style="overflow-x: auto;">
@@ -857,6 +860,37 @@
                     }
                 })
                 .catch(function(e) { console.error(e); });
+            }
+
+            function exportInternshipsToCSV() {
+                if (!allInternships.length) {
+                    alert('No internship data available to export.');
+                    return;
+                }
+                var headers = ['Reference ID', 'Full Name', 'Email', 'Mobile', 'Domain', 'College', 'Course', 'Semester', 'Status', 'Date'];
+                var rows = allInternships.map(function(app) {
+                    return [
+                        '"' + (app.referenceId || app.id || '') + '"',
+                        '"' + (app.fullName || '') + '"',
+                        '"' + (app.email || '') + '"',
+                        '"' + (app.mobile || '') + '"',
+                        '"' + (app.domain || '') + '"',
+                        '"' + (app.college || '') + '"',
+                        '"' + (app.course || '') + '"',
+                        '"' + (app.semester || '') + '"',
+                        '"' + (app.status || 'Pending') + '"',
+                        '"' + (app.createdAt ? new Date(app.createdAt).toISOString() : '') + '"'
+                    ].join(',');
+                });
+
+                var csvContent = 'data:text/csv;charset=utf-8,' + headers.join(',') + '\n' + rows.join('\n');
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement('a');
+                link.setAttribute('href', encodedUri);
+                link.setAttribute('download', 'RC_Techno_Internship_Applications_' + new Date().toISOString().slice(0,10) + '.csv');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
             }
 
             function generateOfferLetterModal(refId, fullName, domain, college, email, mobile) {
