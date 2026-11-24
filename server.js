@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const zlib = require('zlib');
 const dbStore = require('./db-store');
 
 const PORT = process.env.PORT || 3000;
@@ -13,6 +14,7 @@ const MIME_TYPES = {
     '.png': 'image/png',
     '.jpg': 'image/jpeg',
     '.jpeg': 'image/jpeg',
+    '.webp': 'image/webp',
     '.gif': 'image/gif',
     '.svg': 'image/svg+xml',
     '.ico': 'image/x-icon',
@@ -293,7 +295,7 @@ const server = http.createServer((req, res) => {
 
             const sessionId = data.sessionId || 'session_' + Date.now();
             dbStore.getOrCreateChatSession(sessionId, req.socket.remoteAddress);
-            
+
             const userMsg = data.message ? String(data.message).trim() : '';
 
             if (data.sender && userMsg) {
@@ -507,7 +509,7 @@ const server = http.createServer((req, res) => {
                 if (fs.existsSync(ndaFile)) ndaList = JSON.parse(fs.readFileSync(ndaFile, 'utf8') || '[]');
                 ndaList.push(record);
                 fs.writeFileSync(ndaFile, JSON.stringify(ndaList, null, 2));
-            } catch (e) {}
+            } catch (e) { }
 
             return sendJson(200, {
                 success: true,
@@ -534,6 +536,32 @@ const server = http.createServer((req, res) => {
         return;
     }
 
+    // Helper to send compressed or raw content with optimal caching
+    function sendWithCompression(statusCode, baseHeaders, data) {
+        const acceptEncoding = (req.headers['accept-encoding'] || '').toLowerCase();
+        const contentType = baseHeaders['Content-Type'] || '';
+        const isCompressible = /text|javascript|json|xml|svg/i.test(contentType);
+
+        if (isCompressible && acceptEncoding.includes('gzip')) {
+            zlib.gzip(data, (zErr, compressed) => {
+                if (!zErr && compressed) {
+                    const headers = Object.assign({}, baseHeaders, {
+                        'Content-Encoding': 'gzip',
+                        'Vary': 'Accept-Encoding'
+                    });
+                    res.writeHead(statusCode, headers);
+                    res.end(compressed);
+                } else {
+                    res.writeHead(statusCode, baseHeaders);
+                    res.end(data);
+                }
+            });
+        } else {
+            res.writeHead(statusCode, baseHeaders);
+            res.end(data);
+        }
+    }
+
     fs.stat(filePath, (err, stats) => {
         if (err || !stats.isFile()) {
             if (!path.extname(cleanUrl)) {
@@ -544,10 +572,9 @@ const server = http.createServer((req, res) => {
                             if (!readErr) {
                                 const headers = Object.assign({}, SECURITY_HEADERS, {
                                     'Content-Type': 'text/html; charset=UTF-8',
-                                    'Cache-Control': 'no-cache, no-store, must-revalidate'
+                                    'Cache-Control': 'public, max-age=300, stale-while-revalidate=86400'
                                 });
-                                res.writeHead(200, headers);
-                                res.end(htmlData);
+                                sendWithCompression(200, headers, htmlData);
                                 return;
                             }
                             send404(res);
@@ -569,12 +596,22 @@ const server = http.createServer((req, res) => {
             }
             const ext = path.extname(filePath).toLowerCase();
             const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+            
+            // Static assets (images, fonts, CSS, JS) get aggressive caching
+            let cacheControl = 'public, max-age=86400';
+            if (ext === '.html') {
+                cacheControl = 'public, max-age=300, stale-while-revalidate=86400';
+            } else if (/\.(jpg|jpeg|png|webp|svg|ico|woff|woff2|ttf)$/i.test(ext)) {
+                cacheControl = 'public, max-age=2592000, immutable'; // 30 days for images & fonts
+            } else if (/\.(css|js)$/i.test(ext)) {
+                cacheControl = 'public, max-age=86400'; // 1 day for CSS & JS
+            }
+
             const headers = Object.assign({}, SECURITY_HEADERS, {
                 'Content-Type': contentType,
-                'Cache-Control': 'no-cache, no-store, must-revalidate'
+                'Cache-Control': cacheControl
             });
-            res.writeHead(200, headers);
-            res.end(data);
+            sendWithCompression(200, headers, data);
         });
     });
 });
