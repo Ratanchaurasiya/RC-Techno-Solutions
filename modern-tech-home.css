@@ -1044,6 +1044,33 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Mobile Touch Target and Micro-Interaction Enhancements */
+@media (max-width: 768px) {
+    .btn-tech-primary,
+    .btn-tech-secondary,
+    .btn-tech-load-more,
+    .btn-view-project,
+    .sct-link {
+        min-height: 42px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-tech-primary:active,
+    .btn-tech-secondary:active,
+    .btn-tech-load-more:active {
+        transform: scale(0.97) !important;
+        transition: transform 0.1s ease;
+    }
+
+    .tech-pill-box:active,
+    .why-pillar-card:active,
+    .service-card-tech:active,
+    .tech-project-card:active {
+        transform: scale(0.98) !important;
+    }
+}
+
 @media (max-width: 380px) {
     /* Very small devices fallback */
     .tech-projects-grid {
