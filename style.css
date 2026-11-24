@@ -862,21 +862,23 @@ header.sticky .hamburger { color: var(--clr-text-dark); }
 .back-to-top {
     position: fixed;
     bottom: 30px;
-    right: 30px;
-    background: var(--clr-primary);
-    color: var(--clr-dark);
-    width: 45px;
-    height: 45px;
+    right: 85px; /* Sits cleanly next to floating chat widget */
+    background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
+    color: #ffffff;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
+    border: none;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     opacity: 0;
     pointer-events: none;
-    transition: var(--transition);
-    z-index: 999;
-    box-shadow: var(--shadow-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 998;
+    box-shadow: 0 4px 14px rgba(0, 132, 255, 0.35);
 }
 
 .back-to-top.active {
@@ -886,8 +888,20 @@ header.sticky .hamburger { color: var(--clr-text-dark); }
 }
 
 .back-to-top:hover {
-    background: var(--clr-white);
-    transform: translateY(-5px);
+    background: linear-gradient(135deg, #0070d6 0%, #003e82 100%);
+    color: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0, 132, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 80px;
+        right: 18px;
+        width: 40px;
+        height: 40px;
+        font-size: 0.95rem;
+    }
 }
 
 /* Scroll Reveal Classes */

@@ -18,9 +18,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     setTimeout(hidePreloader, 1200);
 
+    /* --- Universal Back to Top Auto-Injection & Handler --- */
+    let backToTop = document.getElementById('backToTop');
+    if (!backToTop) {
+        backToTop = document.createElement('button');
+        backToTop.id = 'backToTop';
+        backToTop.className = 'back-to-top';
+        backToTop.setAttribute('aria-label', 'Scroll back to top');
+        backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        document.body.appendChild(backToTop);
+    }
+    backToTop.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
     /* --- Sticky Header & Back to Top --- */
     const header = document.getElementById('header');
-    const backToTop = document.getElementById('backToTop');
     
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
