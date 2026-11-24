@@ -563,6 +563,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    setupLoadMoreToggle('loadMoreServicesBtn', 'techServicesGrid', 'service-extra-item', 'Load More Services', 'Show Less');
     setupLoadMoreToggle('loadMoreTechBtn', 'techStackGrid', 'tech-extra-item', 'Load More Technologies', 'Show Less');
     setupLoadMoreToggle('loadMoreWhyBtn', 'whyPillarsGrid', 'why-extra-item', 'Load More Advantages', 'Show Less');
 

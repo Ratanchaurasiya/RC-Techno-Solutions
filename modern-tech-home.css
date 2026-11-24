@@ -942,6 +942,9 @@ h1, h2, h3, h4, h5, h6 {
     .tech-float-card { display: none; }
 
     /* Mobile Load More behavior: initially hide extra items */
+    .tech-services-grid .service-extra-item:not(.show-item) {
+        display: none !important;
+    }
     .tech-stack-grid .tech-extra-item:not(.show-item) {
         display: none !important;
     }
@@ -994,6 +997,9 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 651px) {
     .btn-tech-load-more {
         display: inline-flex;
+    }
+    .tech-services-grid .service-extra-item:not(.show-item) {
+        display: flex;
     }
     .tech-stack-grid .tech-extra-item:not(.show-item) {
         display: flex;
