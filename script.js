@@ -143,6 +143,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /* --- Universal Lazy Loading & Performance Optimization --- */
+    // Automatically apply native lazy-loading and IntersectionObserver to all images and iframes
+    const allImages = document.querySelectorAll('img:not([loading="eager"]):not([fetchpriority="high"])');
+    allImages.forEach(img => {
+        if (!img.getAttribute('loading')) {
+            img.setAttribute('loading', 'lazy');
+        }
+        if (!img.getAttribute('decoding')) {
+            img.setAttribute('decoding', 'async');
+        }
+    });
+
+    const allIframes = document.querySelectorAll('iframe');
+    allIframes.forEach(iframe => {
+        if (!iframe.getAttribute('loading')) {
+            iframe.setAttribute('loading', 'lazy');
+        }
+    });
+
+    // IntersectionObserver for progressive image fade-in
+    if ('IntersectionObserver' in window) {
+        const imgObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    target.classList.add('img-lazy-loaded');
+                    observer.unobserve(target);
+                }
+            });
+        }, { rootMargin: '100px 0px' });
+
+        allImages.forEach(img => {
+            img.classList.add('img-lazy');
+            imgObserver.observe(img);
+        });
+    }
+
     /* --- Scroll Reveal Animations (High Reliability for Mobile & Desktop) --- */
     const reveals = document.querySelectorAll('.reveal');
 
@@ -1168,61 +1205,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* --- Executive Hero Title Full Typing Animation --- */
-    const typePart1 = document.getElementById('heroTypePart1');
-    const typePart2 = document.getElementById('heroTypePart2');
-
-    // Only run if not handled by the standardized RCTypewriter system
-    if (typePart1 && typePart2 && !typePart2.hasAttribute('data-typewriter')) {
-        const fullPart1 = "Architecting Resilient Digital Platforms &";
-        const accentWords = [
-            "Intelligent Systems",
-            "Enterprise Cloud Architecture",
-            "Mission-Critical SaaS",
-            "Autonomous AI Workflows"
+    const autoTypeEl = document.getElementById('autoTypeHero') || document.getElementById('heroTypePart2');
+    if (autoTypeEl) {
+        const phrases = [
+            "Intelligent Digital",
+            "High-Performance Cloud",
+            "Autonomous AI Software",
+            "Scalable Enterprise",
+            "Mission-Critical SaaS"
         ];
+        let pIdx = 0;
+        let charIdx = autoTypeEl.innerText.length || phrases[0].length;
+        let deleting = false;
 
-        // Retain original HTML structure if already populated
-        if (!typePart1.children.length) {
-            typePart1.textContent = fullPart1;
-        }
-        typePart2.textContent = accentWords[0];
-
-        let idx2 = accentWords[0].length;
-        let wordIdx = 0;
-        let isDeleting = false;
-
-        // Step 2: Rotate second line accent words with the gradient accent
-        function typeLine2() {
-            const currentWord = accentWords[wordIdx];
-
-            if (isDeleting) {
-                idx2--;
-                typePart2.textContent = currentWord.substring(0, idx2);
+        function runAutoType() {
+            const current = phrases[pIdx];
+            if (deleting) {
+                charIdx--;
+                autoTypeEl.innerText = current.substring(0, charIdx);
             } else {
-                idx2++;
-                typePart2.textContent = currentWord.substring(0, idx2);
+                charIdx++;
+                autoTypeEl.innerText = current.substring(0, charIdx);
             }
 
-            if (!isDeleting && idx2 === currentWord.length) {
-                isDeleting = true;
-                setTimeout(typeLine2, 3500);
+            if (!deleting && charIdx === current.length) {
+                deleting = true;
+                setTimeout(runAutoType, 2200); // Read pause
                 return;
-            } else if (isDeleting && idx2 === 0) {
-                isDeleting = false;
-                wordIdx = (wordIdx + 1) % accentWords.length;
-                setTimeout(typeLine2, 350);
+            } else if (deleting && charIdx === 0) {
+                deleting = false;
+                pIdx = (pIdx + 1) % phrases.length;
+                setTimeout(runAutoType, 400); // Inter-phrase pause
                 return;
             }
 
-            const speed = isDeleting ? 38 : 70;
-            setTimeout(typeLine2, speed);
+            const typingSpeed = deleting ? 45 : 85;
+            setTimeout(runAutoType, typingSpeed);
         }
 
-        // Pause 2.5s for initial reading before beginning live rotation
+        // Start typing after initial delay
         setTimeout(() => {
-            isDeleting = true;
-            typeLine2();
-        }, 2500);
+            deleting = true;
+            runAutoType();
+        }, 2000);
+    }
     }
 
     /* --- Live Animated Impact Metric Counters --- */

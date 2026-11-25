@@ -1084,3 +1084,29 @@ h1, h2, h3, h4, h5, h6 {
     }
     .tpc-img-wrap { height: 100px !important; }
 }
+
+/* ==========================================================================
+   AUTO-TYPING CURSOR & UNIVERSAL LAZY LOADING STYLES
+   ========================================================================== */
+.typewriter-cursor {
+    display: inline-block;
+    color: #38bdf8;
+    font-weight: 300;
+    margin-left: 2px;
+    animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Progressive Smooth Image Fade-In for Lazy Loading */
+img.img-lazy {
+    opacity: 0.85;
+    transition: opacity 0.4s ease-in-out, filter 0.4s ease-in-out;
+}
+
+img.img-lazy.img-lazy-loaded {
+    opacity: 1;
+}
