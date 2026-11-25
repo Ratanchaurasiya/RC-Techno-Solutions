@@ -1204,9 +1204,9 @@ document.addEventListener('DOMContentLoaded', () => {
         filterFaqs();
     }
 
-    /* --- Executive Hero Title Full Typing Animation --- */
+    /* --- Executive Hero Title Full Typing Animation (Fallback / Standalone) --- */
     const autoTypeEl = document.getElementById('autoTypeHero') || document.getElementById('heroTypePart2');
-    if (autoTypeEl) {
+    if (autoTypeEl && !autoTypeEl._rcTypewriter && typeof window.RCTypewriter !== 'undefined') {
         const phrases = [
             "Intelligent Digital",
             "High-Performance Cloud",
@@ -1214,41 +1214,11 @@ document.addEventListener('DOMContentLoaded', () => {
             "Scalable Enterprise",
             "Mission-Critical SaaS"
         ];
-        let pIdx = 0;
-        let charIdx = autoTypeEl.innerText.length || phrases[0].length;
-        let deleting = false;
-
-        function runAutoType() {
-            const current = phrases[pIdx];
-            if (deleting) {
-                charIdx--;
-                autoTypeEl.innerText = current.substring(0, charIdx);
-            } else {
-                charIdx++;
-                autoTypeEl.innerText = current.substring(0, charIdx);
-            }
-
-            if (!deleting && charIdx === current.length) {
-                deleting = true;
-                setTimeout(runAutoType, 2200); // Read pause
-                return;
-            } else if (deleting && charIdx === 0) {
-                deleting = false;
-                pIdx = (pIdx + 1) % phrases.length;
-                setTimeout(runAutoType, 400); // Inter-phrase pause
-                return;
-            }
-
-            const typingSpeed = deleting ? 45 : 85;
-            setTimeout(runAutoType, typingSpeed);
-        }
-
-        // Start typing after initial delay
-        setTimeout(() => {
-            deleting = true;
-            runAutoType();
-        }, 2000);
-    }
+        new window.RCTypewriter(autoTypeEl, phrases, {
+            typeSpeed: 75,
+            eraseSpeed: 35,
+            pauseTime: 2400
+        });
     }
 
     /* --- Live Animated Impact Metric Counters --- */
