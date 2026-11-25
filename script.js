@@ -1263,23 +1263,6 @@ document.addEventListener('DOMContentLoaded', () => {
         filterFaqs();
     }
 
-    /* --- Executive Hero Title Full Typing Animation (Ensures single initialization) --- */
-    const autoTypeEl = document.getElementById('autoTypeHero') || document.getElementById('heroTypePart2');
-    if (autoTypeEl && !autoTypeEl._rcTypewriter && typeof window.RCTypewriter !== 'undefined') {
-        const phrases = [
-            "Modern Enterprises",
-            "High-Performance Cloud",
-            "Autonomous AI Systems",
-            "Mission-Critical SaaS",
-            "Scalable Platforms"
-        ];
-        new window.RCTypewriter(autoTypeEl, phrases, {
-            typeSpeed: 75,
-            eraseSpeed: 35,
-            pauseTime: 2400
-        });
-    }
-
     /* --- Live Animated Impact Metric Counters --- */
     const counterElements = document.querySelectorAll('.hero-counter-num');
     if (counterElements.length > 0 && 'IntersectionObserver' in window) {
