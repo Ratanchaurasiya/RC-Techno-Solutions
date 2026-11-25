@@ -180,36 +180,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* --- Scroll Reveal Animations (High Reliability for Mobile & Desktop) --- */
-    const reveals = document.querySelectorAll('.reveal');
+    /* --- Load Once, Replay on Scroll (Intersection Observer System) --- */
+    // Rule: Content loads once and stays cached in memory/DOM.
+    // Floating entrance animations cleanly replay whenever a section or reveal card re-enters the viewport.
+    const scrollAnimatedElements = document.querySelectorAll('.reveal, .tech-section, section, .animate-on-scroll');
 
     if ('IntersectionObserver' in window) {
-        const revealObserver = new IntersectionObserver((entries, observer) => {
+        const replayScrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
+                const el = entry.target;
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
+                    // Replay entrance animation on viewport entry without reloading DOM/content
+                    el.classList.add('active');
+                    el.classList.remove('out-of-view');
+                    // Mark as loaded so it is permanently cached in memory
+                    el.setAttribute('data-scroll-loaded', 'true');
+                } else {
+                    // Only exit if previously loaded and scrolled out of view
+                    if (el.getAttribute('data-scroll-loaded') === 'true') {
+                        el.classList.remove('active');
+                        el.classList.add('out-of-view');
+                    }
                 }
             });
         }, {
             root: null,
-            threshold: 0.05,
-            rootMargin: '0px 0px 50px 0px'
+            threshold: 0.08,
+            rootMargin: '0px 0px -40px 0px'
         });
 
-        reveals.forEach(el => revealObserver.observe(el));
+        scrollAnimatedElements.forEach(el => {
+            replayScrollObserver.observe(el);
+        });
     } else {
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            reveals.forEach(reveal => {
-                const elementTop = reveal.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 40) {
-                    reveal.classList.add('active');
+        // Fallback for older browsers
+        const checkScroll = () => {
+            const vh = window.innerHeight;
+            scrollAnimatedElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < vh - 40 && rect.bottom > 40) {
+                    el.classList.add('active');
+                    el.classList.remove('out-of-view');
+                } else if (el.classList.contains('active')) {
+                    el.classList.remove('active');
+                    el.classList.add('out-of-view');
                 }
             });
         };
-        window.addEventListener('scroll', revealOnScroll, { passive: true });
-        revealOnScroll();
+        window.addEventListener('scroll', checkScroll, { passive: true });
+        checkScroll();
     }
 
     /* --- Active Navigation Link on Scroll (In-Page Anchor Hash Links Only) --- */
