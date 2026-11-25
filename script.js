@@ -1942,6 +1942,8 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =========================================================================
        FEATURE 1: INTERACTIVE PROJECT COST & TIMELINE ESTIMATOR
        ========================================================================= */
+    const estIndustrySelect = document.getElementById('estIndustrySelect');
+    const estPlatformScale = document.getElementById('estPlatformScale');
     const estProjectTypeInputs = document.querySelectorAll('input[name="estProjectType"]');
     const estFeatureCheckboxes = document.querySelectorAll('.est-feature');
     const estTimelineInputs = document.querySelectorAll('input[name="estTimeline"]');
@@ -1964,6 +1966,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Industry multiplier
+        let industryMult = 1.0;
+        let industryName = 'Corporate';
+        if (estIndustrySelect) {
+            const opt = estIndustrySelect.options[estIndustrySelect.selectedIndex];
+            industryMult = parseFloat(opt.getAttribute('data-mult') || '1.0');
+            industryName = opt.text.trim();
+        }
+
+        // Platform architecture & scale add-on
+        let scaleAdd = 0;
+        let scaleDays = 0;
+        let scaleName = 'Startup MVP';
+        if (estPlatformScale) {
+            const opt = estPlatformScale.options[estPlatformScale.selectedIndex];
+            scaleAdd = parseInt(opt.getAttribute('data-add') || '0', 10);
+            scaleDays = parseInt(opt.getAttribute('data-days') || '0', 10);
+            scaleName = opt.text.trim();
+        }
+
         let addOnCost = 0;
         let addOnDays = 0;
         let selectedFeatures = [];
@@ -1984,9 +2006,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        const totalCostLow = Math.round((baseCost + addOnCost) * timelineMult);
-        const totalCostHigh = Math.round(totalCostLow * 1.3);
-        const totalDays = isExpress ? Math.max(3, Math.round((baseDays + addOnDays) * 0.75)) : (baseDays + addOnDays);
+        const subtotal = Math.round((baseCost * industryMult) + scaleAdd + addOnCost);
+        const totalCostLow = Math.round(subtotal * timelineMult);
+        const totalCostHigh = Math.round(totalCostLow * 1.25);
+        const totalDays = isExpress ? Math.max(3, Math.round((baseDays + scaleDays + addOnDays) * 0.75)) : (baseDays + scaleDays + addOnDays);
 
         estTotalPriceEl.innerText = `₹${totalCostLow.toLocaleString('en-IN')} – ₹${totalCostHigh.toLocaleString('en-IN')}`;
         if (estTimelineTextEl) {
@@ -1995,12 +2018,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (estWhatsappBtn) {
             const featText = selectedFeatures.length ? `%0A*Features:* ${encodeURIComponent(selectedFeatures.join(', '))}` : '';
-            const msg = `Hi Ratan, I calculated an engineering estimate on your website:%0A*Type:* ${encodeURIComponent(projectTitle)}${featText}%0A*Budget Range:* ₹${totalCostLow.toLocaleString('en-IN')} - ₹${totalCostHigh.toLocaleString('en-IN')}%0A*Timeline:* ${totalDays} Days%0AI'd like to discuss the scope and get a formal proposal.`;
+            const msg = `Hi Ratan, I calculated an engineering estimate on your website:%0A*Industry:* ${encodeURIComponent(industryName)}%0A*Scale:* ${encodeURIComponent(scaleName)}%0A*Type:* ${encodeURIComponent(projectTitle)}${featText}%0A*Budget Range:* ₹${totalCostLow.toLocaleString('en-IN')} - ₹${totalCostHigh.toLocaleString('en-IN')}%0A*Timeline:* ${totalDays} Days%0AI'd like to discuss the scope and get a formal proposal.`;
             estWhatsappBtn.href = `https://wa.me/916390035039?text=${msg}`;
         }
     }
 
     if (estProjectTypeInputs.length) {
+        if (estIndustrySelect) estIndustrySelect.addEventListener('change', calculateEstimate);
+        if (estPlatformScale) estPlatformScale.addEventListener('change', calculateEstimate);
         estProjectTypeInputs.forEach(i => i.addEventListener('change', calculateEstimate));
         estFeatureCheckboxes.forEach(i => i.addEventListener('change', calculateEstimate));
         estTimelineInputs.forEach(i => i.addEventListener('change', calculateEstimate));
