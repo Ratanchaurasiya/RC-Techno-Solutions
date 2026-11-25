@@ -904,49 +904,62 @@ header.sticky .hamburger { color: var(--clr-text-dark); }
     }
 }
 
-/* Scroll Reveal Classes - Load Once, Replay on Scroll Engine */
+/* ==========================================================================
+   AUTO-SCALE SYSTEM (LOAD ONCE, REPLAY ON SCROLL)
+   Initial Scale: 0.90 | Final Scale: 1.0
+   Initial Opacity: 0 | Final Opacity: 1
+   Duration: 750ms - 850ms | Easing: cubic-bezier(0.16, 1, 0.3, 1)
+   Floating Entrance with Subtile Vertical Translation (20px -> 0)
+   ========================================================================== */
+.rc-scale-item,
 .reveal,
-.animate-on-scroll {
+.auto-scale {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(20px) scale(0.90);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
 }
 
 .reveal.reveal-left {
-    transform: translateX(-40px);
+    transform: translate(-30px, 15px) scale(0.90);
 }
 
 .reveal.reveal-right {
-    transform: translateX(40px);
+    transform: translate(30px, 15px) scale(0.90);
 }
 
 .reveal.reveal-zoom {
-    transform: scale(0.92);
+    transform: scale(0.90);
 }
 
+/* Entering Viewport: Smooth Scale up to 1.0 & Opacity to 1 */
+.rc-scale-item.rc-scale-in,
+.rc-scale-item.active,
 .reveal.active,
-.animate-on-scroll.active {
+.auto-scale.active {
     opacity: 1 !important;
-    transform: translate(0, 0) scale(1) !important;
+    transform: translate(0, 0) scale(1.0) !important;
 }
 
+/* Exiting Viewport: Gracefully scale back to 0.90 to prepare for replay */
+.rc-scale-item.rc-scale-out,
+.rc-scale-item.out-of-view,
 .reveal.out-of-view,
-.animate-on-scroll.out-of-view {
-    opacity: 0;
-    transform: translateY(30px);
+.auto-scale.out-of-view {
+    opacity: 0.15;
+    transform: translateY(18px) scale(0.92);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 /* Reduced-motion accessibility */
 @media (prefers-reduced-motion: reduce) {
+    .rc-scale-item,
+    .rc-scale-item.rc-scale-in,
+    .rc-scale-item.rc-scale-out,
     .reveal,
-    .reveal.reveal-left,
-    .reveal.reveal-right,
-    .reveal.reveal-zoom,
+    .reveal.active,
     .reveal.out-of-view,
-    .animate-on-scroll,
-    .animate-on-scroll.out-of-view {
+    .auto-scale {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;

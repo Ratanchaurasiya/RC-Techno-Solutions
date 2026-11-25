@@ -1112,51 +1112,50 @@ img.img-lazy.img-lazy-loaded {
 }
 
 /* ==========================================================================
-   LOAD ONCE, REPLAY ON SCROLL - PERFORMANCE & ENTRANCE ANIMATIONS
+   AUTO-SCALE SYSTEM - SCROLL ANIMATION & GPU ACCELERATION
    ========================================================================== */
-section[data-scroll-loaded="true"] {
-    /* Prevent layout recalculations on re-entry */
-    content-visibility: auto;
-    contain-intrinsic-size: auto 600px;
+.rc-scale-item {
+    opacity: 0;
+    transform: translateY(20px) scale(0.90);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
 }
 
-/* Smooth floating entrance animation */
-@keyframes floatUpEntrance {
-    0% {
-        opacity: 0;
-        transform: translateY(35px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.scroll-float-card,
-.animate-on-scroll {
-    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform, opacity;
-}
-
-.scroll-float-card.active,
-.animate-on-scroll.active {
+.rc-scale-item.rc-scale-in,
+.rc-scale-item.active {
     opacity: 1 !important;
-    transform: translateY(0) !important;
+    transform: translate(0, 0) scale(1.0) !important;
 }
 
-.scroll-float-card.out-of-view,
-.animate-on-scroll.out-of-view {
+.rc-scale-item.rc-scale-out,
+.rc-scale-item.out-of-view {
     opacity: 0.15;
-    transform: translateY(24px);
+    transform: translateY(18px) scale(0.92);
+}
+
+/* Stagger animations smoothly inside grids */
+.tech-services-grid > .rc-scale-item:nth-child(2),
+.tech-projects-grid > .rc-scale-item:nth-child(2),
+.tech-stack-grid > .rc-scale-item:nth-child(2) {
+    transition-delay: 0.08s;
+}
+
+.tech-services-grid > .rc-scale-item:nth-child(3),
+.tech-projects-grid > .rc-scale-item:nth-child(3),
+.tech-stack-grid > .rc-scale-item:nth-child(3) {
+    transition-delay: 0.16s;
+}
+
+.tech-services-grid > .rc-scale-item:nth-child(4),
+.tech-projects-grid > .rc-scale-item:nth-child(4),
+.tech-stack-grid > .rc-scale-item:nth-child(4) {
+    transition-delay: 0.24s;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .scroll-float-card,
-    .scroll-float-card.active,
-    .scroll-float-card.out-of-view,
-    .animate-on-scroll,
-    .animate-on-scroll.active,
-    .animate-on-scroll.out-of-view {
+    .rc-scale-item,
+    .rc-scale-item.rc-scale-in,
+    .rc-scale-item.rc-scale-out {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;

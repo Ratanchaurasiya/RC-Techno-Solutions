@@ -1553,6 +1553,7 @@
             var loadMoreBtn = document.getElementById('loadMoreWorkBtn');
             var isWorkExpanded = false;
             var visibleLimit = 4;
+            var cards = document.querySelectorAll('.portfolio-grid-main .portfolio-card');
 
             function updateWorkVisibility(filter) {
                 var currentFilter = filter || 'all';

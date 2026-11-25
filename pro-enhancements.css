@@ -5162,12 +5162,11 @@ html, body {
 
 /* --- 3. Reveal Animation Safety on Mobile (Zero Blank Sections) --- */
 @media (max-width: 768px) {
-    /* If JS fails or scroll lags on mobile, guarantee all content is visible */
-    .reveal {
+    /* Auto-scale enabled on mobile; elements smoothly scale from 0.90 to 1.0 */
+    .reveal.active,
+    .rc-scale-item.rc-scale-in {
         opacity: 1 !important;
-        transform: none !important;
-        visibility: visible !important;
-        transition: none !important;
+        transform: translate(0, 0) scale(1) !important;
     }
 }
 
@@ -5676,11 +5675,11 @@ html, body {
         max-width: 100% !important;
     }
 
-    /* 7. Zero Hidden Content On Mobile (Reveal Safety) */
-    .reveal {
+    /* 7. Reveal & Auto-Scale Active State on Mobile */
+    .reveal.active,
+    .rc-scale-item.rc-scale-in {
         opacity: 1 !important;
-        transform: none !important;
-        visibility: visible !important;
+        transform: translate(0, 0) scale(1) !important;
     }
 }
 

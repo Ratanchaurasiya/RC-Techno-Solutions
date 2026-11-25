@@ -180,26 +180,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* --- Load Once, Replay on Scroll (Intersection Observer System) --- */
-    // Rule: Content loads once and stays cached in memory/DOM.
-    // Floating entrance animations cleanly replay whenever a section or reveal card re-enters the viewport.
-    const scrollAnimatedElements = document.querySelectorAll('.reveal, .tech-section, section, .animate-on-scroll');
+    /* --- Universal Auto Scale & Replay on Scroll Engine --- */
+    // Rule: Elements scale from 0.90 to 1.0 with subtle floating entrance when entering viewport.
+    // Content is loaded once and cached in DOM; animations replay seamlessly on scroll up and down.
+    const autoScaleSelectors = [
+        '.auto-scale',
+        '.reveal',
+        '.service-card',
+        '.portfolio-card',
+        '.project-card',
+        '.team-card',
+        '.team-member-card',
+        '.testimonial-card',
+        '.tech-pill-box',
+        '.tech-card',
+        '.stat-card',
+        '.tech-stat-card',
+        '.why-pillar-card',
+        '.gallery-item',
+        '.tech-float-card',
+        '.capabilities-metrics-card',
+        '.tech-console-card',
+        '.contact-info-card',
+        '.contact-form-wrap',
+        'section:not(.tech-hero-section):not(#home)'
+    ];
+
+    const autoScaleElements = document.querySelectorAll(autoScaleSelectors.join(', '));
+
+    // Tag and prepare all elements for hardware-accelerated auto-scale
+    autoScaleElements.forEach(el => {
+        if (!el.classList.contains('rc-scale-item')) {
+            el.classList.add('rc-scale-item');
+        }
+    });
 
     if ('IntersectionObserver' in window) {
-        const replayScrollObserver = new IntersectionObserver((entries) => {
+        const autoScaleObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 const el = entry.target;
                 if (entry.isIntersecting) {
-                    // Replay entrance animation on viewport entry without reloading DOM/content
-                    el.classList.add('active');
+                    // Enter viewport: Trigger scale from 0.90 to 1.0 with smooth floating entrance
+                    el.classList.add('rc-scale-in');
+                    el.classList.remove('rc-scale-out');
+                    el.classList.add('active'); // Maintain backwards compatibility with .active
                     el.classList.remove('out-of-view');
-                    // Mark as loaded so it is permanently cached in memory
                     el.setAttribute('data-scroll-loaded', 'true');
                 } else {
-                    // Only exit if previously loaded and scrolled out of view
+                    // Out of viewport: Replay prep if previously loaded
                     if (el.getAttribute('data-scroll-loaded') === 'true') {
-                        el.classList.remove('active');
-                        el.classList.add('out-of-view');
+                        // Check if actually scrolled away (not just tiny boundary jitter)
+                        const rect = el.getBoundingClientRect();
+                        const vh = window.innerHeight;
+                        if (rect.bottom < -20 || rect.top > vh + 20) {
+                            el.classList.remove('rc-scale-in');
+                            el.classList.add('rc-scale-out');
+                            el.classList.remove('active');
+                            el.classList.add('out-of-view');
+                        }
                     }
                 }
             });
@@ -209,26 +247,28 @@ document.addEventListener('DOMContentLoaded', () => {
             rootMargin: '0px 0px -40px 0px'
         });
 
-        scrollAnimatedElements.forEach(el => {
-            replayScrollObserver.observe(el);
+        autoScaleElements.forEach(el => {
+            autoScaleObserver.observe(el);
         });
     } else {
-        // Fallback for older browsers
-        const checkScroll = () => {
+        // Fallback for browsers without IntersectionObserver
+        const checkAutoScale = () => {
             const vh = window.innerHeight;
-            scrollAnimatedElements.forEach(el => {
+            autoScaleElements.forEach(el => {
                 const rect = el.getBoundingClientRect();
-                if (rect.top < vh - 40 && rect.bottom > 40) {
+                if (rect.top < vh - 50 && rect.bottom > 50) {
+                    el.classList.add('rc-scale-in');
+                    el.classList.remove('rc-scale-out');
                     el.classList.add('active');
-                    el.classList.remove('out-of-view');
-                } else if (el.classList.contains('active')) {
+                } else if (el.classList.contains('rc-scale-in')) {
+                    el.classList.remove('rc-scale-in');
+                    el.classList.add('rc-scale-out');
                     el.classList.remove('active');
-                    el.classList.add('out-of-view');
                 }
             });
         };
-        window.addEventListener('scroll', checkScroll, { passive: true });
-        checkScroll();
+        window.addEventListener('scroll', checkAutoScale, { passive: true });
+        checkAutoScale();
     }
 
     /* --- Active Navigation Link on Scroll (In-Page Anchor Hash Links Only) --- */
