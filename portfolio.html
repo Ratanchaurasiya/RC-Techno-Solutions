@@ -1291,6 +1291,17 @@
                         </button>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Project Detail Modal -->
+        <div id="projectDetailModal" class="project-modal-overlay" style="display:none;">
+            <div class="project-modal-content">
+                <button class="project-modal-close">&times;</button>
+                <div class="project-modal-header">
+                    <span class="project-modal-category"></span>
+                    <h2 class="project-modal-title"></h2>
+                </div>
                 <div class="project-modal-body">
                     <div class="project-modal-section">
                         <h4>Project Overview</h4>
@@ -1834,36 +1845,48 @@
             });
 
             // ───── Load More / Show Less (Shows 4 initially, reveals remaining 14) ─────
-            var loadMoreBtn = document.getElementById('loadMoreWorkBtn');
+                        var loadMoreBtn = document.getElementById('loadMoreWorkBtn');
             var isWorkExpanded = false;
             var visibleLimit = 4;
             var cards = document.querySelectorAll('.portfolio-grid-main .portfolio-card');
+            var currentMatchedCards = [];
 
             function updateWorkVisibility(filter) {
                 var currentFilter = filter || 'all';
-                var matchedCards = [];
+                currentMatchedCards = [];
 
                 cards.forEach(function(card) {
                     var categories = card.getAttribute('data-category') || '';
                     if (currentFilter === 'all' || categories.split(' ').indexOf(currentFilter) !== -1) {
-                        matchedCards.push(card);
+                        currentMatchedCards.push(card);
                     } else {
                         card.style.display = 'none';
                     }
                 });
 
-                if (matchedCards.length <= visibleLimit) {
+                var btnText = loadMoreBtn ? loadMoreBtn.querySelector('.btn-text') : null;
+
+                if (currentMatchedCards.length <= visibleLimit) {
                     if (loadMoreBtn) loadMoreBtn.parentElement.style.display = 'none';
-                    matchedCards.forEach(function(c) { c.style.display = ''; });
+                    currentMatchedCards.forEach(function(c) { c.style.display = ''; });
                 } else {
                     if (loadMoreBtn) loadMoreBtn.parentElement.style.display = 'block';
-                    matchedCards.forEach(function(c, idx) {
+                    currentMatchedCards.forEach(function(c, idx) {
                         if (isWorkExpanded || idx < visibleLimit) {
                             c.style.display = '';
                         } else {
                             c.style.display = 'none';
                         }
                     });
+
+                    if (btnText) {
+                        if (isWorkExpanded) {
+                            btnText.textContent = 'Show Less';
+                        } else {
+                            var remaining = currentMatchedCards.length - visibleLimit;
+                            btnText.textContent = 'Load More Projects (' + remaining + ' more)';
+                        }
+                    }
                 }
             }
 
@@ -1873,14 +1896,11 @@
             if (loadMoreBtn) {
                 loadMoreBtn.addEventListener('click', function() {
                     isWorkExpanded = !isWorkExpanded;
-                    var btnText = loadMoreBtn.querySelector('.btn-text');
                     var activeFilter = document.querySelector('.portfolio-filter-btn.active')?.getAttribute('data-filter') || 'all';
 
                     if (isWorkExpanded) {
-                        if (btnText) btnText.textContent = 'Show Less';
                         loadMoreBtn.classList.add('expanded');
                     } else {
-                        if (btnText) btnText.textContent = 'Load More Projects (' + (matchedCards.length - visibleLimit) + ' more)';
                         loadMoreBtn.classList.remove('expanded');
                         document.querySelector('.portfolio-grid-main')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
