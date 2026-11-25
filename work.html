@@ -1041,12 +1041,46 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Project 13: RC Smart HRMS – AI-Powered Human Resource Management System -->
+                        <div class="portfolio-card-elevated portfolio-card reveal delay-1" data-category="enterprise software ai">
+                            <div class="portfolio-thumb-wrap">
+                                <span class="portfolio-category-badge">AI & Workforce Management</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="RC Smart HRMS AI-Powered Human Resource Management System" class="portfolio-img-cover">
+                            </div>
+                            <div class="portfolio-card-body">
+                                <div class="portfolio-tech-pills">
+                                    <span class="tech-pill-tag">React.js</span>
+                                    <span class="tech-pill-tag">Node.js</span>
+                                    <span class="tech-pill-tag">Python AI</span>
+                                    <span class="tech-pill-tag">MySQL</span>
+                                    <span class="tech-pill-tag">Face AI</span>
+                                </div>
+                                <h3 class="portfolio-card-title">RC Smart HRMS – AI-Powered HRMS</h3>
+                                <p class="portfolio-card-text">Multi-company HRMS automating AI face-recognition attendance, GPS geofenced clock-in, and instant payroll with WhatsApp salary slips.</p>
+                                <ul class="portfolio-feature-list">
+                                    <li><i class="fas fa-check"></i> AI face recognition attendance & GPS location geofencing</li>
+                                    <li><i class="fas fa-check"></i> Automated payroll calculation, overtime, bonus & incentives</li>
+                                    <li><i class="fas fa-check"></i> Employee self-service portal & multi-level leave approvals</li>
+                                    <li><i class="fas fa-check"></i> Automated WhatsApp notifications & 1-click salary slip generation</li>
+                                    <li><i class="fas fa-check"></i> Multi-company, multi-branch hierarchy with exit management</li>
+                                </ul>
+                                <div class="portfolio-card-status">
+                                    <span class="status-badge live">Production Ready</span>
+                                </div>
+                                <div class="portfolio-card-actions">
+                                    <button class="btn-portfolio-live portfolio-view-detail-btn" data-project="rc-smart-hrms">
+                                        <i class="fas fa-eye"></i> View Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Load More Projects Button (Shows after 4th project) -->
                     <div class="load-more-wrap" style="text-align: center; margin-top: 36px; display: block !important;">
                         <button type="button" class="btn-tech-load-more" id="loadMoreWorkBtn" style="display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: #0f172a; border: 1.5px solid #cbd5e1; padding: 12px 28px; border-radius: 9999px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.2s ease;">
-                            <span class="btn-text">Load More Projects (14 more)</span>
+                            <span class="btn-text">Load More Projects (9 more)</span>
                             <i class="fas fa-chevron-down"></i>
                         </button>
                     </div>
@@ -1473,6 +1507,32 @@
             "Leaflet GPS",
             "Docker"
         ]
+    },
+    "rc-smart-hrms": {
+        "category": "Corporate HR & AI Workforce",
+        "title": "RC Smart HRMS – AI-Powered Human Resource Management System",
+        "overview": "A next-generation multi-company Human Resource Management System (HRMS) engineered to automate enterprise employee lifecycles, AI-based face recognition biometric attendance, GPS geofencing location verification, and instant 1-click payroll processing. The platform is architected for enterprises managing multiple corporate entities, sister companies, and distributed branches from a unified dashboard.",
+        "problem": "Mid-to-large multi-branch enterprises struggle with buddy punching, inaccurate manual attendance reconciliation across branches, slow payroll runs taking days, untracked overtime hours, and scattered employee communication.",
+        "solution": "We engineered an AI-powered workforce intelligence platform featuring real-time facial recognition verification, mobile geofenced clock-in, automated shift and overtime rules, dynamic tax & deduction calculations, automated WhatsApp slip dispatch, and complete exit interview workflows.",
+        "features": [
+            "Multi-company, multi-branch centralized corporate hierarchy",
+            "AI face recognition attendance with anti-spoofing detection",
+            "GPS location geofencing for mobile field & on-site clock-in",
+            "1-click automated payroll with PF, ESI, TDS, bonuses & overtime",
+            "Employee Self-Service (ESS) portal for leave & expense tracking",
+            "Automated WhatsApp & email salary slip generation and notifications",
+            "Shift scheduling, roster management & overtime calculations",
+            "Resignation, clearance workflows & exit interview tracking"
+        ],
+        "tech": [
+            "React.js",
+            "Node.js",
+            "Python (OpenCV AI)",
+            "MySQL",
+            "Redis",
+            "WhatsApp Business API",
+            "Docker"
+        ]
     }
 };
 
@@ -1596,7 +1656,7 @@
                         if (btnText) btnText.textContent = 'Show Less';
                         loadMoreBtn.classList.add('expanded');
                     } else {
-                        if (btnText) btnText.textContent = 'Load More Projects (14 more)';
+                        if (btnText) btnText.textContent = 'Load More Projects (' + (matchedCards.length - visibleLimit) + ' more)';
                         loadMoreBtn.classList.remove('expanded');
                         document.querySelector('.portfolio-grid-main')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }

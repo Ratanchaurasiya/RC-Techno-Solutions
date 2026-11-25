@@ -2139,14 +2139,14 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         hrms: {
-            vertical: 'Corporate HR & Workforce Management',
-            title: 'Automated Payroll, Attendance & HRMS Suite',
-            problem: 'End-of-month salary computation with PF/ESI/TDS tax deductions took 7 days of manual HR calculation with frequent slip errors.',
-            solution: 'Architected a cloud HRMS with 1-click automated salary slips, biometric API clock-in, leave approval hierarchy, and employee self-service portal.',
+            vertical: 'Corporate HR & AI Workforce Intelligence',
+            title: 'RC Smart HRMS – AI-Powered Human Resource Management System',
+            problem: 'Multi-branch companies face attendance buddy-punching, manual overtime reconciliations, delayed payroll cycles taking 7 days, and untracked employee exits.',
+            solution: 'Architected a multi-company HRMS with AI face-recognition biometric clock-in, GPS geofencing, automated PF/TDS payroll with 1-click WhatsApp salary slips, and exit clearance workflows.',
             impact: [
                 { label: 'Payroll Time', val: '5 Mins' },
-                { label: 'Tax Accuracy', val: '100%' },
-                { label: 'Employee Satisfaction', val: '96%' }
+                { label: 'Attendance Accuracy', val: '99.9%' },
+                { label: 'HR Admin Workload', val: '-75%' }
             ]
         }
     };
