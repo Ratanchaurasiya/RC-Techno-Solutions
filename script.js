@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const waWrap = document.createElement('div');
         waWrap.id = 'waFloatingWidget';
         waWrap.innerHTML = `
-            <div id="waQuickMenu" style="display: none; position: fixed; bottom: 85px; right: 24px; z-index: 99999; background: #ffffff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); border: 1px solid #e2e8f0; width: 280px; overflow: hidden; animation: fadeIn 0.2s ease;">
+            <div id="waQuickMenu" style="display: none; position: fixed; bottom: 85px; right: 86px; z-index: 99999; background: #ffffff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); border: 1px solid #e2e8f0; width: 280px; overflow: hidden; animation: fadeIn 0.2s ease;">
                 <div style="background: #25d366; color: #ffffff; padding: 14px 16px; font-weight: 700; font-size: 0.92rem; display: flex; align-items: center; justify-content: space-between;">
                     <span><i class="fab fa-whatsapp"></i> Quick Assistance</span>
                     <button id="closeWaQuickMenu" style="background: none; border: none; color: #ffffff; font-size: 1.1rem; cursor: pointer;">&times;</button>
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </a>
                 </div>
             </div>
-            <button id="waTriggerBtn" style="position: fixed; bottom: 20px; right: 24px; z-index: 99998; width: 54px; height: 54px; border-radius: 50%; background: #25d366; color: #ffffff; border: none; box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; transition: transform 0.2s ease;">
+            <button id="waTriggerBtn" style="position: fixed; bottom: 20px; right: 86px; z-index: 99998; width: 50px; height: 50px; border-radius: 50%; background: #25d366; color: #ffffff; border: none; box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; transition: transform 0.2s ease;">
                 <i class="fab fa-whatsapp"></i>
             </button>
         `;

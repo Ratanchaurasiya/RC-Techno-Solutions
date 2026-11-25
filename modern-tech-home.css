@@ -1297,3 +1297,91 @@ img.img-lazy.img-lazy-loaded {
         border-radius: 18px !important;
     }
 }
+
+
+
+/* =========================================================================
+   FLOATING ACTION BUTTONS HARMONY (AI Assistant, WhatsApp, Back to Top)
+   ========================================================================= */
+
+/* Desktop Layout (Right-to-Left alignment) */
+/* 1. AI Assistant (Rightmost primary chat action) */
+.rc-chat-widget {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 10000 !important;
+}
+
+.rc-chat-toggle {
+    width: 50px !important;
+    height: 50px !important;
+}
+
+/* 2. WhatsApp Floating Quick-Menu Trigger (Sits to the left of AI Chatbot) */
+#waTriggerBtn {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 84px !important;
+    z-index: 9999 !important;
+    width: 50px !important;
+    height: 50px !important;
+}
+
+#waQuickMenu {
+    position: fixed !important;
+    bottom: 82px !important;
+    right: 84px !important;
+    z-index: 10001 !important;
+}
+
+/* 3. Back To Top (Sits to the left of WhatsApp Trigger) */
+.back-to-top {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 148px !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    z-index: 9998 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Mobile Screens (Clean stacking or compact spacing) */
+@media (max-width: 640px) {
+    .rc-chat-widget {
+        bottom: 16px !important;
+        right: 16px !important;
+    }
+    
+    .rc-chat-toggle {
+        width: 46px !important;
+        height: 46px !important;
+        font-size: 20px !important;
+    }
+
+    #waTriggerBtn {
+        bottom: 16px !important;
+        right: 72px !important;
+        width: 46px !important;
+        height: 46px !important;
+        font-size: 1.4rem !important;
+    }
+
+    #waQuickMenu {
+        bottom: 74px !important;
+        right: 16px !important;
+        width: calc(100vw - 32px) !important;
+        max-width: 320px !important;
+    }
+
+    .back-to-top {
+        bottom: 16px !important;
+        right: 128px !important;
+        width: 46px !important;
+        height: 46px !important;
+        font-size: 0.95rem !important;
+    }
+}
