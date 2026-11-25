@@ -654,17 +654,6 @@
                         <button class="portfolio-filter-btn" data-filter="ai">AI Solutions</button>
                         <button class="portfolio-filter-btn" data-filter="logistics">Logistics</button>
                     </div>
-
-                    <!-- Load More Button -->
-                    
-
-                    <!-- Load More Button -->
-                    <div style="text-align: center; margin-top: 40px;" id="portfolioLoadMoreWrap">
-                        <button id="portfolioLoadMoreBtn" class="btn-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 13px 32px; border-radius: 9999px; font-weight: 700; font-size: 0.95rem; background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%); color: #ffffff; border: none; cursor: pointer; box-shadow: 0 4px 18px rgba(0, 132, 255, 0.25); transition: transform 0.25s ease, box-shadow 0.25s ease;">
-                            <i class="fas fa-arrows-rotate"></i>
-                            <span>Load More Projects</span>
-                        </button>
-                    </div>
                 </div>
             </section>
 
@@ -1081,22 +1070,11 @@
                         </div>
                     </div>
 
-                    <!-- Load More Button -->
-                    
-
-                    <!-- Load More Button -->
-                    <div style="text-align: center; margin-top: 40px;" id="portfolioLoadMoreWrap">
-                        <button id="portfolioLoadMoreBtn" class="btn-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 13px 32px; border-radius: 9999px; font-weight: 700; font-size: 0.95rem; background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%); color: #ffffff; border: none; cursor: pointer; box-shadow: 0 4px 18px rgba(0, 132, 255, 0.25); transition: transform 0.25s ease, box-shadow 0.25s ease;">
-                            <i class="fas fa-arrows-rotate"></i>
-                            <span>Load More Projects</span>
-                        </button>
-                    </div>
-                </div>
-<!-- Load More Button -->
-                    <div style="text-align: center; margin-top: 40px; margin-bottom: 20px;" id="portfolioLoadMoreWrap">
-                        <button id="portfolioLoadMoreBtn" class="btn-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 13px 36px; border-radius: 9999px; font-weight: 700; font-size: 0.95rem; background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%); color: #ffffff; border: none; cursor: pointer; box-shadow: 0 4px 18px rgba(0, 132, 255, 0.25); transition: transform 0.25s ease, box-shadow 0.25s ease;">
-                            <i class="fas fa-arrows-rotate"></i>
-                            <span>Load More Projects</span>
+                    <!-- Load More Projects Button (Shows after 4th project) -->
+                    <div class="load-more-wrap" style="text-align: center; margin-top: 36px; display: block !important;">
+                        <button type="button" class="btn-tech-load-more" id="loadMoreWorkBtn" style="display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: #0f172a; border: 1.5px solid #cbd5e1; padding: 12px 28px; border-radius: 9999px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.2s ease;">
+                            <span class="btn-text">Load More Projects (14 more)</span>
+                            <i class="fas fa-chevron-down"></i>
                         </button>
                     </div>
                 </div>
@@ -1155,17 +1133,6 @@
                             <div class="cta-trust-badge"><i class="fas fa-shield-alt badge-icon-shield"></i><span>100% IP Ownership</span></div>
                             <div class="cta-trust-badge"><i class="fas fa-handshake badge-icon-handshake"></i><span>60-Day SLA</span></div>
                         </div>
-                    </div>
-
-                    <!-- Load More Button -->
-                    
-
-                    <!-- Load More Button -->
-                    <div style="text-align: center; margin-top: 40px;" id="portfolioLoadMoreWrap">
-                        <button id="portfolioLoadMoreBtn" class="btn-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 13px 32px; border-radius: 9999px; font-weight: 700; font-size: 0.95rem; background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%); color: #ffffff; border: none; cursor: pointer; box-shadow: 0 4px 18px rgba(0, 132, 255, 0.25); transition: transform 0.25s ease, box-shadow 0.25s ease;">
-                            <i class="fas fa-arrows-rotate"></i>
-                            <span>Load More Projects</span>
-                        </button>
                     </div>
                 </div>
             </section>
@@ -1609,9 +1576,63 @@
                 if (e.key === 'Escape' && modal.style.display !== 'none') closeModal();
             });
 
+            // ───── Load More / Show Less (Shows 4 initially, reveals remaining 14) ─────
+            var loadMoreBtn = document.getElementById('loadMoreWorkBtn');
+            var isWorkExpanded = false;
+            var visibleLimit = 4;
+            var cards = document.querySelectorAll('.portfolio-grid-main .portfolio-card');
+
+            function updateWorkVisibility(filter) {
+                var currentFilter = filter || 'all';
+                var matchedCards = [];
+
+                cards.forEach(function(card) {
+                    var categories = card.getAttribute('data-category') || '';
+                    if (currentFilter === 'all' || categories.split(' ').indexOf(currentFilter) !== -1) {
+                        matchedCards.push(card);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (matchedCards.length <= visibleLimit) {
+                    if (loadMoreBtn) loadMoreBtn.parentElement.style.display = 'none';
+                    matchedCards.forEach(function(c) { c.style.display = ''; });
+                } else {
+                    if (loadMoreBtn) loadMoreBtn.parentElement.style.display = 'block';
+                    matchedCards.forEach(function(c, idx) {
+                        if (isWorkExpanded || idx < visibleLimit) {
+                            c.style.display = '';
+                        } else {
+                            c.style.display = 'none';
+                        }
+                    });
+                }
+            }
+
+            // Initial visibility apply
+            updateWorkVisibility('all');
+
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function() {
+                    isWorkExpanded = !isWorkExpanded;
+                    var btnText = loadMoreBtn.querySelector('.btn-text');
+                    var activeFilter = document.querySelector('.portfolio-filter-btn.active')?.getAttribute('data-filter') || 'all';
+
+                    if (isWorkExpanded) {
+                        if (btnText) btnText.textContent = 'Show Less';
+                        loadMoreBtn.classList.add('expanded');
+                    } else {
+                        if (btnText) btnText.textContent = 'Load More Projects (14 more)';
+                        loadMoreBtn.classList.remove('expanded');
+                        document.querySelector('.portfolio-grid-main')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    updateWorkVisibility(activeFilter);
+                });
+            }
+
             // ───── Filter Logic ─────
             var filterBtns = document.querySelectorAll('.portfolio-filter-btn');
-            var cards = document.querySelectorAll('.portfolio-card');
 
             filterBtns.forEach(function(btn) {
                 btn.addEventListener('click', function() {
@@ -1621,19 +1642,12 @@
                     filterBtns.forEach(function(b) { b.classList.remove('active'); });
                     this.classList.add('active');
 
-                    // Filter cards
-                    cards.forEach(function(card) {
-                        if (filter === 'all') {
-                            card.style.display = '';
-                        } else {
-                            var categories = card.getAttribute('data-category') || '';
-                            if (categories.split(' ').indexOf(filter) !== -1) {
-                                card.style.display = '';
-                            } else {
-                                card.style.display = 'none';
-                            }
-                        }
-                    });
+                    // Reset expansion when changing filter category
+                    isWorkExpanded = false;
+                    var btnText = loadMoreBtn ? loadMoreBtn.querySelector('.btn-text') : null;
+                    if (btnText) btnText.textContent = 'Load More Projects';
+
+                    updateWorkVisibility(filter);
                 });
             });
         })();

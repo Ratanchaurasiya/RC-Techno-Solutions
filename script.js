@@ -1267,11 +1267,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const autoTypeEl = document.getElementById('autoTypeHero') || document.getElementById('heroTypePart2');
     if (autoTypeEl && !autoTypeEl._rcTypewriter && typeof window.RCTypewriter !== 'undefined') {
         const phrases = [
-            "Intelligent Digital",
+            "Modern Enterprises",
             "High-Performance Cloud",
-            "Autonomous AI Software",
-            "Scalable Enterprise",
-            "Mission-Critical SaaS"
+            "Autonomous AI Systems",
+            "Mission-Critical SaaS",
+            "Scalable Platforms"
         ];
         new window.RCTypewriter(autoTypeEl, phrases, {
             typeSpeed: 75,
