@@ -1,1074 +1,1250 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-    <head>
-        <meta charset="utf-8" />
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <meta name="description" content="Explore production software systems, web applications, and enterprise platforms delivered by RC Techno Solutions. Real code, measurable velocity, 100% client IP ownership." />
-        <title>Portfolio &amp; Production Work | RC Techno Solutions</title>
-        <link rel="canonical" href="https://rctechnosolutions.com/work" />
-        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-        <!-- Open Graph -->
-        <meta property="og:title" content="Portfolio &amp; Production Work | RC Techno Solutions" />
-        <meta property="og:description" content="Production engineering case studies: Web Applications, Enterprise Systems, AI Pipelines, and Cloud Software." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://rctechnosolutions.com/work" />
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description"
+        content="Explore production software systems, web applications, and enterprise platforms delivered by RC Techno Solutions. Real code, measurable velocity, 100% client IP ownership." />
+    <title>Portfolio &amp; Production Work | RC Techno Solutions</title>
+    <link rel="canonical" href="https://rctechnosolutions.com/work" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-        <!-- Fonts & Styles -->
-        <link href="https://fonts.googleapis.com" rel="preconnect" />
-        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-        <link href="style.css?v=4.5" rel="stylesheet" />
-        <link href="home.css?v=4.5" rel="stylesheet" />
-        <link href="responsive-core.css?v=4.5" rel="stylesheet" />
-        <link href="portfolio.css?v=4.5" rel="stylesheet" />
-        <link href="pro-enhancements.css?v=4.5" rel="stylesheet" />
-        <link href="chatbot.css?v=4.5" rel="stylesheet" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Portfolio &amp; Production Work | RC Techno Solutions" />
+    <meta property="og:description"
+        content="Production engineering case studies: Web Applications, Enterprise Systems, AI Pipelines, and Cloud Software." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rctechnosolutions.com/work" />
 
-        <style>
-            .portfolio-page-hero {
-                padding: 105px 20px 30px;
-                background: radial-gradient(circle at 50% 20%, #eff6ff 0%, #ffffff 80%);
-                text-align: center;
-            }
-            .portfolio-hero-eyebrow {
-                display: inline-block;
-                background: #e0f2fe;
-                color: #0284c7;
-                font-weight: 700;
-                font-size: 0.75rem;
-                letter-spacing: 0.05em;
-                padding: 4px 14px;
-                border-radius: 9999px;
-                margin-bottom: 12px;
-            }
-            .portfolio-page-hero h1 {
-                font-size: clamp(1.8rem, 3.2vw, 2.3rem);
-                font-weight: 800;
-                color: #0f172a;
-                line-height: 1.25;
-                margin-bottom: 10px;
-            }
-            .portfolio-page-hero h1 span {
-                color: #0084ff;
-            }
-            .portfolio-page-hero p {
-                max-width: 680px;
-                margin: 0 auto 20px;
-                font-size: 0.90rem;
-                color: #475569;
-                line-height: 1.55;
-            }
-            .portfolio-filter-bar {
-                display: flex;
-                gap: 6px;
-                justify-content: center;
-                flex-wrap: wrap;
-                margin: 16px auto 24px;
-            }
-            .portfolio-filter-btn {
-                background: #ffffff;
-                color: #475569;
-                border: 1px solid #cbd5e1;
-                font-weight: 600;
-                font-size: 0.78rem;
-                padding: 5px 14px;
-                border-radius: 9999px;
-                cursor: pointer;
-                transition: all 0.2s ease;
-            }
-            .portfolio-filter-btn:hover {
-                border-color: #0084ff;
-                color: #0084ff;
-                background: #eff6ff;
-            }
-            .portfolio-filter-btn.active {
-                background: #0084ff;
-                color: #ffffff;
-                border-color: #0084ff;
-                box-shadow: 0 2px 10px rgba(0, 132, 255, 0.25);
-            }
+    <!-- Fonts & Styles -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="style.css?v=4.5" rel="stylesheet" />
+    <link href="home.css?v=4.5" rel="stylesheet" />
+    <link href="responsive-core.css?v=4.5" rel="stylesheet" />
+    <link href="portfolio.css?v=4.5" rel="stylesheet" />
+    <link href="pro-enhancements.css?v=4.5" rel="stylesheet" />
+    <link href="chatbot.css?v=4.5" rel="stylesheet" />
 
-            /* Main Projects Grid - 4 columns on laptop, 2 columns on phone */
+    <style>
+        .portfolio-page-hero {
+            padding: 105px 20px 30px;
+            background: radial-gradient(circle at 50% 20%, #eff6ff 0%, #ffffff 80%);
+            text-align: center;
+        }
+
+        .portfolio-hero-eyebrow {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0284c7;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            padding: 4px 14px;
+            border-radius: 9999px;
+            margin-bottom: 12px;
+        }
+
+        .portfolio-page-hero h1 {
+            font-size: clamp(1.8rem, 3.2vw, 2.3rem);
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.25;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-page-hero h1 span {
+            color: #0084ff;
+        }
+
+        .portfolio-page-hero p {
+            max-width: 680px;
+            margin: 0 auto 20px;
+            font-size: 0.90rem;
+            color: #475569;
+            line-height: 1.55;
+        }
+
+        .portfolio-filter-bar {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 16px auto 24px;
+        }
+
+        .portfolio-filter-btn {
+            background: #ffffff;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+            font-weight: 600;
+            font-size: 0.78rem;
+            padding: 5px 14px;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .portfolio-filter-btn:hover {
+            border-color: #0084ff;
+            color: #0084ff;
+            background: #eff6ff;
+        }
+
+        .portfolio-filter-btn.active {
+            background: #0084ff;
+            color: #ffffff;
+            border-color: #0084ff;
+            box-shadow: 0 2px 10px rgba(0, 132, 255, 0.25);
+        }
+
+        /* Main Projects Grid - 4 columns on laptop, 2 columns on phone */
+        .portfolio-grid-main {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        @media (max-width: 1200px) {
             .portfolio-grid-main {
-                display: grid;
                 grid-template-columns: repeat(4, 1fr);
-                gap: 18px;
+                gap: 16px;
             }
-            @media (max-width: 1200px) {
-                .portfolio-grid-main {
-                    grid-template-columns: repeat(4, 1fr);
-                    gap: 16px;
-                }
+        }
+
+        @media (max-width: 992px) {
+            .portfolio-grid-main {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
             }
-            @media (max-width: 992px) {
-                .portfolio-grid-main {
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 16px;
-                }
-            }
-            @media (max-width: 768px) {
-                .portfolio-grid-main {
-                    grid-template-columns: repeat(2, 1fr) !important;
-                    gap: 12px !important;
-                }
-                .portfolio-thumb-wrap {
-                    height: 120px !important;
-                }
-                .portfolio-body-compact {
-                    padding: 10px !important;
-                }
-                .portfolio-title-compact {
-                    font-size: 0.95rem !important;
-                }
-                .portfolio-feature-list {
-                    display: none !important;
-                }
-            }
-            @media (max-width: 480px) {
-                .portfolio-grid-main {
-                    grid-template-columns: repeat(2, 1fr) !important;
-                    gap: 8px !important;
-                }
-                .portfolio-thumb-wrap {
-                    height: 100px !important;
-                }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-grid-main {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
             }
 
-            .portfolio-card-elevated {
-                background: #ffffff;
-                border: 1px solid #e2e8f0;
-                border-radius: 10px;
-                overflow: hidden;
-                box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-                display: flex;
-                flex-direction: column;
-                transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-                box-sizing: border-box;
-                height: 100%;
-            }
-            .portfolio-card-elevated:hover {
-                transform: translateY(-3px);
-                border-color: #93c5fd;
-                box-shadow: 0 8px 24px rgba(0, 132, 255, 0.12);
-            }
             .portfolio-thumb-wrap {
-                position: relative;
-                height: 160px;
-                overflow: hidden;
-            }
-            .portfolio-thumb-wrap img,
-            .portfolio-img-cover {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: transform 0.4s ease;
-                display: block;
-            }
-            .portfolio-card-elevated:hover .portfolio-thumb-wrap img {
-                transform: scale(1.05);
-            }
-            .portfolio-category-badge {
-                position: absolute;
-                top: 10px;
-                left: 10px;
-                background: rgba(15, 23, 42, 0.82);
-                backdrop-filter: blur(6px);
-                color: #ffffff;
-                font-size: 0.65rem;
-                font-weight: 700;
-                padding: 3px 10px;
-                border-radius: 9999px;
-                letter-spacing: 0.03em;
-                text-transform: uppercase;
-                border: 1px solid rgba(255, 255, 255, 0.18);
-                z-index: 2;
+                height: 120px !important;
             }
 
-            /* Thumbnail Placeholder (gradient icon) */
-            .portfolio-thumb-placeholder {
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            .portfolio-body-compact {
+                padding: 10px !important;
             }
-            .portfolio-thumb-placeholder i {
-                font-size: 3rem;
-                color: rgba(255, 255, 255, 0.85);
+
+            .portfolio-title-compact {
+                font-size: 0.95rem !important;
             }
-            .portfolio-card-elevated:hover .portfolio-thumb-placeholder i {
-                transform: scale(1.1);
-                transition: transform 0.3s ease;
+
+            .portfolio-feature-list {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-grid-main {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px !important;
+            }
+
+            .portfolio-thumb-wrap {
+                height: 100px !important;
+            }
+        }
+
+        .portfolio-card-elevated {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            box-sizing: border-box;
+            height: 100%;
+        }
+
+        .portfolio-card-elevated:hover {
+            transform: translateY(-3px);
+            border-color: #93c5fd;
+            box-shadow: 0 8px 24px rgba(0, 132, 255, 0.12);
+        }
+
+        .portfolio-thumb-wrap {
+            position: relative;
+            height: 160px;
+            overflow: hidden;
+        }
+
+        .portfolio-thumb-wrap img,
+        .portfolio-img-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+
+        .portfolio-card-elevated:hover .portfolio-thumb-wrap img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-category-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(15, 23, 42, 0.82);
+            backdrop-filter: blur(6px);
+            color: #ffffff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 9999px;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            z-index: 2;
+        }
+
+        /* Thumbnail Placeholder (gradient icon) */
+        .portfolio-thumb-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portfolio-thumb-placeholder i {
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .portfolio-card-elevated:hover .portfolio-thumb-placeholder i {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-card-body {
+            padding: 14px 16px 14px 16px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .portfolio-tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+
+        .tech-pill-tag {
+            background: #f1f5f9;
+            color: #0f172a;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+            line-height: 1.2;
+        }
+
+        .portfolio-card-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .portfolio-card-text {
+            font-size: 0.78rem;
+            color: #64748b;
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        /* Feature List */
+        .portfolio-feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 10px 0;
+        }
+
+        .portfolio-feature-list li {
+            font-size: 0.73rem;
+            color: #475569;
+            padding: 2px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            line-height: 1.4;
+        }
+
+        .portfolio-feature-list li i {
+            color: #0084ff;
+            font-size: 0.6rem;
+            flex-shrink: 0;
+        }
+
+        /* Status Badge */
+        .portfolio-card-status {
+            margin-bottom: 10px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 9999px;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .status-badge.prototype {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+
+        .status-badge.concept {
+            background: #eff6ff;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+        }
+
+        .portfolio-card-actions {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid #f1f5f9;
+            margin-top: auto;
+        }
+
+        .btn-portfolio-live {
+            background: #0084ff;
+            color: #ffffff;
+            font-size: 0.74rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: background 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-portfolio-live:hover {
+            background: #0056b3;
+        }
+
+        .btn-portfolio-ghost {
+            background: #f8fafc;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            font-size: 0.74rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-portfolio-ghost:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        /* ───── Project Detail Modal ───── */
+        .project-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(6px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-modal-overlay.modal-visible {
+            opacity: 1;
+        }
+
+        .project-modal-content {
+            background: #ffffff;
+            border-radius: 14px;
+            max-width: 680px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .project-modal-overlay.modal-visible .project-modal-content {
+            transform: translateY(0);
+        }
+
+        .project-modal-close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+            font-size: 1.3rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            z-index: 2;
+            line-height: 1;
+        }
+
+        .project-modal-close:hover {
+            background: #fee2e2;
+            color: #dc2626;
+            border-color: #fca5a5;
+        }
+
+        .project-modal-header {
+            padding: 28px 28px 16px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .project-modal-category {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0284c7;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 9999px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .project-modal-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .project-modal-body {
+            padding: 20px 28px 28px;
+        }
+
+        .project-modal-section {
+            margin-bottom: 18px;
+        }
+
+        .project-modal-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-modal-section h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project-modal-section h4::before {
+            content: '';
+            width: 3px;
+            height: 14px;
+            background: #0084ff;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .project-modal-section p {
+            font-size: 0.82rem;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .project-modal-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+
+        .project-modal-features li {
+            font-size: 0.78rem;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project-modal-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 0.6rem;
+            color: #0084ff;
+            flex-shrink: 0;
+        }
+
+        .project-modal-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .project-modal-tech .modal-tech-pill {
+            background: #f1f5f9;
+            color: #0f172a;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 640px) {
+            .project-modal-content {
+                max-height: 90vh;
+            }
+
+            .project-modal-header {
+                padding: 20px 18px 14px;
+            }
+
+            .project-modal-body {
+                padding: 16px 18px 20px;
+            }
+
+            .project-modal-title {
+                font-size: 1.1rem;
+            }
+
+            .project-modal-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-card-elevated {
+                border-radius: 8px !important;
+            }
+
+            .portfolio-thumb-wrap {
+                height: 140px !important;
             }
 
             .portfolio-card-body {
-                padding: 14px 16px 14px 16px;
-                display: flex;
-                flex-direction: column;
-                flex-grow: 1;
+                padding: 12px 12px 10px 12px !important;
             }
-            .portfolio-tech-pills {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 4px;
-                margin-bottom: 8px;
-            }
-            .tech-pill-tag {
-                background: #f1f5f9;
-                color: #0f172a;
-                font-size: 0.65rem;
-                font-weight: 600;
-                padding: 2px 7px;
-                border-radius: 4px;
-                border: 1px solid #e2e8f0;
-                line-height: 1.2;
-            }
+
             .portfolio-card-title {
-                font-size: 0.95rem;
-                font-weight: 700;
-                color: #0f172a;
-                margin-bottom: 6px;
-                line-height: 1.3;
+                font-size: 0.88rem !important;
             }
+
             .portfolio-card-text {
-                font-size: 0.78rem;
-                color: #64748b;
-                line-height: 1.45;
-                margin-bottom: 10px;
+                font-size: 0.74rem !important;
+                margin-bottom: 8px !important;
             }
 
-            /* Feature List */
-            .portfolio-feature-list {
-                list-style: none;
-                padding: 0;
-                margin: 0 0 10px 0;
-            }
-            .portfolio-feature-list li {
-                font-size: 0.73rem;
-                color: #475569;
-                padding: 2px 0;
-                display: flex;
-                align-items: center;
-                gap: 6px;
-                line-height: 1.4;
-            }
-            .portfolio-feature-list li i {
-                color: #0084ff;
-                font-size: 0.6rem;
-                flex-shrink: 0;
-            }
-
-            /* Status Badge */
-            .portfolio-card-status {
-                margin-bottom: 10px;
-            }
-            .status-badge {
-                display: inline-block;
-                font-size: 0.65rem;
-                font-weight: 700;
-                padding: 2px 10px;
-                border-radius: 9999px;
-                letter-spacing: 0.03em;
-                text-transform: uppercase;
-            }
-            .status-badge.prototype {
-                background: #fef3c7;
-                color: #92400e;
-                border: 1px solid #fcd34d;
-            }
-            .status-badge.concept {
-                background: #eff6ff;
-                color: #1e40af;
-                border: 1px solid #bfdbfe;
-            }
-
-            .portfolio-card-actions {
-                display: flex;
-                gap: 5px;
-                flex-wrap: wrap;
-                align-items: center;
-                padding-top: 10px;
-                border-top: 1px solid #f1f5f9;
-                margin-top: auto;
-            }
-            .btn-portfolio-live {
-                background: #0084ff;
-                color: #ffffff;
-                font-size: 0.74rem;
-                font-weight: 600;
-                padding: 6px 14px;
-                border-radius: 6px;
-                text-decoration: none;
-                display: inline-flex;
-                align-items: center;
-                gap: 5px;
-                transition: background 0.2s ease;
-                border: none;
-                cursor: pointer;
-            }
-            .btn-portfolio-live:hover {
-                background: #0056b3;
-            }
+            .btn-portfolio-live,
             .btn-portfolio-ghost {
-                background: #f8fafc;
-                color: #334155;
-                border: 1px solid #cbd5e1;
-                font-size: 0.74rem;
-                font-weight: 600;
-                padding: 6px 12px;
-                border-radius: 6px;
-                text-decoration: none;
-                display: inline-flex;
-                align-items: center;
-                gap: 5px;
-                transition: all 0.2s ease;
-                cursor: pointer;
+                font-size: 0.70rem !important;
+                padding: 4px 10px !important;
             }
-            .btn-portfolio-ghost:hover {
-                background: #e2e8f0;
-                color: #0f172a;
-            }
+        }
 
-            /* ───── Project Detail Modal ───── */
-            .project-modal-overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(15, 23, 42, 0.6);
-                backdrop-filter: blur(6px);
-                z-index: 10000;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 20px;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
-            .project-modal-overlay.modal-visible {
-                opacity: 1;
-            }
-            .project-modal-content {
-                background: #ffffff;
-                border-radius: 14px;
-                max-width: 680px;
-                width: 100%;
-                max-height: 85vh;
-                overflow-y: auto;
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-                position: relative;
-                transform: translateY(20px);
-                transition: transform 0.3s ease;
-            }
-            .project-modal-overlay.modal-visible .project-modal-content {
-                transform: translateY(0);
-            }
-            .project-modal-close {
-                position: absolute;
-                top: 14px;
-                right: 14px;
-                background: #f1f5f9;
-                border: 1px solid #e2e8f0;
-                color: #475569;
-                font-size: 1.3rem;
-                width: 36px;
-                height: 36px;
-                border-radius: 50%;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: all 0.2s ease;
-                z-index: 2;
-                line-height: 1;
-            }
-            .project-modal-close:hover {
-                background: #fee2e2;
-                color: #dc2626;
-                border-color: #fca5a5;
-            }
-            .project-modal-header {
-                padding: 28px 28px 16px;
-                border-bottom: 1px solid #f1f5f9;
-            }
-            .project-modal-category {
-                display: inline-block;
-                background: #e0f2fe;
-                color: #0284c7;
-                font-size: 0.7rem;
-                font-weight: 700;
-                padding: 3px 10px;
-                border-radius: 9999px;
-                letter-spacing: 0.04em;
-                text-transform: uppercase;
-                margin-bottom: 8px;
-            }
-            .project-modal-title {
-                font-size: 1.35rem;
-                font-weight: 800;
-                color: #0f172a;
-                margin: 0;
-                line-height: 1.3;
-            }
-            .project-modal-body {
-                padding: 20px 28px 28px;
-            }
-            .project-modal-section {
-                margin-bottom: 18px;
-            }
-            .project-modal-section:last-child {
-                margin-bottom: 0;
-            }
-            .project-modal-section h4 {
-                font-size: 0.85rem;
-                font-weight: 700;
-                color: #0f172a;
-                margin: 0 0 6px;
-                display: flex;
-                align-items: center;
-                gap: 6px;
-            }
-            .project-modal-section h4::before {
-                content: '';
-                width: 3px;
-                height: 14px;
-                background: #0084ff;
-                border-radius: 2px;
-                flex-shrink: 0;
-            }
-            .project-modal-section p {
-                font-size: 0.82rem;
-                color: #475569;
-                line-height: 1.6;
-                margin: 0;
-            }
-            .project-modal-features {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 6px;
-            }
-            .project-modal-features li {
-                font-size: 0.78rem;
-                color: #334155;
-                display: flex;
-                align-items: center;
-                gap: 6px;
-            }
-            .project-modal-features li::before {
-                content: '\f00c';
-                font-family: 'Font Awesome 6 Free';
-                font-weight: 900;
-                font-size: 0.6rem;
-                color: #0084ff;
-                flex-shrink: 0;
-            }
-            .project-modal-tech {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 6px;
-            }
-            .project-modal-tech .modal-tech-pill {
-                background: #f1f5f9;
-                color: #0f172a;
-                font-size: 0.72rem;
-                font-weight: 600;
-                padding: 4px 10px;
-                border-radius: 6px;
-                border: 1px solid #e2e8f0;
-            }
+        [data-theme="dark"] .portfolio-card-elevated {
+            background: #1e293b;
+            border-color: #334155;
+        }
 
-            @media (max-width: 640px) {
-                .project-modal-content {
-                    max-height: 90vh;
-                }
-                .project-modal-header {
-                    padding: 20px 18px 14px;
-                }
-                .project-modal-body {
-                    padding: 16px 18px 20px;
-                }
-                .project-modal-title {
-                    font-size: 1.1rem;
-                }
-                .project-modal-features {
-                    grid-template-columns: 1fr;
-                }
-            }
+        [data-theme="dark"] .portfolio-card-title {
+            color: #f8fafc;
+        }
 
-            @media (max-width: 480px) {
-                .portfolio-card-elevated {
-                    border-radius: 8px !important;
-                }
-                .portfolio-thumb-wrap {
-                    height: 140px !important;
-                }
-                .portfolio-card-body {
-                    padding: 12px 12px 10px 12px !important;
-                }
-                .portfolio-card-title {
-                    font-size: 0.88rem !important;
-                }
-                .portfolio-card-text {
-                    font-size: 0.74rem !important;
-                    margin-bottom: 8px !important;
-                }
-                .btn-portfolio-live,
-                .btn-portfolio-ghost {
-                    font-size: 0.70rem !important;
-                    padding: 4px 10px !important;
-                }
-            }
+        [data-theme="dark"] .portfolio-card-text {
+            color: #94a3b8;
+        }
 
-            [data-theme="dark"] .portfolio-card-elevated {
-                background: #1e293b;
-                border-color: #334155;
-            }
-            [data-theme="dark"] .portfolio-card-title {
-                color: #f8fafc;
-            }
-            [data-theme="dark"] .portfolio-card-text {
-                color: #94a3b8;
-            }
-            [data-theme="dark"] .tech-pill-tag {
-                background: #0f172a;
-                color: #94a3b8;
-                border-color: #334155;
-            }
-            [data-theme="dark"] .portfolio-card-actions {
-                border-top-color: #334155;
-            }
-            [data-theme="dark"] .btn-portfolio-ghost {
-                background: #0f172a;
-                color: #e2e8f0;
-                border-color: #334155;
-            }
-            [data-theme="dark"] .btn-portfolio-ghost:hover {
-                background: #334155;
-                color: #ffffff;
-            }
-            [data-theme="dark"] .portfolio-feature-list li {
-                color: #94a3b8;
-            }
-            [data-theme="dark"] .status-badge.prototype {
-                background: #422006;
-                color: #fcd34d;
-                border-color: #92400e;
-            }
-            [data-theme="dark"] .project-modal-content {
-                background: #1e293b;
-            }
-            [data-theme="dark"] .project-modal-close {
-                background: #334155;
-                border-color: #475569;
-                color: #94a3b8;
-            }
-            [data-theme="dark"] .project-modal-header {
-                border-bottom-color: #334155;
-            }
-            [data-theme="dark"] .project-modal-title {
-                color: #f8fafc;
-            }
-            [data-theme="dark"] .project-modal-section h4 {
-                color: #f1f5f9;
-            }
-            [data-theme="dark"] .project-modal-section p {
-                color: #94a3b8;
-            }
-            [data-theme="dark"] .project-modal-features li {
-                color: #cbd5e1;
-            }
-            [data-theme="dark"] .project-modal-tech .modal-tech-pill {
-                background: #0f172a;
-                color: #94a3b8;
-                border-color: #334155;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="preloader"><div class="loader-circle"></div></div>
+        [data-theme="dark"] .tech-pill-tag {
+            background: #0f172a;
+            color: #94a3b8;
+            border-color: #334155;
+        }
 
-        <!-- Global Header -->
-        <header id="header">
-            <div class="container nav-container">
-                <a class="logo" href="/" aria-label="RC Techno Solutions Home">
-                    <span class="logo-badge"><i class="fas fa-layer-group"></i></span>
-                    <span class="brand-text">RC <span>Techno</span></span>
-                    <span class="brand-studio">Enterprise</span>
-                </a>
+        [data-theme="dark"] .portfolio-card-actions {
+            border-top-color: #334155;
+        }
 
-                <nav class="nav-menu" id="navMenu">
-                    <ul class="nav-list">
-                        <li><a class="nav-link" href="/">Home</a></li>
-                        <li><a class="nav-link" href="/services">Services</a></li>
-                        <li><a class="nav-link active" href="/work">Work</a></li>
-                        <li><a class="nav-link" href="/architecture">Architecture</a></li>
-                        <li><a class="nav-link" href="/about">About</a></li>
-                        <li><a class="nav-link" href="/faq">FAQ</a></li>
-                    </ul>
+        [data-theme="dark"] .btn-portfolio-ghost {
+            background: #0f172a;
+            color: #e2e8f0;
+            border-color: #334155;
+        }
 
-                    <div class="mobile-nav-actions">
-                        <a class="btn-nav-nda" href="/nda"><i class="fas fa-file-shield"></i> Instant NDA</a>
-                        <a class="btn-nav-cta" href="/contact"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </nav>
+        [data-theme="dark"] .btn-portfolio-ghost:hover {
+            background: #334155;
+            color: #ffffff;
+        }
 
-                <div class="nav-actions">
-                    <a class="btn-nav-nda" href="/nda" title="Fast-Track Mutual NDA"><i class="fas fa-file-shield"></i> Instant NDA</a>
-                    <a class="btn-nav-cta" href="/contact"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
-                    <button id="heroSoundToggle" class="hero-sound-toggle" aria-label="Toggle Voice Assistant" title="Toggle Voice Assistant">
-                        <span class="sound-wave-anim active"><span></span><span></span><span></span><span></span></span>
-                        <span class="sound-text">Voice: ON</span>
-                    </button>
-                    <button class="hamburger" aria-label="Toggle navigation" type="button"><i class="fas fa-bars"></i></button>
+        [data-theme="dark"] .portfolio-feature-list li {
+            color: #94a3b8;
+        }
+
+        [data-theme="dark"] .status-badge.prototype {
+            background: #422006;
+            color: #fcd34d;
+            border-color: #92400e;
+        }
+
+        [data-theme="dark"] .project-modal-content {
+            background: #1e293b;
+        }
+
+        [data-theme="dark"] .project-modal-close {
+            background: #334155;
+            border-color: #475569;
+            color: #94a3b8;
+        }
+
+        [data-theme="dark"] .project-modal-header {
+            border-bottom-color: #334155;
+        }
+
+        [data-theme="dark"] .project-modal-title {
+            color: #f8fafc;
+        }
+
+        [data-theme="dark"] .project-modal-section h4 {
+            color: #f1f5f9;
+        }
+
+        [data-theme="dark"] .project-modal-section p {
+            color: #94a3b8;
+        }
+
+        [data-theme="dark"] .project-modal-features li {
+            color: #cbd5e1;
+        }
+
+        [data-theme="dark"] .project-modal-tech .modal-tech-pill {
+            background: #0f172a;
+            color: #94a3b8;
+            border-color: #334155;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- Global Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a class="logo" href="/" aria-label="RC Techno Solutions Home">
+                <span class="logo-badge"><i class="fas fa-layer-group"></i></span>
+                <span class="brand-text">RC <span>Techno</span></span>
+                <span class="brand-studio">Enterprise</span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="/">Home</a></li>
+                    <li><a class="nav-link" href="/services">Services</a></li>
+                    <li><a class="nav-link active" href="/work">Work</a></li>
+                    <li><a class="nav-link" href="/architecture">Architecture</a></li>
+                    <li><a class="nav-link" href="/about">About</a></li>
+                    <li><a class="nav-link" href="/faq">FAQ</a></li>
+                </ul>
+
+                <div class="mobile-nav-actions">
+                    <a class="btn-nav-nda" href="/nda"><i class="fas fa-file-shield"></i> Instant NDA</a>
+                    <a class="btn-nav-cta" href="/contact"><span>Get in Touch</span> <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </nav>
+
+            <div class="nav-actions">
+                <a class="btn-nav-nda" href="/nda" title="Fast-Track Mutual NDA"><i class="fas fa-file-shield"></i>
+                    Instant NDA</a>
+                <a class="btn-nav-cta" href="/contact"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
+                <button id="heroSoundToggle" class="hero-sound-toggle" aria-label="Toggle Voice Assistant"
+                    title="Toggle Voice Assistant">
+                    <span class="sound-wave-anim active"><span></span><span></span><span></span><span></span></span>
+                    <span class="sound-text">Voice: ON</span>
+                </button>
+                <button class="hamburger" aria-label="Toggle navigation" type="button"><i
+                        class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="portfolio-page-hero">
+            <div class="container">
+                <div class="portfolio-hero-eyebrow">PRODUCTION PORTFOLIO &amp; ARCHITECTURAL WORK</div>
+                <h1>Engineering Real Solutions for <span
+                        data-typewriter='["Modern Enterprises","Growing Startups","Digital Businesses","Tech Companies"]'
+                        data-typewriter-speed="70">Modern Enterprises</span></h1>
+                <p>
+                    Explore production systems engineered and shipped by RC Techno Solutions across FinTech, E-Commerce,
+                    Healthcare, SaaS, and Autonomous AI.
+                </p>
+
+                <!-- Filter Tabs -->
+                <div class="portfolio-filter-bar reveal">
+                    <button class="portfolio-filter-btn active" data-filter="all">All Projects</button>
+                    <button class="portfolio-filter-btn" data-filter="web">Web Development</button>
+                    <button class="portfolio-filter-btn" data-filter="software">Software Solutions</button>
+                    <button class="portfolio-filter-btn" data-filter="healthcare">Healthcare</button>
+                    <button class="portfolio-filter-btn" data-filter="restaurant">Restaurant &amp; Hospitality</button>
+                    <button class="portfolio-filter-btn" data-filter="education">Education</button>
+                    <button class="portfolio-filter-btn" data-filter="enterprise">Enterprise Systems</button>
+                    <button class="portfolio-filter-btn" data-filter="real-estate">Real Estate</button>
+                    <button class="portfolio-filter-btn" data-filter="ai">AI Solutions</button>
+                    <button class="portfolio-filter-btn" data-filter="logistics">Logistics</button>
+                </div>
                 </div>
             </div>
-        </header>
+        </section>
 
-        <main>
-            <!-- Hero -->
-            <section class="portfolio-page-hero">
-                <div class="container">
-                    <div class="portfolio-hero-eyebrow">PRODUCTION PORTFOLIO &amp; ARCHITECTURAL WORK</div>
-                    <h1>Engineering Real Solutions for <span data-typewriter='["Modern Enterprises","Growing Startups","Digital Businesses","Tech Companies"]' data-typewriter-speed="70">Modern Enterprises</span></h1>
-                    <p>
-                        Explore production systems engineered and shipped by RC Techno Solutions across FinTech, E-Commerce, Healthcare, SaaS, and Autonomous AI.
-                    </p>
+        <!-- Projects Grid -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container full-width">
+                <div class="portfolio-grid-main">
+                    <!-- Project 01: Restaurant Management System -->
+                    <div class="portfolio-card-elevated portfolio-card reveal" data-category="restaurant software web">
+                        <div class="portfolio-thumb-wrap">
+                            <span class="portfolio-category-badge">Restaurant & Hospitality</span>
+                            <img loading="lazy"
+                                src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
+                                alt="Restaurant POS and Kitchen Order Display System" class="portfolio-img-cover">
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="portfolio-tech-pills">
+                                <span class="tech-pill-tag">HTML5</span>
+                                <span class="tech-pill-tag">CSS3</span>
+                                <span class="tech-pill-tag">JavaScript</span>
+                                <span class="tech-pill-tag">Node.js</span>
+                                <span class="tech-pill-tag">MongoDB</span>
+                            </div>
+                            <h3 class="portfolio-card-title">Restaurant Management System</h3>
+                            <p class="portfolio-card-text">End-to-end restaurant operations platform with POS billing,
+                                QR-based ordering, and real-time kitchen display integration.</p>
+                            <ul class="portfolio-feature-list">
+                                <li><i class="fas fa-check"></i> POS billing & order management</li>
+                                <li><i class="fas fa-check"></i> Table & reservation management</li>
+                                <li><i class="fas fa-check"></i> QR-based food ordering</li>
+                                <li><i class="fas fa-check"></i> Kitchen Order Display System</li>
+                                <li><i class="fas fa-check"></i> Menu & inventory management</li>
+                            </ul>
+                            <div class="portfolio-card-status">
+                                <span class="status-badge prototype">Prototype</span>
+                            </div>
+                            <div class="portfolio-card-actions">
+                                <button class="btn-portfolio-live portfolio-view-detail-btn"
+                                    data-project="restaurant-management">
+                                    <i class="fas fa-eye"></i> View Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
-                    <!-- Filter Tabs -->
-                    <div class="portfolio-filter-bar reveal">
-                        <button class="portfolio-filter-btn active" data-filter="all">All Projects</button>
-                        <button class="portfolio-filter-btn" data-filter="web">Web Development</button>
-                        <button class="portfolio-filter-btn" data-filter="software">Software Solutions</button>
-                        <button class="portfolio-filter-btn" data-filter="healthcare">Healthcare</button>
-                        <button class="portfolio-filter-btn" data-filter="restaurant">Restaurant &amp; Hospitality</button>
-                        <button class="portfolio-filter-btn" data-filter="education">Education</button>
-                        <button class="portfolio-filter-btn" data-filter="enterprise">Enterprise Systems</button>
-                        <button class="portfolio-filter-btn" data-filter="real-estate">Real Estate</button>
-                        <button class="portfolio-filter-btn" data-filter="ai">AI Solutions</button>
-                        <button class="portfolio-filter-btn" data-filter="logistics">Logistics</button>
+                    <!-- Project 02: Hospital Management System -->
+                    <div class="portfolio-card-elevated portfolio-card reveal delay-1"
+                        data-category="healthcare software enterprise">
+                        <div class="portfolio-thumb-wrap">
+                            <span class="portfolio-category-badge">Healthcare Technology</span>
+                            <img loading="lazy"
+                                src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80"
+                                alt="Hospital Clinical Administration and EHR Dashboard" class="portfolio-img-cover">
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="portfolio-tech-pills">
+                                <span class="tech-pill-tag">React</span>
+                                <span class="tech-pill-tag">Node.js</span>
+                                <span class="tech-pill-tag">Express</span>
+                                <span class="tech-pill-tag">PostgreSQL</span>
+                                <span class="tech-pill-tag">Docker</span>
+                            </div>
+                            <h3 class="portfolio-card-title">Hospital Management System</h3>
+                            <p class="portfolio-card-text">HIPAA-compliant digital hospital administration system
+                                unifying patient records, doctor scheduling, and pharmacy billing.</p>
+                            <ul class="portfolio-feature-list">
+                                <li><i class="fas fa-check"></i> Patient registration & digital OPD/IPD records</li>
+                                <li><i class="fas fa-check"></i> Doctor schedule & appointment booking</li>
+                                <li><i class="fas fa-check"></i> Electronic Health Records (EHR) management</li>
+                                <li><i class="fas fa-check"></i> Pharmacy & inventory management</li>
+                                <li><i class="fas fa-check"></i> Automated medical billing & discharge summaries</li>
+                            </ul>
+                            <div class="portfolio-card-status">
+                                <span class="status-badge prototype">Prototype</span>
+                            </div>
+                            <div class="portfolio-card-actions">
+                                <button class="btn-portfolio-live portfolio-view-detail-btn"
+                                    data-project="hospital-management">
+                                    <i class="fas fa-eye"></i> View Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 03: Enterprise Asset Management System -->
+                    <div class="portfolio-card-elevated portfolio-card reveal delay-2"
+                        data-category="enterprise software web">
+                        <div class="portfolio-thumb-wrap">
+                            <span class="portfolio-category-badge">Enterprise Software</span>
+                            <img loading="lazy"
+                                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+                                alt="Enterprise Asset Tracking and Lifecycle Telemetry Dashboard"
+                                class="portfolio-img-cover">
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="portfolio-tech-pills">
+                                <span class="tech-pill-tag">Next.js 15</span>
+                                <span class="tech-pill-tag">Python FastAPI</span>
+                                <span class="tech-pill-tag">PostgreSQL</span>
+                                <span class="tech-pill-tag">Redis</span>
+                                <span class="tech-pill-tag">AWS</span>
+                            </div>
+                            <h3 class="portfolio-card-title">Enterprise Asset Management System</h3>
+                            <p class="portfolio-card-text">Mission-critical physical and digital asset lifecycle
+                                tracking platform with depreciation calculation and maintenance alerts.</p>
+                            <ul class="portfolio-feature-list">
+                                <li><i class="fas fa-check"></i> Centralized asset registry & QR barcode tagging</li>
+                                <li><i class="fas fa-check"></i> Asset lifecycle tracking from procurement to retirement
+                                </li>
+                                <li><i class="fas fa-check"></i> Automated maintenance scheduling & SLA monitoring</li>
+                                <li><i class="fas fa-check"></i> Depreciation calculation (Straight-Line & WDV)</li>
+                                <li><i class="fas fa-check"></i> Multi-facility asset allocation & audit reports</li>
+                            </ul>
+                            <div class="portfolio-card-status">
+                                <span class="status-badge prototype">Prototype</span>
+                            </div>
+                            <div class="portfolio-card-actions">
+                                <button class="btn-portfolio-live portfolio-view-detail-btn"
+                                    data-project="enterprise-asset-management">
+                                    <i class="fas fa-eye"></i> View Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 04: E-Commerce Management Platform -->
+                    <div class="portfolio-card-elevated portfolio-card reveal" data-category="web software enterprise">
+                        <div class="portfolio-thumb-wrap">
+                            <span class="portfolio-category-badge">E-Commerce Technology</span>
+                            <img loading="lazy"
+                                src="https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80"
+                                alt="E-Commerce Storefront and Multi-Vendor Admin Dashboard"
+                                class="portfolio-img-cover">
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="portfolio-tech-pills">
+                                <span class="tech-pill-tag">Next.js</span>
+                                <span class="tech-pill-tag">TypeScript</span>
+                                <span class="tech-pill-tag">Node.js</span>
+                                <span class="tech-pill-tag">Stripe</span>
+                                <span class="tech-pill-tag">PostgreSQL</span>
+                            </div>
+                            <h3 class="portfolio-card-title">E-Commerce Management Platform</h3>
+                            <p class="portfolio-card-text">High-concurrency online storefront with multi-vendor
+                                management, automated payment reconciliation, and real-time inventory sync.</p>
+                            <ul class="portfolio-feature-list">
+                                <li><i class="fas fa-check"></i> Multi-channel product catalog & SKU management</li>
+                                <li><i class="fas fa-check"></i> Secure checkout with multi-currency payment gateways
+                                </li>
+                                <li><i class="fas fa-check"></i> Automated order fulfillment & shipping tracking</li>
+                                <li><i class="fas fa-check"></i> Customer accounts, wishlists & reviews</li>
+                                <li><i class="fas fa-check"></i> Real-time revenue analytics & inventory alerts</li>
+                            </ul>
+                            <div class="portfolio-card-status">
+                                <span class="status-badge prototype">Prototype</span>
+                            </div>
+                            <div class="portfolio-card-actions">
+                                <button class="btn-portfolio-live portfolio-view-detail-btn"
+                                    data-project="ecommerce-platform">
+                                    <i class="fas fa-eye"></i> View Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 05: Smart Campus & Digital Library System -->
+                    <div class="portfolio-card-elevated portfolio-card reveal delay-1"
+                        data-category="education software web">
+                        <div class="portfolio-thumb-wrap">
+                            <span class="portfolio-category-badge">Education Technology</span>
+                            <img loading="lazy"
+                                src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80"
+                                alt="Smart Campus Portal and Digital Library Search Catalog"
+                                class="portfolio-img-cover">
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="portfolio-tech-pills">
+                                <span class="tech-pill-tag">React</span>
+                                <span class="tech-pill-tag">Node.js</span>
+                                <span class="tech-pill-tag">MongoDB</span>
+                                <span class="tech-pill-tag">Elasticsearch</span>
+                                <span class="tech-pill-tag">Redis</span>
+                            </div>
+                            <h3 class="portfolio-card-title">Smart Campus & Digital Library System</h3>
+                            <p class="portfolio-card-text">Connected campus platform managing student academic
+                                workflows, digital library catalog search, and RFID circulation control.</p>
+                            <ul class="portfolio-feature-list">
+                                <li><i class="fas fa-check"></i> RFID & barcode book circulation management</li>
+                                <li><i class="fas fa-check"></i> Digital catalog with Elasticsearch full-text search
+                                </li>
+                                <li><i class="fas fa-check"></i> Student portal with course materials & assignments</li>
+                                <li><i class="fas fa-check"></i> Fine calculation & automated overdue notifications</li>
+                                <li><i class="fas fa-check"></i> Campus events, notices & academic calendar</li>
+                            </ul>
+                            <div class="portfolio-card-status">
+                                <span class="status-badge prototype">Prototype</span>
+                            </div>
+                            <div class="portfolio-card-actions">
+                                <button class="btn-portfolio-live portfolio-view-detail-btn"
+                                    data-project="smart-campus-library">
+                                    <i class="fas fa-eye"></i> View Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 06: AutoRescue Vehicle Assistance Platform -->
+                    <div class="portfolio-card-elevated portfolio-card reveal delay-2"
+                        data-category="logistics web software ai">
+                        <div class="portfolio-thumb-wrap">
+                            <span class="portfolio-category-badge">Automotive & Logistics</span>
+                            <img loading="lazy"
+                                src="https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=800&q=80"
+                                alt="AutoRescue Emergency Roadside Dispatch and GPS Map Interface"
+                                class="portfolio-img-cover">
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="portfolio-tech-pills">
+                                <span class="tech-pill-tag">React Native</span>
+                                <span class="tech-pill-tag">FastAPI</span>
+                                <span class="tech-pill-tag">WebSockets</span>
+                                <span class="tech-pill-tag">Google Maps</span>
+                                <span class="tech-pill-tag">PostgreSQL</span>
+                            </div>
+                            <h3 class="portfolio-card-title">AutoRescue Vehicle Assistance Platform</h3>
+                            <p class="portfolio-card-text">On-demand roadside breakdown assistance network connecting
+                                stranded motorists with nearby service mechanics in real time.</p>
+                            <ul class="portfolio-feature-list">
+                                <li><i class="fas fa-check"></i> One-touch emergency SOS & GPS geo-dispatch</li>
+                                <li><i class="fas fa-check"></i> Real-time mechanic tracking with live ETA updates</li>
+                                <li><i class="fas fa-check"></i> Flat tire, battery jumpstart, towing service catalog
+                                </li>
+                                <li><i class="fas fa-check"></i> In-app transparent fare calculation & digital payments
+                                </li>
+                                <li><i class="fas fa-check"></i> 24/7 emergency hotline & roadside telemetry</li>
+                            </ul>
+                            <div class="portfolio-card-status">
+                                <span class="status-badge prototype">Prototype</span>
+                            </div>
+                            <div class="portfolio-card-actions">
+                                <button class="btn-portfolio-live portfolio-view-detail-btn"
+                                    data-project="autorescue-platform">
+                                    <i class="fas fa-eye"></i> View Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 07: School Management System -->
+                    <div class="portfolio-card-elevated portfolio-card reveal" data-category="education software web">
+                        <div class="portfolio-thumb-wrap">
+                            <span class="portfolio-category-badge">Education Technology</span>
+                            <img loading="lazy"
+                                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80"
+                                alt="School Management System Student Administration and Gradebook"
+                                class="portfolio-img-cover">
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="portfolio-tech-pills">
+                                <span class="tech-pill-tag">React</span>
+                                <span class="tech-pill-tag">Node.js</span>
+                                <span class="tech-pill-tag">Express</span>
+                                <span class="tech-pill-tag">PostgreSQL</span>
+                                <span class="tech-pill-tag">Socket.io</span>
+                            </div>
+                            <h3 class="portfolio-card-title">School Management System</h3>
+                            <p class="portfolio-card-text">Comprehensive academic administration suite streamlining
+                                admissions, attendance, grading, fee collections, and parent engagement.</p>
+                            <ul class="portfolio-feature-list">
+                                <li><i class="fas fa-check"></i> Student registration & digital academic profiles</li>
+                                <li><i class="fas fa-check"></i> Teacher, staff & daily attendance management</li>
+                                <li><i class="fas fa-check"></i> Examination schedules, grading & report cards</li>
+                                <li><i class="fas fa-check"></i> Automated fee invoicing & online payment receipts</li>
+                                <li><i class="fas fa-check"></i> Timetable generator & parent communication portal</li>
+                            </ul>
+                            <div class="portfolio-card-status">
+                                <span class="status-badge concept">Concept Demo</span>
+                            </div>
+                            <div class="portfolio-card-actions">
+                                <button class="btn-portfolio-live portfolio-view-detail-btn"
+                                    data-project="school-management">
+                                    <i class="fas fa-eye"></i> View Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 08: Real Estate & Property Management System -->
+                    <div class="portfolio-card-elevated portfolio-card reveal delay-1"
+                        data-category="real-estate web software">
+                        <div class="portfolio-thumb-wrap">
+                            <span class="portfolio-category-badge">Real Estate Technology</span>
+                            <img loading="lazy"
+                                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80"
+                                alt="Real Estate Property Listings and Sales Pipeline CRM" class="portfolio-img-cover">
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="portfolio-tech-pills">
+                                <span class="tech-pill-tag">Next.js 15</span>
+                                <span class="tech-pill-tag">TypeScript</span>
+                                <span class="tech-pill-tag">PostgreSQL</span>
+                                <span class="tech-pill-tag">Mapbox GL</span>
+                                <span class="tech-pill-tag">AWS S3</span>
+                            </div>
+                            <h3 class="portfolio-card-title">Real Estate & Property Management System</h3>
+                            <p class="portfolio-card-text">Full-cycle property portal enabling immersive property
+                                listings, automated customer inquiry routing, and site visit scheduling.</p>
+                            <ul class="portfolio-feature-list">
+                                <li><i class="fas fa-check"></i> Property listing management with virtual photo
+                                    galleries</li>
+                                <li><i class="fas fa-check"></i> Customer enquiries & automated lead scoring CRM</li>
+                                <li><i class="fas fa-check"></i> Interactive calendar for site visit scheduling</li>
+                                <li><i class="fas fa-check"></i> Real-time unit availability & pricing tiers</li>
+                                <li><i class="fas fa-check"></i> Digital booking management & sales analytics</li>
+                            </ul>
+                            <div class="portfolio-card-status">
+                                <span class="status-badge concept">Concept Demo</span>
+                            </div>
+                            <div class="portfolio-card-actions">
+                                <button class="btn-portfolio-live portfolio-view-detail-btn"
+                                    data-project="real-estate-management">
+                                    <i class="fas fa-eye"></i> View Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 09: CRM & Sales Management System -->
+                    <div class="portfolio-card-elevated portfolio-card reveal delay-2"
+                        data-category="enterprise software web ai">
+                        <div class="portfolio-thumb-wrap">
+                            <span class="portfolio-category-badge">Business Automation</span>
+                            <img loading="lazy"
+                                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+                                alt="Enterprise CRM Sales Pipeline and Customer Management" class="portfolio-img-cover">
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="portfolio-tech-pills">
+                                <span class="tech-pill-tag">React</span>
+                                <span class="tech-pill-tag">Node.js</span>
+                                <span class="tech-pill-tag">GraphQL</span>
+                                <span class="tech-pill-tag">PostgreSQL</span>
+                                <span class="tech-pill-tag">Redis</span>
+                            </div>
+                            <h3 class="portfolio-card-title">CRM & Sales Management System</h3>
+                            <p class="portfolio-card-text">Enterprise sales orchestration system tracking buyer
+                                journeys, automated deal pipelines, follow-up cadence, and team revenue velocity.</p>
+                            <ul class="portfolio-feature-list">
+                                <li><i class="fas fa-check"></i> Customer 360 profile & contact history</li>
+                                <li><i class="fas fa-check"></i> Visual Kanban sales pipeline with deal stages</li>
+                                <li><i class="fas fa-check"></i> Automated follow-up reminders & email sequences</li>
+                                <li><i class="fas fa-check"></i> Rep activity logging & team performance KPIs</li>
+                                <li><i class="fas fa-check"></i> Advanced revenue forecasting & executive analytics</li>
+                            </ul>
+                            <div class="portfolio-card-status">
+                                <span class="status-badge concept">Concept Demo</span>
+                            </div>
+                            <div class="portfolio-card-actions">
+                                <button class="btn-portfolio-live portfolio-view-detail-btn"
+                                    data-project="crm-sales-management">
+                                    <i class="fas fa-eye"></i> View Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 10: Inventory & Warehouse Management System -->
+                    <div class="portfolio-card-elevated portfolio-card reveal"
+                        data-category="enterprise software logistics">
+                        <div class="portfolio-thumb-wrap">
+                            <span class="portfolio-category-badge">Enterprise Software</span>
+                            <img loading="lazy"
+                                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
+                                alt="Warehouse Inventory Management and Barcode Tracking System"
+                                class="portfolio-img-cover">
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="portfolio-tech-pills">
+                                <span class="tech-pill-tag">Python FastAPI</span>
+                                <span class="tech-pill-tag">React</span>
+                                <span class="tech-pill-tag">PostgreSQL</span>
+                                <span class="tech-pill-tag">Docker</span>
+                                <span class="tech-pill-tag">Redis</span>
+                            </div>
+                            <h3 class="portfolio-card-title">Inventory & Warehouse Management System</h3>
+                            <p class="portfolio-card-text">Real-time inventory tracking and multi-bin warehouse
+                                logistics engine with barcode scanning and automated reorder triggers.</p>
+                            <ul class="portfolio-feature-list">
+                                <li><i class="fas fa-check"></i> Multi-location warehouse stock & bin allocation</li>
+                                <li><i class="fas fa-check"></i> Barcode/QR scanning for instant inbound/outbound</li>
+                                <li><i class="fas fa-check"></i> Automated purchase & sales order reconciliation</li>
+                                <li><i class="fas fa-check"></i> Supplier management & vendor performance history</li>
+                                <li><i class="fas fa-check"></i> Low-stock threshold alerts & inventory valuation
+                                    reports</li>
+                            </ul>
+                            <div class="portfolio-card-status">
+                                <span class="status-badge concept">Concept Demo</span>
+                            </div>
+                            <div class="portfolio-card-actions">
+                                <button class="btn-portfolio-live portfolio-view-detail-btn"
+                                    data-project="inventory-warehouse-management">
+                                    <i class="fas fa-eye"></i> View Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 11: Hotel & Booking Management System -->
+                    <div class="portfolio-card-elevated portfolio-card reveal delay-1"
+                        data-category="restaurant web software">
+                        <div class="portfolio-thumb-wrap">
+                            <span class="portfolio-category-badge">Hospitality Technology</span>
+                            <img loading="lazy"
+                                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80"
+                                alt="Hotel Booking and Reservation Management System" class="portfolio-img-cover">
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="portfolio-tech-pills">
+                                <span class="tech-pill-tag">Next.js</span>
+                                <span class="tech-pill-tag">Node.js</span>
+                                <span class="tech-pill-tag">PostgreSQL</span>
+                                <span class="tech-pill-tag">Stripe</span>
+                                <span class="tech-pill-tag">Redis</span>
+                            </div>
+                            <h3 class="portfolio-card-title">Hotel & Booking Management System</h3>
+                            <p class="portfolio-card-text">Complete hotel property management software (PMS) managing
+                                front-desk check-in, housekeeping rosters, and online room bookings.</p>
+                            <ul class="portfolio-feature-list">
+                                <li><i class="fas fa-check"></i> Interactive room availability calendar & rates matrix
+                                </li>
+                                <li><i class="fas fa-check"></i> Direct guest online booking engine & payment gateway
+                                </li>
+                                <li><i class="fas fa-check"></i> Express check-in/check-out with digital key support
+                                </li>
+                                <li><i class="fas fa-check"></i> Housekeeping & maintenance room status updates</li>
+                                <li><i class="fas fa-check"></i> Folio billing, invoice generator & occupancy analytics
+                                </li>
+                            </ul>
+                            <div class="portfolio-card-status">
+                                <span class="status-badge concept">Concept Demo</span>
+                            </div>
+                            <div class="portfolio-card-actions">
+                                <button class="btn-portfolio-live portfolio-view-detail-btn"
+                                    data-project="hotel-booking-management">
+                                    <i class="fas fa-eye"></i> View Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 12: Logistics & Fleet Management System -->
+                    <div class="portfolio-card-elevated portfolio-card reveal delay-2"
+                        data-category="logistics enterprise software">
+                        <div class="portfolio-thumb-wrap">
+                            <span class="portfolio-category-badge">Transportation Technology</span>
+                            <img loading="lazy"
+                                src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80"
+                                alt="Logistics Fleet Tracking and Route Optimization System"
+                                class="portfolio-img-cover">
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="portfolio-tech-pills">
+                                <span class="tech-pill-tag">Node.js</span>
+                                <span class="tech-pill-tag">React</span>
+                                <span class="tech-pill-tag">MongoDB</span>
+                                <span class="tech-pill-tag">WebSockets</span>
+                                <span class="tech-pill-tag">Leaflet GPS</span>
+                            </div>
+                            <h3 class="portfolio-card-title">Logistics & Fleet Management System</h3>
+                            <p class="portfolio-card-text">Real-time fleet tracking, dispatch optimization, and route
+                                planning platform for freight carriers and logistics enterprises.</p>
+                            <ul class="portfolio-feature-list">
+                                <li><i class="fas fa-check"></i> GPS vehicle tracking with live route telemetry</li>
+                                <li><i class="fas fa-check"></i> Driver roster, license compliance & hours-of-service
+                                </li>
+                                <li><i class="fas fa-check"></i> Multi-stop shipment tracking & delivery confirmations
+                                    (POD)</li>
+                                <li><i class="fas fa-check"></i> Intelligent route optimization to reduce transit time
+                                </li>
+                                <li><i class="fas fa-check"></i> Fuel consumption logs, mileage & maintenance scheduling
+                                </li>
+                            </ul>
+                            <div class="portfolio-card-status">
+                                <span class="status-badge concept">Concept Demo</span>
+                            </div>
+                            <div class="portfolio-card-actions">
+                                <button class="btn-portfolio-live portfolio-view-detail-btn"
+                                    data-project="logistics-fleet-management">
+                                    <i class="fas fa-eye"></i> View Project
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Projects Grid -->
-            <section class="section" style="padding-top: 0;">
-                <div class="container full-width">
-                    <div class="portfolio-grid-main">
-                        <!-- Project 01: Restaurant Management System -->
-                        <div class="portfolio-card-elevated portfolio-card reveal" data-category="restaurant software web">
-                            <div class="portfolio-thumb-wrap">
-                                <span class="portfolio-category-badge">Restaurant & Hospitality</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Restaurant POS and Kitchen Order Display System" class="portfolio-img-cover">
-                            </div>
-                            <div class="portfolio-card-body">
-                                <div class="portfolio-tech-pills">
-                                    <span class="tech-pill-tag">HTML5</span>
-                                    <span class="tech-pill-tag">CSS3</span>
-                                    <span class="tech-pill-tag">JavaScript</span>
-                                    <span class="tech-pill-tag">Node.js</span>
-                                    <span class="tech-pill-tag">MongoDB</span>
-                                </div>
-                                <h3 class="portfolio-card-title">Restaurant Management System</h3>
-                                <p class="portfolio-card-text">End-to-end restaurant operations platform with POS billing, QR-based ordering, and real-time kitchen display integration.</p>
-                                <ul class="portfolio-feature-list">
-                                    <li><i class="fas fa-check"></i> POS billing & order management</li>
-                                    <li><i class="fas fa-check"></i> Table & reservation management</li>
-                                    <li><i class="fas fa-check"></i> QR-based food ordering</li>
-                                    <li><i class="fas fa-check"></i> Kitchen Order Display System</li>
-                                    <li><i class="fas fa-check"></i> Menu & inventory management</li>
-                                </ul>
-                                <div class="portfolio-card-status">
-                                    <span class="status-badge prototype">Prototype</span>
-                                </div>
-                                <div class="portfolio-card-actions">
-                                    <button class="btn-portfolio-live portfolio-view-detail-btn" data-project="restaurant-management">
-                                        <i class="fas fa-eye"></i> View Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 02: Hospital Management System -->
-                        <div class="portfolio-card-elevated portfolio-card reveal delay-1" data-category="healthcare software enterprise">
-                            <div class="portfolio-thumb-wrap">
-                                <span class="portfolio-category-badge">Healthcare Technology</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80" alt="Hospital Clinical Administration and EHR Dashboard" class="portfolio-img-cover">
-                            </div>
-                            <div class="portfolio-card-body">
-                                <div class="portfolio-tech-pills">
-                                    <span class="tech-pill-tag">React</span>
-                                    <span class="tech-pill-tag">Node.js</span>
-                                    <span class="tech-pill-tag">Express</span>
-                                    <span class="tech-pill-tag">PostgreSQL</span>
-                                    <span class="tech-pill-tag">Docker</span>
-                                </div>
-                                <h3 class="portfolio-card-title">Hospital Management System</h3>
-                                <p class="portfolio-card-text">HIPAA-compliant digital hospital administration system unifying patient records, doctor scheduling, and pharmacy billing.</p>
-                                <ul class="portfolio-feature-list">
-                                    <li><i class="fas fa-check"></i> Patient registration & digital OPD/IPD records</li>
-                                    <li><i class="fas fa-check"></i> Doctor schedule & appointment booking</li>
-                                    <li><i class="fas fa-check"></i> Electronic Health Records (EHR) management</li>
-                                    <li><i class="fas fa-check"></i> Pharmacy & inventory management</li>
-                                    <li><i class="fas fa-check"></i> Automated medical billing & discharge summaries</li>
-                                </ul>
-                                <div class="portfolio-card-status">
-                                    <span class="status-badge prototype">Prototype</span>
-                                </div>
-                                <div class="portfolio-card-actions">
-                                    <button class="btn-portfolio-live portfolio-view-detail-btn" data-project="hospital-management">
-                                        <i class="fas fa-eye"></i> View Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 03: Enterprise Asset Management System -->
-                        <div class="portfolio-card-elevated portfolio-card reveal delay-2" data-category="enterprise software web">
-                            <div class="portfolio-thumb-wrap">
-                                <span class="portfolio-category-badge">Enterprise Software</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Enterprise Asset Tracking and Lifecycle Telemetry Dashboard" class="portfolio-img-cover">
-                            </div>
-                            <div class="portfolio-card-body">
-                                <div class="portfolio-tech-pills">
-                                    <span class="tech-pill-tag">Next.js 15</span>
-                                    <span class="tech-pill-tag">Python FastAPI</span>
-                                    <span class="tech-pill-tag">PostgreSQL</span>
-                                    <span class="tech-pill-tag">Redis</span>
-                                    <span class="tech-pill-tag">AWS</span>
-                                </div>
-                                <h3 class="portfolio-card-title">Enterprise Asset Management System</h3>
-                                <p class="portfolio-card-text">Mission-critical physical and digital asset lifecycle tracking platform with depreciation calculation and maintenance alerts.</p>
-                                <ul class="portfolio-feature-list">
-                                    <li><i class="fas fa-check"></i> Centralized asset registry & QR barcode tagging</li>
-                                    <li><i class="fas fa-check"></i> Asset lifecycle tracking from procurement to retirement</li>
-                                    <li><i class="fas fa-check"></i> Automated maintenance scheduling & SLA monitoring</li>
-                                    <li><i class="fas fa-check"></i> Depreciation calculation (Straight-Line & WDV)</li>
-                                    <li><i class="fas fa-check"></i> Multi-facility asset allocation & audit reports</li>
-                                </ul>
-                                <div class="portfolio-card-status">
-                                    <span class="status-badge prototype">Prototype</span>
-                                </div>
-                                <div class="portfolio-card-actions">
-                                    <button class="btn-portfolio-live portfolio-view-detail-btn" data-project="enterprise-asset-management">
-                                        <i class="fas fa-eye"></i> View Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 04: E-Commerce Management Platform -->
-                        <div class="portfolio-card-elevated portfolio-card reveal" data-category="web software enterprise">
-                            <div class="portfolio-thumb-wrap">
-                                <span class="portfolio-category-badge">E-Commerce Technology</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80" alt="E-Commerce Storefront and Multi-Vendor Admin Dashboard" class="portfolio-img-cover">
-                            </div>
-                            <div class="portfolio-card-body">
-                                <div class="portfolio-tech-pills">
-                                    <span class="tech-pill-tag">Next.js</span>
-                                    <span class="tech-pill-tag">TypeScript</span>
-                                    <span class="tech-pill-tag">Node.js</span>
-                                    <span class="tech-pill-tag">Stripe</span>
-                                    <span class="tech-pill-tag">PostgreSQL</span>
-                                </div>
-                                <h3 class="portfolio-card-title">E-Commerce Management Platform</h3>
-                                <p class="portfolio-card-text">High-concurrency online storefront with multi-vendor management, automated payment reconciliation, and real-time inventory sync.</p>
-                                <ul class="portfolio-feature-list">
-                                    <li><i class="fas fa-check"></i> Multi-channel product catalog & SKU management</li>
-                                    <li><i class="fas fa-check"></i> Secure checkout with multi-currency payment gateways</li>
-                                    <li><i class="fas fa-check"></i> Automated order fulfillment & shipping tracking</li>
-                                    <li><i class="fas fa-check"></i> Customer accounts, wishlists & reviews</li>
-                                    <li><i class="fas fa-check"></i> Real-time revenue analytics & inventory alerts</li>
-                                </ul>
-                                <div class="portfolio-card-status">
-                                    <span class="status-badge prototype">Prototype</span>
-                                </div>
-                                <div class="portfolio-card-actions">
-                                    <button class="btn-portfolio-live portfolio-view-detail-btn" data-project="ecommerce-platform">
-                                        <i class="fas fa-eye"></i> View Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 05: Smart Campus & Digital Library System -->
-                        <div class="portfolio-card-elevated portfolio-card reveal delay-1" data-category="education software web">
-                            <div class="portfolio-thumb-wrap">
-                                <span class="portfolio-category-badge">Education Technology</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80" alt="Smart Campus Portal and Digital Library Search Catalog" class="portfolio-img-cover">
-                            </div>
-                            <div class="portfolio-card-body">
-                                <div class="portfolio-tech-pills">
-                                    <span class="tech-pill-tag">React</span>
-                                    <span class="tech-pill-tag">Node.js</span>
-                                    <span class="tech-pill-tag">MongoDB</span>
-                                    <span class="tech-pill-tag">Elasticsearch</span>
-                                    <span class="tech-pill-tag">Redis</span>
-                                </div>
-                                <h3 class="portfolio-card-title">Smart Campus & Digital Library System</h3>
-                                <p class="portfolio-card-text">Connected campus platform managing student academic workflows, digital library catalog search, and RFID circulation control.</p>
-                                <ul class="portfolio-feature-list">
-                                    <li><i class="fas fa-check"></i> RFID & barcode book circulation management</li>
-                                    <li><i class="fas fa-check"></i> Digital catalog with Elasticsearch full-text search</li>
-                                    <li><i class="fas fa-check"></i> Student portal with course materials & assignments</li>
-                                    <li><i class="fas fa-check"></i> Fine calculation & automated overdue notifications</li>
-                                    <li><i class="fas fa-check"></i> Campus events, notices & academic calendar</li>
-                                </ul>
-                                <div class="portfolio-card-status">
-                                    <span class="status-badge prototype">Prototype</span>
-                                </div>
-                                <div class="portfolio-card-actions">
-                                    <button class="btn-portfolio-live portfolio-view-detail-btn" data-project="smart-campus-library">
-                                        <i class="fas fa-eye"></i> View Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 06: AutoRescue Vehicle Assistance Platform -->
-                        <div class="portfolio-card-elevated portfolio-card reveal delay-2" data-category="logistics web software ai">
-                            <div class="portfolio-thumb-wrap">
-                                <span class="portfolio-category-badge">Automotive & Logistics</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=800&q=80" alt="AutoRescue Emergency Roadside Dispatch and GPS Map Interface" class="portfolio-img-cover">
-                            </div>
-                            <div class="portfolio-card-body">
-                                <div class="portfolio-tech-pills">
-                                    <span class="tech-pill-tag">React Native</span>
-                                    <span class="tech-pill-tag">FastAPI</span>
-                                    <span class="tech-pill-tag">WebSockets</span>
-                                    <span class="tech-pill-tag">Google Maps</span>
-                                    <span class="tech-pill-tag">PostgreSQL</span>
-                                </div>
-                                <h3 class="portfolio-card-title">AutoRescue Vehicle Assistance Platform</h3>
-                                <p class="portfolio-card-text">On-demand roadside breakdown assistance network connecting stranded motorists with nearby service mechanics in real time.</p>
-                                <ul class="portfolio-feature-list">
-                                    <li><i class="fas fa-check"></i> One-touch emergency SOS & GPS geo-dispatch</li>
-                                    <li><i class="fas fa-check"></i> Real-time mechanic tracking with live ETA updates</li>
-                                    <li><i class="fas fa-check"></i> Flat tire, battery jumpstart, towing service catalog</li>
-                                    <li><i class="fas fa-check"></i> In-app transparent fare calculation & digital payments</li>
-                                    <li><i class="fas fa-check"></i> 24/7 emergency hotline & roadside telemetry</li>
-                                </ul>
-                                <div class="portfolio-card-status">
-                                    <span class="status-badge prototype">Prototype</span>
-                                </div>
-                                <div class="portfolio-card-actions">
-                                    <button class="btn-portfolio-live portfolio-view-detail-btn" data-project="autorescue-platform">
-                                        <i class="fas fa-eye"></i> View Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 07: School Management System -->
-                        <div class="portfolio-card-elevated portfolio-card reveal" data-category="education software web">
-                            <div class="portfolio-thumb-wrap">
-                                <span class="portfolio-category-badge">Education Technology</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="School Management System Student Administration and Gradebook" class="portfolio-img-cover">
-                            </div>
-                            <div class="portfolio-card-body">
-                                <div class="portfolio-tech-pills">
-                                    <span class="tech-pill-tag">React</span>
-                                    <span class="tech-pill-tag">Node.js</span>
-                                    <span class="tech-pill-tag">Express</span>
-                                    <span class="tech-pill-tag">PostgreSQL</span>
-                                    <span class="tech-pill-tag">Socket.io</span>
-                                </div>
-                                <h3 class="portfolio-card-title">School Management System</h3>
-                                <p class="portfolio-card-text">Comprehensive academic administration suite streamlining admissions, attendance, grading, fee collections, and parent engagement.</p>
-                                <ul class="portfolio-feature-list">
-                                    <li><i class="fas fa-check"></i> Student registration & digital academic profiles</li>
-                                    <li><i class="fas fa-check"></i> Teacher, staff & daily attendance management</li>
-                                    <li><i class="fas fa-check"></i> Examination schedules, grading & report cards</li>
-                                    <li><i class="fas fa-check"></i> Automated fee invoicing & online payment receipts</li>
-                                    <li><i class="fas fa-check"></i> Timetable generator & parent communication portal</li>
-                                </ul>
-                                <div class="portfolio-card-status">
-                                    <span class="status-badge concept">Concept Demo</span>
-                                </div>
-                                <div class="portfolio-card-actions">
-                                    <button class="btn-portfolio-live portfolio-view-detail-btn" data-project="school-management">
-                                        <i class="fas fa-eye"></i> View Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 08: Real Estate & Property Management System -->
-                        <div class="portfolio-card-elevated portfolio-card reveal delay-1" data-category="real-estate web software">
-                            <div class="portfolio-thumb-wrap">
-                                <span class="portfolio-category-badge">Real Estate Technology</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" alt="Real Estate Property Listings and Sales Pipeline CRM" class="portfolio-img-cover">
-                            </div>
-                            <div class="portfolio-card-body">
-                                <div class="portfolio-tech-pills">
-                                    <span class="tech-pill-tag">Next.js 15</span>
-                                    <span class="tech-pill-tag">TypeScript</span>
-                                    <span class="tech-pill-tag">PostgreSQL</span>
-                                    <span class="tech-pill-tag">Mapbox GL</span>
-                                    <span class="tech-pill-tag">AWS S3</span>
-                                </div>
-                                <h3 class="portfolio-card-title">Real Estate & Property Management System</h3>
-                                <p class="portfolio-card-text">Full-cycle property portal enabling immersive property listings, automated customer inquiry routing, and site visit scheduling.</p>
-                                <ul class="portfolio-feature-list">
-                                    <li><i class="fas fa-check"></i> Property listing management with virtual photo galleries</li>
-                                    <li><i class="fas fa-check"></i> Customer enquiries & automated lead scoring CRM</li>
-                                    <li><i class="fas fa-check"></i> Interactive calendar for site visit scheduling</li>
-                                    <li><i class="fas fa-check"></i> Real-time unit availability & pricing tiers</li>
-                                    <li><i class="fas fa-check"></i> Digital booking management & sales analytics</li>
-                                </ul>
-                                <div class="portfolio-card-status">
-                                    <span class="status-badge concept">Concept Demo</span>
-                                </div>
-                                <div class="portfolio-card-actions">
-                                    <button class="btn-portfolio-live portfolio-view-detail-btn" data-project="real-estate-management">
-                                        <i class="fas fa-eye"></i> View Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 09: CRM & Sales Management System -->
-                        <div class="portfolio-card-elevated portfolio-card reveal delay-2" data-category="enterprise software web ai">
-                            <div class="portfolio-thumb-wrap">
-                                <span class="portfolio-category-badge">Business Automation</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Enterprise CRM Sales Pipeline and Customer Management" class="portfolio-img-cover">
-                            </div>
-                            <div class="portfolio-card-body">
-                                <div class="portfolio-tech-pills">
-                                    <span class="tech-pill-tag">React</span>
-                                    <span class="tech-pill-tag">Node.js</span>
-                                    <span class="tech-pill-tag">GraphQL</span>
-                                    <span class="tech-pill-tag">PostgreSQL</span>
-                                    <span class="tech-pill-tag">Redis</span>
-                                </div>
-                                <h3 class="portfolio-card-title">CRM & Sales Management System</h3>
-                                <p class="portfolio-card-text">Enterprise sales orchestration system tracking buyer journeys, automated deal pipelines, follow-up cadence, and team revenue velocity.</p>
-                                <ul class="portfolio-feature-list">
-                                    <li><i class="fas fa-check"></i> Customer 360 profile & contact history</li>
-                                    <li><i class="fas fa-check"></i> Visual Kanban sales pipeline with deal stages</li>
-                                    <li><i class="fas fa-check"></i> Automated follow-up reminders & email sequences</li>
-                                    <li><i class="fas fa-check"></i> Rep activity logging & team performance KPIs</li>
-                                    <li><i class="fas fa-check"></i> Advanced revenue forecasting & executive analytics</li>
-                                </ul>
-                                <div class="portfolio-card-status">
-                                    <span class="status-badge concept">Concept Demo</span>
-                                </div>
-                                <div class="portfolio-card-actions">
-                                    <button class="btn-portfolio-live portfolio-view-detail-btn" data-project="crm-sales-management">
-                                        <i class="fas fa-eye"></i> View Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 10: Inventory & Warehouse Management System -->
-                        <div class="portfolio-card-elevated portfolio-card reveal" data-category="enterprise software logistics">
-                            <div class="portfolio-thumb-wrap">
-                                <span class="portfolio-category-badge">Enterprise Software</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Warehouse Inventory Management and Barcode Tracking System" class="portfolio-img-cover">
-                            </div>
-                            <div class="portfolio-card-body">
-                                <div class="portfolio-tech-pills">
-                                    <span class="tech-pill-tag">Python FastAPI</span>
-                                    <span class="tech-pill-tag">React</span>
-                                    <span class="tech-pill-tag">PostgreSQL</span>
-                                    <span class="tech-pill-tag">Docker</span>
-                                    <span class="tech-pill-tag">Redis</span>
-                                </div>
-                                <h3 class="portfolio-card-title">Inventory & Warehouse Management System</h3>
-                                <p class="portfolio-card-text">Real-time inventory tracking and multi-bin warehouse logistics engine with barcode scanning and automated reorder triggers.</p>
-                                <ul class="portfolio-feature-list">
-                                    <li><i class="fas fa-check"></i> Multi-location warehouse stock & bin allocation</li>
-                                    <li><i class="fas fa-check"></i> Barcode/QR scanning for instant inbound/outbound</li>
-                                    <li><i class="fas fa-check"></i> Automated purchase & sales order reconciliation</li>
-                                    <li><i class="fas fa-check"></i> Supplier management & vendor performance history</li>
-                                    <li><i class="fas fa-check"></i> Low-stock threshold alerts & inventory valuation reports</li>
-                                </ul>
-                                <div class="portfolio-card-status">
-                                    <span class="status-badge concept">Concept Demo</span>
-                                </div>
-                                <div class="portfolio-card-actions">
-                                    <button class="btn-portfolio-live portfolio-view-detail-btn" data-project="inventory-warehouse-management">
-                                        <i class="fas fa-eye"></i> View Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 11: Hotel & Booking Management System -->
-                        <div class="portfolio-card-elevated portfolio-card reveal delay-1" data-category="restaurant web software">
-                            <div class="portfolio-thumb-wrap">
-                                <span class="portfolio-category-badge">Hospitality Technology</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Hotel Booking and Reservation Management System" class="portfolio-img-cover">
-                            </div>
-                            <div class="portfolio-card-body">
-                                <div class="portfolio-tech-pills">
-                                    <span class="tech-pill-tag">Next.js</span>
-                                    <span class="tech-pill-tag">Node.js</span>
-                                    <span class="tech-pill-tag">PostgreSQL</span>
-                                    <span class="tech-pill-tag">Stripe</span>
-                                    <span class="tech-pill-tag">Redis</span>
-                                </div>
-                                <h3 class="portfolio-card-title">Hotel & Booking Management System</h3>
-                                <p class="portfolio-card-text">Complete hotel property management software (PMS) managing front-desk check-in, housekeeping rosters, and online room bookings.</p>
-                                <ul class="portfolio-feature-list">
-                                    <li><i class="fas fa-check"></i> Interactive room availability calendar & rates matrix</li>
-                                    <li><i class="fas fa-check"></i> Direct guest online booking engine & payment gateway</li>
-                                    <li><i class="fas fa-check"></i> Express check-in/check-out with digital key support</li>
-                                    <li><i class="fas fa-check"></i> Housekeeping & maintenance room status updates</li>
-                                    <li><i class="fas fa-check"></i> Folio billing, invoice generator & occupancy analytics</li>
-                                </ul>
-                                <div class="portfolio-card-status">
-                                    <span class="status-badge concept">Concept Demo</span>
-                                </div>
-                                <div class="portfolio-card-actions">
-                                    <button class="btn-portfolio-live portfolio-view-detail-btn" data-project="hotel-booking-management">
-                                        <i class="fas fa-eye"></i> View Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 12: Logistics & Fleet Management System -->
-                        <div class="portfolio-card-elevated portfolio-card reveal delay-2" data-category="logistics enterprise software">
-                            <div class="portfolio-thumb-wrap">
-                                <span class="portfolio-category-badge">Transportation Technology</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80" alt="Logistics Fleet Tracking and Route Optimization System" class="portfolio-img-cover">
-                            </div>
-                            <div class="portfolio-card-body">
-                                <div class="portfolio-tech-pills">
-                                    <span class="tech-pill-tag">Node.js</span>
-                                    <span class="tech-pill-tag">React</span>
-                                    <span class="tech-pill-tag">MongoDB</span>
-                                    <span class="tech-pill-tag">WebSockets</span>
-                                    <span class="tech-pill-tag">Leaflet GPS</span>
-                                </div>
-                                <h3 class="portfolio-card-title">Logistics & Fleet Management System</h3>
-                                <p class="portfolio-card-text">Real-time fleet tracking, dispatch optimization, and route planning platform for freight carriers and logistics enterprises.</p>
-                                <ul class="portfolio-feature-list">
-                                    <li><i class="fas fa-check"></i> GPS vehicle tracking with live route telemetry</li>
-                                    <li><i class="fas fa-check"></i> Driver roster, license compliance & hours-of-service</li>
-                                    <li><i class="fas fa-check"></i> Multi-stop shipment tracking & delivery confirmations (POD)</li>
-                                    <li><i class="fas fa-check"></i> Intelligent route optimization to reduce transit time</li>
-                                    <li><i class="fas fa-check"></i> Fuel consumption logs, mileage & maintenance scheduling</li>
-                                </ul>
-                                <div class="portfolio-card-status">
-                                    <span class="status-badge concept">Concept Demo</span>
-                                </div>
-                                <div class="portfolio-card-actions">
-                                    <button class="btn-portfolio-live portfolio-view-detail-btn" data-project="logistics-fleet-management">
-                                        <i class="fas fa-eye"></i> View Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- Load More Projects Button (Shows after 4th project) -->
                     <div class="load-more-wrap" style="text-align: center; margin-top: 36px; display: block !important;">
@@ -1078,430 +1254,450 @@
                         </button>
                     </div>
                 </div>
-            </section>
-
-            <!-- Project Detail Modal -->
-            <div id="projectDetailModal" class="project-modal-overlay" style="display:none;">
-                <div class="project-modal-content">
-                    <button class="project-modal-close">&times;</button>
-                    <div class="project-modal-header">
-                        <span class="project-modal-category"></span>
-                        <h2 class="project-modal-title"></h2>
+                <div class="project-modal-body">
+                    <div class="project-modal-section">
+                        <h4>Project Overview</h4>
+                        <p class="project-modal-overview"></p>
                     </div>
-                    <div class="project-modal-body">
-                        <div class="project-modal-section">
-                            <h4>Project Overview</h4>
-                            <p class="project-modal-overview"></p>
-                        </div>
-                        <div class="project-modal-section">
-                            <h4>Problem Statement</h4>
-                            <p class="project-modal-problem"></p>
-                        </div>
-                        <div class="project-modal-section">
-                            <h4>Solution</h4>
-                            <p class="project-modal-solution"></p>
-                        </div>
-                        <div class="project-modal-section">
-                            <h4>Key Features</h4>
-                            <ul class="project-modal-features"></ul>
-                        </div>
-                        <div class="project-modal-section">
-                            <h4>Technology Stack</h4>
-                            <div class="project-modal-tech"></div>
-                        </div>
+                    <div class="project-modal-section">
+                        <h4>Problem Statement</h4>
+                        <p class="project-modal-problem"></p>
+                    </div>
+                    <div class="project-modal-section">
+                        <h4>Solution</h4>
+                        <p class="project-modal-solution"></p>
+                    </div>
+                    <div class="project-modal-section">
+                        <h4>Key Features</h4>
+                        <ul class="project-modal-features"></ul>
+                    </div>
+                    <div class="project-modal-section">
+                        <h4>Technology Stack</h4>
+                        <div class="project-modal-tech"></div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Pre-Footer CTA Rocket Banner -->
-            <section class="section-cta-wrap">
-                <div class="container">
-                    <div class="cta-banner-new">
-                        <div class="cta-banner-left">
-                            <div class="cta-rocket-visual"><img decoding="async" loading="lazy" src="cta_rocket_clean.png" alt="Engineering Velocity Rocket" class="cta-rocket-img"></div>
-                            <div class="cta-text-group">
-                                <h3 class="cta-title-new">Have a Project in <span>Mind?</span></h3>
-                                <p class="cta-subtitle-new">Let's discuss architecture, sprint velocity, and custom delivery milestones for your business.</p>
-                                <div class="cta-actions-group">
-                                    <a href="/contact" class="btn-cta-action"><span>Schedule Consultation</span> <i class="fas fa-arrow-right"></i></a>
-                                    <a href="/nda" class="btn-cta-action btn-cta-secondary"><span>Instant NDA</span> <i class="fas fa-file-shield"></i></a>
-                                </div>
+        <!-- Pre-Footer CTA Rocket Banner -->
+        <section class="section-cta-wrap">
+            <div class="container">
+                <div class="cta-banner-new">
+                    <div class="cta-banner-left">
+                        <div class="cta-rocket-visual"><img src="cta_rocket_clean.png" alt="Engineering Velocity Rocket"
+                                class="cta-rocket-img"></div>
+                        <div class="cta-text-group">
+                            <h3 class="cta-title-new">Have a Project in <span>Mind?</span></h3>
+                            <p class="cta-subtitle-new">Let's discuss architecture, sprint velocity, and custom delivery
+                                milestones for your business.</p>
+                            <div class="cta-actions-group">
+                                <a href="/contact" class="btn-cta-action"><span>Schedule Consultation</span> <i
+                                        class="fas fa-arrow-right"></i></a>
+                                <a href="/nda" class="btn-cta-action btn-cta-secondary"><span>Instant NDA</span> <i
+                                        class="fas fa-file-shield"></i></a>
                             </div>
                         </div>
-                        <div class="cta-badges-right">
-                            <div class="cta-trust-badge"><i class="fas fa-bolt badge-icon-electric"></i><span>Fast Response</span></div>
-                            <div class="cta-trust-badge"><i class="fas fa-shield-alt badge-icon-shield"></i><span>100% IP Ownership</span></div>
-                            <div class="cta-trust-badge"><i class="fas fa-handshake badge-icon-handshake"></i><span>60-Day SLA</span></div>
-                        </div>
+                    </div>
+                    <div class="cta-badges-right">
+                        <div class="cta-trust-badge"><i class="fas fa-bolt badge-icon-electric"></i><span>Fast
+                                Response</span></div>
+                        <div class="cta-trust-badge"><i class="fas fa-shield-alt badge-icon-shield"></i><span>100% IP
+                                Ownership</span></div>
+                        <div class="cta-trust-badge"><i class="fas fa-handshake badge-icon-handshake"></i><span>60-Day
+                                SLA</span></div>
                     </div>
                 </div>
-            </section>
-        </main>
-
-        <!-- Global Enterprise Footer -->
-        <footer class="footer-new">
-            <div class="container">
-                <div class="footer-top-grid">
-                    <div class="footer-col-brand">
-                        <a class="footer-logo-link" href="/">
-                            <span class="footer-logo-box"><i class="fas fa-layer-group"></i></span>
-                            <span class="footer-logo-text">RC <span>Techno</span></span>
-                        </a>
-                        <p class="footer-brand-desc">Building modern, scalable, and secure digital solutions for tomorrow's businesses.</p>
-                        <div class="footer-social-row">
-                            <a href="https://www.linkedin.com/in/ratan-codespace" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://github.com/Ratanchaurasiya" target="_blank" rel="noopener" aria-label="GitHub" class="social-circle"><i class="fab fa-github"></i></a>
-                            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="social-circle"><i class="fab fa-youtube"></i></a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" class="social-circle"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="footer-col-links">
-                        <h4 class="footer-col-title"><i class="fas fa-rocket title-icon"></i> Quick Links</h4>
-                        <ul class="footer-nav-list">
-                            <li><a href="/"><i class="fas fa-chevron-right arrow-icon"></i> Home</a></li>
-                            <li><a href="/about"><i class="fas fa-chevron-right arrow-icon"></i> About Us</a></li>
-                            <li><a href="/gallery"><i class="fas fa-chevron-right arrow-icon"></i> Office Gallery</a></li>
-                            <li><a href="/work"><i class="fas fa-chevron-right arrow-icon"></i> Portfolio</a></li>
-                            <li><a href="/architecture"><i class="fas fa-chevron-right arrow-icon"></i> Architecture</a></li>
-                            <li><a href="/faq"><i class="fas fa-chevron-right arrow-icon"></i> FAQ</a></li>
-                            <li><a href="/contact"><i class="fas fa-chevron-right arrow-icon"></i> Contact</a></li>
-                            <li><a href="/terms"><i class="fas fa-chevron-right arrow-icon"></i> Terms &amp; Conditions</a></li>
-                            <li><a href="/privacy"><i class="fas fa-chevron-right arrow-icon"></i> Privacy Policy</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-col-links">
-                        <h4 class="footer-col-title"><i class="fas fa-cog title-icon"></i> Services</h4>
-                        <ul class="footer-nav-list">
-                            <li><a href="/service-website-development"><i class="fas fa-chevron-right arrow-icon"></i> Web Development</a></li>
-                            <li><a href="/service-web-app-development"><i class="fas fa-chevron-right arrow-icon"></i> App Development</a></li>
-                            <li><a href="/service-custom-software"><i class="fas fa-chevron-right arrow-icon"></i> Custom Software</a></li>
-                            <li><a href="/service-ai-agents"><i class="fas fa-chevron-right arrow-icon"></i> AI Agents &amp; LLMs</a></li>
-                            <li><a href="/service-cloud-deployment"><i class="fas fa-chevron-right arrow-icon"></i> Cloud Solutions</a></li>
-                            <li><a href="/service-security"><i class="fas fa-chevron-right arrow-icon"></i> Cybersecurity</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-col-contact">
-                        <h4 class="footer-col-title"><i class="fas fa-envelope title-icon"></i> Contact Info</h4>
-                        <div class="footer-contact-item"><i class="fas fa-map-marker-alt contact-pin-icon"></i><span>Vastral Gam, Ahmedabad</span></div>
-                        <div class="footer-contact-item"><i class="fas fa-envelope contact-pin-icon"></i><a href="mailto:ratanchaurasiya61@gmail.com">ratanchaurasiya61@gmail.com</a></div>
-                        <div class="footer-contact-item"><i class="fas fa-phone-alt contact-pin-icon"></i><a href="tel:+916390035039">+91 63900 35039</a></div>
-                        <div class="footer-contact-item"><i class="fas fa-globe contact-pin-icon"></i><a href="https://rctechnosolutions.com" target="_blank" rel="noopener">rctechnosolutions.com</a></div>
-                        <div class="footer-contact-item"><i class="fab fa-whatsapp contact-pin-icon" style="color: #25d366;"></i><a href="https://wa.me/916390035039?text=Hi%20RC%20Techno,%20I'd%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener">WhatsApp Chat</a></div>
-                    </div></div>
-
-                            <div class="footer-bottom-bar">
-                    <p>&copy; 2026 RC Techno Solutions. All Rights Reserved.</p>
-                    <div class="footer-legal-links">
-                        <a href="/privacy">Privacy Policy</a> &bull; 
-                        <a href="/terms">Terms &amp; Conditions</a> &bull; 
-                        <a href="/nda">Instant NDA</a>
-                    </div>
                 </div>
             </div>
-        </footer>
+        </section>
+    </main>
 
-        <script src="typewriter.js?v=1.0"></script>
-        <script src="script.js?v=4.5"></script>
-        <script src="nirvana-interactive.js?v=2.6"></script>
-        <script src="chatbot.js?v=4.5"></script>
+    <!-- Global Enterprise Footer -->
+    <footer class="footer-new">
+        <div class="container">
+            <div class="footer-top-grid">
+                <div class="footer-col-brand">
+                    <a class="footer-logo-link" href="/">
+                        <span class="footer-logo-box"><i class="fas fa-layer-group"></i></span>
+                        <span class="footer-logo-text">RC <span>Techno</span></span>
+                    </a>
+                    <p class="footer-brand-desc">Building modern, scalable, and secure digital solutions for tomorrow's
+                        businesses.</p>
+                    <div class="footer-social-row">
+                        <a href="https://www.linkedin.com/in/ratan-codespace" target="_blank" rel="noopener"
+                            aria-label="LinkedIn" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Ratanchaurasiya" target="_blank" rel="noopener" aria-label="GitHub"
+                            class="social-circle"><i class="fab fa-github"></i></a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"
+                            class="social-circle"><i class="fab fa-youtube"></i></a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter"
+                            class="social-circle"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
 
-        <script>
-        (function() {
+                <div class="footer-col-links">
+                    <h4 class="footer-col-title"><i class="fas fa-rocket title-icon"></i> Quick Links</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="/"><i class="fas fa-chevron-right arrow-icon"></i> Home</a></li>
+                        <li><a href="/about"><i class="fas fa-chevron-right arrow-icon"></i> About Us</a></li>
+                        <li><a href="/gallery"><i class="fas fa-chevron-right arrow-icon"></i> Office Gallery</a></li>
+                        <li><a href="/work"><i class="fas fa-chevron-right arrow-icon"></i> Portfolio</a></li>
+                        <li><a href="/architecture"><i class="fas fa-chevron-right arrow-icon"></i> Architecture</a>
+                        </li>
+                        <li><a href="/faq"><i class="fas fa-chevron-right arrow-icon"></i> FAQ</a></li>
+                        <li><a href="/contact"><i class="fas fa-chevron-right arrow-icon"></i> Contact</a></li>
+                        <li><a href="/terms"><i class="fas fa-chevron-right arrow-icon"></i> Terms &amp; Conditions</a>
+                        </li>
+                        <li><a href="/privacy"><i class="fas fa-chevron-right arrow-icon"></i> Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col-links">
+                    <h4 class="footer-col-title"><i class="fas fa-cog title-icon"></i> Services</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="/service-website-development"><i class="fas fa-chevron-right arrow-icon"></i> Web
+                                Development</a></li>
+                        <li><a href="/service-web-app-development"><i class="fas fa-chevron-right arrow-icon"></i> App
+                                Development</a></li>
+                        <li><a href="/service-custom-software"><i class="fas fa-chevron-right arrow-icon"></i> Custom
+                                Software</a></li>
+                        <li><a href="/service-ai-agents"><i class="fas fa-chevron-right arrow-icon"></i> AI Agents &amp;
+                                LLMs</a></li>
+                        <li><a href="/service-cloud-deployment"><i class="fas fa-chevron-right arrow-icon"></i> Cloud
+                                Solutions</a></li>
+                        <li><a href="/service-security"><i class="fas fa-chevron-right arrow-icon"></i>
+                                Cybersecurity</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col-contact">
+                    <h4 class="footer-col-title"><i class="fas fa-envelope title-icon"></i> Contact Info</h4>
+                    <div class="footer-contact-item"><i class="fas fa-map-marker-alt contact-pin-icon"></i><span>Vastral
+                            Gam, Ahmedabad</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-envelope contact-pin-icon"></i><a
+                            href="mailto:ratanchaurasiya61@gmail.com">ratanchaurasiya61@gmail.com</a></div>
+                    <div class="footer-contact-item"><i class="fas fa-phone-alt contact-pin-icon"></i><a
+                            href="tel:+916390035039">+91 63900 35039</a></div>
+                    <div class="footer-contact-item"><i class="fas fa-globe contact-pin-icon"></i><a
+                            href="https://rctechnosolutions.com" target="_blank"
+                            rel="noopener">rctechnosolutions.com</a></div>
+                    <div class="footer-contact-item"><i class="fab fa-whatsapp contact-pin-icon"
+                            style="color: #25d366;"></i><a
+                            href="https://wa.me/916390035039?text=Hi%20RC%20Techno,%20I'd%20like%20to%20discuss%20a%20project"
+                            target="_blank" rel="noopener">WhatsApp Chat</a></div>
+                </div>
+            </div>
+
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 RC Techno Solutions. All Rights Reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="/privacy">Privacy Policy</a> &bull;
+                    <a href="/terms">Terms &amp; Conditions</a> &bull;
+                    <a href="/nda">Instant NDA</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="typewriter.js?v=2.5"></script>
+    <script src="script.js?v=4.5"></script>
+    <script src="nirvana-interactive.js?v=2.6"></script>
+    <script src="chatbot.js?v=4.5"></script>
+
+    <script>
+        (function () {
             // ───── Project Data ─────
             const projectData = {
-    "restaurant-management": {
-        "category": "Restaurant & Hospitality",
-        "title": "Restaurant Management System",
-        "overview": "A comprehensive restaurant operations platform designed to digitize and streamline every aspect of food-service management — from front-of-house ordering to back-of-house kitchen coordination. The system unifies POS billing, table management, QR-code ordering, and inventory control into a single cohesive dashboard.",
-        "problem": "Traditional restaurants rely on fragmented tools — paper tickets, manual billing, phone reservations — leading to order errors, slow table turnover, inventory waste, and poor customer experience during peak hours.",
-        "solution": "We built an integrated digital ecosystem where customers scan QR codes to browse menus and place orders directly from their table, kitchen staff receive real-time order displays, managers track table occupancy and reservations, and the POS system handles billing with automatic tax calculation and receipt generation.",
-        "features": [
-            "POS billing & order management",
-            "Table & reservation management",
-            "QR-based food ordering",
-            "Kitchen Order Display System (KODS)",
-            "Menu & recipe inventory management",
-            "Real-time table turnover telemetry",
-            "Daily revenue & settlement reporting"
-        ],
-        "tech": [
-            "HTML5",
-            "CSS3",
-            "JavaScript",
-            "Node.js",
-            "MongoDB",
-            "REST API"
-        ]
-    },
-    "hospital-management": {
-        "category": "Healthcare Technology",
-        "title": "Hospital Management System",
-        "overview": "An enterprise-grade hospital information management system (HIMS) engineered for clinics, multi-specialty hospitals, and diagnostic centers. The platform digitizes the complete patient journey from OPD registration to ward allocation, pharmacy dispensation, and automated insurance billing.",
-        "problem": "Paper-based medical records and legacy disconnected software cause treatment delays, billing discrepancies, medication dispensing errors, and compliance risks under modern healthcare privacy standards.",
-        "solution": "We engineered a role-based clinical administration architecture featuring centralized Electronic Health Records (EHR), automated doctor roster management, synchronized pharmacy dispensing, and encrypted audit trails adhering to stringent patient privacy standards.",
-        "features": [
-            "Patient registration & digital OPD/IPD records",
-            "Doctor schedule & appointment booking",
-            "Electronic Health Records (EHR) with ICD-10 coding",
-            "Pharmacy stock & expiry tracking",
-            "Automated medical billing & insurance claims",
-            "Diagnostic lab test reporting integration",
-            "Role-based access control (Doctor, Nurse, Admin, Reception)"
-        ],
-        "tech": [
-            "React",
-            "Node.js",
-            "Express",
-            "PostgreSQL",
-            "Docker",
-            "Redis",
-            "JWT Auth"
-        ]
-    },
-    "enterprise-asset-management": {
-        "category": "Enterprise Software",
-        "title": "Enterprise Asset Management System",
-        "overview": "A robust cloud-native enterprise asset management (EAM) platform enabling mid-market and enterprise organizations to track, audit, allocate, and depreciate thousands of physical IT assets, capital machinery, and software licenses across worldwide corporate facilities.",
-        "problem": "Organizations lose hundreds of thousands of dollars annually through ghost assets, unmonitored maintenance schedules, lost equipment, and inaccurate manual depreciation balance sheets kept in sprawling spreadsheets.",
-        "solution": "We delivered a distributed EAM architecture featuring automated QR/barcode tagging, biometric-verified check-in/check-out workflows, preventive maintenance ticketing, and real-time straight-line and declining-balance depreciation calculations.",
-        "features": [
-            "Centralized asset registry & QR barcode tagging",
-            "Asset lifecycle tracking from procurement to retirement",
-            "Automated maintenance scheduling & SLA monitoring",
-            "Depreciation calculation (Straight-Line & WDV)",
-            "Multi-facility asset allocation & audit reports",
-            "IT hardware spec auto-discovery & warranty alerts",
-            "Custom exportable compliance audit logs"
-        ],
-        "tech": [
-            "Next.js 15",
-            "Python FastAPI",
-            "PostgreSQL",
-            "Redis",
-            "AWS",
-            "Docker"
-        ]
-    },
-    "ecommerce-platform": {
-        "category": "E-Commerce",
-        "title": "E-Commerce Management Platform",
-        "overview": "A modern, full-stack e-commerce engine designed for high concurrency and sub-second page transitions. Built with Next.js Server Components, Stripe PCI-compliant payments, and automated stock reconciliation across multiple geographic fulfillment centers.",
-        "problem": "Out-of-the-box e-commerce builders suffer from sluggish page loads, high transaction revenue cuts, limited customization for complex product variants, and fragile third-party plugin ecosystems.",
-        "solution": "We engineered a bespoke, headless commerce solution pairing a ultra-fast Next.js frontend with robust Node.js microservices, elastic product search, automated webhook-driven payment settlements, and carrier API shipping synchronization.",
-        "features": [
-            "Multi-channel product catalog & SKU management",
-            "Secure checkout with multi-currency payment gateways",
-            "Automated order fulfillment & shipping tracking",
-            "Customer accounts, wishlists & reviews",
-            "Real-time revenue analytics & inventory alerts",
-            "Dynamic coupon & promotional discounting rules engine",
-            "Abandoned cart recovery automation"
-        ],
-        "tech": [
-            "Next.js",
-            "TypeScript",
-            "Node.js",
-            "Stripe",
-            "PostgreSQL",
-            "Tailwind CSS"
-        ]
-    },
-    "smart-campus-library": {
-        "category": "Education Technology",
-        "title": "Smart Campus & Digital Library System",
-        "overview": "An integrated higher-education portal harmonizing library circulation and student digital services. Combines an indexed digital repository with RFID physical book checkout, voice-assisted book cataloging, and student academic profiles.",
-        "problem": "Universities operate disparate legacy databases for academic records, student billing, and physical library inventory, causing students to queue for hours and administrators to lose track of valuable university resources.",
-        "solution": "We developed an intuitive unified campus hub providing instantaneous catalog search powered by Elasticsearch, automated overdue fine calculation, online book reservations, and seamless student single sign-on (SSO).",
-        "features": [
-            "RFID & barcode book circulation management",
-            "Digital catalog with Elasticsearch full-text search",
-            "Student portal with course materials & assignments",
-            "Fine calculation & automated overdue notifications",
-            "Campus events, notices & academic calendar",
-            "Digital thesis & PDF repository viewer",
-            "Librarian analytics on book popularity & circulation cycles"
-        ],
-        "tech": [
-            "React",
-            "Node.js",
-            "MongoDB",
-            "Elasticsearch",
-            "Redis",
-            "Python"
-        ]
-    },
-    "autorescue-platform": {
-        "category": "Automotive Technology",
-        "title": "AutoRescue Vehicle Assistance Platform",
-        "overview": "A hyper-local emergency roadside dispatch ecosystem matching broken-down vehicle operators with towing trucks, flat-tire responders, battery jumpstarters, and authorized fuel couriers within a 15-mile operating radius.",
-        "problem": "Motorists stranded on highways face extreme safety hazards, non-transparent towing pricing, and unreliable phone-call dispatch with zero visibility into mechanic arrival times.",
-        "solution": "We architected a geospatial matching engine pairing WebSockets with Google Maps live routing. Drivers tap one button to broadcast GPS coordinates, receive binding fixed price quotes, and observe service vehicles navigating to their exact breakdown pin.",
-        "features": [
-            "One-touch emergency SOS & GPS geo-dispatch",
-            "Real-time mechanic tracking with live ETA updates",
-            "Flat tire, battery jumpstart, towing service catalog",
-            "In-app transparent fare calculation & digital payments",
-            "24/7 emergency hotline & roadside telemetry",
-            "Service partner credential & tow-truck inspection verification",
-            "Automated post-service diagnostic receipt generation"
-        ],
-        "tech": [
-            "React Native",
-            "Python FastAPI",
-            "WebSockets",
-            "Google Maps API",
-            "PostgreSQL",
-            "Redis"
-        ]
-    },
-    "school-management": {
-        "category": "Education Technology",
-        "title": "School Management System",
-        "overview": "A modern, full-lifecycle K-12 school ERP platform engineered to unify administrative paperwork, faculty scheduling, academic evaluations, tuition billing, and parent-teacher transparency into one mobile-accessible cloud solution.",
-        "problem": "Schools waste countless administrative hours balancing paper attendance ledgers, preparing report cards by hand, chasing uncollected fees, and dealing with disconnected parent communication channels.",
-        "solution": "We engineered an enterprise school ERP featuring automated student enrollment, biometric and mobile attendance tracking, dynamic examination grade calculations, automated payment gateway fee collection, and push notification parent engagement.",
-        "features": [
-            "Student registration & digital academic profiles",
-            "Teacher, staff & daily attendance tracking",
-            "Examination schedules, grading & instant report cards",
-            "Automated fee invoicing & payment gateway receipts",
-            "Algorithmic conflict-free timetable generator",
-            "Parent communication portal with homework updates",
-            "School bus route telemetry & driver tracking"
-        ],
-        "tech": [
-            "React",
-            "Node.js",
-            "Express",
-            "PostgreSQL",
-            "Socket.io",
-            "Bootstrap 5"
-        ]
-    },
-    "real-estate-management": {
-        "category": "Real Estate Technology",
-        "title": "Real Estate & Property Management System",
-        "overview": "An end-to-end real estate developer and agency platform integrating interactive architectural property showcases with sales CRM, automated lead assignment, on-site visit verification, and unit booking management.",
-        "problem": "Real estate brokers and property builders struggle with unorganized lead spreadsheets, double-booked site visits, outdated unit inventory sheets, and slow paperwork finalizing client purchase agreements.",
-        "solution": "We designed a high-converting property management portal featuring interactive Mapbox site navigation, automated WhatsApp lead notifications for sales agents, online calendar tour booking, and digital token deposit agreements.",
-        "features": [
-            "Property listing management with virtual photo galleries",
-            "Customer enquiries & automated lead scoring CRM",
-            "Interactive calendar for site visit scheduling",
-            "Real-time unit availability & pricing tiers",
-            "Digital booking management & token agreements",
-            "Broker commission tracking & payout settlement",
-            "Executive sales pipeline & project absorption analytics"
-        ],
-        "tech": [
-            "Next.js 15",
-            "TypeScript",
-            "PostgreSQL",
-            "Mapbox GL",
-            "AWS S3",
-            "Tailwind CSS"
-        ]
-    },
-    "crm-sales-management": {
-        "category": "Business Automation",
-        "title": "CRM & Sales Management System",
-        "overview": "A high-velocity B2B sales automation CRM built for revenue teams. Features a drag-and-drop Kanban pipeline, omnichannel client communications, automated multi-touch sequences, and predictive AI deal closing probability scoring.",
-        "problem": "Sales teams lose qualified leads through missed follow-ups, fragmented emails across personal inboxes, lack of deal stage visibility, and cumbersome manual data entry in legacy CRMs.",
-        "solution": "We engineered an intuitive, low-latency sales platform featuring automated email & WhatsApp logging, smart task reminders, team quota dashboards, and customized quotation generators that shorten closing cycles by up to 40%.",
-        "features": [
-            "Customer 360 profile & full communication history",
-            "Visual Kanban sales pipeline with custom deal stages",
-            "Automated follow-up reminders & email sequences",
-            "Rep activity logging & call outcome tracking",
-            "Advanced revenue forecasting & quota analytics",
-            "One-click commercial proposal & PDF quote generator",
-            "Role-based permissions & territory assignment"
-        ],
-        "tech": [
-            "React",
-            "Node.js",
-            "GraphQL",
-            "PostgreSQL",
-            "Redis",
-            "Chart.js"
-        ]
-    },
-    "inventory-warehouse-management": {
-        "category": "Enterprise Software",
-        "title": "Inventory & Warehouse Management System",
-        "overview": "A mission-critical Warehouse Management System (WMS) built to manage multi-aisle stock allocations, batch serialization, purchase order approvals, and cross-docking logistics across multiple regional distribution centers.",
-        "problem": "Inaccurate stock counts, dead inventory, misplaced warehouse bins, and manual pick-pack workflows cause order fulfillment delays, customer chargebacks, and cash flow strain.",
-        "solution": "We delivered a real-time warehouse orchestration system supporting wireless handheld barcode scanners, algorithmic pick-wave routing, automated low-stock reorder thresholds, and FIFO/LIFO batch valuation tracking.",
-        "features": [
-            "Multi-location warehouse stock & bin allocation",
-            "Barcode/QR scanning for instant inbound/outbound",
-            "Automated purchase & sales order reconciliation",
-            "Supplier management & vendor performance history",
-            "Low-stock threshold alerts & inventory valuation reports",
-            "Batch & serial number traceability with expiry monitoring",
-            "Auditor-ready balance sheet inventory valuation exports"
-        ],
-        "tech": [
-            "Python FastAPI",
-            "React",
-            "PostgreSQL",
-            "Docker",
-            "Redis",
-            "Celery"
-        ]
-    },
-    "hotel-booking-management": {
-        "category": "Hospitality Technology",
-        "title": "Hotel & Booking Management System",
-        "overview": "A full-stack Property Management System (PMS) and direct booking engine for boutique hotels, luxury resorts, and serviced apartments. Integrates front-desk reservations, housekeeping dispatch, dynamic room pricing, and digital guest invoices.",
-        "problem": "Hotels lose 15-25% margin to online travel agencies (OTAs) and suffer from overbooking errors when trying to synchronize room inventory between front-desk walk-ins and phone reservations.",
-        "solution": "We engineered an all-in-one hotel management platform featuring a commission-free direct booking engine, automated multi-room calendar synchronization, real-time housekeeping status updates, and digital guest checkout billing.",
-        "features": [
-            "Interactive room availability calendar & rates matrix",
-            "Direct guest online booking engine & payment gateway",
-            "Express check-in/check-out with digital key support",
-            "Housekeeping & maintenance room status updates",
-            "Folio billing, invoice generator & occupancy analytics",
-            "Mini-bar and room-service billing integration",
-            "Guest CRM with stay history & VIP preferences"
-        ],
-        "tech": [
-            "Next.js",
-            "Node.js",
-            "PostgreSQL",
-            "Stripe",
-            "Redis",
-            "Socket.io"
-        ]
-    },
-    "logistics-fleet-management": {
-        "category": "Transportation Technology",
-        "title": "Logistics & Fleet Management System",
-        "overview": "An enterprise transportation management system (TMS) and IoT telematics dashboard for commercial freight carriers, last-mile delivery fleets, and inter-city logistics operators.",
-        "problem": "Fleet managers lack real-time visibility into driver locations, delivery delays, fuel theft, unexpected engine maintenance, and Proof of Delivery (POD) confirmations.",
-        "solution": "We developed a live fleet telematics platform streaming GPS coordinates via WebSockets, mapping optimal delivery routes, generating digital proof-of-delivery signatures, and monitoring fuel efficiency metrics to lower per-mile operational expenditure.",
-        "features": [
-            "GPS vehicle tracking with live route telemetry",
-            "Driver roster, license compliance & hours-of-service",
-            "Multi-stop shipment tracking & delivery confirmations (POD)",
-            "Intelligent route optimization to reduce transit time",
-            "Fuel consumption logs, mileage & maintenance scheduling",
-            "Driver behavior analytics (harsh braking, idle time, speeding)",
-            "Automated dispatch alerts & customer ETA SMS notifications"
-        ],
-        "tech": [
-            "Node.js",
-            "React",
-            "MongoDB",
-            "WebSockets",
-            "Leaflet GPS",
-            "Docker"
-        ]
-    }
-};
+                "restaurant-management": {
+                    "category": "Restaurant & Hospitality",
+                    "title": "Restaurant Management System",
+                    "overview": "A comprehensive restaurant operations platform designed to digitize and streamline every aspect of food-service management — from front-of-house ordering to back-of-house kitchen coordination. The system unifies POS billing, table management, QR-code ordering, and inventory control into a single cohesive dashboard.",
+                    "problem": "Traditional restaurants rely on fragmented tools — paper tickets, manual billing, phone reservations — leading to order errors, slow table turnover, inventory waste, and poor customer experience during peak hours.",
+                    "solution": "We built an integrated digital ecosystem where customers scan QR codes to browse menus and place orders directly from their table, kitchen staff receive real-time order displays, managers track table occupancy and reservations, and the POS system handles billing with automatic tax calculation and receipt generation.",
+                    "features": [
+                        "POS billing & order management",
+                        "Table & reservation management",
+                        "QR-based food ordering",
+                        "Kitchen Order Display System (KODS)",
+                        "Menu & recipe inventory management",
+                        "Real-time table turnover telemetry",
+                        "Daily revenue & settlement reporting"
+                    ],
+                    "tech": [
+                        "HTML5",
+                        "CSS3",
+                        "JavaScript",
+                        "Node.js",
+                        "MongoDB",
+                        "REST API"
+                    ]
+                },
+                "hospital-management": {
+                    "category": "Healthcare Technology",
+                    "title": "Hospital Management System",
+                    "overview": "An enterprise-grade hospital information management system (HIMS) engineered for clinics, multi-specialty hospitals, and diagnostic centers. The platform digitizes the complete patient journey from OPD registration to ward allocation, pharmacy dispensation, and automated insurance billing.",
+                    "problem": "Paper-based medical records and legacy disconnected software cause treatment delays, billing discrepancies, medication dispensing errors, and compliance risks under modern healthcare privacy standards.",
+                    "solution": "We engineered a role-based clinical administration architecture featuring centralized Electronic Health Records (EHR), automated doctor roster management, synchronized pharmacy dispensing, and encrypted audit trails adhering to stringent patient privacy standards.",
+                    "features": [
+                        "Patient registration & digital OPD/IPD records",
+                        "Doctor schedule & appointment booking",
+                        "Electronic Health Records (EHR) with ICD-10 coding",
+                        "Pharmacy stock & expiry tracking",
+                        "Automated medical billing & insurance claims",
+                        "Diagnostic lab test reporting integration",
+                        "Role-based access control (Doctor, Nurse, Admin, Reception)"
+                    ],
+                    "tech": [
+                        "React",
+                        "Node.js",
+                        "Express",
+                        "PostgreSQL",
+                        "Docker",
+                        "Redis",
+                        "JWT Auth"
+                    ]
+                },
+                "enterprise-asset-management": {
+                    "category": "Enterprise Software",
+                    "title": "Enterprise Asset Management System",
+                    "overview": "A robust cloud-native enterprise asset management (EAM) platform enabling mid-market and enterprise organizations to track, audit, allocate, and depreciate thousands of physical IT assets, capital machinery, and software licenses across worldwide corporate facilities.",
+                    "problem": "Organizations lose hundreds of thousands of dollars annually through ghost assets, unmonitored maintenance schedules, lost equipment, and inaccurate manual depreciation balance sheets kept in sprawling spreadsheets.",
+                    "solution": "We delivered a distributed EAM architecture featuring automated QR/barcode tagging, biometric-verified check-in/check-out workflows, preventive maintenance ticketing, and real-time straight-line and declining-balance depreciation calculations.",
+                    "features": [
+                        "Centralized asset registry & QR barcode tagging",
+                        "Asset lifecycle tracking from procurement to retirement",
+                        "Automated maintenance scheduling & SLA monitoring",
+                        "Depreciation calculation (Straight-Line & WDV)",
+                        "Multi-facility asset allocation & audit reports",
+                        "IT hardware spec auto-discovery & warranty alerts",
+                        "Custom exportable compliance audit logs"
+                    ],
+                    "tech": [
+                        "Next.js 15",
+                        "Python FastAPI",
+                        "PostgreSQL",
+                        "Redis",
+                        "AWS",
+                        "Docker"
+                    ]
+                },
+                "ecommerce-platform": {
+                    "category": "E-Commerce",
+                    "title": "E-Commerce Management Platform",
+                    "overview": "A modern, full-stack e-commerce engine designed for high concurrency and sub-second page transitions. Built with Next.js Server Components, Stripe PCI-compliant payments, and automated stock reconciliation across multiple geographic fulfillment centers.",
+                    "problem": "Out-of-the-box e-commerce builders suffer from sluggish page loads, high transaction revenue cuts, limited customization for complex product variants, and fragile third-party plugin ecosystems.",
+                    "solution": "We engineered a bespoke, headless commerce solution pairing a ultra-fast Next.js frontend with robust Node.js microservices, elastic product search, automated webhook-driven payment settlements, and carrier API shipping synchronization.",
+                    "features": [
+                        "Multi-channel product catalog & SKU management",
+                        "Secure checkout with multi-currency payment gateways",
+                        "Automated order fulfillment & shipping tracking",
+                        "Customer accounts, wishlists & reviews",
+                        "Real-time revenue analytics & inventory alerts",
+                        "Dynamic coupon & promotional discounting rules engine",
+                        "Abandoned cart recovery automation"
+                    ],
+                    "tech": [
+                        "Next.js",
+                        "TypeScript",
+                        "Node.js",
+                        "Stripe",
+                        "PostgreSQL",
+                        "Tailwind CSS"
+                    ]
+                },
+                "smart-campus-library": {
+                    "category": "Education Technology",
+                    "title": "Smart Campus & Digital Library System",
+                    "overview": "An integrated higher-education portal harmonizing library circulation and student digital services. Combines an indexed digital repository with RFID physical book checkout, voice-assisted book cataloging, and student academic profiles.",
+                    "problem": "Universities operate disparate legacy databases for academic records, student billing, and physical library inventory, causing students to queue for hours and administrators to lose track of valuable university resources.",
+                    "solution": "We developed an intuitive unified campus hub providing instantaneous catalog search powered by Elasticsearch, automated overdue fine calculation, online book reservations, and seamless student single sign-on (SSO).",
+                    "features": [
+                        "RFID & barcode book circulation management",
+                        "Digital catalog with Elasticsearch full-text search",
+                        "Student portal with course materials & assignments",
+                        "Fine calculation & automated overdue notifications",
+                        "Campus events, notices & academic calendar",
+                        "Digital thesis & PDF repository viewer",
+                        "Librarian analytics on book popularity & circulation cycles"
+                    ],
+                    "tech": [
+                        "React",
+                        "Node.js",
+                        "MongoDB",
+                        "Elasticsearch",
+                        "Redis",
+                        "Python"
+                    ]
+                },
+                "autorescue-platform": {
+                    "category": "Automotive Technology",
+                    "title": "AutoRescue Vehicle Assistance Platform",
+                    "overview": "A hyper-local emergency roadside dispatch ecosystem matching broken-down vehicle operators with towing trucks, flat-tire responders, battery jumpstarters, and authorized fuel couriers within a 15-mile operating radius.",
+                    "problem": "Motorists stranded on highways face extreme safety hazards, non-transparent towing pricing, and unreliable phone-call dispatch with zero visibility into mechanic arrival times.",
+                    "solution": "We architected a geospatial matching engine pairing WebSockets with Google Maps live routing. Drivers tap one button to broadcast GPS coordinates, receive binding fixed price quotes, and observe service vehicles navigating to their exact breakdown pin.",
+                    "features": [
+                        "One-touch emergency SOS & GPS geo-dispatch",
+                        "Real-time mechanic tracking with live ETA updates",
+                        "Flat tire, battery jumpstart, towing service catalog",
+                        "In-app transparent fare calculation & digital payments",
+                        "24/7 emergency hotline & roadside telemetry",
+                        "Service partner credential & tow-truck inspection verification",
+                        "Automated post-service diagnostic receipt generation"
+                    ],
+                    "tech": [
+                        "React Native",
+                        "Python FastAPI",
+                        "WebSockets",
+                        "Google Maps API",
+                        "PostgreSQL",
+                        "Redis"
+                    ]
+                },
+                "school-management": {
+                    "category": "Education Technology",
+                    "title": "School Management System",
+                    "overview": "A modern, full-lifecycle K-12 school ERP platform engineered to unify administrative paperwork, faculty scheduling, academic evaluations, tuition billing, and parent-teacher transparency into one mobile-accessible cloud solution.",
+                    "problem": "Schools waste countless administrative hours balancing paper attendance ledgers, preparing report cards by hand, chasing uncollected fees, and dealing with disconnected parent communication channels.",
+                    "solution": "We engineered an enterprise school ERP featuring automated student enrollment, biometric and mobile attendance tracking, dynamic examination grade calculations, automated payment gateway fee collection, and push notification parent engagement.",
+                    "features": [
+                        "Student registration & digital academic profiles",
+                        "Teacher, staff & daily attendance tracking",
+                        "Examination schedules, grading & instant report cards",
+                        "Automated fee invoicing & payment gateway receipts",
+                        "Algorithmic conflict-free timetable generator",
+                        "Parent communication portal with homework updates",
+                        "School bus route telemetry & driver tracking"
+                    ],
+                    "tech": [
+                        "React",
+                        "Node.js",
+                        "Express",
+                        "PostgreSQL",
+                        "Socket.io",
+                        "Bootstrap 5"
+                    ]
+                },
+                "real-estate-management": {
+                    "category": "Real Estate Technology",
+                    "title": "Real Estate & Property Management System",
+                    "overview": "An end-to-end real estate developer and agency platform integrating interactive architectural property showcases with sales CRM, automated lead assignment, on-site visit verification, and unit booking management.",
+                    "problem": "Real estate brokers and property builders struggle with unorganized lead spreadsheets, double-booked site visits, outdated unit inventory sheets, and slow paperwork finalizing client purchase agreements.",
+                    "solution": "We designed a high-converting property management portal featuring interactive Mapbox site navigation, automated WhatsApp lead notifications for sales agents, online calendar tour booking, and digital token deposit agreements.",
+                    "features": [
+                        "Property listing management with virtual photo galleries",
+                        "Customer enquiries & automated lead scoring CRM",
+                        "Interactive calendar for site visit scheduling",
+                        "Real-time unit availability & pricing tiers",
+                        "Digital booking management & token agreements",
+                        "Broker commission tracking & payout settlement",
+                        "Executive sales pipeline & project absorption analytics"
+                    ],
+                    "tech": [
+                        "Next.js 15",
+                        "TypeScript",
+                        "PostgreSQL",
+                        "Mapbox GL",
+                        "AWS S3",
+                        "Tailwind CSS"
+                    ]
+                },
+                "crm-sales-management": {
+                    "category": "Business Automation",
+                    "title": "CRM & Sales Management System",
+                    "overview": "A high-velocity B2B sales automation CRM built for revenue teams. Features a drag-and-drop Kanban pipeline, omnichannel client communications, automated multi-touch sequences, and predictive AI deal closing probability scoring.",
+                    "problem": "Sales teams lose qualified leads through missed follow-ups, fragmented emails across personal inboxes, lack of deal stage visibility, and cumbersome manual data entry in legacy CRMs.",
+                    "solution": "We engineered an intuitive, low-latency sales platform featuring automated email & WhatsApp logging, smart task reminders, team quota dashboards, and customized quotation generators that shorten closing cycles by up to 40%.",
+                    "features": [
+                        "Customer 360 profile & full communication history",
+                        "Visual Kanban sales pipeline with custom deal stages",
+                        "Automated follow-up reminders & email sequences",
+                        "Rep activity logging & call outcome tracking",
+                        "Advanced revenue forecasting & quota analytics",
+                        "One-click commercial proposal & PDF quote generator",
+                        "Role-based permissions & territory assignment"
+                    ],
+                    "tech": [
+                        "React",
+                        "Node.js",
+                        "GraphQL",
+                        "PostgreSQL",
+                        "Redis",
+                        "Chart.js"
+                    ]
+                },
+                "inventory-warehouse-management": {
+                    "category": "Enterprise Software",
+                    "title": "Inventory & Warehouse Management System",
+                    "overview": "A mission-critical Warehouse Management System (WMS) built to manage multi-aisle stock allocations, batch serialization, purchase order approvals, and cross-docking logistics across multiple regional distribution centers.",
+                    "problem": "Inaccurate stock counts, dead inventory, misplaced warehouse bins, and manual pick-pack workflows cause order fulfillment delays, customer chargebacks, and cash flow strain.",
+                    "solution": "We delivered a real-time warehouse orchestration system supporting wireless handheld barcode scanners, algorithmic pick-wave routing, automated low-stock reorder thresholds, and FIFO/LIFO batch valuation tracking.",
+                    "features": [
+                        "Multi-location warehouse stock & bin allocation",
+                        "Barcode/QR scanning for instant inbound/outbound",
+                        "Automated purchase & sales order reconciliation",
+                        "Supplier management & vendor performance history",
+                        "Low-stock threshold alerts & inventory valuation reports",
+                        "Batch & serial number traceability with expiry monitoring",
+                        "Auditor-ready balance sheet inventory valuation exports"
+                    ],
+                    "tech": [
+                        "Python FastAPI",
+                        "React",
+                        "PostgreSQL",
+                        "Docker",
+                        "Redis",
+                        "Celery"
+                    ]
+                },
+                "hotel-booking-management": {
+                    "category": "Hospitality Technology",
+                    "title": "Hotel & Booking Management System",
+                    "overview": "A full-stack Property Management System (PMS) and direct booking engine for boutique hotels, luxury resorts, and serviced apartments. Integrates front-desk reservations, housekeeping dispatch, dynamic room pricing, and digital guest invoices.",
+                    "problem": "Hotels lose 15-25% margin to online travel agencies (OTAs) and suffer from overbooking errors when trying to synchronize room inventory between front-desk walk-ins and phone reservations.",
+                    "solution": "We engineered an all-in-one hotel management platform featuring a commission-free direct booking engine, automated multi-room calendar synchronization, real-time housekeeping status updates, and digital guest checkout billing.",
+                    "features": [
+                        "Interactive room availability calendar & rates matrix",
+                        "Direct guest online booking engine & payment gateway",
+                        "Express check-in/check-out with digital key support",
+                        "Housekeeping & maintenance room status updates",
+                        "Folio billing, invoice generator & occupancy analytics",
+                        "Mini-bar and room-service billing integration",
+                        "Guest CRM with stay history & VIP preferences"
+                    ],
+                    "tech": [
+                        "Next.js",
+                        "Node.js",
+                        "PostgreSQL",
+                        "Stripe",
+                        "Redis",
+                        "Socket.io"
+                    ]
+                },
+                "logistics-fleet-management": {
+                    "category": "Transportation Technology",
+                    "title": "Logistics & Fleet Management System",
+                    "overview": "An enterprise transportation management system (TMS) and IoT telematics dashboard for commercial freight carriers, last-mile delivery fleets, and inter-city logistics operators.",
+                    "problem": "Fleet managers lack real-time visibility into driver locations, delivery delays, fuel theft, unexpected engine maintenance, and Proof of Delivery (POD) confirmations.",
+                    "solution": "We developed a live fleet telematics platform streaming GPS coordinates via WebSockets, mapping optimal delivery routes, generating digital proof-of-delivery signatures, and monitoring fuel efficiency metrics to lower per-mile operational expenditure.",
+                    "features": [
+                        "GPS vehicle tracking with live route telemetry",
+                        "Driver roster, license compliance & hours-of-service",
+                        "Multi-stop shipment tracking & delivery confirmations (POD)",
+                        "Intelligent route optimization to reduce transit time",
+                        "Fuel consumption logs, mileage & maintenance scheduling",
+                        "Driver behavior analytics (harsh braking, idle time, speeding)",
+                        "Automated dispatch alerts & customer ETA SMS notifications"
+                    ],
+                    "tech": [
+                        "Node.js",
+                        "React",
+                        "MongoDB",
+                        "WebSockets",
+                        "Leaflet GPS",
+                        "Docker"
+                    ]
+                }
+            };
 
             // ───── Modal Logic ─────
             const modal = document.getElementById('projectDetailModal');
@@ -1525,14 +1721,14 @@
                 modalSolution.textContent = data.solution;
 
                 modalFeatures.innerHTML = '';
-                data.features.forEach(function(f) {
+                data.features.forEach(function (f) {
                     const li = document.createElement('li');
                     li.textContent = f;
                     modalFeatures.appendChild(li);
                 });
 
                 modalTech.innerHTML = '';
-                data.tech.forEach(function(t) {
+                data.tech.forEach(function (t) {
                     const span = document.createElement('span');
                     span.className = 'modal-tech-pill';
                     span.textContent = t;
@@ -1540,7 +1736,7 @@
                 });
 
                 modal.style.display = 'flex';
-                requestAnimationFrame(function() {
+                requestAnimationFrame(function () {
                     modal.classList.add('modal-visible');
                 });
                 document.body.style.overflow = 'hidden';
@@ -1548,15 +1744,15 @@
 
             function closeModal() {
                 modal.classList.remove('modal-visible');
-                setTimeout(function() {
+                setTimeout(function () {
                     modal.style.display = 'none';
                     document.body.style.overflow = '';
                 }, 300);
             }
 
             // Event: View Project buttons
-            document.querySelectorAll('.portfolio-view-detail-btn').forEach(function(btn) {
-                btn.addEventListener('click', function(e) {
+            document.querySelectorAll('.portfolio-view-detail-btn').forEach(function (btn) {
+                btn.addEventListener('click', function (e) {
                     e.preventDefault();
                     var projectId = this.getAttribute('data-project');
                     openModal(projectId);
@@ -1567,12 +1763,12 @@
             modalClose.addEventListener('click', closeModal);
 
             // Event: Click overlay to close
-            modal.addEventListener('click', function(e) {
+            modal.addEventListener('click', function (e) {
                 if (e.target === modal) closeModal();
             });
 
             // Event: Escape key to close
-            document.addEventListener('keydown', function(e) {
+            document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape' && modal.style.display !== 'none') closeModal();
             });
 
@@ -1634,12 +1830,12 @@
             // ───── Filter Logic ─────
             var filterBtns = document.querySelectorAll('.portfolio-filter-btn');
 
-            filterBtns.forEach(function(btn) {
-                btn.addEventListener('click', function() {
+            filterBtns.forEach(function (btn) {
+                btn.addEventListener('click', function () {
                     var filter = this.getAttribute('data-filter');
 
                     // Update active state
-                    filterBtns.forEach(function(b) { b.classList.remove('active'); });
+                    filterBtns.forEach(function (b) { b.classList.remove('active'); });
                     this.classList.add('active');
 
                     // Reset expansion when changing filter category
@@ -1651,6 +1847,7 @@
                 });
             });
         })();
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>

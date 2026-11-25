@@ -1,20 +1,20 @@
 /**
- * RC Techno Solutions — Enterprise Typewriter Animation Engine
- * Precision-tuned, accessible, zero-layout-shift auto-typing and text rotation.
+ * RC Techno Solutions — Enterprise Precision Typewriter Engine
+ * Zero-Layout-Shift (CLS Guard), Page-Jitter Immune, Screen-Stable Text Rotation
  * 
- * Features:
- * - Anti-Layout-Shift (CLS Guard): Measures longest phrase to reserve min-width
- * - Double-Instance Guard: Prevents duplicate intervals/timers
- * - Visibility-Aware: Pauses animation when tab is inactive to prevent memory leak/battery drain
- * - Accessibility-Ready: Respects prefers-reduced-motion instantly
- * - Smooth Cadence: Configurable typing, erasing, and reading pause intervals
- * - Blinking Cursor: Hardware-accelerated CSS animation with aria-hidden
+ * Technical Design:
+ * 1. Reserve exact container bounding box: Computes max width and height of all rotating phrases
+ *    at runtime using a hidden offscreen clone. Prevents any vertical or horizontal page shaking.
+ * 2. Stable baseline alignment: Anchors text without forcing line breaks or displacing surrounding content.
+ * 3. Screen shake & scroll prevention: Operates strictly on text nodes without mutating layout dimensions.
+ * 4. Visibility & Reduced-Motion: Pauses cleanly when tab is hidden; renders static text for reduced-motion.
+ * 5. Single-instance timer safety: Prevents duplicate intervals, racing loops, or timer memory leaks.
  */
 
 (function () {
     'use strict';
 
-    // Inject resilient, layout-shift-free cursor and typewriter styles
+    // Inject resilient, zero-jitter cursor and typewriter styles
     if (!document.getElementById('rc-typewriter-css')) {
         var style = document.createElement('style');
         style.id = 'rc-typewriter-css';
@@ -28,6 +28,7 @@
             '    user-select: none;',
             '    vertical-align: baseline;',
             '    line-height: 1;',
+            '    pointer-events: none;',
             '}',
             '@keyframes rcTwBlink {',
             '    from, to { opacity: 1; }',
@@ -35,25 +36,67 @@
             '}',
             '[data-typewriter] {',
             '    display: inline-block;',
-            '    min-height: 1.15em;',
             '    vertical-align: baseline;',
-            '    white-space: normal;',
-            '    word-break: keep-all;',
             '    text-align: left;',
-            '    transition: color 0.2s ease;',
+            '    white-space: nowrap;',
+            '    overflow: visible;',
+            '    box-sizing: border-box;',
+            '    transition: none !important;',
+            '}',
+            '@media (max-width: 640px) {',
+            '    [data-typewriter] {',
+            '        white-space: normal;',
+            '        word-break: keep-all;',
+            '    }',
             '}',
             '@media (prefers-reduced-motion: reduce) {',
             '    .rc-tw-cursor { display: none !important; }',
-            '    [data-typewriter] { white-space: normal !important; min-width: auto !important; }',
+            '    [data-typewriter] { min-width: auto !important; min-height: auto !important; }',
             '}'
         ].join('\n');
         document.head.appendChild(style);
     }
 
+    /**
+     * Compute max dimensions needed to hold all phrases without expanding or shrinking.
+     * Prevents page/parent container from shaking or resizing on every keystroke.
+     */
+    function measureMaxDimensions(element, phrases) {
+        if (!element || !phrases || !phrases.length) return { width: 0, height: 0 };
+        var clone = document.createElement('span');
+        var computed = window.getComputedStyle(element);
+
+        clone.style.position = 'absolute';
+        clone.style.visibility = 'hidden';
+        clone.style.pointerEvents = 'none';
+        clone.style.top = '-9999px';
+        clone.style.left = '-9999px';
+        clone.style.fontFamily = computed.fontFamily;
+        clone.style.fontSize = computed.fontSize;
+        clone.style.fontWeight = computed.fontWeight;
+        clone.style.letterSpacing = computed.letterSpacing;
+        clone.style.textTransform = computed.textTransform;
+        clone.style.whiteSpace = 'nowrap';
+        document.body.appendChild(clone);
+
+        var maxWidth = 0;
+        var maxHeight = 0;
+        for (var i = 0; i < phrases.length; i++) {
+            clone.textContent = phrases[i];
+            var w = clone.offsetWidth;
+            var h = clone.offsetHeight;
+            if (w > maxWidth) maxWidth = w;
+            if (h > maxHeight) maxHeight = h;
+        }
+
+        document.body.removeChild(clone);
+        return { width: maxWidth, height: maxHeight };
+    }
+
     function RCTypewriter(element, phrases, options) {
         if (typeof element === 'string') element = document.querySelector(element);
         if (!element || !phrases || !phrases.length) return;
-        if (element._rcTypewriter) return; // Prevent double initialization
+        if (element._rcTypewriter) return; // Single-instance guard
 
         var self = this;
         self.el = element;
@@ -73,14 +116,25 @@
 
         element._rcTypewriter = self;
 
-        // Respect reduced motion accessibility
+        // Respect reduced motion accessibility: show first phrase statically without blinking cursor
         var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (prefersReduced) {
             element.textContent = phrases[0];
             return;
         }
 
-        // Attach cursor
+        // Measure & lock min-width / min-height on desktop & tablet to eliminate CLS and jitter
+        if (window.innerWidth > 640) {
+            var dims = measureMaxDimensions(element, phrases);
+            if (dims.width > 0) {
+                element.style.minWidth = (dims.width + 4) + 'px';
+            }
+            if (dims.height > 0) {
+                element.style.minHeight = dims.height + 'px';
+            }
+        }
+
+        // Attach a single managed cursor
         if (self.opts.cursor) {
             var existingCursor = element.parentNode ? element.parentNode.querySelector('.rc-tw-cursor, .typewriter-cursor') : null;
             if (existingCursor) {
@@ -98,7 +152,7 @@
             }
         }
 
-        // Initial setup: ensure text is set and matches phrase
+        // Initial setup
         var initialText = element.textContent.trim();
         var matchIdx = phrases.indexOf(initialText);
         if (matchIdx !== -1) {
@@ -110,7 +164,7 @@
             self._charIndex = phrases[0].length;
         }
 
-        // Pause animation when page is hidden (saves CPU, avoids timer buildup)
+        // Pause animation when tab is inactive to prevent timer piling and memory leaks
         self._visibilityHandler = function () {
             if (document.hidden) {
                 self._isPaused = true;
@@ -120,7 +174,20 @@
         };
         document.addEventListener('visibilitychange', self._visibilityHandler);
 
-        // Begin cycle after initial reading pause
+        // Adjust dimensions on window resize
+        self._resizeHandler = function () {
+            if (window.innerWidth > 640) {
+                var d = measureMaxDimensions(self.el, self.phrases);
+                if (d.width > 0) self.el.style.minWidth = (d.width + 4) + 'px';
+                if (d.height > 0) self.el.style.minHeight = d.height + 'px';
+            } else {
+                self.el.style.minWidth = 'auto';
+                self.el.style.minHeight = 'auto';
+            }
+        };
+        window.addEventListener('resize', self._resizeHandler);
+
+        // Start cycle after initial pause
         self._setTimeout(function () {
             self._erase();
         }, self.opts.pauseTime);
@@ -131,7 +198,6 @@
         var id = setTimeout(function () {
             if (!self._destroyed) {
                 if (self._isPaused) {
-                    // Retry once tab is visible
                     self._setTimeout(fn, 500);
                 } else {
                     fn.call(self);
@@ -152,7 +218,7 @@
             self._charIndex++;
             self._setTimeout(function () { self._type(); }, self.opts.typeSpeed);
         } else {
-            // Completed phrase: pause to let user read
+            // Phrase complete: hold for user to read
             self._setTimeout(function () { self._erase(); }, self.opts.pauseTime);
         }
     };
@@ -167,7 +233,7 @@
             self.el.textContent = phrase.substring(0, self._charIndex);
             self._setTimeout(function () { self._erase(); }, self.opts.eraseSpeed);
         } else {
-            // Next phrase
+            // Move to next phrase
             self._phraseIndex = (self._phraseIndex + 1) % self.phrases.length;
             if (!self.opts.loop && self._phraseIndex === 0) {
                 self.el.textContent = self.phrases[0];
@@ -186,10 +252,17 @@
         if (this._visibilityHandler) {
             document.removeEventListener('visibilitychange', this._visibilityHandler);
         }
+        if (this._resizeHandler) {
+            window.removeEventListener('resize', this._resizeHandler);
+        }
         if (this._cursorEl && this._cursorEl.parentNode) {
             this._cursorEl.parentNode.removeChild(this._cursorEl);
         }
-        if (this.el) this.el._rcTypewriter = null;
+        if (this.el) {
+            this.el._rcTypewriter = null;
+            this.el.style.minWidth = '';
+            this.el.style.minHeight = '';
+        }
     };
 
     // Auto-initialize from data attributes
@@ -203,11 +276,11 @@
                 var phrases;
                 if (attrVal === 'true' || attrVal === '') {
                     phrases = [
-                        "Intelligent Digital",
+                        "Modern Enterprises",
                         "High-Performance Cloud",
-                        "Autonomous AI Software",
-                        "Scalable Enterprise",
-                        "Mission-Critical SaaS"
+                        "Autonomous AI Systems",
+                        "Mission-Critical SaaS",
+                        "Scalable Platforms"
                     ];
                 } else {
                     phrases = JSON.parse(attrVal);
@@ -221,7 +294,7 @@
                     pauseTime: pause
                 });
             } catch (e) {
-                // Silently ignore malformed attributes
+                // Silently ignore
             }
         }
     }
@@ -234,3 +307,4 @@
 
     window.RCTypewriter = RCTypewriter;
 })();
+

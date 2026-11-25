@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '.tech-console-card',
         '.contact-info-card',
         '.contact-form-wrap',
-        'section:not(.tech-hero-section):not(#home)'
+        'section:not(.tech-hero-section):not(#home):not(.portfolio-page-hero):not(.about-hero-block):not(.services-page-hero):not(.arch-page-hero):not(.contact-page-hero):not(.faq-page-hero)'
     ];
 
     const autoScaleElements = document.querySelectorAll(autoScaleSelectors.join(', '));
@@ -1263,7 +1263,7 @@ document.addEventListener('DOMContentLoaded', () => {
         filterFaqs();
     }
 
-    /* --- Executive Hero Title Full Typing Animation (Fallback / Standalone) --- */
+    /* --- Executive Hero Title Full Typing Animation (Ensures single initialization) --- */
     const autoTypeEl = document.getElementById('autoTypeHero') || document.getElementById('heroTypePart2');
     if (autoTypeEl && !autoTypeEl._rcTypewriter && typeof window.RCTypewriter !== 'undefined') {
         const phrases = [
