@@ -1067,60 +1067,6 @@
                                 <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="Modern Open-Concept Development Floor" class="gallery-img">
                                 <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
                             </div>
-
-<!-- RC TECHNO SOLUTIONS - HIGH-FIDELITY OFFICE GALLERY LIGHTBOX MODAL -->
-        <!-- ================================================================= -->
-        <div id="rcGalleryModal" class="rc-gallery-modal" style="display: none !important;" aria-hidden="true" role="dialog" aria-modal="true">
-            <div class="rc-modal-overlay" id="rcModalOverlay"></div>
-            
-            <div class="rc-modal-container" id="rcModalContainer">
-                <!-- Top Toolbar Header -->
-                <div class="rc-modal-topbar">
-                    <div class="rc-modal-meta">
-                        <span id="rcModalCategory" class="rc-modal-badge">Office Overview</span>
-                        <h3 id="rcModalTitle" class="rc-modal-heading">Gallery Preview</h3>
-                        <span id="rcModalCounter" class="rc-modal-counter">1 of 12</span>
-                    </div>
-
-                    <div class="rc-modal-actions">
-                        <button id="rcModalFullscreenBtn" class="rc-modal-btn" title="Toggle Fullscreen (F)" aria-label="Toggle Fullscreen">
-                            <i class="fas fa-expand"></i>
-                        </button>
-                        <button id="rcModalCloseBtn" class="rc-modal-btn rc-modal-close" title="Close Preview (ESC)" aria-label="Close Preview">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Main Image Preview Stage -->
-                <div class="rc-modal-stage" id="rcModalStage">
-                    <button id="rcModalPrevBtn" class="rc-modal-nav rc-nav-prev" title="Previous Image (Left Arrow)" aria-label="Previous Image">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-
-                    <div class="rc-modal-img-wrap" id="rcModalImgWrap">
-                        <img decoding="async" loading="lazy" id="rcModalImage" src="" alt="Office Gallery Preview" class="rc-modal-image" />
-                        <div id="rcModalSpinner" class="rc-modal-spinner" style="display: none;">
-                            <i class="fas fa-circle-notch fa-spin"></i>
-                        </div>
-                    </div>
-
-                    <button id="rcModalNextBtn" class="rc-modal-nav rc-nav-next" title="Next Image (Right Arrow)" aria-label="Next Image">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-
-                <!-- Bottom Description & Keyboard Shortcuts Bar -->
-                <div class="rc-modal-footer">
-                    <p id="rcModalDesc" class="rc-modal-desc"></p>
-                    <div class="rc-modal-shortcuts-hint">
-                        <span><kbd>&larr;</kbd> <kbd>&rarr;</kbd> Navigate</span>
-                        <span><kbd>F</kbd> Fullscreen</span>
-                        <span><kbd>ESC</kbd> Close</span>
-                    </div>
-                </div>
-            </div>
-        </div>
                             <div class="gallery-caption-box">
                                 <h4 class="gallery-card-title">Modern Open-Concept Development Floor</h4>
                                 <p class="gallery-card-desc">Spacious, natural-light engineering floor built for cross-functional sprint pods and focus.</p>
@@ -1917,5 +1863,53 @@
         </script>
 
     
+
+    <!-- RC TECHNO SOLUTIONS - HIGH-FIDELITY OFFICE GALLERY LIGHTBOX MODAL -->
+    <div id="rcGalleryModal" class="rc-gallery-modal" style="display: none !important;" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="rc-modal-overlay" id="rcModalOverlay"></div>
+        <div class="rc-modal-container" id="rcModalContainer">
+            <!-- Top Toolbar Header -->
+            <div class="rc-modal-topbar">
+                <div class="rc-modal-meta">
+                    <span id="rcModalCategory" class="rc-modal-badge">Office Overview</span>
+                    <h3 id="rcModalTitle" class="rc-modal-heading">Gallery Preview</h3>
+                    <span id="rcModalCounter" class="rc-modal-counter">1 of 12</span>
+                </div>
+                <div class="rc-modal-actions">
+                    <button id="rcModalFullscreenBtn" class="rc-modal-btn" title="Toggle Fullscreen (F)" aria-label="Toggle Fullscreen">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                    <button id="rcModalCloseBtn" class="rc-modal-btn rc-modal-close" title="Close Preview (ESC)" aria-label="Close Preview">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Main Image Preview Stage -->
+            <div class="rc-modal-stage" id="rcModalStage">
+                <button id="rcModalPrevBtn" class="rc-modal-nav rc-nav-prev" title="Previous Image (Left Arrow)" aria-label="Previous Image">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="rc-modal-img-wrap" id="rcModalImgWrap">
+                    <img decoding="async" loading="lazy" id="rcModalImage" src="" alt="Office Gallery Preview" class="rc-modal-image" />
+                    <div id="rcModalSpinner" class="rc-modal-spinner" style="display: none;">
+                        <i class="fas fa-circle-notch fa-spin"></i>
+                    </div>
+                </div>
+                <button id="rcModalNextBtn" class="rc-modal-nav rc-nav-next" title="Next Image (Right Arrow)" aria-label="Next Image">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <!-- Bottom Description & Keyboard Shortcuts Bar -->
+            <div class="rc-modal-footer">
+                <p id="rcModalDesc" class="rc-modal-desc"></p>
+                <div class="rc-modal-shortcuts-hint">
+                    <span><kbd>&larr;</kbd> <kbd>&rarr;</kbd> Navigate</span>
+                    <span><kbd>F</kbd> Fullscreen</span>
+                    <span><kbd>ESC</kbd> Close</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
