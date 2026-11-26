@@ -1380,5 +1380,526 @@
         <script src="script.js?v=4.5"></script>
         <script src="nirvana-interactive.js?v=2.6"></script>
         <script src="chatbot.js?v=4.5"></script>
-    </body>
+    
+
+<!-- RC TECHNO SOLUTIONS - HIGH-FIDELITY OFFICE GALLERY LIGHTBOX MODAL -->
+        <!-- ================================================================= -->
+        <div id="rcGalleryModal" class="rc-gallery-modal" aria-hidden="true" role="dialog" aria-modal="true">
+            <div class="rc-modal-overlay" id="rcModalOverlay"></div>
+            
+            <div class="rc-modal-container" id="rcModalContainer">
+                <!-- Top Toolbar Header -->
+                <div class="rc-modal-topbar">
+                    <div class="rc-modal-meta">
+                        <span id="rcModalCategory" class="rc-modal-badge">Office Overview</span>
+                        <h3 id="rcModalTitle" class="rc-modal-heading">Gallery Preview</h3>
+                        <span id="rcModalCounter" class="rc-modal-counter">1 of 12</span>
+                    </div>
+
+                    <div class="rc-modal-actions">
+                        <button id="rcModalFullscreenBtn" class="rc-modal-btn" title="Toggle Fullscreen (F)" aria-label="Toggle Fullscreen">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                        <button id="rcModalCloseBtn" class="rc-modal-btn rc-modal-close" title="Close Preview (ESC)" aria-label="Close Preview">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Main Image Preview Stage -->
+                <div class="rc-modal-stage" id="rcModalStage">
+                    <button id="rcModalPrevBtn" class="rc-modal-nav rc-nav-prev" title="Previous Image (Left Arrow)" aria-label="Previous Image">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div class="rc-modal-img-wrap" id="rcModalImgWrap">
+                        <img decoding="async" loading="lazy" id="rcModalImage" src="" alt="Office Gallery Preview" class="rc-modal-image" />
+                        <div id="rcModalSpinner" class="rc-modal-spinner" style="display: none;">
+                            <i class="fas fa-circle-notch fa-spin"></i>
+                        </div>
+                    </div>
+
+                    <button id="rcModalNextBtn" class="rc-modal-nav rc-nav-next" title="Next Image (Right Arrow)" aria-label="Next Image">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Bottom Description & Keyboard Shortcuts Bar -->
+                <div class="rc-modal-footer">
+                    <p id="rcModalDesc" class="rc-modal-desc"></p>
+                    <div class="rc-modal-shortcuts-hint">
+                        <span><kbd>&larr;</kbd> <kbd>&rarr;</kbd> Navigate</span>
+                        <span><kbd>F</kbd> Fullscreen</span>
+                        <span><kbd>ESC</kbd> Close</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            /* Gallery Lightbox Modal Styles */
+            .rc-gallery-modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: 999999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.28s;
+            }
+            .rc-gallery-modal.is-active {
+                opacity: 1;
+                visibility: visible;
+            }
+            .rc-modal-overlay {
+                position: absolute;
+                inset: 0;
+                background: rgba(10, 15, 29, 0.92);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                z-index: 1;
+            }
+            .rc-modal-container {
+                position: relative;
+                z-index: 2;
+                width: 94vw;
+                max-width: 1200px;
+                height: 90vh;
+                max-height: 850px;
+                display: flex;
+                flex-direction: column;
+                background: rgba(15, 23, 42, 0.95);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 16px;
+                box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+                overflow: hidden;
+                transform: scale(0.96);
+                transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .rc-gallery-modal.is-active .rc-modal-container {
+                transform: scale(1);
+            }
+
+            /* Fullscreen API Native overrides */
+            :fullscreen .rc-modal-container,
+            :-webkit-full-screen .rc-modal-container {
+                width: 100vw !important;
+                height: 100vh !important;
+                max-width: 100vw !important;
+                max-height: 100vh !important;
+                border-radius: 0 !important;
+                border: none !important;
+                background: #000000 !important;
+            }
+
+            .rc-modal-topbar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 14px 24px;
+                background: rgba(15, 23, 42, 0.85);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                flex-shrink: 0;
+            }
+            .rc-modal-meta {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+            .rc-modal-badge {
+                background: #0284c7;
+                color: #ffffff;
+                font-size: 0.72rem;
+                font-weight: 700;
+                padding: 3px 10px;
+                border-radius: 9999px;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+            }
+            .rc-modal-heading {
+                font-size: 1.05rem;
+                font-weight: 700;
+                color: #f8fafc;
+                margin: 0;
+            }
+            .rc-modal-counter {
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: #94a3b8;
+                background: rgba(255, 255, 255, 0.06);
+                padding: 2px 8px;
+                border-radius: 6px;
+            }
+
+            .rc-modal-actions {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .rc-modal-btn {
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                color: #e2e8f0;
+                width: 38px;
+                height: 38px;
+                border-radius: 10px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.95rem;
+                cursor: pointer;
+                transition: background 0.2s, color 0.2s, transform 0.15s;
+            }
+            .rc-modal-btn:hover {
+                background: #0084ff;
+                color: #ffffff;
+                border-color: #0084ff;
+                transform: translateY(-1px);
+            }
+            .rc-modal-close:hover {
+                background: #ef4444;
+                border-color: #ef4444;
+            }
+
+            /* Stage & Image */
+            .rc-modal-stage {
+                position: relative;
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 16px 20px;
+                overflow: hidden;
+                background: radial-gradient(circle at center, #1e293b 0%, #090d16 100%);
+            }
+            .rc-modal-img-wrap {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .rc-modal-image {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+                border-radius: 8px;
+                box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+                transition: opacity 0.25s ease;
+                user-select: none;
+            }
+
+            .rc-modal-spinner {
+                position: absolute;
+                font-size: 2.2rem;
+                color: #0084ff;
+            }
+
+            /* Nav buttons */
+            .rc-modal-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 10;
+                width: 46px;
+                height: 46px;
+                border-radius: 50%;
+                background: rgba(15, 23, 42, 0.75);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                color: #ffffff;
+                font-size: 1.1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                backdrop-filter: blur(4px);
+                transition: background 0.2s, transform 0.2s, border-color 0.2s;
+            }
+            .rc-modal-nav:hover {
+                background: #0084ff;
+                border-color: #0084ff;
+                transform: translateY(-50%) scale(1.08);
+            }
+            .rc-nav-prev {
+                left: 18px;
+            }
+            .rc-nav-next {
+                right: 18px;
+            }
+
+            /* Footer */
+            .rc-modal-footer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 12px 24px;
+                background: rgba(15, 23, 42, 0.85);
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                flex-shrink: 0;
+                gap: 16px;
+                flex-wrap: wrap;
+            }
+            .rc-modal-desc {
+                font-size: 0.85rem;
+                color: #cbd5e1;
+                margin: 0;
+                flex-grow: 1;
+                line-height: 1.4;
+            }
+            .rc-modal-shortcuts-hint {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 0.75rem;
+                color: #94a3b8;
+            }
+            .rc-modal-shortcuts-hint kbd {
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 4px;
+                padding: 1px 6px;
+                font-size: 0.7rem;
+                color: #f1f5f9;
+            }
+
+            /* Mobile Responsiveness */
+            @media (max-width: 768px) {
+                .rc-modal-container {
+                    width: 100vw;
+                    height: 100vh;
+                    max-width: 100vw;
+                    max-height: 100vh;
+                    border-radius: 0;
+                }
+                .rc-modal-topbar {
+                    padding: 10px 14px;
+                }
+                .rc-modal-heading {
+                    font-size: 0.95rem;
+                }
+                .rc-modal-nav {
+                    width: 38px;
+                    height: 38px;
+                    font-size: 0.9rem;
+                }
+                .rc-nav-prev { left: 8px; }
+                .rc-nav-next { right: 8px; }
+                .rc-modal-shortcuts-hint { display: none; }
+            }
+        </style>
+
+        <script>
+        (function() {
+            // Collect all gallery items in the DOM
+            var galleryItems = [];
+            var currentIndex = 0;
+
+            function scanGalleryItems() {
+                galleryItems = [];
+                var items = document.querySelectorAll('#galleryGrid .gallery-item, #officeGalleryGrid .gallery-item');
+                items.forEach(function(item, idx) {
+                    var img = item.querySelector('.gallery-img');
+                    var title = item.querySelector('.gallery-card-title');
+                    var desc = item.querySelector('.gallery-card-desc');
+                    var category = item.querySelector('.gallery-category-pill') || item.querySelector('.gallery-space-badge');
+                    
+                    if (img) {
+                        galleryItems.push({
+                            index: idx,
+                            src: img.getAttribute('src'),
+                            alt: img.getAttribute('alt') || (title ? title.textContent.trim() : 'Office Space'),
+                            title: title ? title.textContent.trim() : 'Office Space',
+                            desc: desc ? desc.textContent.trim() : '',
+                            category: category ? category.textContent.trim() : 'Office Overview',
+                            element: item
+                        });
+                    }
+                });
+            }
+
+            scanGalleryItems();
+
+            var modal = document.getElementById('rcGalleryModal');
+            var overlay = document.getElementById('rcModalOverlay');
+            var modalContainer = document.getElementById('rcModalContainer');
+            var modalImg = document.getElementById('rcModalImage');
+            var modalTitle = document.getElementById('rcModalTitle');
+            var modalDesc = document.getElementById('rcModalDesc');
+            var modalCategory = document.getElementById('rcModalCategory');
+            var modalCounter = document.getElementById('rcModalCounter');
+            var modalCloseBtn = document.getElementById('rcModalCloseBtn');
+            var modalPrevBtn = document.getElementById('rcModalPrevBtn');
+            var modalNextBtn = document.getElementById('rcModalNextBtn');
+            var modalFullscreenBtn = document.getElementById('rcModalFullscreenBtn');
+
+            function getVisibleItems() {
+                return galleryItems.filter(function(item) {
+                    return item.element.style.display !== 'none';
+                });
+            }
+
+            function openModal(index, enterFullscreen) {
+                var visible = getVisibleItems();
+                if (!visible.length) return;
+                
+                // Find matching index in visible items
+                var targetIdx = 0;
+                for (var i = 0; i < visible.length; i++) {
+                    if (visible[i].index === index) {
+                        targetIdx = i;
+                        break;
+                    }
+                }
+                currentIndex = targetIdx;
+                renderItem(visible[currentIndex]);
+
+                modal.classList.add('is-active');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+
+                if (enterFullscreen) {
+                    toggleBrowserFullscreen(true);
+                }
+            }
+
+            function closeModal() {
+                modal.classList.remove('is-active');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                if (document.fullscreenElement) {
+                    try { document.exitFullscreen(); } catch (e) {}
+                }
+            }
+
+            function renderItem(item) {
+                if (!item) return;
+                var visible = getVisibleItems();
+                modalImg.style.opacity = '0.3';
+                modalImg.src = item.src;
+                modalImg.alt = item.alt;
+                modalImg.onload = function() {
+                    modalImg.style.opacity = '1';
+                };
+                modalTitle.textContent = item.title;
+                modalDesc.textContent = item.desc;
+                modalCategory.textContent = item.category;
+                modalCounter.textContent = (currentIndex + 1) + ' of ' + visible.length;
+            }
+
+            function prevImage() {
+                var visible = getVisibleItems();
+                if (!visible.length) return;
+                currentIndex = (currentIndex - 1 + visible.length) % visible.length;
+                renderItem(visible[currentIndex]);
+            }
+
+            function nextImage() {
+                var visible = getVisibleItems();
+                if (!visible.length) return;
+                currentIndex = (currentIndex + 1) % visible.length;
+                renderItem(visible[currentIndex]);
+            }
+
+            function toggleBrowserFullscreen(forceEnter) {
+                var container = modalContainer || modal;
+                if (!document.fullscreenElement || forceEnter === true) {
+                    if (container.requestFullscreen) {
+                        container.requestFullscreen().catch(function(err){ console.warn(err); });
+                    } else if (container.webkitRequestFullscreen) {
+                        container.webkitRequestFullscreen();
+                    } else if (container.msRequestFullscreen) {
+                        container.msRequestFullscreen();
+                    }
+                    if (modalFullscreenBtn) {
+                        modalFullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+                        modalFullscreenBtn.title = 'Exit Fullscreen (F / ESC)';
+                    }
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen().catch(function(err){ console.warn(err); });
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    }
+                    if (modalFullscreenBtn) {
+                        modalFullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+                        modalFullscreenBtn.title = 'Toggle Fullscreen (F)';
+                    }
+                }
+            }
+
+            document.addEventListener('fullscreenchange', function() {
+                if (!document.fullscreenElement && modalFullscreenBtn) {
+                    modalFullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+                    modalFullscreenBtn.title = 'Toggle Fullscreen (F)';
+                } else if (modalFullscreenBtn) {
+                    modalFullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+                    modalFullscreenBtn.title = 'Exit Fullscreen (F / ESC)';
+                }
+            });
+
+            // Bind click events on gallery cards
+            document.querySelectorAll('#galleryGrid .gallery-item, #officeGalleryGrid .gallery-item').forEach(function(card, idx) {
+                // Clicking View button
+                var viewBtn = card.querySelector('.gallery-view-btn');
+                if (viewBtn) {
+                    viewBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        openModal(idx, false);
+                    });
+                }
+
+                // Clicking Fullscreen badge on image
+                var zoomBtn = card.querySelector('.gallery-click-zoom');
+                if (zoomBtn) {
+                    zoomBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        openModal(idx, true);
+                    });
+                }
+
+                // Clicking anywhere on card
+                card.addEventListener('click', function(e) {
+                    openModal(idx, false);
+                });
+            });
+
+            // Modal Controls
+            if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+            if (overlay) overlay.addEventListener('click', closeModal);
+            if (modalPrevBtn) modalPrevBtn.addEventListener('click', prevImage);
+            if (modalNextBtn) modalNextBtn.addEventListener('click', nextImage);
+            if (modalFullscreenBtn) modalFullscreenBtn.addEventListener('click', function() { toggleBrowserFullscreen(); });
+
+            // Keyboard navigation
+            window.addEventListener('keydown', function(e) {
+                if (!modal.classList.contains('is-active')) return;
+
+                if (e.key === 'Escape') {
+                    if (document.fullscreenElement) {
+                        document.exitFullscreen().catch(function(){});
+                    } else {
+                        closeModal();
+                    }
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                } else if (e.key === 'f' || e.key === 'F') {
+                    toggleBrowserFullscreen();
+                }
+            });
+        })();
+        </script>
+
+    
+</body>
 </html>

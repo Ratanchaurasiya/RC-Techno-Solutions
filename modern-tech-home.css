@@ -1385,3 +1385,69 @@ img.img-lazy.img-lazy-loaded {
         font-size: 0.95rem !important;
     }
 }
+
+
+
+/* =========================================================================
+   OFFICE GALLERY CATEGORY FILTER BAR & PILL BUTTONS
+   ========================================================================= */
+.gallery-category-bar {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin: 20px auto 32px auto !important;
+    max-width: 1000px !important;
+}
+
+.gallery-cat-btn {
+    background: #ffffff !important;
+    color: #475569 !important;
+    border: 1.5px solid #cbd5e1 !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    padding: 7px 18px !important;
+    border-radius: 9999px !important;
+    cursor: pointer !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04) !important;
+    outline: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.gallery-cat-btn:hover {
+    color: #0084ff !important;
+    border-color: #0084ff !important;
+    background: #eff6ff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 132, 255, 0.15) !important;
+}
+
+.gallery-cat-btn.active {
+    background: #0084ff !important;
+    color: #ffffff !important;
+    border-color: #0084ff !important;
+    box-shadow: 0 4px 14px rgba(0, 132, 255, 0.35) !important;
+    transform: translateY(-1px) !important;
+}
+
+[data-theme="dark"] .gallery-cat-btn {
+    background: #1e293b !important;
+    color: #cbd5e1 !important;
+    border-color: #334155 !important;
+}
+
+[data-theme="dark"] .gallery-cat-btn:hover {
+    background: #0f172a !important;
+    color: #38bdf8 !important;
+    border-color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .gallery-cat-btn.active {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
+}
