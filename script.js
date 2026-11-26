@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <i class="fas fa-laptop-code" style="color: #0284c7;"></i> Discuss New Project
                     </a>
                     <a href="https://wa.me/916390035039?text=Hi,%20I'm%20interested%20in%20the%2030-Day%20Technical%20Internship%20Program." target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #1e293b; text-decoration: none; font-size: 0.85rem; font-weight: 600; background: #f8fafc; transition: background 0.2s;">
-                        <i class="fas fa-graduation-cap" style="color: #10b981;"></i> 30-Day Internship Inquiry
+                        <i class="fas fa-graduation-cap" style="color: #10b981;"></i> Internship Inquiry
                     </a>
                     <a href="https://wa.me/916390035039?text=Hi,%20I%20have%20a%20query%20regarding%20Offer%20Letter%20or%20Certificate%20Verification." target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #1e293b; text-decoration: none; font-size: 0.85rem; font-weight: 600; background: #f8fafc; transition: background 0.2s;">
                         <i class="fas fa-certificate" style="color: #eab308;"></i> Offer / Certificate Support

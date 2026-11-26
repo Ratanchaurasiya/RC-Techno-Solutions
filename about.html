@@ -1384,7 +1384,7 @@
 
 <!-- RC TECHNO SOLUTIONS - HIGH-FIDELITY OFFICE GALLERY LIGHTBOX MODAL -->
         <!-- ================================================================= -->
-        <div id="rcGalleryModal" class="rc-gallery-modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div id="rcGalleryModal" class="rc-gallery-modal" style="display: none !important;" aria-hidden="true" role="dialog" aria-modal="true">
             <div class="rc-modal-overlay" id="rcModalOverlay"></div>
             
             <div class="rc-modal-container" id="rcModalContainer">
@@ -1445,12 +1445,19 @@
                 width: 100vw;
                 height: 100vh;
                 z-index: 999999;
-                display: flex;
+                display: none !important;
                 align-items: center;
                 justify-content: center;
                 opacity: 0;
                 visibility: hidden;
+                pointer-events: none;
                 transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.28s;
+            }
+            .rc-gallery-modal.is-active {
+                display: flex !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                pointer-events: auto !important;
             }
             .rc-gallery-modal.is-active {
                 opacity: 1;
@@ -1777,7 +1784,7 @@
                 currentIndex = targetIdx;
                 renderItem(visible[currentIndex]);
 
-                modal.classList.add('is-active');
+                modal.style.setProperty('display', 'flex', 'important'); modal.classList.add('is-active');
                 modal.setAttribute('aria-hidden', 'false');
                 document.body.style.overflow = 'hidden';
 
@@ -1787,7 +1794,7 @@
             }
 
             function closeModal() {
-                modal.classList.remove('is-active');
+                modal.classList.remove('is-active'); modal.style.setProperty('display', 'none', 'important');
                 modal.setAttribute('aria-hidden', 'true');
                 document.body.style.overflow = '';
                 if (document.fullscreenElement) {
