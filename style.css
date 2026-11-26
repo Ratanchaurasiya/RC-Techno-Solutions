@@ -1,6 +1,11 @@
 /* -----------------------
    CSS VARIABLES & RESET
 ----------------------- */
+html {
+    scrollbar-gutter: stable;
+    overflow-y: scroll;
+}
+
 :root {
     /* Primary Brand Colors: Pristine White & Royal Tech Blue */
     --clr-primary: #2563eb;        /* Royal Tech Blue */
