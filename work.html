@@ -1721,10 +1721,11 @@
                 if (e.key === 'Escape' && modal.style.display !== 'none') closeModal();
             });
 
-            // ───── Load More / Show Less (Shows 4 initially, reveals remaining 14) ─────
-                        var loadMoreBtn = document.getElementById('loadMoreWorkBtn');
-            var isWorkExpanded = false;
-            var visibleLimit = 4;
+                        // ───── Load More / Incremental Pagination (Starts at 4, increments by 4) ─────
+            var loadMoreBtn = document.getElementById('loadMoreWorkBtn');
+            var INITIAL_COUNT = 4;
+            var STEP_COUNT = 4;
+            var currentVisibleLimit = INITIAL_COUNT;
             var cards = document.querySelectorAll('.portfolio-grid-main .portfolio-card');
             var currentMatchedCards = [];
 
@@ -1738,31 +1739,32 @@
                         currentMatchedCards.push(card);
                     } else {
                         card.style.display = 'none';
+                        card.classList.remove('rc-scale-in');
                     }
                 });
 
+                var totalMatched = currentMatchedCards.length;
+                var btnWrap = loadMoreBtn ? loadMoreBtn.parentElement : null;
                 var btnText = loadMoreBtn ? loadMoreBtn.querySelector('.btn-text') : null;
 
-                if (currentMatchedCards.length <= visibleLimit) {
-                    if (loadMoreBtn) loadMoreBtn.parentElement.style.display = 'none';
-                    currentMatchedCards.forEach(function(c) { c.style.display = ''; });
-                } else {
-                    if (loadMoreBtn) loadMoreBtn.parentElement.style.display = 'block';
-                    currentMatchedCards.forEach(function(c, idx) {
-                        if (isWorkExpanded || idx < visibleLimit) {
-                            c.style.display = '';
-                        } else {
-                            c.style.display = 'none';
-                        }
-                    });
+                currentMatchedCards.forEach(function(card, idx) {
+                    if (idx < currentVisibleLimit) {
+                        card.style.display = 'flex';
+                        card.classList.add('rc-scale-in');
+                        card.classList.remove('rc-scale-out');
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
 
+                if (totalMatched <= currentVisibleLimit) {
+                    if (btnWrap) btnWrap.style.display = 'none';
+                } else {
+                    if (btnWrap) btnWrap.style.display = 'block';
+                    var remaining = totalMatched - currentVisibleLimit;
+                    var nextStep = Math.min(STEP_COUNT, remaining);
                     if (btnText) {
-                        if (isWorkExpanded) {
-                            btnText.textContent = 'Show Less';
-                        } else {
-                            var remaining = currentMatchedCards.length - visibleLimit;
-                            btnText.textContent = 'Load More Projects (' + remaining + ' more)';
-                        }
+                        btnText.textContent = 'Load More Projects (' + remaining + ' more)';
                     }
                 }
             }
@@ -1772,15 +1774,8 @@
 
             if (loadMoreBtn) {
                 loadMoreBtn.addEventListener('click', function() {
-                    isWorkExpanded = !isWorkExpanded;
                     var activeFilter = document.querySelector('.portfolio-filter-btn.active')?.getAttribute('data-filter') || 'all';
-
-                    if (isWorkExpanded) {
-                        loadMoreBtn.classList.add('expanded');
-                    } else {
-                        loadMoreBtn.classList.remove('expanded');
-                        document.querySelector('.portfolio-grid-main')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
+                    currentVisibleLimit += STEP_COUNT;
                     updateWorkVisibility(activeFilter);
                 });
             }
@@ -1796,11 +1791,8 @@
                     filterBtns.forEach(function(b) { b.classList.remove('active'); });
                     this.classList.add('active');
 
-                    // Reset expansion when changing filter category
-                    isWorkExpanded = false;
-                    var btnText = loadMoreBtn ? loadMoreBtn.querySelector('.btn-text') : null;
-                    if (btnText) btnText.textContent = 'Load More Projects';
-
+                    // Reset visible limit on filter change
+                    currentVisibleLimit = INITIAL_COUNT;
                     updateWorkVisibility(filter);
                 });
             });

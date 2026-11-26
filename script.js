@@ -419,9 +419,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    /* --- Portfolio Category Filter & Load More Logic --- */
+        /* --- Portfolio Category Filter & Load More Logic (Generic Grids only, skips pages with .portfolio-grid-main) --- */
     const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
-    const portfolioCards = document.querySelectorAll('.portfolio-card');
+    const portfolioCards = document.querySelector('.portfolio-grid-main') 
+        ? [] 
+        : document.querySelectorAll('.portfolio-card');
     const loadMoreBtn = document.getElementById('loadMoreProjectsBtn');
     const loadMoreContainer = document.querySelector('.portfolio-load-more');
 
