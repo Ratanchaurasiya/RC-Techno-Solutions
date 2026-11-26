@@ -1451,3 +1451,13 @@ img.img-lazy.img-lazy-loaded {
     color: #ffffff !important;
     border-color: #0284c7 !important;
 }
+
+
+/* Ensure loaded extra project cards show cleanly */
+.tech-projects-grid .project-extra-item.show-item {
+    display: flex !important;
+    opacity: 1 !important;
+    transform: translate(0, 0) scale(1) !important;
+    visibility: visible !important;
+    animation: fadeIn 0.4s ease forwards !important;
+}

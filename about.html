@@ -1726,6 +1726,23 @@
 
             scanGalleryItems();
 
+
+            // Gallery Category Tab Filtering
+            document.querySelectorAll('.gallery-cat-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var cat = this.getAttribute('data-cat');
+                    document.querySelectorAll('.gallery-cat-btn').forEach(function(b) { b.classList.remove('active'); });
+                    this.classList.add('active');
+                    document.querySelectorAll('#officeGalleryGrid .gallery-item, #galleryGrid .gallery-item').forEach(function(item) {
+                        if (cat === 'all' || item.getAttribute('data-category') === cat) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                    scanGalleryItems();
+                });
+            });
             var modal = document.getElementById('rcGalleryModal');
             var overlay = document.getElementById('rcModalOverlay');
             var modalContainer = document.getElementById('rcModalContainer');

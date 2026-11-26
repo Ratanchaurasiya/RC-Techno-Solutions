@@ -727,6 +727,27 @@ document.addEventListener('DOMContentLoaded', () => {
     setupLoadMoreToggle('loadMoreAllServicesBtn', 'allServicesGrid', 'service-extra-item', 'Load More Services (8 more)', 'Show Less');
     setupLoadMoreToggle('loadMoreServicesBtn', 'techServicesGrid', 'service-extra-item', 'Load More Services', 'Show Less');
     setupLoadMoreToggle('loadMoreProjectsBtn', 'techProjectsGrid', 'project-extra-item', 'Load More Projects (6 more)', 'Show Less');
+
+    // Home Project Load More direct click handler to ensure 100% reliability
+    const homeLoadMoreBtn = document.getElementById('loadMoreProjectsBtn');
+    const homeGrid = document.getElementById('techProjectsGrid');
+    if (homeLoadMoreBtn && homeGrid) {
+        homeLoadMoreBtn.addEventListener('click', function() {
+            const extra = homeGrid.querySelectorAll('.project-extra-item');
+            const isExp = homeLoadMoreBtn.classList.contains('expanded');
+            extra.forEach(el => {
+                if (isExp) {
+                    el.classList.add('show-item');
+                    el.classList.add('rc-scale-in');
+                    el.classList.remove('rc-scale-out');
+                    el.style.display = 'flex';
+                } else {
+                    el.classList.remove('show-item');
+                    el.style.display = 'none';
+                }
+            });
+        });
+    }
     setupLoadMoreToggle('loadMoreTechBtn', 'techStackGrid', 'tech-extra-item', 'Load More Technologies', 'Show Less');
     setupLoadMoreToggle('loadMoreWhyBtn', 'whyPillarsGrid', 'why-extra-item', 'Load More Advantages', 'Show Less');
 
