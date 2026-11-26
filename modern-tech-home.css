@@ -1461,3 +1461,178 @@ img.img-lazy.img-lazy-loaded {
     visibility: visible !important;
     animation: fadeIn 0.4s ease forwards !important;
 }
+
+
+/* ==========================================================================
+   RC TECHNO SOLUTIONS - OFFICE GALLERY ULTRA-PROFESSIONAL HIGH CONTRAST STYLES
+   Ensures crystal-clear readability for dark cards with pure-white typography
+   ========================================================================== */
+
+.office-gallery-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 24px !important;
+    width: 100% !important;
+    margin-top: 24px !important;
+    margin-bottom: 24px !important;
+    align-items: stretch !important;
+}
+
+@media (max-width: 1024px) {
+    .office-gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .office-gallery-grid {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+    }
+}
+
+/* Base Gallery Card */
+.office-gallery-grid .gallery-item {
+    background: #0b1329 !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
+    position: relative !important;
+}
+
+.office-gallery-grid .gallery-item:hover {
+    transform: translateY(-6px) !important;
+    border-color: #38bdf8 !important;
+    box-shadow: 0 20px 40px -12px rgba(2, 132, 199, 0.35), 0 0 0 1px rgba(56, 189, 248, 0.4) !important;
+}
+
+/* Image Container */
+.office-gallery-grid .gallery-item-inner {
+    position: relative !important;
+    height: 220px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    background: #020617 !important;
+}
+
+.office-gallery-grid .gallery-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    filter: brightness(0.96) !important;
+}
+
+.office-gallery-grid .gallery-item:hover .gallery-img {
+    transform: scale(1.06) !important;
+    filter: brightness(1.02) !important;
+}
+
+/* Category Pill on Image */
+.office-gallery-grid .gallery-category-pill {
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    background: rgba(15, 23, 42, 0.82) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    color: #38bdf8 !important;
+    border: 1px solid rgba(56, 189, 248, 0.35) !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.04em !important;
+    padding: 4px 12px !important;
+    border-radius: 9999px !important;
+    z-index: 2 !important;
+    text-transform: uppercase !important;
+}
+
+/* Caption Container */
+.office-gallery-grid .gallery-caption-box {
+    background: #0b1329 !important;
+    padding: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    flex-grow: 1 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Card Title - Pure White High Contrast */
+.office-gallery-grid .gallery-card-title {
+    color: #ffffff !important;
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    line-height: 1.35 !important;
+    letter-spacing: -0.01em !important;
+    margin: 0 !important;
+    font-family: 'Outfit', 'Inter', -apple-system, sans-serif !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Card Description - Clean High Contrast Slate */
+.office-gallery-grid .gallery-card-desc {
+    color: #cbd5e1 !important;
+    font-size: 0.90rem !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+    margin: 0 !important;
+    flex-grow: 1 !important;
+}
+
+/* Card Footer */
+.office-gallery-grid .gallery-card-footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding-top: 14px !important;
+    margin-top: 6px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Space Badge */
+.office-gallery-grid .gallery-space-badge {
+    color: #38bdf8 !important;
+    font-size: 0.80rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.office-gallery-grid .gallery-space-badge i {
+    color: #0284c7 !important;
+    font-size: 0.85rem !important;
+}
+
+/* View Button */
+.office-gallery-grid .gallery-view-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    padding: 6px 14px !important;
+    border-radius: 9999px !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.office-gallery-grid .gallery-item:hover .gallery-view-btn {
+    background: #0284c7 !important;
+    border-color: #38bdf8 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4) !important;
+    transform: scale(1.04) !important;
+}
