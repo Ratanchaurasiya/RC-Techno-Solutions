@@ -1004,6 +1004,302 @@
     <!-- ================================================================= -->
     <!-- 8.5 INTERACTIVE PROJECT COST & TIMELINE ESTIMATOR (FEATURE 1) -->
     <!-- ================================================================= -->
+    <!-- Our Workspace & Office Gallery Section -->
+            <section class="section" id="office-gallery" style="scroll-margin-top: 80px;">
+                <div class="container">
+                    <div class="text-center reveal" style="margin-bottom: 24px;">
+                        <span class="about-hero-pill">COLLABORATIVE ENVIRONMENT</span>
+                        <h2 class="section-title">Our Workspace &amp; Office Gallery</h2>
+                        <p class="section-subtitle">A transparent look at our engineering workstations, collaborative development floor, and cloud infrastructure setup.</p>
+                    </div>
+
+                    <!-- Category Tabs Filter (All + 7 Categories) -->
+                    <div class="gallery-category-bar reveal">
+                        <button class="gallery-cat-btn active" data-cat="all">All Spaces</button>
+                        <button class="gallery-cat-btn" data-cat="overview">Office Overview</button>
+                        <button class="gallery-cat-btn" data-cat="workstations">Workspace &amp; Desks</button>
+                        <button class="gallery-cat-btn" data-cat="dev-area">Development Area</button>
+                        <button class="gallery-cat-btn" data-cat="conference">Meeting &amp; Conference</button>
+                        <button class="gallery-cat-btn" data-cat="collaboration">Team Collaboration</button>
+                        <button class="gallery-cat-btn" data-cat="infra">Technology &amp; Infrastructure</button>
+                        <button class="gallery-cat-btn" data-cat="breakout">Office Environment</button>
+                    </div>
+
+                    <!-- Responsive Gallery Grid with Always-Visible Clear Text -->
+                    <div class="gallery-grid office-gallery-grid reveal delay-1" id="officeGalleryGrid">
+                        <!-- Space 01: Modern Open-Concept Development Floor -->
+                        <div class="gallery-item reveal" data-category="overview">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Office Overview</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="Modern Open-Concept Development Floor" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+
+<!-- RC TECHNO SOLUTIONS - HIGH-FIDELITY OFFICE GALLERY LIGHTBOX MODAL -->
+        <!-- ================================================================= -->
+        <div id="rcGalleryModal" class="rc-gallery-modal" style="display: none !important;" aria-hidden="true" role="dialog" aria-modal="true">
+            <div class="rc-modal-overlay" id="rcModalOverlay"></div>
+            
+            <div class="rc-modal-container" id="rcModalContainer">
+                <!-- Top Toolbar Header -->
+                <div class="rc-modal-topbar">
+                    <div class="rc-modal-meta">
+                        <span id="rcModalCategory" class="rc-modal-badge">Office Overview</span>
+                        <h3 id="rcModalTitle" class="rc-modal-heading">Gallery Preview</h3>
+                        <span id="rcModalCounter" class="rc-modal-counter">1 of 12</span>
+                    </div>
+
+                    <div class="rc-modal-actions">
+                        <button id="rcModalFullscreenBtn" class="rc-modal-btn" title="Toggle Fullscreen (F)" aria-label="Toggle Fullscreen">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                        <button id="rcModalCloseBtn" class="rc-modal-btn rc-modal-close" title="Close Preview (ESC)" aria-label="Close Preview">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Main Image Preview Stage -->
+                <div class="rc-modal-stage" id="rcModalStage">
+                    <button id="rcModalPrevBtn" class="rc-modal-nav rc-nav-prev" title="Previous Image (Left Arrow)" aria-label="Previous Image">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div class="rc-modal-img-wrap" id="rcModalImgWrap">
+                        <img decoding="async" loading="lazy" id="rcModalImage" src="" alt="Office Gallery Preview" class="rc-modal-image" />
+                        <div id="rcModalSpinner" class="rc-modal-spinner" style="display: none;">
+                            <i class="fas fa-circle-notch fa-spin"></i>
+                        </div>
+                    </div>
+
+                    <button id="rcModalNextBtn" class="rc-modal-nav rc-nav-next" title="Next Image (Right Arrow)" aria-label="Next Image">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Bottom Description & Keyboard Shortcuts Bar -->
+                <div class="rc-modal-footer">
+                    <p id="rcModalDesc" class="rc-modal-desc"></p>
+                    <div class="rc-modal-shortcuts-hint">
+                        <span><kbd>&larr;</kbd> <kbd>&rarr;</kbd> Navigate</span>
+                        <span><kbd>F</kbd> Fullscreen</span>
+                        <span><kbd>ESC</kbd> Close</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Modern Open-Concept Development Floor</h4>
+                                <p class="gallery-card-desc">Spacious, natural-light engineering floor built for cross-functional sprint pods and focus.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Office Overview</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 02: Ergonomic Developer Workstations -->
+                        <div class="gallery-item reveal delay-1" data-category="workstations">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Workspace & Desks</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1000&q=80" alt="Ergonomic Developer Workstations" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Ergonomic Developer Workstations</h4>
+                                <p class="gallery-card-desc">Dual-monitor setups, mechanical keyboards, and adjustable sit-stand developer desks.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Workspace & Desks</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 03: High-Performance Engineering Pods -->
+                        <div class="gallery-item reveal delay-2" data-category="dev-area">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Development Area</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&q=80" alt="High-Performance Engineering Pods" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">High-Performance Engineering Pods</h4>
+                                <p class="gallery-card-desc">Dedicated high-speed fiber workstations for high-concurrency cloud and AI model development.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Development Area</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 04: Architecture & Sprint Review Room -->
+                        <div class="gallery-item reveal" data-category="conference">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Meeting & Conference</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80" alt="Architecture & Sprint Review Room" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Architecture & Sprint Review Room</h4>
+                                <p class="gallery-card-desc">Acoustic conference suite equipped with 4K interactive presentation displays and teleconferencing.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Meeting & Conference</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 05: Agile Standup & Brainstorming Hub -->
+                        <div class="gallery-item reveal delay-1" data-category="collaboration">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Team Collaboration</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Agile Standup & Brainstorming Hub" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Agile Standup & Brainstorming Hub</h4>
+                                <p class="gallery-card-desc">Collaborative whiteboard area for daily sprint standups, PR reviews, and architectural discovery.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Team Collaboration</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 06: Cloud Infrastructure & CI/CD Telemetry -->
+                        <div class="gallery-item reveal delay-2" data-category="infra">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Technology & Infrastructure</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80" alt="Cloud Infrastructure & CI/CD Telemetry" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Cloud Infrastructure & CI/CD Telemetry</h4>
+                                <p class="gallery-card-desc">High-availability server infrastructure with continuous integration monitoring and telemetry.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Technology & Infrastructure</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 07: Creative Breakout & Recharge Lounge -->
+                        <div class="gallery-item reveal" data-category="breakout">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Office Environment</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=1000&q=80" alt="Creative Breakout & Recharge Lounge" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Creative Breakout & Recharge Lounge</h4>
+                                <p class="gallery-card-desc">Relaxed lounge environment for informal team syncs, technical reading, and creative recharge.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Office Environment</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 08: Client Presentation & Strategy Suite -->
+                        <div class="gallery-item reveal delay-1" data-category="conference">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Executive Boardroom</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=1000&q=80" alt="Client Presentation & Strategy Suite" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Client Presentation & Strategy Suite</h4>
+                                <p class="gallery-card-desc">Executive boardroom with high-definition presentation screens for enterprise roadmap consultations.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Executive Boardroom</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 09: Cloud & DevOps Operations Center -->
+                        <div class="gallery-item reveal delay-2" data-category="infra">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">DevOps Operations</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80" alt="Cloud & DevOps Operations Center" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Cloud & DevOps Operations Center</h4>
+                                <p class="gallery-card-desc">Dedicated network operations center monitoring live cluster uptime, latency, and automated deployments.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> DevOps Operations</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 10: Product Design & Wireframing Lab -->
+                        <div class="gallery-item reveal" data-category="dev-area">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">UI/UX Design Lab</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1000&q=80" alt="Product Design & Wireframing Lab" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Product Design & Wireframing Lab</h4>
+                                <p class="gallery-card-desc">Specialized design station for responsive Figma prototypes, user testing, and design system authoring.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> UI/UX Design Lab</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 11: Deep Engineering & Focus Zone -->
+                        <div class="gallery-item reveal delay-1" data-category="workstations">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Quiet Focus Pods</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?auto=format&fit=crop&w=1000&q=80" alt="Deep Engineering & Focus Zone" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Deep Engineering & Focus Zone</h4>
+                                <p class="gallery-card-desc">Noise-isolated focus booths engineered for uninterrupted code reviews, algorithmic design, and debugging.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Quiet Focus Pods</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Space 12: Team Cafe & Community Hub -->
+                        <div class="gallery-item reveal delay-2" data-category="breakout">
+                            <div class="gallery-item-inner">
+                                <span class="gallery-category-pill">Cafeteria & Lounge</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80" alt="Team Cafe & Community Hub" class="gallery-img">
+                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                            </div>
+                            <div class="gallery-caption-box">
+                                <h4 class="gallery-card-title">Team Cafe & Community Hub</h4>
+                                <p class="gallery-card-desc">Social pantry and espresso bar fostering spontaneous conversations, team lunches, and informal catchups.</p>
+                                <div class="gallery-card-footer">
+                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Cafeteria & Lounge</span>
+                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Button & Transparency Note -->
+                    <div style="text-align: center; margin-top: 28px;">
+                        <a href="/gallery" class="btn btn-secondary" style="padding: 10px 24px; border-radius: 9999px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; font-size: 0.82rem; background: #ffffff; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+                            <i class="fas fa-images" style="color: #0084ff;"></i> <span>Explore Dedicated Office Gallery Page (12 Spaces)</span> <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="gallery-transparency-note reveal">
+                        <i class="fas fa-info-circle"></i>
+                        <span><strong>Engineering Environment Note:</strong> Visual representation of our engineering pods, high-performance developer setups, and collaborative spaces. Click any photo to view in fullscreen.</span>
+                    </div>
+                </div>
+            </section>
+
     <section class="section" id="estimator"
         style="background: #ffffff; padding: 75px 20px; border-top: 1px solid #e2e8f0;">
         <div class="container" style="max-width: 1100px; margin: 0 auto;">
@@ -1598,6 +1894,123 @@
     <script src="typewriter.js?v=2.0"></script>
     <script src="script.js?v=5.0"></script>
     <script src="chatbot.js?v=5.0"></script>
+
+    <script>
+    (function() {
+        var modal = document.getElementById('rcGalleryModal');
+        var overlay = document.getElementById('rcModalOverlay');
+        var modalContainer = document.getElementById('rcModalContainer');
+        var modalImg = document.getElementById('rcModalImage');
+        var modalTitle = document.getElementById('rcModalTitle');
+        var modalDesc = document.getElementById('rcModalDesc');
+        var modalCategory = document.getElementById('rcModalCategory');
+        var modalCounter = document.getElementById('rcModalCounter');
+        var modalCloseBtn = document.getElementById('rcModalCloseBtn');
+        var modalPrevBtn = document.getElementById('rcModalPrevBtn');
+        var modalNextBtn = document.getElementById('rcModalNextBtn');
+        var modalFullscreenBtn = document.getElementById('rcModalFullscreenBtn');
+
+        var galleryItems = [];
+        var currentIndex = 0;
+
+        function scanGalleryItems() {
+            galleryItems = [];
+            var items = document.querySelectorAll('#officeGalleryGrid .gallery-item');
+            items.forEach(function(item, idx) {
+                var img = item.querySelector('.gallery-img');
+                var title = item.querySelector('.gallery-card-title');
+                var desc = item.querySelector('.gallery-card-desc');
+                var category = item.querySelector('.gallery-category-pill') || item.querySelector('.gallery-space-badge');
+                
+                if (img && item.style.display !== 'none') {
+                    galleryItems.push({
+                        index: idx,
+                        src: img.getAttribute('src'),
+                        alt: img.getAttribute('alt') || (title ? title.textContent.trim() : 'Office Space'),
+                        title: title ? title.textContent.trim() : 'Office Space',
+                        desc: desc ? desc.textContent.trim() : '',
+                        category: category ? category.textContent.trim() : 'Office Overview',
+                        element: item
+                    });
+                }
+            });
+        }
+
+        scanGalleryItems();
+
+        // Category Tab Filtering
+        document.querySelectorAll('.gallery-cat-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var cat = this.getAttribute('data-cat');
+                document.querySelectorAll('.gallery-cat-btn').forEach(function(b) { b.classList.remove('active'); });
+                this.classList.add('active');
+                document.querySelectorAll('#officeGalleryGrid .gallery-item').forEach(function(item) {
+                    if (cat === 'all' || item.getAttribute('data-category') === cat) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                scanGalleryItems();
+            });
+        });
+
+        function updateModalContent(index) {
+            if (!galleryItems.length) return;
+            if (index < 0) index = galleryItems.length - 1;
+            if (index >= galleryItems.length) index = 0;
+            currentIndex = index;
+
+            var item = galleryItems[currentIndex];
+            if (modalImg) modalImg.src = item.src;
+            if (modalTitle) modalTitle.textContent = item.title;
+            if (modalDesc) modalDesc.textContent = item.desc;
+            if (modalCategory) modalCategory.textContent = item.category;
+            if (modalCounter) modalCounter.textContent = (currentIndex + 1) + ' of ' + galleryItems.length;
+        }
+
+        function openModal(index) {
+            if (!modal) return;
+            scanGalleryItems();
+            updateModalContent(index);
+            modal.style.setProperty('display', 'flex', 'important');
+            modal.classList.add('is-active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            if (!modal) return;
+            modal.classList.remove('is-active');
+            modal.style.setProperty('display', 'none', 'important');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('#officeGalleryGrid .gallery-item').forEach(function(item) {
+            item.addEventListener('click', function(e) {
+                var img = this.querySelector('.gallery-img');
+                if (img) {
+                    var idx = galleryItems.findIndex(function(g) { return g.src === img.getAttribute('src'); });
+                    openModal(idx >= 0 ? idx : 0);
+                }
+            });
+        });
+
+        if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+        if (overlay) overlay.addEventListener('click', closeModal);
+        if (modalPrevBtn) modalPrevBtn.addEventListener('click', function(e) { e.stopPropagation(); updateModalContent(currentIndex - 1); });
+        if (modalNextBtn) modalNextBtn.addEventListener('click', function(e) { e.stopPropagation(); updateModalContent(currentIndex + 1); });
+        if (modalFullscreenBtn) {
+            modalFullscreenBtn.addEventListener('click', function() {
+                if (!document.fullscreenElement) {
+                    modalContainer.requestFullscreen().catch(function(err) {});
+                } else {
+                    document.exitFullscreen().catch(function(err) {});
+                }
+            });
+        }
+    })();
+    </script>
+    
 </body>
 
 </html>

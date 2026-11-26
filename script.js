@@ -754,7 +754,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* --- Gallery Lightbox and Load More --- */
     // Create Lightbox Elements
     const lightboxHTML = `
-        <div id="lightbox" class="lightbox">
+        <div id="lightbox" class="lightbox" style="display: none !important;">
             <span class="lightbox-close">&times;</span>
             <span class="lightbox-prev">&#10094;</span>
             <span class="lightbox-next">&#10095;</span>
@@ -812,6 +812,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function openLightbox(imgData) {
+        lightbox.style.setProperty('display', 'block', 'important');
         lightbox.classList.add('active');
         lightboxImg.src = imgData.src;
         lightboxCaption.textContent = imgData.alt;
@@ -820,6 +821,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeLightboxFunc() {
         lightbox.classList.remove('active');
+        lightbox.style.setProperty('display', 'none', 'important');
         document.body.style.overflow = 'auto';
     }
 
