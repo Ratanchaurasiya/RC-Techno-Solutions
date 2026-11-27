@@ -781,6 +781,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryGrids = document.querySelectorAll('.gallery-grid');
     
     galleryGrids.forEach(grid => {
+        if (grid.id === 'officeGalleryGrid' || grid.id === 'galleryGrid') return;
+
         // Load More Logic
         const items = grid.querySelectorAll('.gallery-item');
         const loadMoreBtn = grid.nextElementSibling?.querySelector('.load-more-btn');
