@@ -1313,14 +1313,14 @@
                     </div>
 
                     <!-- Interactive Load More Controls -->
-                    <div class="corporate-gallery-controls reveal" id="galleryLoadMoreContainer">
-                        <button type="button" class="btn-corporate-load-more gallery-load-more-btn" id="galleryLoadMoreBtn" aria-label="Load More Workspace Photos">
-                            <i class="fas fa-spinner fa-spin" id="galleryLoadSpinner" style="display: none;"></i>
-                            <i class="fas fa-plus-circle" id="galleryLoadIcon"></i>
-                            <span id="galleryLoadText">Load More Workspaces (8 Remaining)</span>
+                    <div class="corporate-gallery-controls gallery-load-more-container reveal" id="galleryLoadMoreContainer" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; margin: 36px auto 0 auto; text-align: center; width: 100%;">
+                        <button type="button" class="btn-tech-load-more btn-corporate-load-more gallery-load-more-btn" id="galleryLoadMoreBtn" aria-label="Load More Workspace Photos" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #ffffff; color: #0084ff; border: 2px solid #0084ff; font-family: 'Outfit', 'Poppins', sans-serif; font-weight: 700; font-size: 0.94rem; padding: 12px 34px; border-radius: 9999px; cursor: pointer; box-shadow: 0 4px 16px rgba(0, 132, 255, 0.16); transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1); outline: none; margin: 0 auto; -webkit-appearance: none; appearance: none;">
+                            <i class="fas fa-spinner fa-spin" id="galleryLoadSpinner" style="display: none; color: #0084ff;"></i>
+                            <i class="fas fa-plus-circle" id="galleryLoadIcon" style="color: #0084ff; font-size: 0.95rem;"></i>
+                            <span id="galleryLoadText" style="color: #0084ff; font-weight: 700;">Load More Workspaces (8 Remaining)</span>
                         </button>
-                        <div class="corporate-all-loaded-badge gallery-all-loaded-msg" id="galleryAllLoadedMsg" style="display: none;">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="corporate-all-loaded-badge gallery-all-loaded-msg" id="galleryAllLoadedMsg" style="display: none; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 600; color: #10b981; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 10px 22px; border-radius: 9999px; margin: 0 auto;">
+                            <i class="fas fa-check-circle" style="color: #10b981;"></i>
                             <span id="galleryAllLoadedText">All 12 Workspaces Displayed</span>
                         </div>
                     </div>

@@ -51,13 +51,15 @@ class RCTechChatbot {
                         <!-- Messages dynamically rendered -->
                     </div>
 
-                    <!-- Quick Action Buttons -->
-                    <div class="rc-chat-quick-replies" id="rc-quick-replies" style="scrollbar-width: none; -ms-overflow-style: none; overflow-x: auto; overflow-y: hidden;">
-                        <button class="rc-qr-btn" data-query="Explore Our Services"><i class="fas fa-laptop-code"></i> Explore Our Services</button>
-                        <button class="rc-qr-btn" data-query="View Our Projects"><i class="fas fa-cubes"></i> View Our Projects</button>
-                        <button class="rc-qr-btn" data-query="Internship Opportunities"><i class="fas fa-graduation-cap"></i> Internship Opportunities</button>
-                        <button class="rc-qr-btn" data-query="Request a Project Quote"><i class="fas fa-file-invoice-dollar"></i> Request a Project Quote</button>
-                        <button class="rc-qr-btn" data-query="Contact Our Team"><i class="fas fa-envelope"></i> Contact Our Team</button>
+                    <!-- Quick Action Buttons (Clipped container physically conceals native scrollbar) -->
+                    <div class="rc-chat-quick-replies-clip" style="overflow: hidden; background: #f1f5f9; border-top: 1px solid #e2e8f0; flex-shrink: 0;">
+                        <div class="rc-chat-quick-replies" id="rc-quick-replies" style="display: flex; gap: 6px; padding: 8px 12px 28px 12px; margin-bottom: -20px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch;">
+                            <button class="rc-qr-btn" data-query="Explore Our Services"><i class="fas fa-laptop-code"></i> Explore Our Services</button>
+                            <button class="rc-qr-btn" data-query="View Our Projects"><i class="fas fa-cubes"></i> View Our Projects</button>
+                            <button class="rc-qr-btn" data-query="Internship Opportunities"><i class="fas fa-graduation-cap"></i> Internship Opportunities</button>
+                            <button class="rc-qr-btn" data-query="Request a Project Quote"><i class="fas fa-file-invoice-dollar"></i> Request a Project Quote</button>
+                            <button class="rc-qr-btn" data-query="Contact Our Team"><i class="fas fa-envelope"></i> Contact Our Team</button>
+                        </div>
                     </div>
 
                     <!-- Input Area -->

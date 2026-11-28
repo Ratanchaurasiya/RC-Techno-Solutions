@@ -24,6 +24,7 @@
         <link href="responsive-core.css?v=4.5" rel="stylesheet" />
         <link href="pro-enhancements.css?v=4.5" rel="stylesheet" />
         <link href="chatbot.css?v=6.5" rel="stylesheet" />
+        <link href="css/faang-offer-letter.css?v=2.0" rel="stylesheet" />
 
         <style>
             .internship-hero {
@@ -629,82 +630,7 @@
                         <i class="fas fa-file-contract" style="color: #0284c7;"></i> View Sample Offer Letter
                     </button>
                 </div>
-
-                <!-- Sample Offer Letter Preview Modal -->
-                <div id="sampleOfferModal" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 100000; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(8px);">
-                    <div style="background: #ffffff; border-radius: 20px; max-width: 720px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 36px 32px; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.3); border: 1px solid #cbd5e1;">
-                        <button type="button" id="closeSampleOfferBtn" style="position: absolute; top: 20px; right: 20px; background: #f1f5f9; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; color: #475569; display: flex; align-items: center; justify-content: center;">&times;</button>
-                        
-                        <!-- Official Letterhead Header -->
-                        <div style="border-bottom: 2px solid #0084ff; padding-bottom: 16px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
-                            <div>
-                                <div style="display: flex; align-items: center; gap: 8px; font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: #0f172a;">
-                                    <span style="background: #0084ff; color: #fff; width: 32px; height: 32px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center;"><i class="fas fa-layer-group"></i></span>
-                                    RC Techno <span style="color: #0084ff;">Solutions</span>
-                                </div>
-                                <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">Enterprise Software Engineering &bull; Cloud Infrastructure &bull; AI</div>
-                            </div>
-                            <div style="text-align: right; font-size: 0.8rem; color: #475569;">
-                                <div><strong>Ref:</strong> <span style="font-family: monospace; color: #0084ff;">RC-INT-OFFER-2026-SAMPLE</span></div>
-                                <div><strong>Date:</strong> 24 November 2026</div>
-                                <div style="color: #10b981; font-weight: 700;"><i class="fas fa-check-circle"></i> College TPO Approved Format</div>
-                            </div>
-                        </div>
-
-                        <!-- Letter Content -->
-                        <div style="font-size: 0.9rem; color: #334155; line-height: 1.7;">
-                            <p style="margin: 0 0 12px;"><strong>To,</strong><br>
-                            <strong>Candidate Name:</strong> [Student Full Name]<br>
-                            <strong>College / University:</strong> [Engineering Institute / University Name]<br>
-                            <strong>Department:</strong> B.Tech / BCA / MCA / Diploma (Computer Science / IT)</p>
-
-                            <p style="margin: 0 0 12px; font-weight: 700; color: #0f172a; font-size: 1rem; text-decoration: underline;">
-                                Subject: Offer of 30-Day Technical Internship – Batch 2026
-                            </p>
-
-                            <p style="margin: 0 0 12px;">
-                                Dear <strong>[Candidate Name]</strong>,
-                            </p>
-                            <p style="margin: 0 0 12px;">
-                                Following your technical application and initial assessment, we are delighted to offer you a virtual technical internship with <strong>RC Techno Solutions</strong> in the <strong>Full Stack Engineering / Selected Domain</strong> specialization.
-                            </p>
-
-                            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin: 16px 0;">
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 0.88rem;">
-                                    <div><strong style="color: #64748b;">Position:</strong><br><span style="color: #0f172a; font-weight: 600;">Technical Project Intern</span></div>
-                                    <div><strong style="color: #64748b;">Duration:</strong><br><span style="color: #0f172a; font-weight: 600;">1 Month (30 Days Active)</span></div>
-                                    <div><strong style="color: #64748b;">Location / Mode:</strong><br><span style="color: #0f172a; font-weight: 600;">Remote / Online Workstation</span></div>
-                                    <div><strong style="color: #64748b;">Deliverables:</strong><br><span style="color: #0f172a; font-weight: 600;">Live Capstone + Verified Certificate</span></div>
-                                </div>
-                            </div>
-
-                            <p style="margin: 0 0 16px;">
-                                During this internship, you will work under senior architect mentorship, commit production code on GitHub, and build your industry portfolio. On successful completion, you will receive an industry-verifiable completion certificate with QR validation.
-                            </p>
-
-                            <!-- Signatures & Official Stamp -->
-                            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 28px; padding-top: 16px; border-top: 1px dashed #cbd5e1; flex-wrap: wrap; gap: 16px;">
-                                <div>
-                                    <div style="font-family: 'Brush Script MT', cursive, sans-serif; font-size: 1.5rem; color: #0284c7; margin-bottom: 4px;">Ratan Chaurasiya</div>
-                                    <div style="font-weight: 700; color: #0f172a; font-size: 0.88rem;">Director &amp; Principal Architect</div>
-                                    <div style="font-size: 0.78rem; color: #64748b;">RC Techno Solutions, Ahmedabad</div>
-                                </div>
-
-                                <div style="text-align: center; border: 2px dashed #0084ff; border-radius: 12px; padding: 10px 18px; background: rgba(0, 132, 255, 0.04);">
-                                    <i class="fas fa-stamp" style="font-size: 1.6rem; color: #0084ff; margin-bottom: 4px;"></i>
-                                    <div style="font-size: 0.72rem; font-weight: 800; color: #0084ff; text-transform: uppercase; letter-spacing: 0.05em;">Authorized Institutional Stamp</div>
-                                    <div style="font-size: 0.68rem; color: #64748b;">Verify at: rctechnosolutions.com</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="margin-top: 24px; text-align: center;">
-                            <a href="#apply" onclick="document.getElementById('sampleOfferModal').style.display='none';" class="btn-cta-apply" style="padding: 12px 24px; font-size: 0.92rem;">
-                                <i class="fas fa-paper-plane"></i> Apply Now to Claim Your Seat
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <!-- Note: Sample Offer Letter Modal moved to root body to avoid navbar stacking clipping -->
             </div>
         </section>
 
@@ -1180,6 +1106,191 @@
             </div>
         </footer>
 
+        <!-- ==========================================================================
+             OFFICIAL FAANG-GRADE SAMPLE OFFER LETTER MODAL (Google & Amazon Standard)
+             Placed at root body level with z-index: 99999999 to guarantee zero navbar overlap
+             ========================================================================== -->
+        <div id="sampleOfferModal" class="faang-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="faangOfferTitle" style="display: none;">
+            <div class="faang-offer-wrapper">
+                <!-- Top Actions Toolbar -->
+                <div class="faang-modal-toolbar">
+                    <div class="faang-toolbar-left" id="faangOfferTitle">
+                        <i class="fas fa-file-signature"></i>
+                        <span>Official Internship Appointment Letter Preview &bull; FAANG Standard</span>
+                    </div>
+                    <div class="faang-toolbar-actions">
+                        <button type="button" class="faang-btn-print" id="printOfferBtn" title="Print or Save as PDF">
+                            <i class="fas fa-print"></i> <span>Print / Save PDF</span>
+                        </button>
+                        <a href="https://wa.me/917874287042?text=Hello%20RC%20Techno%20Solutions,%20I%20reviewed%20the%20Internship%20Offer%20Letter%20format%20and%20would%20like%20to%20know%20more." target="_blank" rel="noopener noreferrer" class="faang-btn-whatsapp" title="Ask HR on WhatsApp">
+                            <i class="fab fa-whatsapp"></i> <span>HR WhatsApp</span>
+                        </a>
+                        <button type="button" class="faang-btn-close" id="closeSampleOfferBtn" aria-label="Close Offer Letter">&times;</button>
+                    </div>
+                </div>
+
+                <!-- Printable Sheet / Authentic Letterhead Document -->
+                <div class="faang-letter-sheet" id="faangPrintableDocument">
+                    <div class="faang-letter-content">
+                        <!-- Corporate Letterhead Header -->
+                        <div class="faang-letterhead">
+                            <div class="faang-brand-block">
+                                <div class="faang-brand-logo">
+                                    <span class="faang-logo-icon"><i class="fas fa-layer-group"></i></span>
+                                    <div class="faang-brand-name">RC TECHNO <span>SOLUTIONS</span></div>
+                                </div>
+                                <div class="faang-legal-name">Enterprise Systems &amp; Autonomous Cloud Engineering Division</div>
+                                <div class="faang-corp-address">Global Technology Headquarters: Vastral, Ahmedabad, Gujarat – 382418, India</div>
+                                <div class="faang-corp-details">
+                                    CIN: <span>U72900GJ2024PTC123890</span> &bull; Web: <span>www.rctechnosolutions.com</span> &bull; Email: <span>hr@rctechnosolutions.com</span>
+                                </div>
+                            </div>
+                            <div class="faang-meta-block">
+                                <div class="faang-badge-confidential">Strictly Confidential</div>
+                                <div class="faang-meta-line"><strong>Ref No:</strong> <span class="faang-meta-ref">RCTS/HR/2026/INT-OFFER-7821</span></div>
+                                <div class="faang-meta-line"><strong>Date of Issue:</strong> 28 November 2026</div>
+                                <div class="faang-meta-line"><strong>Batch Code:</strong> ENG-INTERN-2026-Q1</div>
+                                <div class="faang-auth-badge"><i class="fas fa-shield-halved"></i> Verified Appointment Document</div>
+                            </div>
+                        </div>
+
+                        <!-- Formal Candidate Addressee Box -->
+                        <div class="faang-recipient-box">
+                            <div class="recipient-label">Private &amp; Confidential &bull; Addressee Only</div>
+                            <div class="recipient-name">To: [Candidate Full Name]</div>
+                            <div class="recipient-details">
+                                <strong>Candidate ID:</strong> RCTS-2026-INT-ENG-492<br>
+                                <strong>Degree &amp; Branch:</strong> B.Tech / B.E / BCA / MCA / Diploma (Computer Science &amp; Engineering / IT)<br>
+                                <strong>Academic Institution:</strong> [Engineering Institute / Autonomous University Name], Gujarat / India
+                            </div>
+                        </div>
+
+                        <!-- Formal Subject Banner -->
+                        <div class="faang-subject-bar">
+                            SUBJECT: FORMAL APPOINTMENT OFFER – TECHNICAL SOFTWARE ENGINEERING INTERNSHIP (BATCH 2026)
+                        </div>
+
+                        <!-- Executive Opening (FAANG Standard) -->
+                        <div class="faang-prose">
+                            <p>Dear <strong>[Candidate Full Name]</strong>,</p>
+                            <p>
+                                Following your formal application, technical intake assessment, and academic credentials review, the Engineering Directorate at <strong>RC Techno Solutions</strong> is pleased to extend to you this formal offer of appointment for the position of <strong>Software Engineering Intern (Technical Project Capstone)</strong> within our Enterprise Engineering Division.
+                            </p>
+                            <p>
+                                At RC Techno Solutions, we build high-concurrency cloud architectures, modern microservices, and AI-powered enterprise software. During your appointment, you will collaborate directly with Principal Architects and Tech Leads, authoring production-grade source code, establishing CI/CD workflows, and executing real-world capstone software engineering.
+                            </p>
+                        </div>
+
+                        <!-- FAANG-Style Terms & Engagement Matrix -->
+                        <div class="faang-terms-matrix">
+                            <div class="faang-matrix-header">
+                                <i class="fas fa-briefcase"></i> <span>Summary of Technical Appointment &amp; Engagement Terms</span>
+                            </div>
+                            <div class="faang-matrix-grid">
+                                <div class="faang-matrix-cell">
+                                    <div class="faang-cell-label">Position / Designation</div>
+                                    <div class="faang-cell-value">Software Engineering Intern</div>
+                                    <div class="faang-cell-sub">Technical Capstone Track (Selected Specialization)</div>
+                                </div>
+                                <div class="faang-matrix-cell">
+                                    <div class="faang-cell-label">Business Unit &amp; Department</div>
+                                    <div class="faang-cell-value">Enterprise Cloud &amp; Platforms</div>
+                                    <div class="faang-cell-sub">Direct Reporting to Senior Solutions Architect</div>
+                                </div>
+                                <div class="faang-matrix-cell">
+                                    <div class="faang-cell-label">Internship Tenure &amp; Schedule</div>
+                                    <div class="faang-cell-value">1 Month (30 Days Active Capstone)</div>
+                                    <div class="faang-cell-sub">Flexible Schedule (15–20 Hours / Week)</div>
+                                </div>
+                                <div class="faang-matrix-cell">
+                                    <div class="faang-cell-label">Workstation Mode &amp; Infrastructure</div>
+                                    <div class="faang-cell-value">Virtual Remote Workstation / Cloud IDE</div>
+                                    <div class="faang-cell-sub">Interactive Git &amp; Agile Sprint Access</div>
+                                </div>
+                                <div class="faang-matrix-cell">
+                                    <div class="faang-cell-label">Project Capstone Deliverable</div>
+                                    <div class="faang-cell-value">Live Production GitHub Repository</div>
+                                    <div class="faang-cell-sub">Verified Modular Architecture + Cloud Deployment</div>
+                                </div>
+                                <div class="faang-matrix-cell">
+                                    <div class="faang-cell-label">Credential &amp; Performance Grant</div>
+                                    <div class="faang-cell-value">Verifiable Certificate + Merit Bonus</div>
+                                    <div class="faang-cell-sub">QR-Protected Authenticity on rctechnosolutions.com</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Corporate Clauses & Standards -->
+                        <div class="faang-clauses-box">
+                            <div class="faang-clause-item">
+                                <strong>1. Mentorship &amp; Engineering Standards:</strong> You will be assigned a designated Technical Lead. You will commit code to version-controlled GitHub repositories, adhere to automated linting, participate in weekly code reviews, and build professional portfolio modules.
+                            </div>
+                            <div class="faang-clause-item">
+                                <strong>2. Intellectual Property &amp; Portfolio Rights:</strong> All core systems, custom APIs, and proprietary architectures developed during the program remain the intellectual property of RC Techno Solutions. The intern retains verifiable authorship rights to publicly showcase their approved capstone code and architecture on their personal portfolio.
+                            </div>
+                            <div class="faang-clause-item">
+                                <strong>3. Non-Disclosure &amp; Security Protocol:</strong> You agree to maintain strict confidentiality regarding company credentials, internal client projects, and proprietary infrastructure under standard NDA terms.
+                            </div>
+                            <div class="faang-clause-item">
+                                <strong>4. Pre-Placement Offer (PPO) Pathway:</strong> Interns demonstrating exemplary architectural insight, clean coding, and disciplined milestone delivery will be prioritized for accelerated Pre-Placement Offers (PPO) and Executive Letters of Recommendation.
+                            </div>
+                        </div>
+
+                        <!-- Dual Signatures & Security Stamp -->
+                        <div class="faang-signatures-grid">
+                            <div class="faang-company-signatory">
+                                <div class="faang-security-seal">
+                                    <i class="fas fa-certificate"></i>
+                                    <span class="faang-seal-text">RC TECHNO<br>SOLUTIONS<br>OFFICIAL SEAL</span>
+                                </div>
+                                <div class="faang-cursive-signature">Ratan Chaurasiya</div>
+                                <div class="faang-signatory-name">Ratan Chaurasiya</div>
+                                <div class="faang-signatory-title">Director &amp; Principal Solutions Architect</div>
+                                <div class="faang-signatory-unit">RC Techno Solutions &bull; Ahmedabad, Gujarat</div>
+                            </div>
+
+                            <div class="faang-candidate-acceptance">
+                                <div class="faang-acceptance-statement">
+                                    "I accept this appointment offer and agree to abide by the engineering guidelines, NDA, and code of conduct of RC Techno Solutions."
+                                </div>
+                                <div class="faang-sig-line"></div>
+                                <div class="faang-acceptance-name">Candidate Signature &amp; Acknowledgment</div>
+                                <div class="faang-acceptance-date">Date: _____ / _____ / 2026</div>
+                            </div>
+                        </div>
+
+                        <!-- Verification & Document Security Strip -->
+                        <div class="faang-doc-footer">
+                            <div>
+                                <strong>Digital Verification ID:</strong> <span class="faang-security-hash">RCTS-AUTH-7821-BATCH2026</span>
+                            </div>
+                            <div>
+                                Verify Authenticity at: <a href="/verify-certificate" target="_blank">rctechnosolutions.com/verify-certificate</a>
+                            </div>
+                            <div style="width: 100%; margin-top: 4px; font-size: 0.65rem; color: #94a3b8;">
+                                This document is digitally generated by RC Techno Solutions HR Operations and legally authenticated under the Information Technology Act.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Bottom Action Bar -->
+                <div class="faang-modal-bottom-bar">
+                    <div class="faang-modal-bottom-info">
+                        <strong>Ready to begin your engineering journey?</strong> Complete the quick application below to reserve your seat in Batch 2026.
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                        <button type="button" class="faang-btn-print" onclick="window.print()" style="padding: 10px 18px; font-size: 0.88rem;">
+                            <i class="fas fa-file-pdf"></i> Save / Print PDF
+                        </button>
+                        <a href="#apply" id="applyFromModalBtn" class="faang-btn-cta-apply">
+                            <i class="fas fa-paper-plane"></i> Apply Now to Claim Your Seat
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script src="script.js?v=4.5"></script>
         <script src="chatbot.js?v=6.5"></script>
         <script>
@@ -1314,26 +1425,68 @@
                         });
                     });
                 }
-                // Sample Offer Letter Modal Handlers
+            });
+        </script>
+
+        <!-- Sample Offer Letter Interactive Modal Handlers -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
                 var openSampleOfferBtn = document.getElementById('openSampleOfferBtn');
                 var sampleOfferModal = document.getElementById('sampleOfferModal');
                 var closeSampleOfferBtn = document.getElementById('closeSampleOfferBtn');
+                var printOfferBtn = document.getElementById('printOfferBtn');
+                var applyFromModalBtn = document.getElementById('applyFromModalBtn');
 
-                if (openSampleOfferBtn && sampleOfferModal) {
-                    openSampleOfferBtn.addEventListener('click', function() {
-                        sampleOfferModal.style.display = 'flex';
+                function openModal() {
+                    if (!sampleOfferModal) return;
+                    sampleOfferModal.style.display = 'flex';
+                    sampleOfferModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeModal() {
+                    if (!sampleOfferModal) return;
+                    sampleOfferModal.style.display = 'none';
+                    sampleOfferModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+
+                if (openSampleOfferBtn) {
+                    openSampleOfferBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        openModal();
                     });
-                    if (closeSampleOfferBtn) {
-                        closeSampleOfferBtn.addEventListener('click', function() {
-                            sampleOfferModal.style.display = 'none';
-                        });
-                    }
+                }
+
+                if (closeSampleOfferBtn) {
+                    closeSampleOfferBtn.addEventListener('click', closeModal);
+                }
+
+                if (printOfferBtn) {
+                    printOfferBtn.addEventListener('click', function() {
+                        window.print();
+                    });
+                }
+
+                if (applyFromModalBtn) {
+                    applyFromModalBtn.addEventListener('click', function() {
+                        closeModal();
+                    });
+                }
+
+                if (sampleOfferModal) {
                     sampleOfferModal.addEventListener('click', function(e) {
                         if (e.target === sampleOfferModal) {
-                            sampleOfferModal.style.display = 'none';
+                            closeModal();
                         }
                     });
                 }
+
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && sampleOfferModal && sampleOfferModal.classList.contains('active')) {
+                        closeModal();
+                    }
+                });
             });
         </script>
     </body>

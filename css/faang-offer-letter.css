@@ -1,0 +1,746 @@
+/* ==========================================================================
+   RC TECHNO SOLUTIONS - FAANG CORPORATE OFFER LETTER SYSTEM
+   Modeled after Google, Amazon & Microsoft official appointment documentation
+   ========================================================================== */
+
+/* 1. Modal Overlay & Stacking Context */
+.faang-modal-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(15, 23, 42, 0.82) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    z-index: 99999999 !important; /* Above all sticky headers, navbars, and drawbars */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+}
+
+.faang-modal-overlay.active {
+    display: flex !important;
+}
+
+/* 2. Modal Wrapper Card */
+.faang-offer-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 880px !important;
+    max-height: 94vh !important;
+    background: #ffffff !important;
+    border-radius: 18px !important;
+    box-shadow: 0 30px 80px -15px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(226, 232, 240, 0.8) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    animation: faangModalFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    margin: auto !important;
+}
+
+@keyframes faangModalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.97) translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* 3. Modal Actions Top Toolbar */
+.faang-modal-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: #0f172a;
+    color: #f8fafc;
+    border-bottom: 1px solid #1e293b;
+    flex-shrink: 0;
+    gap: 12px;
+}
+
+.faang-toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.faang-toolbar-left i {
+    color: #38bdf8;
+    font-size: 1.05rem;
+}
+
+.faang-toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.faang-btn-print {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #0084ff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.faang-btn-print:hover {
+    background: #006dd4;
+    transform: translateY(-1px);
+}
+
+.faang-btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(37, 211, 102, 0.15);
+    color: #25d366;
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.faang-btn-whatsapp:hover {
+    background: #25d366;
+    color: #ffffff;
+}
+
+.faang-btn-close {
+    background: rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.faang-btn-close:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+/* 4. Offer Letter Printable Sheet */
+.faang-letter-sheet {
+    flex: 1;
+    overflow-y: auto;
+    padding: 38px 44px;
+    background: #ffffff;
+    color: #1e293b;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.62;
+    position: relative;
+}
+
+/* Subtle corporate background watermark */
+.faang-letter-sheet::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    width: 440px;
+    height: 440px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="%230084ff" stroke-width="2" stroke-opacity="0.03"/><text x="50" y="52" font-size="7" font-weight="900" fill="%230084ff" fill-opacity="0.04" text-anchor="middle" font-family="sans-serif">RC TECHNO SOLUTIONS</text></svg>') no-repeat center center;
+    background-size: contain;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.faang-letter-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* 5. FAANG Letterhead Header */
+.faang-letterhead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    border-bottom: 2.5px solid #0084ff;
+    margin-bottom: 24px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.faang-brand-block {
+    max-width: 520px;
+}
+
+.faang-brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+}
+
+.faang-logo-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #0084ff 0%, #0052cc 100%);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 132, 255, 0.3);
+}
+
+.faang-brand-name span {
+    color: #0084ff;
+}
+
+.faang-legal-name {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #334155;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 4px;
+}
+
+.faang-corp-address {
+    font-size: 0.74rem;
+    color: #64748b;
+    margin-top: 2px;
+    line-height: 1.4;
+}
+
+.faang-corp-details {
+    font-size: 0.72rem;
+    color: #64748b;
+    margin-top: 4px;
+    font-family: monospace;
+}
+
+.faang-corp-details span {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.faang-meta-block {
+    text-align: right;
+    font-size: 0.78rem;
+    color: #475569;
+}
+
+.faang-badge-confidential {
+    display: inline-block;
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.faang-meta-line {
+    margin-top: 3px;
+    line-height: 1.4;
+}
+
+.faang-meta-line strong {
+    color: #0f172a;
+}
+
+.faang-meta-ref {
+    font-family: monospace;
+    color: #0084ff;
+    font-weight: 700;
+}
+
+.faang-auth-badge {
+    margin-top: 6px;
+    color: #059669;
+    font-weight: 700;
+    font-size: 0.72rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+}
+
+/* 6. Recipient Information Block */
+.faang-recipient-box {
+    background: #f8fafc;
+    border-left: 3.5px solid #0084ff;
+    padding: 12px 18px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 20px;
+    font-size: 0.84rem;
+}
+
+.faang-recipient-box .recipient-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #64748b;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.faang-recipient-box .recipient-name {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 2px;
+}
+
+.faang-recipient-box .recipient-details {
+    color: #475569;
+    line-height: 1.45;
+}
+
+/* 7. Subject Banner */
+.faang-subject-bar {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    padding: 10px 16px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #1e3a8a;
+    letter-spacing: -0.01em;
+}
+
+/* 8. Letter Body Prose */
+.faang-prose {
+    font-size: 0.88rem;
+    color: #334155;
+    line-height: 1.68;
+}
+
+.faang-prose p {
+    margin-bottom: 14px;
+}
+
+.faang-prose strong {
+    color: #0f172a;
+}
+
+/* 9. Key Terms & Appointment Matrix (Amazon / Google format) */
+.faang-terms-matrix {
+    margin: 20px 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.faang-matrix-header {
+    background: #f1f5f9;
+    padding: 10px 16px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #334155;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.faang-matrix-header i {
+    color: #0084ff;
+}
+
+.faang-matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: #e2e8f0;
+}
+
+.faang-matrix-cell {
+    background: #ffffff;
+    padding: 12px 16px;
+}
+
+.faang-cell-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    color: #64748b;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 3px;
+}
+
+.faang-cell-value {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.faang-cell-sub {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 400;
+    margin-top: 1px;
+}
+
+/* 10. FAANG Standards & Clauses (Numbered) */
+.faang-clauses-box {
+    margin: 20px 0;
+    padding: 16px;
+    background: #fafafa;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: #475569;
+}
+
+.faang-clause-item {
+    margin-bottom: 12px;
+}
+
+.faang-clause-item:last-child {
+    margin-bottom: 0;
+}
+
+.faang-clause-item strong {
+    color: #0f172a;
+    font-weight: 700;
+}
+
+/* 11. Signatures & Official Stamp Dual Block */
+.faang-signatures-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1.5px dashed #cbd5e1;
+}
+
+.faang-company-signatory {
+    position: relative;
+}
+
+.faang-cursive-signature {
+    font-family: 'Brush Script MT', 'Segoe Script', cursive, sans-serif;
+    font-size: 1.85rem;
+    color: #0284c7;
+    margin-bottom: 4px;
+    line-height: 1.1;
+    transform: rotate(-1deg);
+    user-select: none;
+}
+
+.faang-signatory-name {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.faang-signatory-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.faang-signatory-unit {
+    font-size: 0.74rem;
+    color: #64748b;
+}
+
+/* High-tech security seal stamp */
+.faang-security-seal {
+    position: absolute;
+    right: 10px;
+    top: -5px;
+    width: 82px;
+    height: 82px;
+    border: 2px dashed #0084ff;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(0, 132, 255, 0.03);
+    color: #0084ff;
+    transform: rotate(-12deg);
+    padding: 4px;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.faang-security-seal i {
+    font-size: 1.25rem;
+    color: #0084ff;
+    margin-bottom: 2px;
+}
+
+.faang-seal-text {
+    font-size: 0.52rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+}
+
+.faang-candidate-acceptance {
+    border-left: 1px solid #e2e8f0;
+    padding-left: 20px;
+}
+
+.faang-acceptance-statement {
+    font-size: 0.76rem;
+    color: #64748b;
+    font-style: italic;
+    line-height: 1.45;
+    margin-bottom: 22px;
+}
+
+.faang-sig-line {
+    border-bottom: 1.5px solid #94a3b8;
+    margin-bottom: 6px;
+    height: 18px;
+}
+
+.faang-acceptance-name {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.faang-acceptance-date {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+/* 12. Verification & Cryptographic Security Footer */
+.faang-doc-footer {
+    margin-top: 24px;
+    padding-top: 14px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: #64748b;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.faang-security-hash {
+    font-family: monospace;
+    color: #475569;
+}
+
+.faang-doc-footer a {
+    color: #0084ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* 13. Modal Bottom Action Bar (Apply CTA) */
+.faang-modal-bottom-bar {
+    padding: 14px 24px;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.faang-modal-bottom-info {
+    font-size: 0.82rem;
+    color: #475569;
+}
+
+.faang-modal-bottom-info strong {
+    color: #0f172a;
+}
+
+.faang-btn-cta-apply {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
+    color: #ffffff !important;
+    border: none;
+    border-radius: 9999px;
+    padding: 11px 26px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 132, 255, 0.3);
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.faang-btn-cta-apply:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(0, 132, 255, 0.4);
+    color: #ffffff;
+}
+
+/* 14. Responsive Layout Adjustments */
+@media (max-width: 768px) {
+    .faang-offer-wrapper {
+        max-height: 96vh !important;
+        border-radius: 12px !important;
+    }
+
+    .faang-letter-sheet {
+        padding: 22px 18px !important;
+        font-size: 0.84rem !important;
+    }
+
+    .faang-letterhead {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .faang-meta-block {
+        text-align: left !important;
+    }
+
+    .faang-auth-badge {
+        justify-content: flex-start !important;
+    }
+
+    .faang-matrix-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .faang-signatures-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+
+    .faang-candidate-acceptance {
+        border-left: none !important;
+        padding-left: 0 !important;
+        border-top: 1px solid #e2e8f0 !important;
+        padding-top: 16px !important;
+    }
+
+    .faang-security-seal {
+        right: 0 !important;
+    }
+
+    .faang-modal-bottom-bar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        text-align: center !important;
+    }
+
+    .faang-btn-cta-apply {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
+/* 15. FAANG Standard Print Stylesheet (@media print) */
+@media print {
+    /* Hide everything on the website during printing */
+    body * {
+        visibility: hidden !important;
+    }
+
+    /* Make only the letter sheet visible */
+    #sampleOfferModal,
+    #sampleOfferModal *,
+    .faang-letter-sheet,
+    .faang-letter-sheet * {
+        visibility: visible !important;
+    }
+
+    #sampleOfferModal {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        background: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: block !important;
+        overflow: visible !important;
+    }
+
+    .faang-offer-wrapper {
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        max-width: 100% !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    .faang-modal-toolbar,
+    .faang-modal-bottom-bar {
+        display: none !important;
+    }
+
+    .faang-letter-sheet {
+        padding: 20mm !important;
+        font-size: 11pt !important;
+        color: #000000 !important;
+    }
+
+    .faang-letterhead {
+        border-bottom: 2pt solid #0084ff !important;
+    }
+
+    .faang-matrix-grid {
+        border: 1pt solid #cbd5e1 !important;
+    }
+
+    @page {
+        size: A4;
+        margin: 10mm;
+    }
+}
