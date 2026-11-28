@@ -125,6 +125,9 @@
     color: #0f172a !important;
     margin: 0 0 8px 0 !important;
     line-height: 1.35 !important;
+    min-height: 42px !important;
+    display: flex !important;
+    align-items: center !important;
 }
 
 [data-theme="dark"] .tpc-title,
@@ -132,17 +135,22 @@
     color: #f8fafc !important;
 }
 
-/* Card Description */
+/* Card Description - Overrides flex-grow to eliminate unwanted empty gaps */
 .tpc-desc,
 .portfolio-card-text {
     font-size: 0.8rem !important;
     color: #64748b !important;
-    line-height: 1.5 !important;
+    line-height: 1.45 !important;
     margin: 0 0 12px 0 !important;
     display: -webkit-box !important;
-    -webkit-line-clamp: 3 !important;
+    -webkit-line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
+    flex-grow: 0 !important; /* CRITICAL: Prevents stretching that causes empty blank space */
+    flex-shrink: 0 !important;
 }
 
 [data-theme="dark"] .tpc-desc,
@@ -150,31 +158,77 @@
     color: #94a3b8 !important;
 }
 
-/* Feature List (if present) */
+/* Feature List */
 .portfolio-feature-list {
     list-style: none !important;
     padding: 0 !important;
     margin: 0 0 12px 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    flex-grow: 1 !important;
 }
 
 .portfolio-feature-list li {
     font-size: 0.74rem !important;
     color: #475569 !important;
-    padding: 2px 0 !important;
+    padding: 0 !important;
     display: flex !important;
     align-items: center !important;
-    gap: 6px !important;
-    line-height: 1.4 !important;
+    gap: 7px !important;
+    line-height: 1.35 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 }
 
 .portfolio-feature-list li i {
     color: #0084ff !important;
-    font-size: 0.65rem !important;
+    font-size: 0.68rem !important;
     flex-shrink: 0 !important;
 }
 
 [data-theme="dark"] .portfolio-feature-list li {
     color: #cbd5e1 !important;
+}
+
+/* Fallback Specs Grid (Structured key-value metrics) */
+.portfolio-specs-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    margin: 0 0 12px 0 !important;
+    flex-grow: 1 !important;
+}
+
+.portfolio-spec-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 0.74rem !important;
+    gap: 8px !important;
+    padding: 2px 0 !important;
+    border-bottom: 1px dashed #f1f5f9 !important;
+}
+
+.portfolio-spec-label {
+    color: #64748b !important;
+    font-weight: 600 !important;
+    margin-right: 6px !important;
+}
+
+.portfolio-spec-value {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    text-align: right !important;
+}
+
+[data-theme="dark"] .portfolio-spec-label {
+    color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .portfolio-spec-value {
+    color: #f8fafc !important;
 }
 
 /* Status Indicator Row */
