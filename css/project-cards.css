@@ -89,7 +89,19 @@
 }
 
 /* Technology Pills Container - Fixed height / uniform wrapping */
-.tpc-tech-tags,
+.tpc-tech-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    margin-bottom: 8px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    overflow: hidden !important;
+    align-content: flex-start !important;
+    flex-shrink: 0 !important;
+}
+
 .portfolio-tech-pills {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -120,14 +132,17 @@
 /* Card Title */
 .tpc-title,
 .portfolio-card-title {
-    font-size: 1rem !important;
+    font-size: 0.98rem !important;
     font-weight: 700 !important;
     color: #0f172a !important;
-    margin: 0 0 8px 0 !important;
+    margin: 0 0 6px 0 !important;
     line-height: 1.35 !important;
+    height: 42px !important;
     min-height: 42px !important;
+    max-height: 42px !important;
     display: flex !important;
     align-items: center !important;
+    flex-shrink: 0 !important;
 }
 
 [data-theme="dark"] .tpc-title,
@@ -138,10 +153,10 @@
 /* Card Description - Overrides flex-grow to eliminate unwanted empty gaps */
 .tpc-desc,
 .portfolio-card-text {
-    font-size: 0.8rem !important;
+    font-size: 0.78rem !important;
     color: #64748b !important;
     line-height: 1.45 !important;
-    margin: 0 0 12px 0 !important;
+    margin: 0 0 10px 0 !important;
     display: -webkit-box !important;
     -webkit-line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
@@ -155,6 +170,26 @@
 
 [data-theme="dark"] .tpc-desc,
 [data-theme="dark"] .portfolio-card-text {
+    color: #94a3b8 !important;
+}
+
+/* Card Client Target (index.html) - Fixed height for 100% horizontal alignment */
+.tpc-target {
+    font-size: 0.78rem !important;
+    color: #64748b !important;
+    line-height: 1.4 !important;
+    margin: 0 0 10px 0 !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+[data-theme="dark"] .tpc-target {
     color: #94a3b8 !important;
 }
 
@@ -232,13 +267,28 @@
 }
 
 /* Status Indicator Row */
-.tpc-status-row,
+.tpc-status-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 24px !important;
+    min-height: 24px !important;
+    max-height: 24px !important;
+    margin: 0 !important;
+    font-size: 0.74rem !important;
+    flex-shrink: 0 !important;
+}
+
 .portfolio-card-status {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
+    height: 24px !important;
+    min-height: 24px !important;
+    max-height: 24px !important;
     margin-bottom: 12px !important;
     font-size: 0.74rem !important;
+    flex-shrink: 0 !important;
 }
 
 .tpc-status-badge,
@@ -248,10 +298,12 @@
     gap: 5px !important;
     font-size: 0.68rem !important;
     font-weight: 700 !important;
-    padding: 2px 8px !important;
+    padding: 3px 8px !important;
     border-radius: 9999px !important;
     text-transform: uppercase !important;
     letter-spacing: 0.02em !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
 }
 
 .status-badge.live,
@@ -289,12 +341,13 @@
 .portfolio-card-actions,
 .project-card-actions {
     margin-top: auto !important;
-    padding-top: 12px !important;
+    padding-top: 10px !important;
     border-top: 1px solid #f1f5f9 !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 8px !important;
     width: 100% !important;
+    flex-shrink: 0 !important;
 }
 
 [data-theme="dark"] .tpc-footer,
