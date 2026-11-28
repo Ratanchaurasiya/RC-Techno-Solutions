@@ -33,6 +33,15 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    /* --- Universal Demo Request Modal Integration (CRM Module) --- */
+    if (!document.getElementById('demo-modal-script')) {
+        const demoScript = document.createElement('script');
+        demoScript.id = 'demo-modal-script';
+        demoScript.src = '/js/demo-modal.js';
+        demoScript.async = true;
+        document.body.appendChild(demoScript);
+    }
+
     /* --- WhatsApp Quick-Action Floating Speed Dial Menu --- */
     if (!document.getElementById('waFloatingWidget')) {
         const waWrap = document.createElement('div');

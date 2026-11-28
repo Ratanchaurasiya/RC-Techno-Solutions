@@ -548,6 +548,360 @@ const server = http.createServer((req, res) => {
     }
 
     // ------------------------------------------------------------------
+    // 10. DEMO REQUEST MANAGEMENT SYSTEM (CRM API MODULE)
+    // ------------------------------------------------------------------
+
+    // 10A. Public Client Demo Request Submission
+    if (req.method === 'POST' && req.url === '/api/demo/request') {
+        parseJsonBody(req, async (err, data) => {
+            if (err || !data) return sendJson(400, { success: false, error: 'Invalid demo request payload' });
+
+            // Spam trap / honeypot check
+            if (data.websiteUrl_hp || data.demo_trap || data.honeypot) {
+                return sendJson(200, { success: true, message: 'Your demo request has been received.' });
+            }
+
+            const sanitize = str => String(str || '').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').trim();
+            const fullName = sanitize(data.fullName);
+            const companyName = sanitize(data.companyName);
+            const email = sanitize(data.email).toLowerCase();
+            const phone = sanitize(data.phone);
+            const projectName = sanitize(data.projectName);
+            const companyType = sanitize(data.companyType || 'Enterprise');
+            const employeeCount = sanitize(data.employeeCount || '11-50');
+            const preferredDate = sanitize(data.preferredDate);
+            const preferredTime = sanitize(data.preferredTime);
+            const additionalRequirements = sanitize(data.additionalRequirements);
+
+            // Field validations
+            if (!fullName || fullName.length < 2) {
+                return sendJson(400, { success: false, error: 'Please enter your full name.' });
+            }
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+                return sendJson(400, { success: false, error: 'Please enter a valid business email address.' });
+            }
+            if (!phone || phone.replace(/\D/g, '').length < 8) {
+                return sendJson(400, { success: false, error: 'Please provide a valid direct phone or mobile number.' });
+            }
+            if (!projectName || projectName.length < 2) {
+                return sendJson(400, { success: false, error: 'Please specify the project or software solution for the demo.' });
+            }
+
+            try {
+                const clientMeta = {
+                    ipAddress: req.headers['x-forwarded-for'] || req.socket.remoteAddress || '127.0.0.1',
+                    userAgent: req.headers['user-agent'] || 'Direct Web Submission'
+                };
+
+                const result = await dbStore.createDemoRequest({
+                    fullName,
+                    companyName,
+                    email,
+                    phone,
+                    projectName,
+                    companyType,
+                    employeeCount,
+                    preferredDate,
+                    preferredTime,
+                    additionalRequirements
+                }, clientMeta);
+
+                // Notifications: Admin Alert & Client Confirmation Simulation
+                const ref = result.referenceId;
+                const notificationPayload = {
+                    event: 'NEW_DEMO_REQUEST',
+                    ref,
+                    fullName,
+                    companyName,
+                    email,
+                    phone,
+                    projectName,
+                    preferredDate,
+                    preferredTime,
+                    timestamp: new Date().toISOString()
+                };
+
+                console.log(`[CRM NOTIFICATION - ADMIN ALERT] Reference: ${ref} | Client: ${fullName} (${companyName}) requested demo for: ${projectName}`);
+
+                // WhatsApp Business API Payload simulation / Dispatch logging
+                const whatsappTemplatePayload = {
+                    messaging_product: "whatsapp",
+                    to: phone.replace(/[^0-9]/g, ''),
+                    type: "template",
+                    template: {
+                        name: "demo_request_confirmation",
+                        language: { code: "en_US" },
+                        components: [
+                            {
+                                type: "body",
+                                parameters: [
+                                    { type: "text", text: fullName },
+                                    { type: "text", text: projectName },
+                                    { type: "text", text: ref }
+                                ]
+                            }
+                        ]
+                    }
+                };
+                console.log(`[WHATSAPP BUSINESS NOTIFICATION DISPATCH] Target: ${phone} | Payload:`, JSON.stringify(whatsappTemplatePayload));
+
+                return sendJson(200, {
+                    success: true,
+                    referenceId: ref,
+                    isDuplicate: result.isDuplicate || false,
+                    message: result.isDuplicate
+                        ? 'A demo request for this software was recently received. Our technical team is already processing it!'
+                        : `Thank you, ${fullName}! Your demo request for "${projectName}" has been registered (Ref: ${ref}). Our solutions engineer will reach out to confirm your schedule.`
+                });
+            } catch (err) {
+                console.error('Demo request creation error:', err);
+                return sendJson(500, { success: false, error: err.message || 'Failed to submit demo request. Please try again.' });
+            }
+        });
+        return;
+    }
+
+    // 10B. Admin CRM API - List Demo Requests (with search, filter, pagination, stats)
+    if (req.method === 'GET' && req.url.startsWith('/api/admin/demo/requests')) {
+        if (!checkAuth()) return sendJson(401, { success: false, error: 'Unauthorized admin session' });
+
+        const urlObj = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+        const filters = {
+            search: urlObj.searchParams.get('search') || '',
+            status: urlObj.searchParams.get('status') || 'ALL',
+            project: urlObj.searchParams.get('project') || 'ALL',
+            sortBy: urlObj.searchParams.get('sortBy') || 'newest',
+            page: urlObj.searchParams.get('page') || 1,
+            limit: urlObj.searchParams.get('limit') || 10
+        };
+
+        dbStore.getDemoRequests(filters).then(data => {
+            return sendJson(200, Object.assign({ success: true }, data));
+        }).catch(err => {
+            return sendJson(500, { success: false, error: err.message });
+        });
+        return;
+    }
+
+    // 10C. Admin CRM API - Get Single Demo Request by ID (with details, notes, meetings, logs)
+    if (req.method === 'GET' && req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)$/)) {
+        if (!checkAuth()) return sendJson(401, { success: false, error: 'Unauthorized admin session' });
+
+        const match = req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)$/);
+        const reqId = match[1];
+
+        dbStore.getDemoRequestById(reqId).then(request => {
+            if (!request) return sendJson(404, { success: false, error: 'Demo request not found' });
+            return sendJson(200, { success: true, request });
+        }).catch(err => {
+            return sendJson(500, { success: false, error: err.message });
+        });
+        return;
+    }
+
+    // 10D. Admin CRM API - Update Request Status
+    if (req.method === 'PATCH' && req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)\/status$/)) {
+        if (!checkAuth()) return sendJson(401, { success: false, error: 'Unauthorized admin session' });
+
+        const match = req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)\/status$/);
+        const reqId = match[1];
+
+        parseJsonBody(req, async (err, data) => {
+            if (err || !data || !data.status) return sendJson(400, { success: false, error: 'Missing target status' });
+
+            const validStatuses = [
+                'New', 'Contacted', 'Follow-up Required', 'Demo Scheduled',
+                'Demo Completed', 'Quotation Sent', 'Negotiation', 'Converted', 'Closed / Rejected'
+            ];
+
+            if (!validStatuses.includes(data.status)) {
+                return sendJson(400, { success: false, error: `Invalid status. Must be one of: ${validStatuses.join(', ')}` });
+            }
+
+            try {
+                const updated = await dbStore.updateDemoStatus(reqId, data.status, data.actorName || 'Admin', data.notes || '');
+                if (!updated) return sendJson(404, { success: false, error: 'Demo request not found' });
+
+                // Reminder / follow-up notification dispatch if demo scheduled or follow-up
+                console.log(`[STATUS TRANSITION] Ref: ${updated.referenceId} -> ${data.status} by ${data.actorName || 'Admin'}`);
+
+                return sendJson(200, { success: true, request: updated });
+            } catch (updateErr) {
+                return sendJson(500, { success: false, error: updateErr.message });
+            }
+        });
+        return;
+    }
+
+    // 10E. Admin CRM API - Assign Request to Team Member
+    if (req.method === 'POST' && req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)\/assign$/)) {
+        if (!checkAuth()) return sendJson(401, { success: false, error: 'Unauthorized admin session' });
+
+        const match = req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)\/assign$/);
+        const reqId = match[1];
+
+        parseJsonBody(req, async (err, data) => {
+            if (err || !data || !data.assignedToName) return sendJson(400, { success: false, error: 'Assigned team member name is required' });
+
+            try {
+                const assigned = await dbStore.assignDemoRequest(reqId, {
+                    assignedToName: data.assignedToName,
+                    assignedToEmail: data.assignedToEmail || '',
+                    assignedBy: data.assignedBy || 'Admin',
+                    notes: data.notes || ''
+                });
+                if (!assigned) return sendJson(404, { success: false, error: 'Demo request not found' });
+                return sendJson(200, { success: true, request: assigned });
+            } catch (assignErr) {
+                return sendJson(500, { success: false, error: assignErr.message });
+            }
+        });
+        return;
+    }
+
+    // 10F. Admin CRM API - Add Internal Note
+    if (req.method === 'POST' && req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)\/notes$/)) {
+        if (!checkAuth()) return sendJson(401, { success: false, error: 'Unauthorized admin session' });
+
+        const match = req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)\/notes$/);
+        const reqId = match[1];
+
+        parseJsonBody(req, async (err, data) => {
+            if (err || !data || !data.noteText) return sendJson(400, { success: false, error: 'Note text cannot be empty' });
+
+            try {
+                const newNote = await dbStore.addDemoNote(reqId, {
+                    authorName: data.authorName || 'Admin',
+                    noteText: data.noteText,
+                    isPrivate: data.isPrivate !== false
+                });
+                if (!newNote) return sendJson(404, { success: false, error: 'Demo request not found' });
+                return sendJson(200, { success: true, note: newNote });
+            } catch (noteErr) {
+                return sendJson(500, { success: false, error: noteErr.message });
+            }
+        });
+        return;
+    }
+
+    // 10G. Admin CRM API - Schedule Meeting with Google Meet link
+    if (req.method === 'POST' && req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)\/meetings$/)) {
+        if (!checkAuth()) return sendJson(401, { success: false, error: 'Unauthorized admin session' });
+
+        const match = req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)\/meetings$/);
+        const reqId = match[1];
+
+        parseJsonBody(req, async (err, data) => {
+            if (err || !data || !data.meetingDate || !data.meetingTime) {
+                return sendJson(400, { success: false, error: 'Meeting date and time are required' });
+            }
+
+            try {
+                const meeting = await dbStore.scheduleDemoMeeting(reqId, {
+                    title: data.title,
+                    meetingDate: data.meetingDate,
+                    meetingTime: data.meetingTime,
+                    googleMeetLink: data.googleMeetLink,
+                    hostName: data.hostName || 'Ratan Chaurasiya',
+                    attendeeEmail: data.attendeeEmail,
+                    agenda: data.agenda
+                });
+                if (!meeting) return sendJson(404, { success: false, error: 'Demo request not found' });
+
+                // Dispatch meeting invitation / reminder logs
+                console.log(`[CALENDAR INVITATION] Demo Meeting scheduled with ${data.attendeeEmail || 'client'} on ${data.meetingDate} at ${data.meetingTime}. Google Meet: ${meeting.googleMeetLink}`);
+
+                return sendJson(200, { success: true, meeting });
+            } catch (meetErr) {
+                return sendJson(500, { success: false, error: meetErr.message });
+            }
+        });
+        return;
+    }
+
+    // 10H. Admin CRM API - Schedule Follow-up
+    if (req.method === 'POST' && req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)\/followups$/)) {
+        if (!checkAuth()) return sendJson(401, { success: false, error: 'Unauthorized admin session' });
+
+        const match = req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)\/followups$/);
+        const reqId = match[1];
+
+        parseJsonBody(req, async (err, data) => {
+            if (err || !data || !data.scheduledDate) return sendJson(400, { success: false, error: 'Follow-up date is required' });
+
+            try {
+                const followup = await dbStore.scheduleDemoFollowup(reqId, {
+                    scheduledDate: data.scheduledDate,
+                    followupType: data.followupType || 'Call',
+                    notes: data.notes || '',
+                    actorName: data.actorName || 'Admin'
+                });
+                if (!followup) return sendJson(404, { success: false, error: 'Demo request not found' });
+                return sendJson(200, { success: true, followup });
+            } catch (flwErr) {
+                return sendJson(500, { success: false, error: flwErr.message });
+            }
+        });
+        return;
+    }
+
+    // 10I. Admin CRM API - Attach / Update Quotation
+    if (req.method === 'POST' && req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)\/quotation$/)) {
+        if (!checkAuth()) return sendJson(401, { success: false, error: 'Unauthorized admin session' });
+
+        const match = req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)\/quotation$/);
+        const reqId = match[1];
+
+        parseJsonBody(req, async (err, data) => {
+            if (err || !data || !data.quotationAmount) return sendJson(400, { success: false, error: 'Quotation amount is required' });
+
+            try {
+                const updated = await dbStore.updateDemoQuotation(reqId, {
+                    quotationAmount: data.quotationAmount,
+                    quotationNotes: data.quotationNotes || '',
+                    quotationUrl: data.quotationUrl || '',
+                    actorName: data.actorName || 'Admin'
+                });
+                if (!updated) return sendJson(404, { success: false, error: 'Demo request not found' });
+                return sendJson(200, { success: true, request: updated });
+            } catch (quoteErr) {
+                return sendJson(500, { success: false, error: quoteErr.message });
+            }
+        });
+        return;
+    }
+
+    // 10J. Admin CRM API - Record Demo Feedback & Outcome
+    if (req.method === 'POST' && req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)\/feedback$/)) {
+        if (!checkAuth()) return sendJson(401, { success: false, error: 'Unauthorized admin session' });
+
+        const match = req.url.match(/^\/api\/admin\/demo\/request\/([^\/]+)\/feedback$/);
+        const reqId = match[1];
+
+        parseJsonBody(req, async (err, data) => {
+            try {
+                const updated = await dbStore.recordDemoFeedback(reqId, {
+                    feedback: data.feedback || '',
+                    outcomeStatus: data.outcomeStatus || 'Demo Completed',
+                    actorName: data.actorName || 'Admin'
+                });
+                if (!updated) return sendJson(404, { success: false, error: 'Demo request not found' });
+                return sendJson(200, { success: true, request: updated });
+            } catch (fbErr) {
+                return sendJson(500, { success: false, error: fbErr.message });
+            }
+        });
+        return;
+    }
+
+    // 10K. Admin CRM API - Get Demo Stats
+    if (req.method === 'GET' && req.url === '/api/admin/demo/stats') {
+        if (!checkAuth()) return sendJson(401, { success: false, error: 'Unauthorized admin session' });
+        const stats = dbStore.getDemoStats();
+        return sendJson(200, { success: true, stats });
+    }
+
+    // ------------------------------------------------------------------
     // STATIC ROUTING & CLEAN URL HANDLING
     // ------------------------------------------------------------------
     let target = ROUTE_ALIASES[cleanUrl] || cleanUrl;

@@ -328,6 +328,174 @@
             .status-selected { background: #dcfce7; color: #15803d; }
             .status-rejected { background: #fee2e2; color: #b91c1c; }
 
+            /* CRM Status Badges */
+            .crm-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                padding: 4px 10px;
+                border-radius: 9999px;
+                font-size: 0.72rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.03em;
+                white-space: nowrap;
+            }
+            .crm-badge-new { background: #e0f2fe; color: #0369a1; border: 1px solid #7dd3fc; }
+            .crm-badge-contacted { background: #fef3c7; color: #b45309; border: 1px solid #fcd34d; }
+            .crm-badge-followup { background: #ffedd5; color: #c2410c; border: 1px solid #fdba74; }
+            .crm-badge-scheduled { background: #ede9fe; color: #6d28d9; border: 1px solid #c4b5fd; }
+            .crm-badge-completed { background: #ccfbf1; color: #0f766e; border: 1px solid #5eead4; }
+            .crm-badge-quotation { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+            .crm-badge-negotiation { background: #fef9c3; color: #a16207; border: 1px solid #fde047; }
+            .crm-badge-converted { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+            .crm-badge-rejected { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+
+            /* CRM Drawer & Modal Styles */
+            .crm-drawer-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(15, 23, 42, 0.6);
+                backdrop-filter: blur(6px);
+                z-index: 100000;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                padding: 16px;
+                box-sizing: border-box;
+            }
+            .crm-drawer-card {
+                background: #ffffff;
+                width: 100%;
+                max-width: 860px;
+                max-height: 92vh;
+                border-radius: 18px;
+                box-shadow: 0 25px 60px rgba(15, 23, 42, 0.35);
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+                border: 1px solid #cbd5e1;
+            }
+            .crm-drawer-header {
+                padding: 20px 24px;
+                background: #f8fafc;
+                border-bottom: 1px solid #e2e8f0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .crm-drawer-body {
+                padding: 24px;
+                overflow-y: auto;
+                flex: 1 1 auto;
+                background: #ffffff;
+            }
+            .crm-grid-2 {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            .crm-info-card {
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 12px;
+                padding: 14px 16px;
+            }
+            .crm-info-card h4 {
+                font-size: 0.82rem;
+                font-weight: 700;
+                color: #475569;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+                margin: 0 0 10px 0;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .crm-info-row {
+                display: flex;
+                justify-content: space-between;
+                font-size: 0.85rem;
+                margin-bottom: 8px;
+                padding-bottom: 6px;
+                border-bottom: 1px dashed #e2e8f0;
+            }
+            .crm-info-row:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+            .crm-info-label {
+                color: #64748b;
+                font-weight: 600;
+            }
+            .crm-info-val {
+                color: #0f172a;
+                font-weight: 700;
+                text-align: right;
+            }
+            .crm-tabs-nav {
+                display: flex;
+                gap: 8px;
+                border-bottom: 2px solid #e2e8f0;
+                margin: 20px 0 16px;
+            }
+            .crm-subtab-btn {
+                background: none;
+                border: none;
+                padding: 10px 16px;
+                font-size: 0.86rem;
+                font-weight: 700;
+                color: #64748b;
+                cursor: pointer;
+                border-bottom: 2px solid transparent;
+                margin-bottom: -2px;
+                transition: all 0.2s;
+            }
+            .crm-subtab-btn.active {
+                color: #0084ff;
+                border-bottom-color: #0084ff;
+            }
+            .crm-timeline-item {
+                position: relative;
+                padding-left: 24px;
+                padding-bottom: 16px;
+                border-left: 2px solid #e2e8f0;
+            }
+            .crm-timeline-item::before {
+                content: '';
+                position: absolute;
+                left: -7px;
+                top: 0;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #0084ff;
+                border: 2px solid #ffffff;
+            }
+            .crm-timeline-time {
+                font-size: 0.72rem;
+                color: #94a3b8;
+                font-weight: 600;
+            }
+            .crm-timeline-title {
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: #1e293b;
+                margin: 2px 0 4px;
+            }
+            .crm-timeline-desc {
+                font-size: 0.82rem;
+                color: #475569;
+                background: #f8fafc;
+                padding: 8px 12px;
+                border-radius: 8px;
+                border: 1px solid #e2e8f0;
+            }
+
             .btn-action-sm {
                 padding: 5px 10px;
                 border-radius: 6px;
@@ -392,7 +560,8 @@
                 </a>
 
                 <ul class="sidebar-nav">
-                    <li><a href="#internships" class="nav-item active" onclick="switchTab('internships')"><i class="fas fa-user-graduate"></i> Internship Apps</a></li>
+                    <li><a href="#demorequests" class="nav-item active" onclick="switchTab('demorequests')"><i class="fas fa-play-circle" style="color: #38bdf8;"></i> Demo Requests (CRM) <span id="badgeNewDemos" style="display:none; background:#ef4444; color:#fff; font-size:0.7rem; font-weight:800; padding:1px 7px; border-radius:9999px; margin-left:auto;">0</span></a></li>
+                    <li><a href="#internships" class="nav-item" onclick="switchTab('internships')"><i class="fas fa-user-graduate"></i> Internship Apps</a></li>
                     <li><a href="#enquiries" class="nav-item" onclick="switchTab('enquiries')"><i class="fas fa-envelope-open-text"></i> Client Inquiries</a></li>
                     <li><a href="#chatleads" class="nav-item" onclick="switchTab('chatleads')"><i class="fas fa-comments"></i> Chatbot Leads</a></li>
                     <li><a href="#batches" class="nav-item" onclick="switchTab('batches')"><i class="fas fa-calendar-check"></i> Batches &amp; Progress</a></li>
@@ -459,8 +628,143 @@
                         </div>
                     </div>
 
+                    <!-- TAB 0: Demo Requests CRM Module -->
+                    <div id="tab-demorequests" class="tab-panel active">
+                        <!-- CRM Dedicated KPI Cards -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                            <div class="metric-box" style="padding: 18px;">
+                                <div class="metric-info">
+                                    <h5 style="color: #64748b;">Total Requests</h5>
+                                    <h3 id="statCrmTotal" style="font-size: 1.6rem; color: #0f172a;">0</h3>
+                                </div>
+                                <div class="metric-icon-wrap" style="background: #e0f2fe; color: #0284c7; width: 44px; height: 44px;">
+                                    <i class="fas fa-layer-group"></i>
+                                </div>
+                            </div>
+
+                            <div class="metric-box" style="padding: 18px;">
+                                <div class="metric-info">
+                                    <h5 style="color: #0284c7;">New Requests</h5>
+                                    <h3 id="statCrmNew" style="font-size: 1.6rem; color: #0284c7;">0</h3>
+                                </div>
+                                <div class="metric-icon-wrap" style="background: #e0f2fe; color: #0284c7; width: 44px; height: 44px;">
+                                    <i class="fas fa-bell"></i>
+                                </div>
+                            </div>
+
+                            <div class="metric-box" style="padding: 18px;">
+                                <div class="metric-info">
+                                    <h5 style="color: #d97706;">Pending / Follow-up</h5>
+                                    <h3 id="statCrmPending" style="font-size: 1.6rem; color: #d97706;">0</h3>
+                                </div>
+                                <div class="metric-icon-wrap" style="background: #fef3c7; color: #d97706; width: 44px; height: 44px;">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                            </div>
+
+                            <div class="metric-box" style="padding: 18px;">
+                                <div class="metric-info">
+                                    <h5 style="color: #7c3aed;">Scheduled Demos</h5>
+                                    <h3 id="statCrmScheduled" style="font-size: 1.6rem; color: #7c3aed;">0</h3>
+                                </div>
+                                <div class="metric-icon-wrap" style="background: #ede9fe; color: #7c3aed; width: 44px; height: 44px;">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                            </div>
+
+                            <div class="metric-box" style="padding: 18px;">
+                                <div class="metric-info">
+                                    <h5 style="color: #0f766e;">Completed Demos</h5>
+                                    <h3 id="statCrmCompleted" style="font-size: 1.6rem; color: #0f766e;">0</h3>
+                                </div>
+                                <div class="metric-icon-wrap" style="background: #ccfbf1; color: #0f766e; width: 44px; height: 44px;">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                            </div>
+
+                            <div class="metric-box" style="padding: 18px;">
+                                <div class="metric-info">
+                                    <h5 style="color: #15803d;">Converted Clients</h5>
+                                    <h3 id="statCrmConverted" style="font-size: 1.6rem; color: #15803d;">0</h3>
+                                </div>
+                                <div class="metric-icon-wrap" style="background: #dcfce7; color: #15803d; width: 44px; height: 44px;">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Table Card -->
+                        <div class="table-container-card">
+                            <div class="table-header-bar" style="flex-wrap: wrap; gap: 12px;">
+                                <div class="table-filter-group" style="flex-wrap: wrap; gap: 8px;">
+                                    <input type="text" id="searchDemoKeyword" placeholder="Search client, company, email, ref ID..." oninput="onDemoSearchChange()" style="min-width: 240px;" />
+                                    <select id="filterCrmStatus" onchange="onDemoFilterChange()">
+                                        <option value="ALL">All Statuses</option>
+                                        <option value="New">New</option>
+                                        <option value="Contacted">Contacted</option>
+                                        <option value="Follow-up Required">Follow-up Required</option>
+                                        <option value="Demo Scheduled">Demo Scheduled</option>
+                                        <option value="Demo Completed">Demo Completed</option>
+                                        <option value="Quotation Sent">Quotation Sent</option>
+                                        <option value="Negotiation">Negotiation</option>
+                                        <option value="Converted">Converted</option>
+                                        <option value="Closed / Rejected">Closed / Rejected</option>
+                                    </select>
+                                    <select id="filterCrmProject" onchange="onDemoFilterChange()">
+                                        <option value="ALL">All Solutions</option>
+                                        <option value="ERP">Custom ERP Software</option>
+                                        <option value="Restaurant">Restaurant POS &amp; KDS</option>
+                                        <option value="Hospital">Hospital / Clinic OPD</option>
+                                        <option value="School">School &amp; Campus ERP</option>
+                                        <option value="Logistics">Logistics &amp; Fleet</option>
+                                        <option value="Real Estate">Real Estate CRM</option>
+                                        <option value="AI">AI Autonomous Agents</option>
+                                        <option value="E-Commerce">E-Commerce Marketplace</option>
+                                    </select>
+                                    <select id="sortCrmBy" onchange="onDemoFilterChange()">
+                                        <option value="newest">Newest First</option>
+                                        <option value="oldest">Oldest First</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex; gap: 8px; margin-left: auto;">
+                                    <button class="btn-action-sm" onclick="exportDemoRequestsToCSV()" style="background: #10b981; color: #fff; border: none; cursor: pointer; display: flex; align-items: center; gap: 6px;"><i class="fas fa-file-excel"></i> Export CSV</button>
+                                    <button class="btn-action-sm btn-action-primary" onclick="loadDemoRequests()" style="display: flex; align-items: center; gap: 6px;"><i class="fas fa-sync-alt"></i> Refresh</button>
+                                </div>
+                            </div>
+
+                            <div style="overflow-x: auto;">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Ref ID &amp; Date</th>
+                                            <th>Client &amp; Company</th>
+                                            <th>Software Solution</th>
+                                            <th>Contact Details</th>
+                                            <th>Preferred Slot</th>
+                                            <th>CRM Status</th>
+                                            <th>Assigned Lead</th>
+                                            <th style="text-align: right;">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="demoRequestTableBody">
+                                        <tr><td colspan="8" style="text-align: center; color: #94a3b8; padding: 28px;">Loading demo requests...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Pagination controls -->
+                            <div id="demoPaginationBar" style="padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); font-size: 0.84rem; color: #64748b;">
+                                <span id="demoPageSummary">Showing 0 of 0 requests</span>
+                                <div style="display: flex; gap: 6px;">
+                                    <button type="button" class="btn-action-sm" id="btnPrevDemoPage" onclick="changeDemoPage(-1)" disabled>&laquo; Prev</button>
+                                    <button type="button" class="btn-action-sm" id="btnNextDemoPage" onclick="changeDemoPage(1)" disabled>Next &raquo;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- TAB 1: Internship Applications -->
-                    <div id="tab-internships" class="tab-panel active">
+                    <div id="tab-internships" class="tab-panel">
                         <div class="table-container-card">
                             <div class="table-header-bar">
                                 <div class="table-filter-group">
@@ -700,6 +1004,205 @@
             </div>
         </div>
 
+        <!-- CRM Request Management Drawer / Modal -->
+        <div id="adminDemoDrawer" class="crm-drawer-overlay">
+            <div class="crm-drawer-card">
+                <div class="crm-drawer-header">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span class="crm-badge" id="drawerStatusBadge">STATUS</span>
+                            <span style="font-family: monospace; font-size: 0.85rem; color: #0084ff; font-weight: 700;" id="drawerRefId">RCTS-DEMO-2026-0000</span>
+                        </div>
+                        <h3 style="margin: 4px 0 2px 0; font-size: 1.25rem; color: #0f172a;" id="drawerClientTitle">Client Name - Company</h3>
+                        <p style="margin: 0; font-size: 0.82rem; color: #64748b;" id="drawerSolutionSubtitle">Requested: Custom Software Solution</p>
+                    </div>
+                    <button type="button" onclick="closeDemoDrawer()" style="background: #f1f5f9; border: 1px solid #e2e8f0; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; color: #475569;">&times;</button>
+                </div>
+
+                <div class="crm-drawer-body">
+                    <!-- Top Action Bar: Quick Status Transition -->
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 16px; margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                        <div style="font-size: 0.82rem; font-weight: 700; color: #334155;">
+                            <i class="fas fa-exchange-alt" style="color: #0084ff;"></i> Update Stage:
+                        </div>
+                        <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center;">
+                            <select id="drawerQuickStatusSelect" style="padding: 6px 12px; border-radius: 8px; border: 1.5px solid #cbd5e1; font-size: 0.84rem; font-weight: 600; background: #fff;">
+                                <option value="New">New</option>
+                                <option value="Contacted">Contacted</option>
+                                <option value="Follow-up Required">Follow-up Required</option>
+                                <option value="Demo Scheduled">Demo Scheduled</option>
+                                <option value="Demo Completed">Demo Completed</option>
+                                <option value="Quotation Sent">Quotation Sent</option>
+                                <option value="Negotiation">Negotiation</option>
+                                <option value="Converted">Converted</option>
+                                <option value="Closed / Rejected">Closed / Rejected</option>
+                            </select>
+                            <button type="button" class="btn-action-sm btn-action-primary" onclick="submitStatusUpdate()"><i class="fas fa-check"></i> Apply Status</button>
+                        </div>
+                        <div style="display: flex; gap: 6px;">
+                            <a id="drawerWaBtn" href="#" target="_blank" rel="noopener" class="btn-action-sm" style="background: #25d366; color: #fff; border: none; font-weight: 700;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                            <a id="drawerMailBtn" href="#" class="btn-action-sm" style="background: #0284c7; color: #fff; border: none; font-weight: 700;"><i class="fas fa-envelope"></i> Email</a>
+                        </div>
+                    </div>
+
+                    <!-- Subtabs Navigation -->
+                    <div class="crm-tabs-nav">
+                        <button type="button" class="crm-subtab-btn active" id="subtabBtn-overview" onclick="switchCrmSubTab('overview')"><i class="fas fa-id-card"></i> Overview</button>
+                        <button type="button" class="crm-subtab-btn" id="subtabBtn-meeting" onclick="switchCrmSubTab('meeting')"><i class="fas fa-video"></i> Schedule Meeting</button>
+                        <button type="button" class="crm-subtab-btn" id="subtabBtn-assign" onclick="switchCrmSubTab('assign')"><i class="fas fa-user-plus"></i> Assign Team</button>
+                        <button type="button" class="crm-subtab-btn" id="subtabBtn-quotation" onclick="switchCrmSubTab('quotation')"><i class="fas fa-file-invoice-dollar"></i> Quotation &amp; Deal</button>
+                        <button type="button" class="crm-subtab-btn" id="subtabBtn-notes" onclick="switchCrmSubTab('notes')"><i class="fas fa-sticky-note"></i> Internal Notes</button>
+                        <button type="button" class="crm-subtab-btn" id="subtabBtn-logs" onclick="switchCrmSubTab('logs')"><i class="fas fa-history"></i> Audit Trail</button>
+                    </div>
+
+                    <!-- Subtab 1: Overview -->
+                    <div id="crmSubTab-overview" class="crm-subtab-content">
+                        <div class="crm-grid-2">
+                            <div class="crm-info-card">
+                                <h4><i class="fas fa-user-tie"></i> Client Information</h4>
+                                <div class="crm-info-row"><span class="crm-info-label">Full Name:</span><span class="crm-info-val" id="ovFullName">-</span></div>
+                                <div class="crm-info-row"><span class="crm-info-label">Company:</span><span class="crm-info-val" id="ovCompany">-</span></div>
+                                <div class="crm-info-row"><span class="crm-info-label">Business Email:</span><span class="crm-info-val" id="ovEmail">-</span></div>
+                                <div class="crm-info-row"><span class="crm-info-label">Direct Phone:</span><span class="crm-info-val" id="ovPhone">-</span></div>
+                                <div class="crm-info-row"><span class="crm-info-label">Company Type:</span><span class="crm-info-val" id="ovCompanyType">-</span></div>
+                                <div class="crm-info-row"><span class="crm-info-label">Company Size:</span><span class="crm-info-val" id="ovEmployeeCount">-</span></div>
+                            </div>
+
+                            <div class="crm-info-card">
+                                <h4><i class="fas fa-cubes"></i> Demo Request Scope</h4>
+                                <div class="crm-info-row"><span class="crm-info-label">Target Solution:</span><span class="crm-info-val" id="ovProject" style="color: #0084ff;">-</span></div>
+                                <div class="crm-info-row"><span class="crm-info-label">Preferred Date:</span><span class="crm-info-val" id="ovDate">-</span></div>
+                                <div class="crm-info-row"><span class="crm-info-label">Preferred Time Slot:</span><span class="crm-info-val" id="ovTime">-</span></div>
+                                <div class="crm-info-row"><span class="crm-info-label">Current Stage:</span><span class="crm-info-val" id="ovStatus">-</span></div>
+                                <div class="crm-info-row"><span class="crm-info-label">Assigned Lead:</span><span class="crm-info-val" id="ovAssigned">-</span></div>
+                                <div class="crm-info-row"><span class="crm-info-label">Created At:</span><span class="crm-info-val" id="ovCreatedAt">-</span></div>
+                            </div>
+                        </div>
+
+                        <div class="crm-info-card" style="margin-top: 16px;">
+                            <h4><i class="fas fa-align-left"></i> Specific Requirements &amp; Technical Notes</h4>
+                            <p id="ovRequirements" style="font-size: 0.88rem; color: #334155; line-height: 1.6; margin: 0; background: #fff; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; white-space: pre-wrap;">None specified.</p>
+                        </div>
+                    </div>
+
+                    <!-- Subtab 2: Schedule Meeting -->
+                    <div id="crmSubTab-meeting" class="crm-subtab-content" style="display: none;">
+                        <div class="crm-info-card">
+                            <h4><i class="fas fa-calendar-alt"></i> Schedule Live Google Meet Demo</h4>
+                            <form id="formScheduleMeeting" onsubmit="submitScheduleMeeting(event)">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+                                    <div>
+                                        <label style="font-size: 0.78rem; font-weight: 700; color: #334155;">Meeting Title</label>
+                                        <input type="text" id="meetTitleInput" class="demo-input" style="padding: 10px 12px;" required />
+                                    </div>
+                                    <div>
+                                        <label style="font-size: 0.78rem; font-weight: 700; color: #334155;">Host Solutions Engineer</label>
+                                        <input type="text" id="meetHostInput" class="demo-input" style="padding: 10px 12px;" value="Ratan Chaurasiya" required />
+                                    </div>
+                                    <div>
+                                        <label style="font-size: 0.78rem; font-weight: 700; color: #334155;">Meeting Date</label>
+                                        <input type="date" id="meetDateInput" class="demo-input" style="padding: 10px 12px;" required />
+                                    </div>
+                                    <div>
+                                        <label style="font-size: 0.78rem; font-weight: 700; color: #334155;">Time Slot</label>
+                                        <input type="text" id="meetTimeInput" class="demo-input" style="padding: 10px 12px;" placeholder="e.g. 11:00 AM - 12:00 PM IST" required />
+                                    </div>
+                                    <div style="grid-column: span 2;">
+                                        <label style="font-size: 0.78rem; font-weight: 700; color: #334155;">Google Meet Link</label>
+                                        <div style="display: flex; gap: 8px;">
+                                            <input type="url" id="meetLinkInput" class="demo-input" style="padding: 10px 12px;" placeholder="https://meet.google.com/..." required />
+                                            <button type="button" class="btn-action-sm" onclick="generateGoogleMeetLink()" style="background: #f1f5f9; white-space: nowrap;"><i class="fas fa-magic"></i> Auto Generate</button>
+                                        </div>
+                                    </div>
+                                    <div style="grid-column: span 2;">
+                                        <label style="font-size: 0.78rem; font-weight: 700; color: #334155;">Session Agenda</label>
+                                        <textarea id="meetAgendaInput" class="demo-textarea" placeholder="Agenda points, architecture review, and live demo scope..."></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-action-sm btn-action-primary" style="padding: 10px 18px; font-size: 0.88rem;"><i class="fas fa-check-circle"></i> Confirm &amp; Schedule Demo</button>
+                            </form>
+                        </div>
+
+                        <!-- Scheduled Meetings History -->
+                        <div style="margin-top: 20px;">
+                            <h4 style="font-size: 0.85rem; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Meeting History &amp; Schedules</h4>
+                            <div id="meetHistoryList" style="display: flex; flex-direction: column; gap: 10px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Subtab 3: Assign Team -->
+                    <div id="crmSubTab-assign" class="crm-subtab-content" style="display: none;">
+                        <div class="crm-info-card">
+                            <h4><i class="fas fa-user-check"></i> Assign Solutions Engineer / Account Manager</h4>
+                            <form id="formAssignLead" onsubmit="submitAssignLead(event)">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+                                    <div>
+                                        <label style="font-size: 0.78rem; font-weight: 700; color: #334155;">Assigned Team Member Name</label>
+                                        <input type="text" id="asgNameInput" class="demo-input" style="padding: 10px 12px;" placeholder="e.g. Ratan Chaurasiya" required />
+                                    </div>
+                                    <div>
+                                        <label style="font-size: 0.78rem; font-weight: 700; color: #334155;">Team Member Email</label>
+                                        <input type="email" id="asgEmailInput" class="demo-input" style="padding: 10px 12px;" placeholder="engineer@rctechnosolutions.com" />
+                                    </div>
+                                    <div style="grid-column: span 2;">
+                                        <label style="font-size: 0.78rem; font-weight: 700; color: #334155;">Assignment Instructions / Role</label>
+                                        <textarea id="asgNotesInput" class="demo-textarea" placeholder="Owner for technical discovery and staging walkthrough..."></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-action-sm btn-action-primary" style="padding: 10px 18px; font-size: 0.88rem;"><i class="fas fa-user-plus"></i> Save Assignment</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Subtab 4: Quotation & Deal -->
+                    <div id="crmSubTab-quotation" class="crm-subtab-content" style="display: none;">
+                        <div class="crm-info-card">
+                            <h4><i class="fas fa-file-invoice-dollar"></i> Commercial Quotation &amp; Agreement</h4>
+                            <form id="formQuotation" onsubmit="submitQuotation(event)">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+                                    <div>
+                                        <label style="font-size: 0.78rem; font-weight: 700; color: #334155;">Quotation Amount / Commercial Terms</label>
+                                        <input type="text" id="quoteAmountInput" class="demo-input" style="padding: 10px 12px;" placeholder="e.g. ₹3,50,000 + GST or $4,500" required />
+                                    </div>
+                                    <div>
+                                        <label style="font-size: 0.78rem; font-weight: 700; color: #334155;">Quotation Document URL / Reference</label>
+                                        <input type="text" id="quoteUrlInput" class="demo-input" style="padding: 10px 12px;" placeholder="/docs/quotes/RCTS-QUOTE-2026.pdf" />
+                                    </div>
+                                    <div style="grid-column: span 2;">
+                                        <label style="font-size: 0.78rem; font-weight: 700; color: #334155;">Scope, SLA &amp; Payment Milestones</label>
+                                        <textarea id="quoteNotesInput" class="demo-textarea" placeholder="Milestone 1 (40%): Architecture blueprint; Milestone 2 (40%): Staging; Milestone 3 (20%): Production Go-Live..."></textarea>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                                    <button type="submit" class="btn-action-sm btn-action-primary" style="padding: 10px 18px; font-size: 0.88rem;"><i class="fas fa-save"></i> Save Quotation</button>
+                                    <button type="button" class="btn-action-sm" onclick="markDealOutcome('Converted')" style="background: #10b981; color: #fff; border: none; font-weight: 700; padding: 10px 16px; cursor: pointer;"><i class="fas fa-check-double"></i> Mark Converted</button>
+                                    <button type="button" class="btn-action-sm" onclick="markDealOutcome('Closed / Rejected')" style="background: #ef4444; color: #fff; border: none; font-weight: 700; padding: 10px 16px; cursor: pointer;"><i class="fas fa-times"></i> Mark Lost / Rejected</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Subtab 5: Internal Notes -->
+                    <div id="crmSubTab-notes" class="crm-subtab-content" style="display: none;">
+                        <div class="crm-info-card" style="margin-bottom: 16px;">
+                            <h4><i class="fas fa-plus-circle"></i> Add Internal Team Note</h4>
+                            <form id="formAddNote" onsubmit="submitAddNote(event)">
+                                <textarea id="newNoteText" class="demo-textarea" placeholder="Add confidential observation, client requirement or follow-up note..." required style="margin-bottom: 10px;"></textarea>
+                                <button type="submit" class="btn-action-sm btn-action-primary" style="padding: 8px 16px;"><i class="fas fa-comment-medical"></i> Post Note</button>
+                            </form>
+                        </div>
+                        <div id="notesHistoryList" style="display: flex; flex-direction: column; gap: 10px;"></div>
+                    </div>
+
+                    <!-- Subtab 6: Audit Trail -->
+                    <div id="crmSubTab-logs" class="crm-subtab-content" style="display: none;">
+                        <h4 style="font-size: 0.85rem; font-weight: 700; color: #0f172a; margin-bottom: 14px;"><i class="fas fa-shield-alt"></i> Activity &amp; Audit Trail</h4>
+                        <div id="activityTimelineList" style="padding-left: 8px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script>
             var allInternships = [];
             var authToken = localStorage.getItem('rc_admin_token') || '';
@@ -757,6 +1260,7 @@
                 if (navLink) navLink.classList.add('active');
 
                 var headers = {
+                    'demorequests': 'Enterprise Software Demo Requests (CRM Pipeline)',
                     'internships': 'Internship Applications Management',
                     'enquiries': 'Website Contact & Project Inquiries',
                     'chatleads': 'Conversational AI Chatbot Leads',
@@ -764,9 +1268,14 @@
                     'system': 'Database & System Configuration'
                 };
                 document.getElementById('topbarHeader').textContent = headers[tabId] || 'Admin Portal';
+
+                if (tabId === 'demorequests') {
+                    loadDemoRequests();
+                }
             }
 
             function loadAllData() {
+                loadDemoRequests();
                 loadInternships();
                 loadEnquiries();
                 loadChatLeads();
@@ -971,6 +1480,519 @@
                     }
                 })
                 .catch(function(e){ console.error(e); });
+            }
+
+            // =========================================================================
+            // DEMO REQUEST CRM MODULE JAVASCRIPT
+            // =========================================================================
+            var crmState = {
+                page: 1,
+                limit: 10,
+                total: 0,
+                totalPages: 1,
+                currentRequestId: null,
+                currentRequest: null,
+                allRequests: []
+            };
+
+            function getCrmStatusBadge(status) {
+                var s = (status || 'New').toLowerCase();
+                var cls = 'crm-badge-new';
+                if (s.includes('contact')) cls = 'crm-badge-contacted';
+                else if (s.includes('follow')) cls = 'crm-badge-followup';
+                else if (s.includes('sched')) cls = 'crm-badge-scheduled';
+                else if (s.includes('comp')) cls = 'crm-badge-completed';
+                else if (s.includes('quot')) cls = 'crm-badge-quotation';
+                else if (s.includes('neg')) cls = 'crm-badge-negotiation';
+                else if (s.includes('conv')) cls = 'crm-badge-converted';
+                else if (s.includes('clos') || s.includes('reject')) cls = 'crm-badge-rejected';
+                return '<span class="crm-badge ' + cls + '">' + (status || 'New') + '</span>';
+            }
+
+            function loadDemoRequests() {
+                var search = document.getElementById('searchDemoKeyword') ? document.getElementById('searchDemoKeyword').value : '';
+                var status = document.getElementById('filterCrmStatus') ? document.getElementById('filterCrmStatus').value : 'ALL';
+                var project = document.getElementById('filterCrmProject') ? document.getElementById('filterCrmProject').value : 'ALL';
+                var sortBy = document.getElementById('sortCrmBy') ? document.getElementById('sortCrmBy').value : 'newest';
+
+                var params = new URLSearchParams({
+                    search: search,
+                    status: status,
+                    project: project,
+                    sortBy: sortBy,
+                    page: crmState.page,
+                    limit: crmState.limit
+                });
+
+                fetch('/api/admin/demo/requests?' + params.toString(), {
+                    headers: { 'Authorization': 'Bearer ' + authToken }
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        crmState.total = data.total;
+                        crmState.totalPages = data.totalPages;
+                        crmState.allRequests = data.requests || [];
+
+                        // Update KPIs
+                        if (data.stats) {
+                            if (document.getElementById('statCrmTotal')) document.getElementById('statCrmTotal').textContent = data.stats.total;
+                            if (document.getElementById('statCrmNew')) document.getElementById('statCrmNew').textContent = data.stats.newCount;
+                            if (document.getElementById('statCrmPending')) document.getElementById('statCrmPending').textContent = data.stats.pendingCount;
+                            if (document.getElementById('statCrmScheduled')) document.getElementById('statCrmScheduled').textContent = data.stats.scheduledCount;
+                            if (document.getElementById('statCrmCompleted')) document.getElementById('statCrmCompleted').textContent = data.stats.completedCount;
+                            if (document.getElementById('statCrmConverted')) document.getElementById('statCrmConverted').textContent = data.stats.convertedCount;
+
+                            var badge = document.getElementById('badgeNewDemos');
+                            if (badge) {
+                                if (data.stats.newCount > 0) {
+                                    badge.textContent = data.stats.newCount;
+                                    badge.style.display = 'inline-block';
+                                } else {
+                                    badge.style.display = 'none';
+                                }
+                            }
+                        }
+
+                        renderDemoRequests(crmState.allRequests);
+                        updateDemoPagination();
+                    }
+                })
+                .catch(function(err) {
+                    console.error('Error loading demo requests:', err);
+                });
+            }
+
+            function renderDemoRequests(list) {
+                var tbody = document.getElementById('demoRequestTableBody');
+                if (!tbody) return;
+
+                if (!list.length) {
+                    tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; color: #94a3b8; padding: 28px;">No demo requests found matching your filter criteria.</td></tr>';
+                    return;
+                }
+
+                var html = '';
+                list.forEach(function(req) {
+                    var dateStr = req.createdAt ? new Date(req.createdAt).toLocaleDateString() : 'Recent';
+                    var timeStr = req.createdAt ? new Date(req.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '';
+                    var badge = getCrmStatusBadge(req.status);
+                    var cleanPhone = (req.phone || '').replace(/\D/g, '');
+                    var waMsg = encodeURIComponent('Hello ' + req.fullName + ', this is RC Techno Solutions regarding your demo request for ' + req.projectName + ' (Ref: ' + req.referenceId + ').');
+                    var waUrl = cleanPhone ? ('https://wa.me/' + cleanPhone + '?text=' + waMsg) : '#';
+
+                    html += '<tr>' +
+                        '<td><strong style="color: #0084ff; font-family: monospace;">' + req.referenceId + '</strong><br><small style="color: #64748b;">' + dateStr + ' ' + timeStr + '</small></td>' +
+                        '<td><strong style="color: #0f172a;">' + req.fullName + '</strong><br><small style="color: #64748b;"><i class="fas fa-building" style="font-size:10px;"></i> ' + (req.companyName || 'Individual') + '</small></td>' +
+                        '<td><strong style="color: #0284c7;">' + req.projectName + '</strong><br><small style="color: #94a3b8;">' + (req.companyType || 'Enterprise') + ' &bull; ' + (req.employeeCount || '11-50') + '</small></td>' +
+                        '<td><a href="tel:' + req.phone + '" style="color: #10b981; text-decoration: none; font-weight: 600;"><i class="fas fa-phone-alt" style="font-size:10px;"></i> ' + req.phone + '</a><br><a href="mailto:' + req.email + '" style="color: #64748b; text-decoration: none; font-size: 0.8rem;"><i class="fas fa-envelope" style="font-size:10px;"></i> ' + req.email + '</a></td>' +
+                        '<td><div style="font-weight: 600; font-size: 0.82rem; color: #334155;"><i class="fas fa-calendar-day" style="color:#0084ff;"></i> ' + (req.preferredDate || 'N/A') + '</div><small style="color: #64748b;">' + (req.preferredTime || '') + '</small></td>' +
+                        '<td>' + badge + '</td>' +
+                        '<td><span style="font-size: 0.84rem; font-weight: 600; color: #475569;"><i class="fas fa-user-circle" style="color: #94a3b8;"></i> ' + (req.assignedTo || 'Unassigned') + '</span></td>' +
+                        '<td style="text-align: right;">' +
+                            '<div style="display: flex; gap: 5px; justify-content: flex-end; align-items: center; flex-wrap: wrap;">' +
+                                '<button type="button" class="btn-action-sm btn-action-primary" onclick="openDemoDrawer(\'' + req.id + '\')" style="white-space: nowrap;"><i class="fas fa-sliders-h"></i> Manage</button>' +
+                                '<a href="' + waUrl + '" target="_blank" rel="noopener" class="btn-action-sm" style="background: #25d366; color: #fff; border: none; font-weight: 700;" title="Open WhatsApp Chat"><i class="fab fa-whatsapp"></i></a>' +
+                            '</div>' +
+                        '</td>' +
+                    '</tr>';
+                });
+
+                tbody.innerHTML = html;
+            }
+
+            function updateDemoPagination() {
+                var summary = document.getElementById('demoPageSummary');
+                var prevBtn = document.getElementById('btnPrevDemoPage');
+                var nextBtn = document.getElementById('btnNextDemoPage');
+
+                if (summary) {
+                    var start = crmState.total === 0 ? 0 : ((crmState.page - 1) * crmState.limit) + 1;
+                    var end = Math.min(crmState.page * crmState.limit, crmState.total);
+                    summary.textContent = 'Showing ' + start + ' to ' + end + ' of ' + crmState.total + ' requests (Page ' + crmState.page + ' of ' + crmState.totalPages + ')';
+                }
+
+                if (prevBtn) prevBtn.disabled = crmState.page <= 1;
+                if (nextBtn) nextBtn.disabled = crmState.page >= crmState.totalPages;
+            }
+
+            function changeDemoPage(delta) {
+                var newPage = crmState.page + delta;
+                if (newPage >= 1 && newPage <= crmState.totalPages) {
+                    crmState.page = newPage;
+                    loadDemoRequests();
+                }
+            }
+
+            function onDemoSearchChange() {
+                crmState.page = 1;
+                loadDemoRequests();
+            }
+
+            function onDemoFilterChange() {
+                crmState.page = 1;
+                loadDemoRequests();
+            }
+
+            // Drawer Controller
+            function openDemoDrawer(id) {
+                fetch('/api/admin/demo/request/' + id, {
+                    headers: { 'Authorization': 'Bearer ' + authToken }
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success && data.request) {
+                        var req = data.request;
+                        crmState.currentRequestId = req.id;
+                        crmState.currentRequest = req;
+
+                        // Header info
+                        document.getElementById('drawerRefId').textContent = req.referenceId;
+                        document.getElementById('drawerClientTitle').textContent = req.fullName + ' - ' + (req.companyName || 'Enterprise');
+                        document.getElementById('drawerSolutionSubtitle').textContent = 'Requested: ' + req.projectName;
+                        document.getElementById('drawerStatusBadge').outerHTML = getCrmStatusBadge(req.status);
+                        document.getElementById('drawerQuickStatusSelect').value = req.status;
+
+                        // WhatsApp and Email links
+                        var cleanPhone = (req.phone || '').replace(/\D/g, '');
+                        var waMsg = encodeURIComponent('Hello ' + req.fullName + ', regarding your demo request for ' + req.projectName + ' with RC Techno Solutions...');
+                        document.getElementById('drawerWaBtn').href = cleanPhone ? ('https://wa.me/' + cleanPhone + '?text=' + waMsg) : '#';
+                        document.getElementById('drawerMailBtn').href = 'mailto:' + req.email + '?subject=' + encodeURIComponent('RC Techno Solutions - Live Demo for ' + req.projectName);
+
+                        // Overview subtab
+                        document.getElementById('ovFullName').textContent = req.fullName;
+                        document.getElementById('ovCompany').textContent = req.companyName || 'N/A';
+                        document.getElementById('ovEmail').textContent = req.email;
+                        document.getElementById('ovPhone').textContent = req.phone;
+                        document.getElementById('ovCompanyType').textContent = req.companyType || 'Enterprise';
+                        document.getElementById('ovEmployeeCount').textContent = req.employeeCount || '11-50';
+                        document.getElementById('ovProject').textContent = req.projectName;
+                        document.getElementById('ovDate').textContent = req.preferredDate || 'N/A';
+                        document.getElementById('ovTime').textContent = req.preferredTime || 'N/A';
+                        document.getElementById('ovStatus').textContent = req.status;
+                        document.getElementById('ovAssigned').textContent = req.assignedTo || 'Unassigned';
+                        document.getElementById('ovCreatedAt').textContent = req.createdAt ? new Date(req.createdAt).toLocaleString() : 'N/A';
+                        document.getElementById('ovRequirements').textContent = req.additionalRequirements || 'No specific technical requirements submitted.';
+
+                        // Meeting pre-fill
+                        document.getElementById('meetTitleInput').value = 'Live Demo: ' + req.projectName + ' for ' + (req.companyName || req.fullName);
+                        document.getElementById('meetDateInput').value = req.preferredDate || new Date().toISOString().split('T')[0];
+                        document.getElementById('meetTimeInput').value = req.preferredTime || '11:00 AM IST';
+                        if (!document.getElementById('meetLinkInput').value) generateGoogleMeetLink();
+                        renderMeetingsHistory(req.meetings || []);
+
+                        // Assignment pre-fill
+                        document.getElementById('asgNameInput').value = req.assignedTo && req.assignedTo !== 'Unassigned' ? req.assignedTo : 'Ratan Chaurasiya';
+                        document.getElementById('asgEmailInput').value = req.assignedEmail || 'ratan@rctechnosolutions.com';
+
+                        // Quotation pre-fill
+                        document.getElementById('quoteAmountInput').value = req.quotationAmount || '';
+                        document.getElementById('quoteUrlInput').value = req.quotationUrl || '';
+                        document.getElementById('quoteNotesInput').value = req.quotationNotes || '';
+
+                        // Notes & Activity history
+                        renderNotesHistory(req.notes || []);
+                        renderActivityTimeline(req.activityLogs || []);
+
+                        // Reset to first tab
+                        switchCrmSubTab('overview');
+
+                        document.getElementById('adminDemoDrawer').style.display = 'flex';
+                    }
+                })
+                .catch(function(err) {
+                    console.error('Error fetching demo details:', err);
+                    alert('Failed to load demo request details.');
+                });
+            }
+
+            function closeDemoDrawer() {
+                document.getElementById('adminDemoDrawer').style.display = 'none';
+                crmState.currentRequestId = null;
+                crmState.currentRequest = null;
+            }
+
+            function switchCrmSubTab(subTabId) {
+                document.querySelectorAll('.crm-subtab-btn').forEach(function(b) { b.classList.remove('active'); });
+                document.querySelectorAll('.crm-subtab-content').forEach(function(c) { c.style.display = 'none'; });
+
+                var btn = document.getElementById('subtabBtn-' + subTabId);
+                var content = document.getElementById('crmSubTab-' + subTabId);
+                if (btn) btn.classList.add('active');
+                if (content) content.style.display = 'block';
+            }
+
+            function submitStatusUpdate() {
+                if (!crmState.currentRequestId) return;
+                var newStatus = document.getElementById('drawerQuickStatusSelect').value;
+                var reason = prompt('Optional note or reason for this status update:', '');
+
+                fetch('/api/admin/demo/request/' + crmState.currentRequestId + '/status', {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + authToken
+                    },
+                    body: JSON.stringify({ status: newStatus, notes: reason })
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(res) {
+                    if (res.success) {
+                        openDemoDrawer(crmState.currentRequestId);
+                        loadDemoRequests();
+                    } else {
+                        alert(res.error || 'Failed to update status.');
+                    }
+                });
+            }
+
+            function generateGoogleMeetLink() {
+                var code1 = Math.random().toString(36).substring(2, 5);
+                var code2 = Math.random().toString(36).substring(2, 6);
+                var code3 = Math.random().toString(36).substring(2, 5);
+                var link = 'https://meet.google.com/' + code1 + '-' + code2 + '-' + code3;
+                document.getElementById('meetLinkInput').value = link;
+            }
+
+            function submitScheduleMeeting(e) {
+                e.preventDefault();
+                if (!crmState.currentRequestId) return;
+
+                var payload = {
+                    title: document.getElementById('meetTitleInput').value.trim(),
+                    hostName: document.getElementById('meetHostInput').value.trim(),
+                    meetingDate: document.getElementById('meetDateInput').value,
+                    meetingTime: document.getElementById('meetTimeInput').value.trim(),
+                    googleMeetLink: document.getElementById('meetLinkInput').value.trim(),
+                    agenda: document.getElementById('meetAgendaInput').value.trim(),
+                    attendeeEmail: crmState.currentRequest ? crmState.currentRequest.email : ''
+                };
+
+                fetch('/api/admin/demo/request/' + crmState.currentRequestId + '/meetings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + authToken
+                    },
+                    body: JSON.stringify(payload)
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(res) {
+                    if (res.success) {
+                        alert('Demo Meeting scheduled successfully! Google Meet invitation logged.');
+                        openDemoDrawer(crmState.currentRequestId);
+                        loadDemoRequests();
+                    } else {
+                        alert(res.error || 'Failed to schedule meeting.');
+                    }
+                });
+            }
+
+            function renderMeetingsHistory(meetings) {
+                var list = document.getElementById('meetHistoryList');
+                if (!list) return;
+                if (!meetings.length) {
+                    list.innerHTML = '<div style="color: #94a3b8; font-size: 0.84rem; padding: 10px; background: #f8fafc; border-radius: 8px;">No scheduled meetings recorded yet.</div>';
+                    return;
+                }
+                var html = '';
+                meetings.forEach(function(m) {
+                    html += '<div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 12px 14px;">' +
+                        '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">' +
+                            '<strong style="font-size: 0.88rem; color: #1e3a8a;"><i class="fas fa-video" style="color: #0084ff;"></i> ' + m.title + '</strong>' +
+                            '<span class="crm-badge crm-badge-scheduled">' + m.status + '</span>' +
+                        '</div>' +
+                        '<div style="font-size: 0.8rem; color: #475569; margin-bottom: 6px;">Date: <strong>' + (m.meetingDate ? m.meetingDate.split('T')[0] : '') + '</strong> &bull; Time: <strong>' + m.meetingTime + '</strong> &bull; Host: ' + m.hostName + '</div>' +
+                        '<div style="font-size: 0.8rem;"><a href="' + m.googleMeetLink + '" target="_blank" rel="noopener" style="color: #0084ff; font-weight: 700; text-decoration: none;"><i class="fas fa-external-link-alt"></i> ' + m.googleMeetLink + '</a></div>' +
+                    '</div>';
+                });
+                list.innerHTML = html;
+            }
+
+            function submitAssignLead(e) {
+                e.preventDefault();
+                if (!crmState.currentRequestId) return;
+
+                var payload = {
+                    assignedToName: document.getElementById('asgNameInput').value.trim(),
+                    assignedToEmail: document.getElementById('asgEmailInput').value.trim(),
+                    notes: document.getElementById('asgNotesInput').value.trim(),
+                    assignedBy: 'Super Admin'
+                };
+
+                fetch('/api/admin/demo/request/' + crmState.currentRequestId + '/assign', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + authToken
+                    },
+                    body: JSON.stringify(payload)
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(res) {
+                    if (res.success) {
+                        alert('Demo request assigned successfully!');
+                        openDemoDrawer(crmState.currentRequestId);
+                        loadDemoRequests();
+                    } else {
+                        alert(res.error || 'Failed to assign lead.');
+                    }
+                });
+            }
+
+            function submitQuotation(e) {
+                e.preventDefault();
+                if (!crmState.currentRequestId) return;
+
+                var payload = {
+                    quotationAmount: document.getElementById('quoteAmountInput').value.trim(),
+                    quotationUrl: document.getElementById('quoteUrlInput').value.trim(),
+                    quotationNotes: document.getElementById('quoteNotesInput').value.trim(),
+                    actorName: 'Super Admin'
+                };
+
+                fetch('/api/admin/demo/request/' + crmState.currentRequestId + '/quotation', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + authToken
+                    },
+                    body: JSON.stringify(payload)
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(res) {
+                    if (res.success) {
+                        alert('Quotation saved and request stage set to Quotation Sent!');
+                        openDemoDrawer(crmState.currentRequestId);
+                        loadDemoRequests();
+                    } else {
+                        alert(res.error || 'Failed to update quotation.');
+                    }
+                });
+            }
+
+            function markDealOutcome(outcome) {
+                if (!crmState.currentRequestId) return;
+                var feedback = prompt('Enter client remarks / feedback for closing this deal as ' + outcome + ':', '');
+                if (feedback === null) return;
+
+                fetch('/api/admin/demo/request/' + crmState.currentRequestId + '/feedback', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + authToken
+                    },
+                    body: JSON.stringify({ outcomeStatus: outcome, feedback: feedback, actorName: 'Super Admin' })
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(res) {
+                    if (res.success) {
+                        alert('Deal stage updated to ' + outcome + '!');
+                        openDemoDrawer(crmState.currentRequestId);
+                        loadDemoRequests();
+                    } else {
+                        alert(res.error || 'Failed to update outcome.');
+                    }
+                });
+            }
+
+            function submitAddNote(e) {
+                e.preventDefault();
+                if (!crmState.currentRequestId) return;
+
+                var noteText = document.getElementById('newNoteText').value.trim();
+                if (!noteText) return;
+
+                fetch('/api/admin/demo/request/' + crmState.currentRequestId + '/notes', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + authToken
+                    },
+                    body: JSON.stringify({ authorName: 'Super Admin', noteText: noteText, isPrivate: true })
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(res) {
+                    if (res.success) {
+                        document.getElementById('newNoteText').value = '';
+                        openDemoDrawer(crmState.currentRequestId);
+                    } else {
+                        alert(res.error || 'Failed to post note.');
+                    }
+                });
+            }
+
+            function renderNotesHistory(notes) {
+                var list = document.getElementById('notesHistoryList');
+                if (!list) return;
+                if (!notes.length) {
+                    list.innerHTML = '<div style="color: #94a3b8; font-size: 0.84rem; padding: 10px; background: #f8fafc; border-radius: 8px;">No internal notes logged yet.</div>';
+                    return;
+                }
+                var html = '';
+                notes.forEach(function(n) {
+                    html += '<div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 14px;">' +
+                        '<div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: #64748b; margin-bottom: 6px;">' +
+                            '<strong><i class="fas fa-user-lock"></i> ' + n.authorName + '</strong>' +
+                            '<span>' + (n.createdAt ? new Date(n.createdAt).toLocaleString() : '') + '</span>' +
+                        '</div>' +
+                        '<div style="font-size: 0.86rem; color: #1e293b; line-height: 1.5; white-space: pre-wrap;">' + n.noteText + '</div>' +
+                    '</div>';
+                });
+                list.innerHTML = html;
+            }
+
+            function renderActivityTimeline(logs) {
+                var timeline = document.getElementById('activityTimelineList');
+                if (!timeline) return;
+                if (!logs.length) {
+                    timeline.innerHTML = '<div style="color: #94a3b8; font-size: 0.84rem;">No activity recorded yet.</div>';
+                    return;
+                }
+                var html = '';
+                logs.forEach(function(log) {
+                    html += '<div class="crm-timeline-item">' +
+                        '<div class="crm-timeline-time">' + (log.createdAt ? new Date(log.createdAt).toLocaleString() : '') + ' &bull; by <strong>' + log.actorName + '</strong></div>' +
+                        '<div class="crm-timeline-title">' + log.action + '</div>' +
+                        '<div class="crm-timeline-desc">' + log.details + '</div>' +
+                    '</div>';
+                });
+                timeline.innerHTML = html;
+            }
+
+            function exportDemoRequestsToCSV() {
+                if (!crmState.allRequests || !crmState.allRequests.length) {
+                    alert('No demo request data available to export.');
+                    return;
+                }
+                var headers = ['Reference ID', 'Client Name', 'Company', 'Email', 'Phone', 'Project Solution', 'Company Type', 'Size', 'Preferred Date', 'Time Slot', 'Status', 'Assigned To', 'Quotation', 'Created At'];
+                var rows = crmState.allRequests.map(function(r) {
+                    return [
+                        '"' + (r.referenceId || '') + '"',
+                        '"' + (r.fullName || '') + '"',
+                        '"' + (r.companyName || '') + '"',
+                        '"' + (r.email || '') + '"',
+                        '"' + (r.phone || '') + '"',
+                        '"' + (r.projectName || '') + '"',
+                        '"' + (r.companyType || '') + '"',
+                        '"' + (r.employeeCount || '') + '"',
+                        '"' + (r.preferredDate || '') + '"',
+                        '"' + (r.preferredTime || '') + '"',
+                        '"' + (r.status || 'New') + '"',
+                        '"' + (r.assignedTo || 'Unassigned') + '"',
+                        '"' + (r.quotationAmount || '') + '"',
+                        '"' + (r.createdAt ? new Date(r.createdAt).toISOString() : '') + '"'
+                    ].join(',');
+                });
+
+                var csvContent = 'data:text/csv;charset=utf-8,' + headers.join(',') + '\n' + rows.join('\n');
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement('a');
+                link.setAttribute('href', encodedUri);
+                link.setAttribute('download', 'RC_Techno_Demo_Requests_CRM_' + new Date().toISOString().slice(0, 10) + '.csv');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
             }
         </script>
     </body>

@@ -1,0 +1,507 @@
+/* ==========================================================================
+   RC Techno Solutions - Demo Request Management System (CRM Module)
+   Client Modal & Button Styling
+   ========================================================================== */
+
+:root {
+    --demo-primary: #0084ff;
+    --demo-primary-dark: #0066cc;
+    --demo-primary-light: #eff6ff;
+    --demo-navy: #0f172a;
+    --demo-slate: #1e293b;
+    --demo-gray-bg: #f8fafc;
+    --demo-border: #e2e8f0;
+    --demo-text-main: #0f172a;
+    --demo-text-muted: #64748b;
+    --demo-success: #10b981;
+}
+
+/* "Request a Demo" Trigger Buttons */
+.btn-request-demo {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: linear-gradient(135deg, #0084ff 0%, #0066cc 100%);
+    color: #ffffff !important;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 12px rgba(0, 132, 255, 0.25);
+    white-space: nowrap;
+}
+
+.btn-request-demo:hover {
+    background: linear-gradient(135deg, #0073e6 0%, #0052a3 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 132, 255, 0.35);
+    color: #ffffff !important;
+}
+
+.btn-request-demo i {
+    font-size: 0.85rem;
+    color: #ffffff;
+}
+
+.btn-request-demo-sm {
+    padding: 6px 12px;
+    font-size: 0.74rem;
+    border-radius: 6px;
+}
+
+.btn-request-demo-outline {
+    background: transparent;
+    color: #0084ff !important;
+    border: 1.5px solid #0084ff;
+    box-shadow: none;
+}
+
+.btn-request-demo-outline:hover {
+    background: #0084ff;
+    color: #ffffff !important;
+}
+
+/* Modal Overlay */
+#demoRequestModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    box-sizing: border-box;
+}
+
+#demoRequestModal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Dialog Card */
+.demo-modal-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.3);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.94) translateY(15px);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+}
+
+#demoRequestModal.active .demo-modal-card {
+    transform: scale(1) translateY(0);
+}
+
+/* Modal Header */
+.demo-modal-header {
+    padding: 22px 28px;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    border-bottom: 1px solid var(--demo-border);
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.demo-modal-header-info {
+    padding-right: 28px;
+}
+
+.demo-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #eff6ff;
+    color: #0084ff;
+    border: 1px solid #bfdbfe;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    margin-bottom: 8px;
+}
+
+.demo-badge-pill i {
+    font-size: 0.75rem;
+}
+
+.demo-modal-title {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--demo-navy);
+    margin: 0 0 4px 0;
+    line-height: 1.25;
+}
+
+.demo-modal-title span {
+    color: var(--demo-primary);
+}
+
+.demo-modal-subtitle {
+    font-size: 0.82rem;
+    color: var(--demo-text-muted);
+    margin: 0;
+    line-height: 1.45;
+}
+
+.demo-modal-close {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.25rem;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.demo-modal-close:hover {
+    background: #fee2e2;
+    color: #dc2626;
+    border-color: #fca5a5;
+    transform: rotate(90deg);
+}
+
+/* Modal Body */
+.demo-modal-body {
+    padding: 24px 28px;
+    overflow-y: auto;
+    flex: 1 1 auto;
+}
+
+.demo-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 16px;
+}
+
+.demo-form-col-2 {
+    grid-column: span 2;
+}
+
+.demo-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.demo-form-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.demo-form-label .req {
+    color: #ef4444;
+}
+
+.demo-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.demo-input-wrap i.prefix-icon {
+    position: absolute;
+    left: 12px;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    pointer-events: none;
+}
+
+.demo-input,
+.demo-select,
+.demo-textarea {
+    width: 100%;
+    padding: 10px 12px 10px 36px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    color: #0f172a;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.demo-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+    padding-right: 34px;
+    cursor: pointer;
+}
+
+.demo-textarea {
+    padding: 10px 12px;
+    min-height: 70px;
+    resize: vertical;
+}
+
+.demo-input:focus,
+.demo-select:focus,
+.demo-textarea:focus {
+    border-color: #0084ff;
+    box-shadow: 0 0 0 3px rgba(0, 132, 255, 0.15);
+}
+
+.demo-input.is-invalid,
+.demo-select.is-invalid {
+    border-color: #ef4444;
+    background-color: #fff5f5;
+}
+
+.demo-field-hint {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+/* Trust Badges Strip */
+.demo-trust-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-top: 16px;
+}
+
+.demo-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.demo-trust-item i {
+    color: #0084ff;
+}
+
+/* Modal Footer */
+.demo-modal-footer {
+    padding: 16px 28px;
+    background: #ffffff;
+    border-top: 1px solid var(--demo-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.demo-btn-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 700;
+    padding: 12px 26px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(0, 132, 255, 0.3);
+}
+
+.demo-btn-submit:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 132, 255, 0.4);
+}
+
+.demo-btn-submit:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Success Card View */
+.demo-success-view {
+    text-align: center;
+    padding: 30px 16px;
+}
+
+.demo-success-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #16a34a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 18px;
+    box-shadow: 0 8px 24px rgba(22, 163, 74, 0.2);
+}
+
+.demo-success-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 6px 0;
+}
+
+.demo-success-ref-card {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 14px;
+    margin: 20px auto;
+    max-width: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.demo-ref-val {
+    font-family: monospace;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0084ff;
+    letter-spacing: 0.05em;
+}
+
+.demo-copy-btn {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.demo-copy-btn:hover {
+    background: #0084ff;
+    color: #ffffff;
+    border-color: #0084ff;
+}
+
+/* Dark Mode Theme Compatibility */
+[data-theme="dark"] .demo-modal-card {
+    background: #1e293b;
+    border-color: #334155;
+    color: #f8fafc;
+}
+
+[data-theme="dark"] .demo-modal-header {
+    background: #0f172a;
+    border-bottom-color: #334155;
+}
+
+[data-theme="dark"] .demo-modal-title {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .demo-modal-subtitle {
+    color: #94a3b8;
+}
+
+[data-theme="dark"] .demo-modal-close {
+    background: #334155;
+    border-color: #475569;
+    color: #cbd5e1;
+}
+
+[data-theme="dark"] .demo-input,
+[data-theme="dark"] .demo-select,
+[data-theme="dark"] .demo-textarea {
+    background: #0f172a;
+    border-color: #334155;
+    color: #f8fafc;
+}
+
+[data-theme="dark"] .demo-form-label {
+    color: #cbd5e1;
+}
+
+[data-theme="dark"] .demo-modal-footer {
+    background: #0f172a;
+    border-top-color: #334155;
+}
+
+[data-theme="dark"] .demo-trust-strip {
+    background: #0f172a;
+    border-color: #334155;
+}
+
+[data-theme="dark"] .demo-trust-item {
+    color: #94a3b8;
+}
+
+[data-theme="dark"] .demo-success-ref-card {
+    background: #0f172a;
+    border-color: #334155;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+    .demo-form-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .demo-form-col-2 {
+        grid-column: span 1;
+    }
+    .demo-modal-header,
+    .demo-modal-body,
+    .demo-modal-footer {
+        padding: 16px 18px;
+    }
+    .demo-trust-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .demo-modal-title {
+        font-size: 1.15rem;
+    }
+}

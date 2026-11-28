@@ -283,3 +283,131 @@ model ActivityLog {
 
   @@map("activity_logs")
 }
+
+// -------------------------------------------------------------
+// DEMO REQUEST MANAGEMENT SYSTEM (CRM MODULE)
+// -------------------------------------------------------------
+
+// 15. Demo Requests Core Model
+model DemoRequest {
+  id                     String    @id @default(uuid())
+  referenceId            String    @unique // e.g. RCTS-DEMO-2026-XXXX
+  fullName               String
+  companyName            String
+  email                  String
+  phone                  String
+  projectName            String    // Target software/service
+  companyType            String?   // Enterprise, SME, Startup, Healthcare, etc.
+  employeeCount          String?   // 1-10, 11-50, 51-200, 201-500, 500+
+  preferredDate          String?   // ISO or YYYY-MM-DD
+  preferredTime          String?   // Morning, Afternoon, Evening or exact time slot
+  additionalRequirements String?   @db.Text
+  status                 String    @default("New") // New, Contacted, Follow-up Required, Demo Scheduled, Demo Completed, Quotation Sent, Negotiation, Converted, Closed / Rejected
+  assignedTo             String?   @default("Unassigned")
+  assignedEmail          String?
+  quotationAmount        String?   // e.g. "$5,000" or "₹3,50,000"
+  quotationNotes         String?   @db.Text
+  quotationUrl           String?
+  feedback               String?   @db.Text
+  ipAddress              String?
+  userAgent              String?
+  createdAt              DateTime  @default(now())
+  updatedAt              DateTime  @updatedAt
+
+  assignments            DemoAssignment[]
+  notes                  DemoNote[]
+  followups              DemoFollowup[]
+  meetings               DemoMeeting[]
+  activityLogs           DemoActivityLog[]
+
+  @@index([email])
+  @@index([referenceId])
+  @@index([status])
+  @@index([projectName])
+  @@map("demo_requests")
+}
+
+// 16. Demo Assignments
+model DemoAssignment {
+  id             String      @id @default(uuid())
+  demoRequestId  String
+  assignedToName String
+  assignedToEmail String
+  assignedBy     String
+  notes          String?     @db.Text
+  assignedAt     DateTime    @default(now())
+
+  demoRequest    DemoRequest @relation(fields: [demoRequestId], references: [id], onDelete: Cascade)
+
+  @@index([demoRequestId])
+  @@map("demo_assignments")
+}
+
+// 17. Demo Internal Notes
+model DemoNote {
+  id            String      @id @default(uuid())
+  demoRequestId String
+  authorName    String
+  noteText      String      @db.Text
+  isPrivate     Boolean     @default(true)
+  createdAt     DateTime    @default(now())
+
+  demoRequest   DemoRequest @relation(fields: [demoRequestId], references: [id], onDelete: Cascade)
+
+  @@index([demoRequestId])
+  @@map("demo_notes")
+}
+
+// 18. Demo Follow-ups & Reminders
+model DemoFollowup {
+  id            String      @id @default(uuid())
+  demoRequestId String
+  scheduledDate DateTime
+  followupType  String      // Call, Email, WhatsApp, Meeting
+  status        String      @default("PENDING") // PENDING, COMPLETED, CANCELLED
+  reminderSent  Boolean     @default(false)
+  notes         String?     @db.Text
+  createdAt     DateTime    @default(now())
+  completedAt   DateTime?
+
+  demoRequest   DemoRequest @relation(fields: [demoRequestId], references: [id], onDelete: Cascade)
+
+  @@index([demoRequestId])
+  @@map("demo_followups")
+}
+
+// 19. Demo Meetings & Google Meet Schedules
+model DemoMeeting {
+  id             String      @id @default(uuid())
+  demoRequestId  String
+  title          String
+  meetingDate    DateTime
+  meetingTime    String
+  googleMeetLink String
+  hostName       String
+  attendeeEmail  String
+  status         String      @default("SCHEDULED") // SCHEDULED, COMPLETED, RESCHEDULED, CANCELLED
+  agenda         String?     @db.Text
+  feedback       String?     @db.Text
+  createdAt      DateTime    @default(now())
+
+  demoRequest    DemoRequest @relation(fields: [demoRequestId], references: [id], onDelete: Cascade)
+
+  @@index([demoRequestId])
+  @@map("demo_meetings")
+}
+
+// 20. Demo Activity & Audit Trail
+model DemoActivityLog {
+  id            String      @id @default(uuid())
+  demoRequestId String
+  actorName     String
+  action        String      // CREATED, STATUS_UPDATED, ASSIGNED, NOTE_ADDED, MEETING_SCHEDULED, QUOTATION_UPDATED
+  details       String      @db.Text
+  createdAt     DateTime    @default(now())
+
+  demoRequest   DemoRequest @relation(fields: [demoRequestId], references: [id], onDelete: Cascade)
+
+  @@index([demoRequestId])
+  @@map("demo_activity_logs")
+}
