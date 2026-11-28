@@ -52,7 +52,7 @@ class RCTechChatbot {
                     </div>
 
                     <!-- Quick Action Buttons -->
-                    <div class="rc-chat-quick-replies" id="rc-quick-replies">
+                    <div class="rc-chat-quick-replies" id="rc-quick-replies" style="scrollbar-width: none; -ms-overflow-style: none; overflow-x: auto; overflow-y: hidden;">
                         <button class="rc-qr-btn" data-query="Explore Our Services"><i class="fas fa-laptop-code"></i> Explore Our Services</button>
                         <button class="rc-qr-btn" data-query="View Our Projects"><i class="fas fa-cubes"></i> View Our Projects</button>
                         <button class="rc-qr-btn" data-query="Internship Opportunities"><i class="fas fa-graduation-cap"></i> Internship Opportunities</button>

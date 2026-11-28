@@ -75,220 +75,7 @@
     <link href="pro-enhancements.css?v=6.0" rel="stylesheet" />
     <link href="modern-tech-home.css?v=6.0" rel="stylesheet" />
     <link href="chatbot.css?v=6.5" rel="stylesheet" />
-
-    <style>
-        /* Office Gallery Load More & Explore Controls - Instant Cache-Proof Styling */
-        .gallery-load-more-container {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 12px !important;
-            margin: 32px auto 16px auto !important;
-            text-align: center !important;
-            width: 100% !important;
-        }
-
-        .gallery-load-more-btn {
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 10px !important;
-            background: #eff6ff !important;
-            color: #0084ff !important;
-            border: 1.5px solid #bfdbfe !important;
-            font-family: 'Outfit', 'Poppins', sans-serif !important;
-            font-weight: 700 !important;
-            font-size: 0.90rem !important;
-            padding: 11px 28px !important;
-            border-radius: 9999px !important;
-            cursor: pointer !important;
-            box-shadow: 0 2px 10px rgba(0, 132, 255, 0.08) !important;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-            outline: none !important;
-            margin: 0 auto !important;
-            min-height: auto !important;
-            line-height: 1.4 !important;
-        }
-
-        .gallery-load-more-btn span,
-        .gallery-load-more-btn #galleryLoadText {
-            color: #0084ff !important;
-            font-weight: 700 !important;
-            transition: color 0.25s ease !important;
-        }
-
-        .gallery-load-more-btn .gallery-load-icon {
-            color: #0084ff !important;
-            font-size: 0.95rem !important;
-            transition: transform 0.28s ease, color 0.25s ease !important;
-        }
-
-        .gallery-load-more-btn:hover {
-            background: #0084ff !important;
-            color: #ffffff !important;
-            border-color: #0084ff !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 6px 20px rgba(0, 132, 255, 0.28) !important;
-        }
-
-        .gallery-load-more-btn:hover span,
-        .gallery-load-more-btn:hover #galleryLoadText {
-            color: #ffffff !important;
-        }
-
-        .gallery-load-more-btn:hover .gallery-load-icon {
-            color: #ffffff !important;
-            transform: rotate(90deg) !important;
-        }
-
-        .gallery-load-more-btn:active {
-            transform: translateY(1px) !important;
-            box-shadow: 0 2px 6px rgba(0, 132, 255, 0.2) !important;
-        }
-
-        .gallery-all-loaded-msg {
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 8px !important;
-            font-family: 'Outfit', 'Poppins', sans-serif !important;
-            font-weight: 600 !important;
-            font-size: 0.88rem !important;
-            color: #0f766e !important;
-            background: #ecfdf5 !important;
-            border: 1px solid #a7f3d0 !important;
-            padding: 8px 22px !important;
-            border-radius: 9999px !important;
-            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.12) !important;
-        }
-
-        .gallery-explore-link {
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 10px !important;
-            padding: 10px 24px !important;
-            border-radius: 9999px !important;
-            text-decoration: none !important;
-            font-weight: 600 !important;
-            font-size: 0.85rem !important;
-            font-family: 'Outfit', 'Poppins', sans-serif !important;
-            background: #ffffff !important;
-            color: #0f172a !important;
-            border: 1.5px solid #cbd5e1 !important;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
-            transition: all 0.25s ease !important;
-        }
-
-        .gallery-explore-link span {
-            color: #0f172a !important;
-            font-weight: 600 !important;
-        }
-
-        .gallery-explore-link i.fa-images {
-            color: #0084ff !important;
-            font-size: 0.9rem !important;
-        }
-
-        .gallery-explore-link i.fa-arrow-right {
-            color: #64748b !important;
-            font-size: 0.8rem !important;
-            transition: transform 0.2s ease !important;
-        }
-
-        .gallery-explore-link:hover {
-            background: #f8fafc !important;
-            border-color: #0084ff !important;
-            color: #0084ff !important;
-            box-shadow: 0 4px 14px rgba(0, 132, 255, 0.15) !important;
-            transform: translateY(-2px) !important;
-        }
-
-        .gallery-explore-link:hover span {
-            color: #0084ff !important;
-        }
-
-        .gallery-explore-link:hover i.fa-arrow-right {
-            transform: translateX(4px) !important;
-            color: #0084ff !important;
-        }
-
-        .gallery-transparency-note {
-            max-width: 820px !important;
-            margin: 20px auto 0 auto !important;
-            padding: 12px 20px !important;
-            background: #f8fafc !important;
-            border: 1px solid #e2e8f0 !important;
-            border-radius: 12px !important;
-            font-size: 0.82rem !important;
-            color: #64748b !important;
-            line-height: 1.5 !important;
-            display: flex !important;
-            align-items: flex-start !important;
-            gap: 10px !important;
-            text-align: left !important;
-        }
-
-        .gallery-transparency-note i {
-            color: #0084ff !important;
-            margin-top: 2px !important;
-            flex-shrink: 0 !important;
-        }
-
-        @media (max-width: 640px) {
-            .gallery-load-more-container {
-                margin-top: 24px !important;
-            }
-            .gallery-load-more-btn {
-                padding: 10px 24px !important;
-                font-size: 0.85rem !important;
-                width: auto !important;
-            }
-            .gallery-all-loaded-msg {
-                font-size: 0.78rem !important;
-                padding: 6px 16px !important;
-            }
-        }
-
-        [data-theme="dark"] .gallery-load-more-btn {
-            background: rgba(0, 132, 255, 0.12) !important;
-            color: #60a5fa !important;
-            border-color: rgba(96, 165, 250, 0.35) !important;
-        }
-        [data-theme="dark"] .gallery-load-more-btn span,
-        [data-theme="dark"] .gallery-load-more-btn #galleryLoadText {
-            color: #60a5fa !important;
-        }
-        [data-theme="dark"] .gallery-load-more-btn .gallery-load-icon {
-            color: #60a5fa !important;
-        }
-        [data-theme="dark"] .gallery-load-more-btn:hover {
-            background: #0084ff !important;
-            color: #ffffff !important;
-            border-color: #0084ff !important;
-        }
-        [data-theme="dark"] .gallery-load-more-btn:hover span,
-        [data-theme="dark"] .gallery-load-more-btn:hover #galleryLoadText {
-            color: #ffffff !important;
-        }
-        [data-theme="dark"] .gallery-load-more-btn:hover .gallery-load-icon {
-            color: #ffffff !important;
-        }
-        [data-theme="dark"] .gallery-explore-link {
-            background: #1e293b !important;
-            color: #f1f5f9 !important;
-            border-color: #334155 !important;
-        }
-        [data-theme="dark"] .gallery-explore-link span {
-            color: #f1f5f9 !important;
-        }
-        [data-theme="dark"] .gallery-transparency-note {
-            background: #0f172a !important;
-            border-color: #1e293b !important;
-            color: #94a3b8 !important;
-        }
-    </style>
+    <link href="css/corporate-gallery.css?v=2.0" rel="stylesheet" />
 </head>
 
 <body>
@@ -1233,230 +1020,242 @@
                         <button class="gallery-cat-btn" data-cat="breakout">Office Environment</button>
                     </div>
 
-                    <!-- Responsive Gallery Grid with Always-Visible Clear Text -->
-                    <div class="gallery-grid office-gallery-grid reveal delay-1" id="officeGalleryGrid">
+                    <!-- Modern Responsive Corporate Gallery Grid -->
+                    <div class="corporate-gallery-grid office-gallery-grid reveal delay-1" id="officeGalleryGrid">
                         <!-- Space 01: Modern Open-Concept Development Floor -->
-                        <div class="gallery-item reveal" data-category="overview">
-                            <div class="gallery-item-inner">
-                                <span class="gallery-category-pill">Office Overview</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="Modern Open-Concept Development Floor" class="gallery-img">
-                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                        <div class="corporate-photo-card reveal" data-category="overview">
+                            <div class="corporate-photo-wrap">
+                                <span class="corporate-cat-pill">Office Overview</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85" alt="Modern Open-Concept Development Floor" class="corporate-photo-img">
+                                <div class="corporate-photo-overlay"></div>
+                                <div class="corporate-zoom-badge" title="Click to view fullscreen"><i class="fas fa-expand"></i></div>
                             </div>
-                            <div class="gallery-caption-box">
-                                <h4 class="gallery-card-title">Modern Open-Concept Development Floor</h4>
-                                <p class="gallery-card-desc">Spacious, natural-light engineering floor built for cross-functional sprint pods and focus.</p>
-                                <div class="gallery-card-footer">
-                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Office Overview</span>
-                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                            <div class="corporate-caption-box">
+                                <h4 class="corporate-caption-title">Modern Open-Concept Development Floor</h4>
+                                <p class="corporate-caption-desc">Spacious, natural-light engineering floor built for cross-functional sprint pods and focus.</p>
+                                <div class="corporate-caption-footer">
+                                    <span class="corporate-footer-tag"><i class="fas fa-layer-group"></i> Office Overview</span>
+                                    <span class="corporate-footer-cta">View <i class="fas fa-arrow-up-right-from-square"></i></span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Space 02: Ergonomic Developer Workstations -->
-                        <div class="gallery-item reveal delay-1" data-category="workstations">
-                            <div class="gallery-item-inner">
-                                <span class="gallery-category-pill">Workspace & Desks</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1000&q=80" alt="Ergonomic Developer Workstations" class="gallery-img">
-                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                        <div class="corporate-photo-card reveal delay-1" data-category="workstations">
+                            <div class="corporate-photo-wrap">
+                                <span class="corporate-cat-pill">Workspace &amp; Desks</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=85" alt="Ergonomic Developer Workstations" class="corporate-photo-img">
+                                <div class="corporate-photo-overlay"></div>
+                                <div class="corporate-zoom-badge" title="Click to view fullscreen"><i class="fas fa-expand"></i></div>
                             </div>
-                            <div class="gallery-caption-box">
-                                <h4 class="gallery-card-title">Ergonomic Developer Workstations</h4>
-                                <p class="gallery-card-desc">Dual-monitor setups, mechanical keyboards, and adjustable sit-stand developer desks.</p>
-                                <div class="gallery-card-footer">
-                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Workspace & Desks</span>
-                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                            <div class="corporate-caption-box">
+                                <h4 class="corporate-caption-title">Ergonomic Developer Workstations</h4>
+                                <p class="corporate-caption-desc">Dual-monitor setups, mechanical keyboards, and adjustable sit-stand developer desks.</p>
+                                <div class="corporate-caption-footer">
+                                    <span class="corporate-footer-tag"><i class="fas fa-layer-group"></i> Workspace &amp; Desks</span>
+                                    <span class="corporate-footer-cta">View <i class="fas fa-arrow-up-right-from-square"></i></span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Space 03: High-Performance Engineering Pods -->
-                        <div class="gallery-item reveal delay-2" data-category="dev-area">
-                            <div class="gallery-item-inner">
-                                <span class="gallery-category-pill">Development Area</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&q=80" alt="High-Performance Engineering Pods" class="gallery-img">
-                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                        <div class="corporate-photo-card reveal delay-2" data-category="dev-area">
+                            <div class="corporate-photo-wrap">
+                                <span class="corporate-cat-pill">Development Area</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=85" alt="High-Performance Engineering Pods" class="corporate-photo-img">
+                                <div class="corporate-photo-overlay"></div>
+                                <div class="corporate-zoom-badge" title="Click to view fullscreen"><i class="fas fa-expand"></i></div>
                             </div>
-                            <div class="gallery-caption-box">
-                                <h4 class="gallery-card-title">High-Performance Engineering Pods</h4>
-                                <p class="gallery-card-desc">Dedicated high-speed fiber workstations for high-concurrency cloud and AI model development.</p>
-                                <div class="gallery-card-footer">
-                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Development Area</span>
-                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                            <div class="corporate-caption-box">
+                                <h4 class="corporate-caption-title">High-Performance Engineering Pods</h4>
+                                <p class="corporate-caption-desc">Dedicated high-speed fiber workstations for high-concurrency cloud and AI model development.</p>
+                                <div class="corporate-caption-footer">
+                                    <span class="corporate-footer-tag"><i class="fas fa-layer-group"></i> Development Area</span>
+                                    <span class="corporate-footer-cta">View <i class="fas fa-arrow-up-right-from-square"></i></span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Space 04: Architecture & Sprint Review Room -->
-                        <div class="gallery-item reveal" data-category="conference">
-                            <div class="gallery-item-inner">
-                                <span class="gallery-category-pill">Meeting & Conference</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80" alt="Architecture & Sprint Review Room" class="gallery-img">
-                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                        <div class="corporate-photo-card reveal" data-category="conference">
+                            <div class="corporate-photo-wrap">
+                                <span class="corporate-cat-pill">Meeting &amp; Conference</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85" alt="Architecture & Sprint Review Room" class="corporate-photo-img">
+                                <div class="corporate-photo-overlay"></div>
+                                <div class="corporate-zoom-badge" title="Click to view fullscreen"><i class="fas fa-expand"></i></div>
                             </div>
-                            <div class="gallery-caption-box">
-                                <h4 class="gallery-card-title">Architecture & Sprint Review Room</h4>
-                                <p class="gallery-card-desc">Acoustic conference suite equipped with 4K interactive presentation displays and teleconferencing.</p>
-                                <div class="gallery-card-footer">
-                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Meeting & Conference</span>
-                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                            <div class="corporate-caption-box">
+                                <h4 class="corporate-caption-title">Architecture &amp; Sprint Review Room</h4>
+                                <p class="corporate-caption-desc">Acoustic conference suite equipped with 4K interactive presentation displays and teleconferencing.</p>
+                                <div class="corporate-caption-footer">
+                                    <span class="corporate-footer-tag"><i class="fas fa-layer-group"></i> Meeting &amp; Conference</span>
+                                    <span class="corporate-footer-cta">View <i class="fas fa-arrow-up-right-from-square"></i></span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Space 05: Agile Standup & Brainstorming Hub -->
-                        <div class="gallery-item reveal delay-1" data-category="collaboration">
-                            <div class="gallery-item-inner">
-                                <span class="gallery-category-pill">Team Collaboration</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Agile Standup & Brainstorming Hub" class="gallery-img">
-                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                        <div class="corporate-photo-card reveal delay-1" data-category="collaboration">
+                            <div class="corporate-photo-wrap">
+                                <span class="corporate-cat-pill">Team Collaboration</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=85" alt="Agile Standup & Brainstorming Hub" class="corporate-photo-img">
+                                <div class="corporate-photo-overlay"></div>
+                                <div class="corporate-zoom-badge" title="Click to view fullscreen"><i class="fas fa-expand"></i></div>
                             </div>
-                            <div class="gallery-caption-box">
-                                <h4 class="gallery-card-title">Agile Standup & Brainstorming Hub</h4>
-                                <p class="gallery-card-desc">Collaborative whiteboard area for daily sprint standups, PR reviews, and architectural discovery.</p>
-                                <div class="gallery-card-footer">
-                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Team Collaboration</span>
-                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                            <div class="corporate-caption-box">
+                                <h4 class="corporate-caption-title">Agile Standup &amp; Brainstorming Hub</h4>
+                                <p class="corporate-caption-desc">Collaborative whiteboard area for daily sprint standups, PR reviews, and architectural discovery.</p>
+                                <div class="corporate-caption-footer">
+                                    <span class="corporate-footer-tag"><i class="fas fa-layer-group"></i> Team Collaboration</span>
+                                    <span class="corporate-footer-cta">View <i class="fas fa-arrow-up-right-from-square"></i></span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Space 06: Cloud Infrastructure & CI/CD Telemetry -->
-                        <div class="gallery-item reveal delay-2" data-category="infra">
-                            <div class="gallery-item-inner">
-                                <span class="gallery-category-pill">Technology & Infrastructure</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80" alt="Cloud Infrastructure & CI/CD Telemetry" class="gallery-img">
-                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                        <div class="corporate-photo-card reveal delay-2" data-category="infra">
+                            <div class="corporate-photo-wrap">
+                                <span class="corporate-cat-pill">Technology &amp; Infrastructure</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85" alt="Cloud Infrastructure & CI/CD Telemetry" class="corporate-photo-img">
+                                <div class="corporate-photo-overlay"></div>
+                                <div class="corporate-zoom-badge" title="Click to view fullscreen"><i class="fas fa-expand"></i></div>
                             </div>
-                            <div class="gallery-caption-box">
-                                <h4 class="gallery-card-title">Cloud Infrastructure & CI/CD Telemetry</h4>
-                                <p class="gallery-card-desc">High-availability server infrastructure with continuous integration monitoring and telemetry.</p>
-                                <div class="gallery-card-footer">
-                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Technology & Infrastructure</span>
-                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                            <div class="corporate-caption-box">
+                                <h4 class="corporate-caption-title">Cloud Infrastructure &amp; CI/CD Telemetry</h4>
+                                <p class="corporate-caption-desc">High-availability server infrastructure with continuous integration monitoring and telemetry.</p>
+                                <div class="corporate-caption-footer">
+                                    <span class="corporate-footer-tag"><i class="fas fa-layer-group"></i> Infrastructure</span>
+                                    <span class="corporate-footer-cta">View <i class="fas fa-arrow-up-right-from-square"></i></span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Space 07: Creative Breakout & Recharge Lounge -->
-                        <div class="gallery-item reveal" data-category="breakout">
-                            <div class="gallery-item-inner">
-                                <span class="gallery-category-pill">Office Environment</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=1000&q=80" alt="Creative Breakout & Recharge Lounge" class="gallery-img">
-                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                        <div class="corporate-photo-card reveal" data-category="breakout">
+                            <div class="corporate-photo-wrap">
+                                <span class="corporate-cat-pill">Office Environment</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=1200&q=85" alt="Creative Breakout & Recharge Lounge" class="corporate-photo-img">
+                                <div class="corporate-photo-overlay"></div>
+                                <div class="corporate-zoom-badge" title="Click to view fullscreen"><i class="fas fa-expand"></i></div>
                             </div>
-                            <div class="gallery-caption-box">
-                                <h4 class="gallery-card-title">Creative Breakout & Recharge Lounge</h4>
-                                <p class="gallery-card-desc">Relaxed lounge environment for informal team syncs, technical reading, and creative recharge.</p>
-                                <div class="gallery-card-footer">
-                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Office Environment</span>
-                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                            <div class="corporate-caption-box">
+                                <h4 class="corporate-caption-title">Creative Breakout &amp; Recharge Lounge</h4>
+                                <p class="corporate-caption-desc">Relaxed lounge environment for informal team syncs, technical reading, and creative recharge.</p>
+                                <div class="corporate-caption-footer">
+                                    <span class="corporate-footer-tag"><i class="fas fa-layer-group"></i> Lounge</span>
+                                    <span class="corporate-footer-cta">View <i class="fas fa-arrow-up-right-from-square"></i></span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Space 08: Client Presentation & Strategy Suite -->
-                        <div class="gallery-item reveal delay-1" data-category="conference">
-                            <div class="gallery-item-inner">
-                                <span class="gallery-category-pill">Executive Boardroom</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=1000&q=80" alt="Client Presentation & Strategy Suite" class="gallery-img">
-                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                        <div class="corporate-photo-card reveal delay-1" data-category="conference">
+                            <div class="corporate-photo-wrap">
+                                <span class="corporate-cat-pill">Executive Boardroom</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=1200&q=85" alt="Client Presentation & Strategy Suite" class="corporate-photo-img">
+                                <div class="corporate-photo-overlay"></div>
+                                <div class="corporate-zoom-badge" title="Click to view fullscreen"><i class="fas fa-expand"></i></div>
                             </div>
-                            <div class="gallery-caption-box">
-                                <h4 class="gallery-card-title">Client Presentation & Strategy Suite</h4>
-                                <p class="gallery-card-desc">Executive boardroom with high-definition presentation screens for enterprise roadmap consultations.</p>
-                                <div class="gallery-card-footer">
-                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Executive Boardroom</span>
-                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                            <div class="corporate-caption-box">
+                                <h4 class="corporate-caption-title">Client Presentation &amp; Strategy Suite</h4>
+                                <p class="corporate-caption-desc">Executive boardroom with high-definition presentation screens for enterprise roadmap consultations.</p>
+                                <div class="corporate-caption-footer">
+                                    <span class="corporate-footer-tag"><i class="fas fa-layer-group"></i> Boardroom</span>
+                                    <span class="corporate-footer-cta">View <i class="fas fa-arrow-up-right-from-square"></i></span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Space 09: Cloud & DevOps Operations Center -->
-                        <div class="gallery-item reveal delay-2" data-category="infra">
-                            <div class="gallery-item-inner">
-                                <span class="gallery-category-pill">DevOps Operations</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80" alt="Cloud & DevOps Operations Center" class="gallery-img">
-                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                        <div class="corporate-photo-card reveal delay-2" data-category="infra">
+                            <div class="corporate-photo-wrap">
+                                <span class="corporate-cat-pill">DevOps Operations</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=85" alt="Cloud & DevOps Operations Center" class="corporate-photo-img">
+                                <div class="corporate-photo-overlay"></div>
+                                <div class="corporate-zoom-badge" title="Click to view fullscreen"><i class="fas fa-expand"></i></div>
                             </div>
-                            <div class="gallery-caption-box">
-                                <h4 class="gallery-card-title">Cloud & DevOps Operations Center</h4>
-                                <p class="gallery-card-desc">Dedicated network operations center monitoring live cluster uptime, latency, and automated deployments.</p>
-                                <div class="gallery-card-footer">
-                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> DevOps Operations</span>
-                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                            <div class="corporate-caption-box">
+                                <h4 class="corporate-caption-title">Cloud &amp; DevOps Operations Center</h4>
+                                <p class="corporate-caption-desc">Dedicated network operations center monitoring live cluster uptime, latency, and automated deployments.</p>
+                                <div class="corporate-caption-footer">
+                                    <span class="corporate-footer-tag"><i class="fas fa-layer-group"></i> DevOps Center</span>
+                                    <span class="corporate-footer-cta">View <i class="fas fa-arrow-up-right-from-square"></i></span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Space 10: Product Design & Wireframing Lab -->
-                        <div class="gallery-item reveal" data-category="dev-area">
-                            <div class="gallery-item-inner">
-                                <span class="gallery-category-pill">UI/UX Design Lab</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1000&q=80" alt="Product Design & Wireframing Lab" class="gallery-img">
-                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                        <div class="corporate-photo-card reveal" data-category="dev-area">
+                            <div class="corporate-photo-wrap">
+                                <span class="corporate-cat-pill">UI/UX Design Lab</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=85" alt="Product Design & Wireframing Lab" class="corporate-photo-img">
+                                <div class="corporate-photo-overlay"></div>
+                                <div class="corporate-zoom-badge" title="Click to view fullscreen"><i class="fas fa-expand"></i></div>
                             </div>
-                            <div class="gallery-caption-box">
-                                <h4 class="gallery-card-title">Product Design & Wireframing Lab</h4>
-                                <p class="gallery-card-desc">Specialized design station for responsive Figma prototypes, user testing, and design system authoring.</p>
-                                <div class="gallery-card-footer">
-                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> UI/UX Design Lab</span>
-                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                            <div class="corporate-caption-box">
+                                <h4 class="corporate-caption-title">Product Design &amp; Wireframing Lab</h4>
+                                <p class="corporate-caption-desc">Specialized design station for responsive Figma prototypes, user testing, and design system authoring.</p>
+                                <div class="corporate-caption-footer">
+                                    <span class="corporate-footer-tag"><i class="fas fa-layer-group"></i> Design Lab</span>
+                                    <span class="corporate-footer-cta">View <i class="fas fa-arrow-up-right-from-square"></i></span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Space 11: Deep Engineering & Focus Zone -->
-                        <div class="gallery-item reveal delay-1" data-category="workstations">
-                            <div class="gallery-item-inner">
-                                <span class="gallery-category-pill">Quiet Focus Pods</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?auto=format&fit=crop&w=1000&q=80" alt="Deep Engineering & Focus Zone" class="gallery-img">
-                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                        <div class="corporate-photo-card reveal delay-1" data-category="workstations">
+                            <div class="corporate-photo-wrap">
+                                <span class="corporate-cat-pill">Quiet Focus Pods</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?auto=format&fit=crop&w=1200&q=85" alt="Deep Engineering & Focus Zone" class="corporate-photo-img">
+                                <div class="corporate-photo-overlay"></div>
+                                <div class="corporate-zoom-badge" title="Click to view fullscreen"><i class="fas fa-expand"></i></div>
                             </div>
-                            <div class="gallery-caption-box">
-                                <h4 class="gallery-card-title">Deep Engineering & Focus Zone</h4>
-                                <p class="gallery-card-desc">Noise-isolated focus booths engineered for uninterrupted code reviews, algorithmic design, and debugging.</p>
-                                <div class="gallery-card-footer">
-                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Quiet Focus Pods</span>
-                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                            <div class="corporate-caption-box">
+                                <h4 class="corporate-caption-title">Deep Engineering &amp; Focus Zone</h4>
+                                <p class="corporate-caption-desc">Noise-isolated focus booths engineered for uninterrupted code reviews, algorithmic design, and debugging.</p>
+                                <div class="corporate-caption-footer">
+                                    <span class="corporate-footer-tag"><i class="fas fa-layer-group"></i> Focus Pods</span>
+                                    <span class="corporate-footer-cta">View <i class="fas fa-arrow-up-right-from-square"></i></span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Space 12: Team Cafe & Community Hub -->
-                        <div class="gallery-item reveal delay-2" data-category="breakout">
-                            <div class="gallery-item-inner">
-                                <span class="gallery-category-pill">Cafeteria & Lounge</span>
-                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80" alt="Team Cafe & Community Hub" class="gallery-img">
-                                <div class="gallery-click-zoom"><i class="fas fa-search-plus"></i> Fullscreen</div>
+                        <div class="corporate-photo-card reveal delay-2" data-category="breakout">
+                            <div class="corporate-photo-wrap">
+                                <span class="corporate-cat-pill">Cafeteria &amp; Lounge</span>
+                                <img decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=85" alt="Team Cafe & Community Hub" class="corporate-photo-img">
+                                <div class="corporate-photo-overlay"></div>
+                                <div class="corporate-zoom-badge" title="Click to view fullscreen"><i class="fas fa-expand"></i></div>
                             </div>
-                            <div class="gallery-caption-box">
-                                <h4 class="gallery-card-title">Team Cafe & Community Hub</h4>
-                                <p class="gallery-card-desc">Social pantry and espresso bar fostering spontaneous conversations, team lunches, and informal catchups.</p>
-                                <div class="gallery-card-footer">
-                                    <span class="gallery-space-badge"><i class="fas fa-layer-group"></i> Cafeteria & Lounge</span>
-                                    <span class="gallery-view-btn"><i class="fas fa-expand"></i> View</span>
+                            <div class="corporate-caption-box">
+                                <h4 class="corporate-caption-title">Team Cafe &amp; Community Hub</h4>
+                                <p class="corporate-caption-desc">Social pantry and espresso bar fostering spontaneous conversations, team lunches, and informal catchups.</p>
+                                <div class="corporate-caption-footer">
+                                    <span class="corporate-footer-tag"><i class="fas fa-layer-group"></i> Community Hub</span>
+                                    <span class="corporate-footer-cta">View <i class="fas fa-arrow-up-right-from-square"></i></span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Interactive Load More Controls -->
-                    <div class="gallery-load-more-container reveal" id="galleryLoadMoreContainer" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; margin: 32px auto 16px auto; text-align: center; width: 100%;">
-                        <button type="button" class="gallery-load-more-btn" id="galleryLoadMoreBtn" aria-label="Load More Workspace Photos" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #eff6ff; color: #0084ff; border: 1.5px solid #bfdbfe; font-family: 'Outfit', 'Poppins', sans-serif; font-weight: 700; font-size: 0.90rem; padding: 11px 28px; border-radius: 9999px; cursor: pointer; box-shadow: 0 2px 10px rgba(0, 132, 255, 0.08); outline: none; margin: 0 auto; text-decoration: none;">
-                            <i class="fas fa-spinner fa-spin gallery-load-spinner" id="galleryLoadSpinner" style="display: none; color: #0084ff;"></i>
-                            <i class="fas fa-plus-circle gallery-load-icon" id="galleryLoadIcon" style="color: #0084ff; font-size: 0.95rem;"></i>
-                            <span id="galleryLoadText" style="color: #0084ff; font-weight: 700;">Load More Workspaces</span>
+                    <div class="corporate-gallery-controls reveal" id="galleryLoadMoreContainer">
+                        <button type="button" class="btn-corporate-load-more gallery-load-more-btn" id="galleryLoadMoreBtn" aria-label="Load More Workspace Photos">
+                            <i class="fas fa-spinner fa-spin" id="galleryLoadSpinner" style="display: none;"></i>
+                            <i class="fas fa-plus-circle" id="galleryLoadIcon"></i>
+                            <span id="galleryLoadText">Load More Workspaces (8 Remaining)</span>
                         </button>
-                        <div class="gallery-all-loaded-msg" id="galleryAllLoadedMsg" style="display: none; align-items: center; justify-content: center; gap: 8px; font-family: 'Outfit', 'Poppins', sans-serif; font-weight: 600; font-size: 0.88rem; color: #0f766e; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 8px 22px; border-radius: 9999px; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.12);">
-                            <i class="fas fa-check-circle" style="color: #10b981;"></i>
-                            <span id="galleryAllLoadedText">All Workspaces Displayed</span>
+                        <div class="corporate-all-loaded-badge gallery-all-loaded-msg" id="galleryAllLoadedMsg" style="display: none;">
+                            <i class="fas fa-check-circle"></i>
+                            <span id="galleryAllLoadedText">All 12 Workspaces Displayed</span>
                         </div>
                     </div>
 
                     <!-- Action Button & Transparency Note -->
                     <div style="text-align: center; margin-top: 24px;">
-                        <a href="/gallery" class="gallery-explore-link" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 24px; border-radius: 9999px; text-decoration: none; font-weight: 600; font-size: 0.85rem; font-family: 'Outfit', 'Poppins', sans-serif; background: #ffffff; color: #0f172a; border: 1.5px solid #cbd5e1; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);">
-                            <i class="fas fa-images" style="color: #0084ff; font-size: 0.9rem;"></i> <span style="color: #0f172a; font-weight: 600;">Explore Dedicated Office Gallery Page (12 Spaces)</span> <i class="fas fa-arrow-right" style="color: #64748b; font-size: 0.8rem;"></i>
+                        <a href="/gallery" class="gallery-explore-link">
+                            <i class="fas fa-images"></i> <span>Explore Dedicated Office Gallery Page (12 Spaces)</span> <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
 
@@ -2060,367 +1859,7 @@
     <!-- Core Scripts -->
     <script src="script.js?v=5.0"></script>
     <script src="chatbot.js?v=6.5"></script>
-
-    <script>
-    (function() {
-        function initOfficeGallery() {
-            var grid = document.getElementById('officeGalleryGrid');
-            if (!grid) return;
-
-            var items = Array.from(grid.querySelectorAll('.gallery-item'));
-            if (!items.length) return;
-
-            var catBtns = document.querySelectorAll('.gallery-cat-btn');
-            var loadMoreBtn = document.getElementById('galleryLoadMoreBtn');
-            var loadMoreIcon = document.getElementById('galleryLoadIcon');
-            var loadMoreSpinner = document.getElementById('galleryLoadSpinner');
-            var loadMoreText = document.getElementById('galleryLoadText');
-            var allLoadedMsg = document.getElementById('galleryAllLoadedMsg');
-            var allLoadedText = document.getElementById('galleryAllLoadedText');
-
-            var PAGE_SIZE = 4;
-            var currentVisibleCount = PAGE_SIZE;
-            var activeCategory = 'all';
-
-            function getMatchingItems() {
-                return items.filter(function(item) {
-                    if (activeCategory === 'all') return true;
-                    return item.getAttribute('data-category') === activeCategory;
-                });
-            }
-
-            function updateGallery(isIncremental) {
-                var matching = getMatchingItems();
-                var matchingCount = matching.length;
-
-                // Hide non-matching items
-                items.forEach(function(item) {
-                    var matches = (activeCategory === 'all' || item.getAttribute('data-category') === activeCategory);
-                    if (!matches) {
-                        item.style.setProperty('display', 'none', 'important');
-                        item.classList.remove('gallery-revealing');
-                    }
-                });
-
-                // Display matching items up to currentVisibleCount
-                matching.forEach(function(item, idx) {
-                    if (idx < currentVisibleCount) {
-                        var wasHidden = (item.style.display === 'none');
-                        item.style.removeProperty('display');
-                        if (isIncremental && wasHidden) {
-                            item.classList.add('gallery-revealing');
-                        }
-                    } else {
-                        item.style.setProperty('display', 'none', 'important');
-                        item.classList.remove('gallery-revealing');
-                    }
-                });
-
-                // Update Load More and All Loaded messages
-                if (loadMoreBtn && allLoadedMsg) {
-                    if (currentVisibleCount < matchingCount) {
-                        loadMoreBtn.style.setProperty('display', 'inline-flex', 'important');
-                        allLoadedMsg.style.setProperty('display', 'none', 'important');
-                        if (loadMoreText) {
-                            var remaining = matchingCount - currentVisibleCount;
-                            loadMoreText.textContent = 'Load More Workspaces (' + remaining + ' Remaining)';
-                        }
-                    } else {
-                        loadMoreBtn.style.setProperty('display', 'none', 'important');
-                        allLoadedMsg.style.setProperty('display', 'inline-flex', 'important');
-                        if (allLoadedText) {
-                            var catLabel = 'Workspaces';
-                            var activeBtn = document.querySelector('.gallery-cat-btn.active');
-                            if (activeBtn && activeCategory !== 'all') {
-                                catLabel = activeBtn.textContent.trim() + ' Spaces';
-                            }
-                            allLoadedText.textContent = 'All ' + matchingCount + ' ' + catLabel + ' Displayed';
-                        }
-                    }
-                }
-
-                scanGalleryItems();
-            }
-
-            // Category Tab Filtering
-            catBtns.forEach(function(btn) {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    catBtns.forEach(function(b) { b.classList.remove('active'); });
-                    this.classList.add('active');
-                    activeCategory = this.getAttribute('data-cat') || 'all';
-                    currentVisibleCount = PAGE_SIZE; // Reset to initial 4 images
-                    updateGallery(false);
-                });
-            });
-
-            // Load More button handler
-            if (loadMoreBtn) {
-                loadMoreBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    if (loadMoreSpinner && loadMoreIcon) {
-                        loadMoreSpinner.style.display = 'inline-block';
-                        loadMoreIcon.style.display = 'none';
-                    }
-                    loadMoreBtn.disabled = true;
-
-                    setTimeout(function() {
-                        currentVisibleCount += PAGE_SIZE;
-                        updateGallery(true);
-                        if (loadMoreSpinner && loadMoreIcon) {
-                            loadMoreSpinner.style.display = 'none';
-                            loadMoreIcon.style.display = 'inline-block';
-                        }
-                        loadMoreBtn.disabled = false;
-                    }, 180);
-                });
-            }
-
-            // Modal Elements
-            var modal = document.getElementById('rcGalleryModal');
-            var overlay = document.getElementById('rcModalOverlay');
-            var modalContainer = document.getElementById('rcModalContainer');
-            var modalImg = document.getElementById('rcModalImage');
-            var modalTitle = document.getElementById('rcModalTitle');
-            var modalDesc = document.getElementById('rcModalDesc');
-            var modalCategory = document.getElementById('rcModalCategory');
-            var modalCounter = document.getElementById('rcModalCounter');
-            var modalCloseBtn = document.getElementById('rcModalCloseBtn');
-            var modalPrevBtn = document.getElementById('rcModalPrevBtn');
-            var modalNextBtn = document.getElementById('rcModalNextBtn');
-            var modalFullscreenBtn = document.getElementById('rcModalFullscreenBtn');
-
-            var galleryItems = [];
-            var currentIndex = 0;
-
-            function scanGalleryItems() {
-                galleryItems = [];
-                var matching = getMatchingItems();
-                matching.forEach(function(item, idx) {
-                    var img = item.querySelector('.gallery-img');
-                    var title = item.querySelector('.gallery-card-title');
-                    var desc = item.querySelector('.gallery-card-desc');
-                    var category = item.querySelector('.gallery-category-pill') || item.querySelector('.gallery-space-badge');
-                    
-                    if (img) {
-                        galleryItems.push({
-                            index: idx,
-                            src: img.getAttribute('src'),
-                            alt: img.getAttribute('alt') || (title ? title.textContent.trim() : 'Office Space'),
-                            title: title ? title.textContent.trim() : 'Office Space',
-                            desc: desc ? desc.textContent.trim() : '',
-                            category: category ? category.textContent.trim() : 'Office Overview',
-                            element: item
-                        });
-                    }
-                });
-            }
-
-            function updateModalContent(index) {
-                if (!galleryItems.length) return;
-                if (index < 0) index = galleryItems.length - 1;
-                if (index >= galleryItems.length) index = 0;
-                currentIndex = index;
-
-                var item = galleryItems[currentIndex];
-                if (modalImg) {
-                    modalImg.src = item.src;
-                    modalImg.alt = item.alt;
-                }
-                if (modalTitle) modalTitle.textContent = item.title;
-                if (modalDesc) modalDesc.textContent = item.desc;
-                if (modalCategory) modalCategory.textContent = item.category;
-                if (modalCounter) modalCounter.textContent = (currentIndex + 1) + ' of ' + galleryItems.length;
-            }
-
-            function openModal(itemElement, enterFullscreen) {
-                if (!modal) return;
-                scanGalleryItems();
-                var img = itemElement.querySelector('.gallery-img');
-                var foundIdx = 0;
-                if (img) {
-                    var targetSrc = img.getAttribute('src');
-                    for (var i = 0; i < galleryItems.length; i++) {
-                        if (galleryItems[i].src === targetSrc) {
-                            foundIdx = i;
-                            break;
-                        }
-                    }
-                }
-                updateModalContent(foundIdx);
-                modal.style.setProperty('display', 'flex', 'important');
-                modal.classList.add('is-active');
-                modal.setAttribute('aria-hidden', 'false');
-                document.body.style.overflow = 'hidden';
-
-                if (enterFullscreen) {
-                    toggleFullscreen(true);
-                }
-            }
-
-            function closeModal() {
-                if (!modal) return;
-                modal.classList.remove('is-active');
-                modal.style.setProperty('display', 'none', 'important');
-                modal.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
-                if (document.fullscreenElement) {
-                    try { document.exitFullscreen(); } catch (err) {}
-                }
-            }
-
-            function toggleFullscreen(forceEnter) {
-                var target = modalContainer || modal;
-                if (!document.fullscreenElement || forceEnter === true) {
-                    if (target.requestFullscreen) {
-                        target.requestFullscreen().catch(function(err) {});
-                    } else if (target.webkitRequestFullscreen) {
-                        target.webkitRequestFullscreen();
-                    } else if (target.msRequestFullscreen) {
-                        target.msRequestFullscreen();
-                    }
-                    if (modalFullscreenBtn) {
-                        modalFullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
-                        modalFullscreenBtn.title = 'Exit Fullscreen (F / ESC)';
-                    }
-                } else {
-                    if (document.exitFullscreen) {
-                        document.exitFullscreen().catch(function(err) {});
-                    } else if (document.webkitExitFullscreen) {
-                        document.webkitExitFullscreen();
-                    }
-                    if (modalFullscreenBtn) {
-                        modalFullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
-                        modalFullscreenBtn.title = 'Toggle Fullscreen (F)';
-                    }
-                }
-            }
-
-            document.addEventListener('fullscreenchange', function() {
-                if (!document.fullscreenElement && modalFullscreenBtn) {
-                    modalFullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
-                    modalFullscreenBtn.title = 'Toggle Fullscreen (F)';
-                } else if (modalFullscreenBtn) {
-                    modalFullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
-                    modalFullscreenBtn.title = 'Exit Fullscreen (F / ESC)';
-                }
-            });
-
-            // Attach click handlers on all gallery cards
-            items.forEach(function(item) {
-                var zoomBtn = item.querySelector('.gallery-click-zoom');
-                if (zoomBtn) {
-                    zoomBtn.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        openModal(item, true);
-                    });
-                }
-                var viewBtn = item.querySelector('.gallery-view-btn');
-                if (viewBtn) {
-                    viewBtn.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        openModal(item, false);
-                    });
-                }
-                item.addEventListener('click', function(e) {
-                    openModal(item, false);
-                });
-            });
-
-            if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
-            if (overlay) overlay.addEventListener('click', closeModal);
-            if (modalPrevBtn) modalPrevBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                updateModalContent(currentIndex - 1);
-            });
-            if (modalNextBtn) modalNextBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                updateModalContent(currentIndex + 1);
-            });
-            if (modalFullscreenBtn) modalFullscreenBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                toggleFullscreen();
-            });
-
-            window.addEventListener('keydown', function(e) {
-                if (!modal || !modal.classList.contains('is-active')) return;
-                if (e.key === 'Escape') {
-                    if (document.fullscreenElement) {
-                        document.exitFullscreen().catch(function() {});
-                    } else {
-                        closeModal();
-                    }
-                } else if (e.key === 'ArrowLeft') {
-                    updateModalContent(currentIndex - 1);
-                } else if (e.key === 'ArrowRight') {
-                    updateModalContent(currentIndex + 1);
-                } else if (e.key === 'f' || e.key === 'F') {
-                    toggleFullscreen();
-                }
-            });
-
-            // Initialize gallery to first 4 items
-            updateGallery(false);
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initOfficeGallery);
-        } else {
-            initOfficeGallery();
-        }
-    })();
-    </script>
-    
-
-    <!-- RC TECHNO SOLUTIONS - HIGH-FIDELITY OFFICE GALLERY LIGHTBOX MODAL -->
-    <div id="rcGalleryModal" class="rc-gallery-modal" style="display: none !important;" aria-hidden="true" role="dialog" aria-modal="true">
-        <div class="rc-modal-overlay" id="rcModalOverlay"></div>
-        <div class="rc-modal-container" id="rcModalContainer">
-            <!-- Top Toolbar Header -->
-            <div class="rc-modal-topbar">
-                <div class="rc-modal-meta">
-                    <span id="rcModalCategory" class="rc-modal-badge">Office Overview</span>
-                    <h3 id="rcModalTitle" class="rc-modal-heading">Gallery Preview</h3>
-                    <span id="rcModalCounter" class="rc-modal-counter">1 of 12</span>
-                </div>
-                <div class="rc-modal-actions">
-                    <button id="rcModalFullscreenBtn" class="rc-modal-btn" title="Toggle Fullscreen (F)" aria-label="Toggle Fullscreen">
-                        <i class="fas fa-expand"></i>
-                    </button>
-                    <button id="rcModalCloseBtn" class="rc-modal-btn rc-modal-close" title="Close Preview (ESC)" aria-label="Close Preview">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <!-- Main Image Preview Stage -->
-            <div class="rc-modal-stage" id="rcModalStage">
-                <button id="rcModalPrevBtn" class="rc-modal-nav rc-nav-prev" title="Previous Image (Left Arrow)" aria-label="Previous Image">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="rc-modal-img-wrap" id="rcModalImgWrap">
-                    <img decoding="async" loading="lazy" id="rcModalImage" src="" alt="Office Gallery Preview" class="rc-modal-image" />
-                    <div id="rcModalSpinner" class="rc-modal-spinner" style="display: none;">
-                        <i class="fas fa-circle-notch fa-spin"></i>
-                    </div>
-                </div>
-                <button id="rcModalNextBtn" class="rc-modal-nav rc-nav-next" title="Next Image (Right Arrow)" aria-label="Next Image">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-            <!-- Bottom Description & Keyboard Shortcuts Bar -->
-            <div class="rc-modal-footer">
-                <p id="rcModalDesc" class="rc-modal-desc"></p>
-                <div class="rc-modal-shortcuts-hint">
-                    <span><kbd>&larr;</kbd> <kbd>&rarr;</kbd> Navigate</span>
-                    <span><kbd>F</kbd> Fullscreen</span>
-                    <span><kbd>ESC</kbd> Close</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <script src="js/corporate-gallery.js?v=2.0"></script>
 </body>
 
 </html>

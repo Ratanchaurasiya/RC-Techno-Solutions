@@ -268,17 +268,21 @@
 .rc-chat-quick-replies {
   display: flex;
   gap: 6px;
-  padding: 7px 12px;
+  padding: 8px 12px;
   background: #f1f5f9;
   overflow-x: auto;
+  overflow-y: hidden;
   border-top: 1px solid #e2e8f0;
-  scrollbar-width: none; /* Hide clunky native scrollbar */
-  -ms-overflow-style: none;
+  scrollbar-width: none !important; /* Hide clunky native scrollbar */
+  -ms-overflow-style: none !important;
   flex-shrink: 0;
 }
 
 .rc-chat-quick-replies::-webkit-scrollbar {
-  display: none; /* Hide Chrome/Safari scrollbar */
+  display: none !important; /* Hide Chrome/Safari/Edge scrollbar */
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
 }
 
 .rc-qr-btn {
