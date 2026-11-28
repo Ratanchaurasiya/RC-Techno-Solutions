@@ -76,6 +76,7 @@ const DB_FILES = {
     blogs: path.join(DATA_DIR, 'blogs.json'),
     testimonials: path.join(DATA_DIR, 'testimonials.json'),
     adminUsers: path.join(DATA_DIR, 'admin_users.json'),
+    certificates: path.join(DATA_DIR, 'certificates.json'),
     demoRequests: path.join(DATA_DIR, 'demo_requests.json'),
     demoAssignments: path.join(DATA_DIR, 'demo_assignments.json'),
     demoNotes: path.join(DATA_DIR, 'demo_notes.json'),
@@ -397,6 +398,68 @@ function writeTable(tableName, data) {
                 action: 'FEEDBACK_RECORDED',
                 details: 'Deal successfully closed and converted! Contract signed.',
                 createdAt: new Date(Date.now() - 2 * 24 * 3600 * 1000).toISOString()
+            }
+        ]);
+    }
+
+    // 7. Dynamic Certificates Seed
+    if (!readTable('certificates').length) {
+        writeTable('certificates', [
+            {
+                id: 'cert_1',
+                certificateId: 'RC-2026-FSD-0104',
+                studentName: 'Aman Kumar Verma',
+                email: 'aman.verma@example.com',
+                domain: 'Full Stack Web Development (MERN)',
+                duration: '1 Month (30 Days)',
+                grade: 'Distinction / Grade A+',
+                issueDate: '2026-11-15',
+                batchId: 'batch-2026-alpha',
+                status: 'VERIFIED_ACTIVE',
+                verificationUrl: '/verify-certificate?id=RC-2026-FSD-0104',
+                createdAt: new Date('2026-11-15').toISOString()
+            },
+            {
+                id: 'cert_2',
+                certificateId: 'RC-CERT-2026-001',
+                studentName: 'Ratan Chaurasiya',
+                email: 'ratanchaurasiya61@gmail.com',
+                domain: 'Cloud Architecture & Enterprise Engineering',
+                duration: '30 Days Immersion',
+                grade: 'Honors / Grade O',
+                issueDate: '2026-10-24',
+                batchId: 'batch-2026-alpha',
+                status: 'VERIFIED_ACTIVE',
+                verificationUrl: '/verify-certificate?id=RC-CERT-2026-001',
+                createdAt: new Date('2026-10-24').toISOString()
+            },
+            {
+                id: 'cert_3',
+                certificateId: 'RC-2026-AI-0205',
+                studentName: 'Priya Sharma',
+                email: 'priya.sharma@example.com',
+                domain: 'AI Engineering & LLM Automation',
+                duration: '1 Month (30 Days)',
+                grade: 'Excellence / Grade A',
+                issueDate: '2026-11-20',
+                batchId: 'batch-2026-alpha',
+                status: 'VERIFIED_ACTIVE',
+                verificationUrl: '/verify-certificate?id=RC-2026-AI-0205',
+                createdAt: new Date('2026-11-20').toISOString()
+            },
+            {
+                id: 'cert_4',
+                certificateId: 'RC-2026-PY-0312',
+                studentName: 'Rahul Patel',
+                email: 'rahul.patel@example.com',
+                domain: 'Python Backend & REST API Development',
+                duration: '30 Days',
+                grade: 'Grade A',
+                issueDate: '2026-11-18',
+                batchId: 'batch-2026-alpha',
+                status: 'VERIFIED_ACTIVE',
+                verificationUrl: '/verify-certificate?id=RC-2026-PY-0312',
+                createdAt: new Date('2026-11-18').toISOString()
             }
         ]);
     }
@@ -1120,5 +1183,76 @@ module.exports = {
                 ...chatLeads.slice(0, 2).map(l => ({ type: 'CHATBOT_LEAD', title: `Chatbot captured lead: ${l.name} (${l.phone || l.email})`, time: l.createdAt }))
             ].sort((a, b) => new Date(b.time) - new Date(a.time))
         };
+    },
+
+    // -------------------------------------------------------------
+    // CERTIFICATES VERIFICATION & ISSUANCE SYSTEM
+    // -------------------------------------------------------------
+    getCertificates: async () => {
+        return readTable('certificates');
+    },
+
+    getCertificateById: async (certId) => {
+        if (!certId) return null;
+        const normalized = certId.trim().toUpperCase();
+        const list = readTable('certificates');
+        return list.find(c => c.certificateId.toUpperCase() === normalized || c.id === certId) || null;
+    },
+
+    issueCertificate: async (data) => {
+        const list = readTable('certificates');
+        
+        let certId = data.certificateId ? data.certificateId.trim().toUpperCase() : '';
+        if (!certId) {
+            const domainCode = (data.domain || 'DEV').replace(/[^a-zA-Z]/g, '').substring(0, 3).toUpperCase();
+            const rand = Math.floor(1000 + Math.random() * 9000);
+            certId = `RC-2026-${domainCode || 'ENG'}-${rand}`;
+        }
+
+        if (list.some(c => c.certificateId.toUpperCase() === certId)) {
+            return { error: `Certificate with ID ${certId} already exists in the official registry.` };
+        }
+
+        const newCert = {
+            id: 'cert_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6),
+            certificateId: certId,
+            studentName: (data.studentName || '').trim(),
+            email: data.email ? data.email.trim().toLowerCase() : '',
+            domain: data.domain || 'Full Stack Web Development (MERN)',
+            duration: data.duration || '1 Month (30 Days)',
+            grade: data.grade || 'Distinction / Grade A+',
+            issueDate: data.issueDate || new Date().toISOString().split('T')[0],
+            batchId: data.batchId || 'batch-2026-alpha',
+            status: 'VERIFIED_ACTIVE',
+            verificationUrl: `/verify-certificate?id=${encodeURIComponent(certId)}`,
+            createdAt: new Date().toISOString()
+        };
+
+        list.unshift(newCert);
+        writeTable('certificates', list);
+
+        // Update application if linked
+        if (data.applicationId) {
+            const apps = readTable('internships');
+            const app = apps.find(a => a.id === data.applicationId);
+            if (app) {
+                app.certificateStatus = 'Issued';
+                app.certificateId = certId;
+                writeTable('internships', apps);
+            }
+        }
+
+        return newCert;
+    },
+
+    revokeCertificate: async (certId, reason = 'Administrative Revocation') => {
+        const list = readTable('certificates');
+        const cert = list.find(c => c.certificateId.toUpperCase() === certId.trim().toUpperCase() || c.id === certId);
+        if (!cert) return null;
+        cert.status = 'REVOKED';
+        cert.revokedReason = reason;
+        cert.revokedAt = new Date().toISOString();
+        writeTable('certificates', list);
+        return cert;
     }
 };

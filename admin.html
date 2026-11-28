@@ -565,6 +565,7 @@
                     <li><a href="#enquiries" class="nav-item" onclick="switchTab('enquiries')"><i class="fas fa-envelope-open-text"></i> Client Inquiries</a></li>
                     <li><a href="#chatleads" class="nav-item" onclick="switchTab('chatleads')"><i class="fas fa-comments"></i> Chatbot Leads</a></li>
                     <li><a href="#batches" class="nav-item" onclick="switchTab('batches')"><i class="fas fa-calendar-check"></i> Batches &amp; Progress</a></li>
+                    <li><a href="#certificates" class="nav-item" onclick="switchTab('certificates')"><i class="fas fa-certificate" style="color: #f59e0b;"></i> Certificates</a></li>
                     <li><a href="#system" class="nav-item" onclick="switchTab('system')"><i class="fas fa-database"></i> Database &amp; System</a></li>
                 </ul>
 
@@ -903,6 +904,46 @@
                         </div>
                     </div>
 
+                    <!-- TAB: Certificates Management & Issuance -->
+                    <div id="tab-certificates" class="tab-panel">
+                        <div class="table-container-card" style="padding: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                                <div>
+                                    <h3 style="margin: 0 0 6px;">Verifiable Certificates Registry</h3>
+                                    <p style="font-size: 0.9rem; color: #64748b; margin: 0;">Issue, manage, and verify official completion certificates for internship students.</p>
+                                </div>
+                                <div style="display: flex; gap: 10px;">
+                                    <button class="btn-action-sm btn-action-primary" onclick="openIssueCertModal()" style="display: flex; align-items: center; gap: 6px; background: #0084ff; color: #ffffff; padding: 8px 16px; border-radius: 8px; border: none; cursor: pointer; font-weight: 700;">
+                                        <i class="fas fa-plus-circle"></i> Issue New Certificate
+                                    </button>
+                                    <button class="btn-action-sm" onclick="loadCertificates()" style="display: flex; align-items: center; gap: 6px; background: #f1f5f9; color: #0f172a; padding: 8px 14px; border-radius: 8px; border: 1px solid #cbd5e1; cursor: pointer; font-weight: 600;">
+                                        <i class="fas fa-sync-alt"></i> Refresh
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="overflow-x: auto;">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Certificate ID</th>
+                                            <th>Student Name</th>
+                                            <th>Internship Domain</th>
+                                            <th>Duration</th>
+                                            <th>Grade / Status</th>
+                                            <th>Issue Date</th>
+                                            <th>Verification Link</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="certificatesTableBody">
+                                        <tr><td colspan="8" style="text-align: center; color: #94a3b8; padding: 28px;">Loading certificates...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- TAB 5: Database & System -->
                     <div id="tab-system" class="tab-panel">
                         <div class="table-container-card" style="padding: 24px;">
@@ -1001,6 +1042,60 @@
                         Close
                     </button>
                 </div>
+            </div>
+        </div>
+
+        <!-- Admin Issue Certificate Modal -->
+        <div id="adminIssueCertModal" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 100000; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(8px);">
+            <div style="background: #ffffff; border-radius: 20px; max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 32px 28px; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.3);">
+                <button type="button" onclick="document.getElementById('adminIssueCertModal').style.display='none';" style="position: absolute; top: 20px; right: 20px; background: #f1f5f9; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; color: #475569;">&times;</button>
+                <h3 style="margin: 0 0 6px; font-size: 1.3rem; color: #0f172a;"><i class="fas fa-certificate" style="color: #f59e0b;"></i> Issue Official Certificate</h3>
+                <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 20px;">Generate and register a verifiable completion certificate with unique cryptographic ID.</p>
+
+                <form id="issueCertForm" onsubmit="handleIssueCertSubmit(event)">
+                    <div style="margin-bottom: 14px;">
+                        <label style="display: block; font-size: 0.82rem; font-weight: 700; color: #334155; margin-bottom: 4px;">Student Full Name *</label>
+                        <input type="text" id="certStudentName" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem;" placeholder="e.g. Aman Kumar Verma" />
+                    </div>
+                    <div style="margin-bottom: 14px;">
+                        <label style="display: block; font-size: 0.82rem; font-weight: 700; color: #334155; margin-bottom: 4px;">Student Email</label>
+                        <input type="email" id="certStudentEmail" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem;" placeholder="student@example.com" />
+                    </div>
+                    <div style="margin-bottom: 14px;">
+                        <label style="display: block; font-size: 0.82rem; font-weight: 700; color: #334155; margin-bottom: 4px;">Internship Domain *</label>
+                        <select id="certDomain" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem;">
+                            <option value="Full Stack Web Development (MERN)">Full Stack Web Development (MERN)</option>
+                            <option value="Python Backend & REST API Development">Python Backend & REST API Development</option>
+                            <option value="AI Engineering & LLM Automation">AI Engineering & LLM Automation</option>
+                            <option value="Cloud Architecture & DevOps Engineering">Cloud Architecture & DevOps Engineering</option>
+                            <option value="Data Analytics & Engineering">Data Analytics & Engineering</option>
+                            <option value="UI/UX Engineering & Modern Frontend">UI/UX Engineering & Modern Frontend</option>
+                        </select>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+                        <div>
+                            <label style="display: block; font-size: 0.82rem; font-weight: 700; color: #334155; margin-bottom: 4px;">Duration</label>
+                            <input type="text" id="certDuration" value="1 Month (30 Days)" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem;" />
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 0.82rem; font-weight: 700; color: #334155; margin-bottom: 4px;">Performance Grade</label>
+                            <select id="certGrade" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem;">
+                                <option value="Distinction / Grade A+">Distinction / Grade A+</option>
+                                <option value="Honors / Grade O">Honors / Grade O</option>
+                                <option value="Excellence / Grade A">Excellence / Grade A</option>
+                                <option value="Completed Successfully / Grade B+">Completed Successfully / Grade B+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-size: 0.82rem; font-weight: 700; color: #334155; margin-bottom: 4px;">Custom Certificate ID (Optional - auto-generated if blank)</label>
+                        <input type="text" id="certCustomId" placeholder="e.g. RC-2026-FSD-0105" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem;" />
+                    </div>
+                    <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                        <button type="button" onclick="document.getElementById('adminIssueCertModal').style.display='none';" style="background: #e2e8f0; color: #334155; padding: 10px 16px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer;">Cancel</button>
+                        <button type="submit" id="btnSubmitCert" style="background: #0084ff; color: #ffffff; padding: 10px 20px; border-radius: 8px; border: none; font-weight: 700; cursor: pointer;"><i class="fas fa-check-circle"></i> Issue &amp; Save</button>
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -1265,12 +1360,15 @@
                     'enquiries': 'Website Contact & Project Inquiries',
                     'chatleads': 'Conversational AI Chatbot Leads',
                     'batches': 'Batches & Student Milestones',
+                    'certificates': 'Verifiable Certificates Registry & Issuance',
                     'system': 'Database & System Configuration'
                 };
                 document.getElementById('topbarHeader').textContent = headers[tabId] || 'Admin Portal';
 
                 if (tabId === 'demorequests') {
                     loadDemoRequests();
+                } else if (tabId === 'certificates') {
+                    loadCertificates();
                 }
             }
 
@@ -1279,6 +1377,129 @@
                 loadInternships();
                 loadEnquiries();
                 loadChatLeads();
+                loadCertificates();
+            }
+
+            // ------------------------------------------------------------------
+            // CERTIFICATES MANAGEMENT
+            // ------------------------------------------------------------------
+            var allCertificates = [];
+
+            function loadCertificates() {
+                fetch('/api/admin/certificates', {
+                    headers: { 'Authorization': 'Bearer ' + authToken }
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        allCertificates = data.certificates || [];
+                        renderCertificates(allCertificates);
+                    }
+                })
+                .catch(function(e) { console.error('Error loading certificates:', e); });
+            }
+
+            function renderCertificates(list) {
+                var tbody = document.getElementById('certificatesTableBody');
+                if (!tbody) return;
+                if (!list.length) {
+                    tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; color: #94a3b8; padding: 24px;">No issued certificates found in registry.</td></tr>';
+                    return;
+                }
+                var html = '';
+                list.forEach(function(cert) {
+                    var isRevoked = cert.status === 'REVOKED';
+                    var statusBadge = isRevoked 
+                        ? '<span style="background: #fee2e2; color: #b91c1c; font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 9999px;">REVOKED</span>'
+                        : '<span style="background: #dcfce7; color: #15803d; font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 9999px;">' + (cert.grade || 'VERIFIED ACTIVE') + '</span>';
+                    
+                    var verifyUrl = '/verify-certificate?id=' + encodeURIComponent(cert.certificateId);
+                    
+                    html += '<tr>' +
+                        '<td><strong style="font-family: monospace; color: #0084ff;">' + cert.certificateId + '</strong></td>' +
+                        '<td><strong>' + cert.studentName + '</strong>' + (cert.email ? '<br><small style="color:#64748b;">' + cert.email + '</small>' : '') + '</td>' +
+                        '<td>' + (cert.domain || 'Engineering') + '</td>' +
+                        '<td>' + (cert.duration || '1 Month') + '</td>' +
+                        '<td>' + statusBadge + '</td>' +
+                        '<td>' + (cert.issueDate || '2026-11-15') + '</td>' +
+                        '<td><a href="' + verifyUrl + '" target="_blank" style="color: #0284c7; text-decoration: none; font-weight: 600;"><i class="fas fa-external-link-alt"></i> Verify View</a></td>' +
+                        '<td>' +
+                            (isRevoked 
+                                ? '<span style="color:#94a3b8; font-size: 0.78rem;">Inactive</span>' 
+                                : '<button class="btn-action-sm" onclick="revokeCertificateAdmin(\'' + cert.certificateId + '\')" style="background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; cursor: pointer;"><i class="fas fa-ban"></i> Revoke</button>') +
+                        '</td>' +
+                    '</tr>';
+                });
+                tbody.innerHTML = html;
+            }
+
+            function openIssueCertModal() {
+                document.getElementById('issueCertForm').reset();
+                document.getElementById('adminIssueCertModal').style.display = 'flex';
+            }
+
+            function handleIssueCertSubmit(e) {
+                e.preventDefault();
+                var btn = document.getElementById('btnSubmitCert');
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Issuing...';
+
+                var payload = {
+                    studentName: document.getElementById('certStudentName').value.trim(),
+                    email: document.getElementById('certStudentEmail').value.trim(),
+                    domain: document.getElementById('certDomain').value,
+                    duration: document.getElementById('certDuration').value,
+                    grade: document.getElementById('certGrade').value,
+                    certificateId: document.getElementById('certCustomId').value.trim()
+                };
+
+                fetch('/api/admin/certificates/issue', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + authToken
+                    },
+                    body: JSON.stringify(payload)
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(res) {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-check-circle"></i> Issue & Save';
+                    if (res.success) {
+                        alert(res.message || 'Certificate issued successfully!');
+                        document.getElementById('adminIssueCertModal').style.display = 'none';
+                        loadCertificates();
+                    } else {
+                        alert(res.error || 'Failed to issue certificate.');
+                    }
+                })
+                .catch(function(err) {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-check-circle"></i> Issue & Save';
+                    alert('Network error while issuing certificate.');
+                });
+            }
+
+            function revokeCertificateAdmin(certId) {
+                if (!confirm('Are you sure you want to revoke certificate ' + certId + '? This cannot be undone.')) return;
+                fetch('/api/admin/certificates/revoke', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + authToken
+                    },
+                    body: JSON.stringify({ certificateId: certId, reason: 'Administrative Revocation' })
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(res) {
+                    if (res.success) {
+                        alert(res.message);
+                        loadCertificates();
+                    } else {
+                        alert(res.error || 'Failed to revoke certificate.');
+                    }
+                })
+                .catch(function() { alert('Network error while revoking certificate.'); });
             }
 
             function loadInternships() {

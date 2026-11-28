@@ -444,11 +444,14 @@
 
     // 6. Global Click Delegation for Demo Buttons
     document.addEventListener('click', function (e) {
-        const trigger = e.target.closest('[data-demo-project], .btn-request-demo, [data-open-demo]');
+        const trigger = e.target.closest('[data-demo-project], .btn-request-demo, .btn-action-demo, [data-open-demo]');
         if (trigger) {
             e.preventDefault();
             const project = trigger.getAttribute('data-demo-project') ||
                 trigger.getAttribute('data-project-name') ||
+                trigger.getAttribute('data-project') ||
+                trigger.closest('.tech-project-card')?.querySelector('.tpc-title')?.textContent?.replace(/^\d+\.\s*/, '')?.trim() ||
+                trigger.closest('.portfolio-card-elevated')?.querySelector('.portfolio-card-title')?.textContent?.trim() ||
                 trigger.closest('.portfolio-card')?.querySelector('.portfolio-card-title')?.textContent?.trim() ||
                 '';
             window.openDemoModal(project);

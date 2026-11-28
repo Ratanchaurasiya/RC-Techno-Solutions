@@ -902,6 +902,97 @@ const server = http.createServer((req, res) => {
     }
 
     // ------------------------------------------------------------------
+    // 11. CERTIFICATE VERIFICATION & MANAGEMENT SYSTEM
+    // ------------------------------------------------------------------
+
+    // 11A. Public Certificate Verification
+    if (req.method === 'GET' && (req.url.startsWith('/api/certificates/verify') || req.url.startsWith('/api/certificate/verify'))) {
+        const urlObj = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+        let certId = urlObj.searchParams.get('id');
+        if (!certId) {
+            const parts = urlObj.pathname.split('/');
+            const lastPart = parts[parts.length - 1];
+            if (lastPart && lastPart !== 'verify') {
+                certId = decodeURIComponent(lastPart);
+            }
+        }
+
+        if (!certId || !certId.trim()) {
+            return sendJson(400, { success: false, error: 'Please enter a Certificate ID to verify.' });
+        }
+
+        dbStore.getCertificateById(certId).then(cert => {
+            if (!cert) {
+                return sendJson(404, {
+                    success: false,
+                    error: `No official verified record found for Certificate ID "${certId}". Please verify the credential ID or contact RC Techno Solutions.`
+                });
+            }
+            return sendJson(200, {
+                success: true,
+                certificate: cert
+            });
+        }).catch(err => {
+            return sendJson(500, { success: false, error: err.message });
+        });
+        return;
+    }
+
+    // 11B. Admin - List Certificates
+    if (req.method === 'GET' && req.url === '/api/admin/certificates') {
+        if (!checkAuth()) return sendJson(401, { success: false, error: 'Unauthorized admin session' });
+        dbStore.getCertificates().then(certificates => {
+            return sendJson(200, { success: true, certificates });
+        }).catch(err => {
+            return sendJson(500, { success: false, error: err.message });
+        });
+        return;
+    }
+
+    // 11C. Admin - Issue Certificate
+    if (req.method === 'POST' && req.url === '/api/admin/certificates/issue') {
+        if (!checkAuth()) return sendJson(401, { success: false, error: 'Unauthorized admin session' });
+        parseJsonBody(req, async (err, data) => {
+            if (err || !data) return sendJson(400, { success: false, error: 'Invalid payload' });
+            if (!data.studentName || data.studentName.trim().length < 2) {
+                return sendJson(400, { success: false, error: 'Student full name is required.' });
+            }
+            try {
+                const cert = await dbStore.issueCertificate(data);
+                if (cert.error) return sendJson(409, { success: false, error: cert.error });
+                return sendJson(200, {
+                    success: true,
+                    certificate: cert,
+                    message: `Certificate ${cert.certificateId} has been successfully issued and registered.`
+                });
+            } catch (issueErr) {
+                return sendJson(500, { success: false, error: issueErr.message });
+            }
+        });
+        return;
+    }
+
+    // 11D. Admin - Revoke Certificate
+    if (req.method === 'POST' && req.url === '/api/admin/certificates/revoke') {
+        if (!checkAuth()) return sendJson(401, { success: false, error: 'Unauthorized admin session' });
+        parseJsonBody(req, async (err, data) => {
+            if (err || !data || !data.certificateId) return sendJson(400, { success: false, error: 'Certificate ID required' });
+            try {
+                const cert = await dbStore.revokeCertificate(data.certificateId, data.reason || 'Administrative Revocation');
+                if (!cert) return sendJson(404, { success: false, error: 'Certificate not found' });
+                return sendJson(200, {
+                    success: true,
+                    certificate: cert,
+                    message: `Certificate ${cert.certificateId} status updated to REVOKED.`
+                });
+            } catch (revokeErr) {
+                return sendJson(500, { success: false, error: revokeErr.message });
+            }
+        });
+        return;
+    }
+
+    // ------------------------------------------------------------------
     // STATIC ROUTING & CLEAN URL HANDLING
     // ------------------------------------------------------------------
     let target = ROUTE_ALIASES[cleanUrl] || cleanUrl;

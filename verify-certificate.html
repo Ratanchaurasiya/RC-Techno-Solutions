@@ -113,9 +113,16 @@
                         </div>
                     </div>
 
-                    <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 12px;">
+                    <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
                         <span style="font-size: 0.8rem; color: #64748b;"><i class="fas fa-shield-alt"></i> Cryptographically Verified by RC Techno Enterprise Authority</span>
-                        <a href="https://wa.me/916390035039" target="_blank" rel="noopener" style="color: #38bdf8; text-decoration: none; font-size: 0.85rem; font-weight: 600;"><i class="fab fa-whatsapp"></i> Report / Inquire</a>
+                        <div style="display: flex; gap: 10px;">
+                            <button type="button" onclick="window.print()" style="background: #38bdf8; color: #0f172a; border: none; font-weight: 700; font-size: 0.82rem; padding: 7px 14px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                                <i class="fas fa-print"></i> Print Certificate
+                            </button>
+                            <a href="https://wa.me/916390035039" target="_blank" rel="noopener" style="color: #38bdf8; text-decoration: none; font-size: 0.82rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
+                                <i class="fab fa-whatsapp"></i> Inquire
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -127,51 +134,57 @@
     </footer>
 
     <script>
-        const SAMPLE_CERTIFICATES = {
-            'RC-2026-FSD-0104': { name: 'Aman Kumar Verma', program: 'Full Stack Web Development (MERN)', duration: '1 Month (30 Days)', status: 'Distinction / Grade A+', date: 'November 2026' },
-            'RC-CERT-2026-001': { name: 'Ratan Chaurasiya', program: 'Cloud Architecture & Enterprise Engineering', duration: '30 Days Immersion', status: 'Honors', date: 'October 2026' },
-            'RC-2026-AI-0205': { name: 'Priya Sharma', program: 'AI Engineering & LLM Automation', duration: '1 Month', status: 'Excellence / Grade A', date: 'November 2026' },
-            'RC-2026-PY-0312': { name: 'Rahul Patel', program: 'Python Backend & REST API Development', duration: '30 Days', status: 'Completed Successfully', date: 'November 2026' }
-        };
-
         const verifyBtn = document.getElementById('verifyBtn');
         const certInput = document.getElementById('certInput');
         const certResult = document.getElementById('certResult');
         const verifyError = document.getElementById('verifyError');
 
-        function doVerify() {
+        async function doVerify() {
             const rawId = certInput.value.trim().toUpperCase();
             verifyError.style.display = 'none';
             certResult.style.display = 'none';
 
             if (!rawId) {
-                verifyError.textContent = 'Please enter a Certificate ID to verify.';
+                verifyError.innerHTML = '<i class="fas fa-info-circle"></i> Please enter a Certificate ID or Roll Number to verify.';
                 verifyError.style.display = 'block';
                 return;
             }
 
-            // Check sample local certificates or standard format
-            const cert = SAMPLE_CERTIFICATES[rawId];
-            if (cert) {
-                document.getElementById('studentName').textContent = cert.name;
-                document.getElementById('certProgram').textContent = cert.program;
-                document.getElementById('certId').textContent = rawId;
-                document.getElementById('certDuration').textContent = cert.duration;
-                document.getElementById('certStatus').textContent = cert.status;
-                document.getElementById('certDate').textContent = cert.date;
-                certResult.style.display = 'block';
-            } else if (rawId.startsWith('RC-') || rawId.startsWith('RC-ENQ-')) {
-                // Verified auto-generated format
-                document.getElementById('studentName').textContent = 'Candidate Record Verified';
-                document.getElementById('certProgram').textContent = 'Technical Internship / Capstone Program';
-                document.getElementById('certId').textContent = rawId;
-                document.getElementById('certDuration').textContent = '1 Month (30 Days)';
-                document.getElementById('certStatus').textContent = 'Verified Active Certificate';
-                document.getElementById('certDate').textContent = 'Batch 2026';
-                certResult.style.display = 'block';
-            } else {
-                verifyError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> No certificate found matching "<strong>' + rawId + '</strong>". Please verify the ID or contact admissions at <a href="https://wa.me/916390035039" style="color: #38bdf8;">+91 6390035039</a>.';
+            verifyBtn.disabled = true;
+            verifyBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
+
+            try {
+                const response = await fetch('/api/certificates/verify?id=' + encodeURIComponent(rawId));
+                const data = await response.json();
+
+                if (response.ok && data.success && data.certificate) {
+                    const cert = data.certificate;
+                    document.getElementById('studentName').textContent = cert.studentName;
+                    document.getElementById('certProgram').textContent = cert.domain;
+                    document.getElementById('certId').textContent = cert.certificateId;
+                    document.getElementById('certDuration').textContent = cert.duration || '1 Month (30 Days)';
+                    document.getElementById('certStatus').textContent = cert.grade || (cert.status === 'VERIFIED_ACTIVE' ? 'Verified Active / Grade A' : cert.status);
+                    
+                    if (cert.status === 'REVOKED') {
+                        document.getElementById('certStatus').textContent = 'REVOKED';
+                        document.getElementById('certStatus').style.color = '#ef4444';
+                    } else {
+                        document.getElementById('certStatus').style.color = '#4ade80';
+                    }
+
+                    document.getElementById('certDate').textContent = cert.issueDate ? new Date(cert.issueDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : 'November 2026';
+                    certResult.style.display = 'block';
+                } else {
+                    verifyError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ' + (data.error || `No official certificate found matching "${rawId}". Please verify the ID or contact admissions at <a href="https://wa.me/916390035039" style="color: #38bdf8;">+91 6390035039</a>.`);
+                    verifyError.style.display = 'block';
+                }
+            } catch (err) {
+                console.error('Verification error:', err);
+                verifyError.innerHTML = '<i class="fas fa-network-wired"></i> Connection error while verifying with database. Please try again.';
                 verifyError.style.display = 'block';
+            } finally {
+                verifyBtn.disabled = false;
+                verifyBtn.innerHTML = '<i class="fas fa-search"></i> Verify Certificate';
             }
         }
 
