@@ -2866,7 +2866,7 @@
     }
 
     /* Grids & Cards */
-    .bento-grid, .portfolio-grid, .team-grid, .gallery-grid, .playbook-grid, .contact-grid {
+    .bento-grid, .team-grid, .gallery-grid, .playbook-grid, .contact-grid {
         grid-template-columns: 1fr !important;
         gap: 14px !important;
     }
@@ -5651,7 +5651,6 @@ html, body {
     .features-grid,
     .why-us-grid,
     .pricing-grid,
-    .portfolio-grid,
     .team-grid,
     .contact-grid,
     .playbook-grid,
@@ -10481,9 +10480,9 @@ html, body {
         padding: 6px 12px !important;
     }
     #portfolio.section-portfolio-elevated .portfolio-grid {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
-        padding: 0 8px !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        padding: 0 4px !important;
     }
 }
 

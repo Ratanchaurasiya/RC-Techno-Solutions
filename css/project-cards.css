@@ -491,26 +491,138 @@
     }
 }
 
-/* Mobile (<= 640px): 1 single column */
-@media (max-width: 640px) {
+/* Mobile & Phone (<= 768px): Strictly 2 equal columns */
+@media (max-width: 768px) {
     .tech-projects-grid,
     .portfolio-grid-main {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
     }
 
     .tpc-img-wrap,
     .portfolio-thumb-wrap {
-        height: 180px !important;
+        height: 125px !important;
+    }
+
+    .tpc-body,
+    .portfolio-card-body {
+        padding: 10px 10px 8px !important;
+    }
+
+    .tpc-title,
+    .portfolio-card-title {
+        font-size: 0.88rem !important;
+        margin-bottom: 4px !important;
+        line-height: 1.25 !important;
+    }
+
+    .tpc-desc,
+    .portfolio-card-text {
+        font-size: 0.72rem !important;
+        line-height: 1.35 !important;
+        margin-bottom: 6px !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+    }
+
+    .tpc-target {
+        display: none !important;
+    }
+
+    .portfolio-feature-list {
+        margin: 0 0 6px 0 !important;
+    }
+
+    .portfolio-feature-list li {
+        font-size: 0.65rem !important;
+        line-height: 1.3 !important;
+        padding: 1px 0 !important;
+    }
+
+    .portfolio-feature-list li i {
+        font-size: 0.55rem !important;
     }
 
     .project-buttons-row {
-        grid-template-columns: 1fr 1.3fr 1fr !important;
-        gap: 6px !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 4px !important;
     }
 
     .btn-project-action {
-        padding: 9px 8px !important;
-        font-size: 0.78rem !important;
+        padding: 6px 4px !important;
+        font-size: 0.68rem !important;
+        border-radius: 6px !important;
+        gap: 3px !important;
+        justify-content: center !important;
+    }
+
+    .btn-project-action i {
+        font-size: 0.70rem !important;
+    }
+
+    .btn-project-action span {
+        font-size: 0.65rem !important;
+    }
+}
+
+/* Small Phones (<= 480px): Compact 2 equal columns */
+@media (max-width: 480px) {
+    .tech-projects-grid,
+    .portfolio-grid-main {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+    }
+
+    .tpc-img-wrap,
+    .portfolio-thumb-wrap {
+        height: 105px !important;
+    }
+
+    .tpc-body,
+    .portfolio-card-body {
+        padding: 8px 8px 6px !important;
+    }
+
+    .tpc-title,
+    .portfolio-card-title {
+        font-size: 0.82rem !important;
+    }
+
+    .tech-tag,
+    .tech-pill-tag {
+        font-size: 0.58rem !important;
+        padding: 1px 5px !important;
+    }
+
+    .tpc-badge,
+    .portfolio-category-badge {
+        font-size: 0.58rem !important;
+        padding: 2px 6px !important;
+        top: 6px !important;
+        left: 6px !important;
+    }
+
+    .status-badge,
+    .tpc-status-badge {
+        font-size: 0.60rem !important;
+        padding: 2px 6px !important;
+    }
+
+    .project-buttons-row {
+        gap: 3px !important;
+    }
+
+    .btn-project-action {
+        padding: 5px 2px !important;
+        font-size: 0.62rem !important;
+    }
+
+    .btn-project-action span {
+        font-size: 0.60rem !important;
     }
 }

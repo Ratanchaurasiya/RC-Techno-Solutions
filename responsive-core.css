@@ -471,9 +471,9 @@ img, picture, video, canvas, svg {
     }
 
     .portfolio-grid {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
-        margin-top: 18px !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        margin-top: 14px !important;
     }
 
     .portfolio-card {

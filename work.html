@@ -21,9 +21,9 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
         <link href="style.css?v=4.5" rel="stylesheet" />
         <link href="home.css?v=4.5" rel="stylesheet" />
-        <link href="responsive-core.css?v=4.5" rel="stylesheet" />
+        <link href="responsive-core.css?v=6.5" rel="stylesheet" />
         <link href="portfolio.css?v=4.5" rel="stylesheet" />
-        <link href="pro-enhancements.css?v=4.6" rel="stylesheet" />
+        <link href="pro-enhancements.css?v=6.5" rel="stylesheet" />
         <link href="chatbot.css?v=6.5" rel="stylesheet" />
 
         <style>
@@ -102,10 +102,16 @@
                     gap: 16px;
                 }
             }
-            @media (max-width: 640px) {
+            @media (max-width: 768px) {
                 .portfolio-grid-main {
-                    grid-template-columns: 1fr;
-                    gap: 14px;
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 12px !important;
+                }
+            }
+            @media (max-width: 480px) {
+                .portfolio-grid-main {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 8px !important;
                 }
             }
 
@@ -573,7 +579,7 @@
                 border-color: #334155;
             }
         </style>
-        <link href="css/project-cards.css?v=2.5" rel="stylesheet" />
+        <link href="css/project-cards.css?v=3.0" rel="stylesheet" />
     <link href="css/demo-modal.css?v=2.5" rel="stylesheet" />
 </head>
     <body>

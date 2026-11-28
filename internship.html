@@ -21,8 +21,8 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
         <link href="style.css?v=4.5" rel="stylesheet" />
         <link href="home.css?v=4.5" rel="stylesheet" />
-        <link href="responsive-core.css?v=4.5" rel="stylesheet" />
-        <link href="pro-enhancements.css?v=4.5" rel="stylesheet" />
+        <link href="responsive-core.css?v=6.5" rel="stylesheet" />
+        <link href="pro-enhancements.css?v=6.5" rel="stylesheet" />
         <link href="chatbot.css?v=6.5" rel="stylesheet" />
         <link href="css/faang-offer-letter.css?v=2.0" rel="stylesheet" />
 
@@ -244,9 +244,79 @@
                 margin: 0 auto;
                 padding: 0 20px;
             }
+            @media (max-width: 768px) {
+                .domain-cards-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 12px !important;
+                    padding: 0 12px !important;
+                }
+                .domain-card {
+                    padding: 16px 12px !important;
+                    border-radius: 12px !important;
+                }
+                .domain-icon {
+                    width: 40px !important;
+                    height: 40px !important;
+                    border-radius: 10px !important;
+                    font-size: 1.15rem !important;
+                }
+                .domain-tag {
+                    font-size: 0.62rem !important;
+                    padding: 2px 7px !important;
+                }
+                .domain-card h3 {
+                    font-size: 0.95rem !important;
+                    margin: 0 0 4px 0 !important;
+                    line-height: 1.25 !important;
+                }
+                .domain-card p {
+                    font-size: 0.72rem !important;
+                    line-height: 1.35 !important;
+                    margin-bottom: 10px !important;
+                    display: -webkit-box !important;
+                    -webkit-line-clamp: 2 !important;
+                    -webkit-box-orient: vertical !important;
+                    overflow: hidden !important;
+                }
+                .domain-features-list {
+                    margin: 0 0 14px 0 !important;
+                }
+                .domain-features-list li {
+                    font-size: 0.68rem !important;
+                    margin-bottom: 4px !important;
+                    gap: 6px !important;
+                    line-height: 1.25 !important;
+                }
+                .domain-features-list li i {
+                    font-size: 0.65rem !important;
+                }
+                .domain-card-btn {
+                    padding: 7px 10px !important;
+                    font-size: 0.74rem !important;
+                    gap: 4px !important;
+                }
+            }
             @media (max-width: 480px) {
                 .domain-cards-grid {
-                    grid-template-columns: 1fr;
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 8px !important;
+                    padding: 0 6px !important;
+                }
+                .domain-card {
+                    padding: 12px 9px !important;
+                }
+                .domain-icon {
+                    width: 34px !important;
+                    height: 34px !important;
+                    font-size: 1rem !important;
+                    border-radius: 8px !important;
+                }
+                .domain-card h3 {
+                    font-size: 0.85rem !important;
+                }
+                .domain-card-btn {
+                    padding: 6px 8px !important;
+                    font-size: 0.70rem !important;
                 }
             }
             .domain-card {
@@ -347,6 +417,59 @@
                 margin: 0 auto;
                 padding: 0 20px;
             }
+            @media (max-width: 768px) {
+                .roadmap-timeline-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 12px !important;
+                    padding: 0 12px !important;
+                }
+                .roadmap-card {
+                    padding: 16px 12px !important;
+                    border-radius: 12px !important;
+                }
+                .roadmap-card::before {
+                    left: 14px;
+                    right: 14px;
+                    height: 3px;
+                }
+                .roadmap-week-badge {
+                    font-size: 0.66rem !important;
+                    padding: 2px 7px !important;
+                }
+                .roadmap-card-header {
+                    margin-top: 4px !important;
+                    margin-bottom: 8px !important;
+                }
+                .roadmap-card-header span:last-child {
+                    font-size: 0.68rem !important;
+                }
+                .roadmap-card h4 {
+                    font-size: 0.88rem !important;
+                    margin: 4px 0 4px 0 !important;
+                    line-height: 1.25 !important;
+                }
+                .roadmap-card p {
+                    font-size: 0.70rem !important;
+                    line-height: 1.35 !important;
+                    display: -webkit-box !important;
+                    -webkit-line-clamp: 3 !important;
+                    -webkit-box-orient: vertical !important;
+                    overflow: hidden !important;
+                }
+            }
+            @media (max-width: 480px) {
+                .roadmap-timeline-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 8px !important;
+                    padding: 0 6px !important;
+                }
+                .roadmap-card {
+                    padding: 12px 9px !important;
+                }
+                .roadmap-card h4 {
+                    font-size: 0.80rem !important;
+                }
+            }
             .roadmap-card {
                 background: #ffffff;
                 border: 1px solid #e2e8f0;
@@ -409,6 +532,57 @@
                 max-width: 1200px;
                 margin: 0 auto;
                 padding: 0 20px;
+            }
+            @media (max-width: 768px) {
+                .benefits-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 12px !important;
+                    padding: 0 12px !important;
+                }
+                .benefit-item {
+                    padding: 14px 10px !important;
+                    border-radius: 12px !important;
+                    flex-direction: column !important;
+                    align-items: flex-start !important;
+                    gap: 8px !important;
+                }
+                .benefit-icon {
+                    width: 36px !important;
+                    height: 36px !important;
+                    border-radius: 10px !important;
+                    font-size: 1rem !important;
+                }
+                .benefit-content h4 {
+                    font-size: 0.82rem !important;
+                    margin: 0 0 4px 0 !important;
+                    line-height: 1.25 !important;
+                }
+                .benefit-content p {
+                    font-size: 0.70rem !important;
+                    line-height: 1.35 !important;
+                    display: -webkit-box !important;
+                    -webkit-line-clamp: 3 !important;
+                    -webkit-box-orient: vertical !important;
+                    overflow: hidden !important;
+                }
+            }
+            @media (max-width: 480px) {
+                .benefits-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 8px !important;
+                    padding: 0 6px !important;
+                }
+                .benefit-item {
+                    padding: 12px 8px !important;
+                }
+                .benefit-icon {
+                    width: 30px !important;
+                    height: 30px !important;
+                    font-size: 0.90rem !important;
+                }
+                .benefit-content h4 {
+                    font-size: 0.78rem !important;
+                }
             }
             .benefit-item {
                 background: #ffffff;
