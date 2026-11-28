@@ -1324,3 +1324,9 @@ input, textarea, select {
         padding-right: 10px !important;
     }
 }
+
+/* Voice Assistance Removed */
+.hero-sound-toggle,
+#heroSoundToggle {
+    display: none !important;
+}

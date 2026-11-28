@@ -1,7 +1,7 @@
 // ==========================================================================
 // RC TECHNO SOLUTIONS - OFFICIAL AI ASSISTANT (RC AI Assistant)
 // Intelligent, fast, multi-turn assistant with PostgreSQL Backend Integration,
-// Quick-Action triggers, Speech Recognition, and Speech Synthesis.
+// Quick-Action triggers, and smart intent fallback.
 // ==========================================================================
 
 class RCTechChatbot {
@@ -11,93 +11,7 @@ class RCTechChatbot {
         this.isInitialized = false;
         this.sessionId = localStorage.getItem('rc_chat_session_id') || ('rc_sess_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6));
         localStorage.setItem('rc_chat_session_id', this.sessionId);
-        this.isVoiceMuted = true;
-        this.isListening = false;
-        this.recognition = null;
-        this.initSpeechRecognition();
         this.initUI();
-    }
-
-    initSpeechRecognition() {
-        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        if (SpeechRecognition) {
-            this.recognition = new SpeechRecognition();
-            this.recognition.continuous = false;
-            this.recognition.interimResults = false;
-            this.recognition.lang = 'en-US';
-
-            this.recognition.onstart = () => {
-                this.isListening = true;
-                if (this.micBtn) {
-                    this.micBtn.classList.add('listening');
-                    this.micBtn.innerHTML = '<i class="fas fa-waveform-lines fa-fade"></i>';
-                }
-            };
-
-            this.recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                if (transcript && this.inputField) {
-                    this.inputField.value = transcript;
-                    this.handleSend();
-                }
-            };
-
-            this.recognition.onerror = () => {
-                this.stopListening();
-            };
-
-            this.recognition.onend = () => {
-                this.stopListening();
-            };
-        }
-    }
-
-    stopListening() {
-        this.isListening = false;
-        if (this.micBtn) {
-            this.micBtn.classList.remove('listening');
-            this.micBtn.innerHTML = '<i class="fas fa-microphone"></i>';
-        }
-    }
-
-    toggleListening() {
-        if (!this.recognition) {
-            window.showRCToast?.("Voice input is not supported in this browser. Please use Chrome or Edge.");
-            return;
-        }
-        if (this.isListening) {
-            this.recognition.stop();
-        } else {
-            try {
-                this.recognition.start();
-            } catch (err) {
-                console.warn("Speech recognition error:", err);
-            }
-        }
-    }
-
-    speak(text) {
-        if (this.isVoiceMuted || !('speechSynthesis' in window)) return;
-        window.speechSynthesis.cancel();
-
-        const cleanText = text
-            .replace(/\*\*(.*?)\*\*/g, '$1')
-            .replace(/•/g, '')
-            .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-            .replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E0}-\u{1F1FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '')
-            .trim();
-
-        if (!cleanText) return;
-
-        const utterance = new SpeechSynthesisUtterance(cleanText);
-        utterance.rate = 1.05;
-        utterance.pitch = 1.0;
-        
-        const voices = window.speechSynthesis.getVoices();
-        const preferredVoice = voices.find(v => (v.name.includes('Google') || v.name.includes('Natural') || v.lang.startsWith('en')) && v.lang.includes('US'));
-        if (preferredVoice) utterance.voice = preferredVoice;
-
-        window.speechSynthesis.speak(utterance);
     }
 
     initUI() {
@@ -125,9 +39,6 @@ class RCTechChatbot {
                             <button class="rc-chat-action-btn" id="rc-chat-clear" aria-label="Clear chat" title="New conversation">
                                 <i class="fas fa-rotate-right"></i>
                             </button>
-                            <button class="rc-chat-action-btn" id="rc-chat-voice-toggle" aria-label="Toggle Voice Readout" title="Toggle Voice Readout">
-                                <i class="fas fa-volume-mute"></i>
-                            </button>
                             <button class="rc-chat-action-btn" id="rc-chat-minimize" aria-label="Minimize Chat" title="Minimize">
                                 <i class="fas fa-minus"></i>
                             </button>
@@ -151,10 +62,7 @@ class RCTechChatbot {
 
                     <!-- Input Area -->
                     <div class="rc-chat-input-area">
-                        <input type="text" class="rc-chat-input" id="rc-chat-input" placeholder="Ask about services, projects, internships..." autocomplete="off" />
-                        <button class="rc-chat-mic-btn" id="rc-chat-mic-btn" aria-label="Voice Input" title="Speak question" type="button">
-                            <i class="fas fa-microphone"></i>
-                        </button>
+                        <input type="text" class="rc-chat-input" id="rc-chat-input" placeholder="Ask a question..." autocomplete="off" />
                         <button class="rc-chat-send" id="rc-chat-send" aria-label="Send Message"><i class="fas fa-paper-plane"></i></button>
                     </div>
                 </div>
@@ -169,8 +77,6 @@ class RCTechChatbot {
         this.messagesContainer = document.getElementById('rc-chat-messages');
         this.inputField = document.getElementById('rc-chat-input');
         this.sendBtn = document.getElementById('rc-chat-send');
-        this.micBtn = document.getElementById('rc-chat-mic-btn');
-        this.voiceToggleBtn = document.getElementById('rc-chat-voice-toggle');
         this.toggleBtn = document.getElementById('rc-chat-toggle');
         this.closeBtn = document.getElementById('rc-chat-close');
         this.minimizeBtn = document.getElementById('rc-chat-minimize');
@@ -186,20 +92,6 @@ class RCTechChatbot {
             this.clearBtn.addEventListener('click', () => this.clearConversation());
         }
         this.sendBtn.addEventListener('click', () => this.handleSend());
-        if (this.micBtn) {
-            this.micBtn.addEventListener('click', () => this.toggleListening());
-        }
-        if (this.voiceToggleBtn) {
-            this.voiceToggleBtn.addEventListener('click', () => {
-                this.isVoiceMuted = !this.isVoiceMuted;
-                if (this.isVoiceMuted) {
-                    window.speechSynthesis?.cancel();
-                    this.voiceToggleBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-                } else {
-                    this.voiceToggleBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-                }
-            });
-        }
         this.inputField.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') this.handleSend();
         });
@@ -227,8 +119,6 @@ class RCTechChatbot {
         } else {
             this.window.classList.remove('open');
             this.toggleBtn.classList.remove('active');
-            this.stopListening();
-            window.speechSynthesis?.cancel();
         }
     }
 
@@ -242,7 +132,6 @@ class RCTechChatbot {
     startConversation() {
         const welcome = "Hello! Welcome to **RC Techno Solutions**.\n\nI'm your **RC AI Assistant**. I can help you explore our software development services, technology solutions, projects, and internship opportunities.\n\nHow can I help you today?";
         this.addMessage(welcome, 'bot');
-        this.speak("Hello! Welcome to RC Techno Solutions. I'm your AI assistant. How can I help you today?");
     }
 
     addMessage(text, sender) {
@@ -324,7 +213,6 @@ class RCTechChatbot {
             }
 
             this.addMessage(reply, 'bot');
-            this.speak(reply);
         } catch (err) {
             this.hideTyping();
             const fallback = "I'm currently connected in standalone mode. You can explore our services at /services, our portfolio at /portfolio, or apply for our internship at /internship!";
@@ -337,7 +225,11 @@ class RCTechChatbot {
     }
 }
 
-// Auto initialize on DOM ready
-document.addEventListener('DOMContentLoaded', () => {
+// Auto initialize on DOM ready or immediately if already loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        window.rcChatbot = new RCTechChatbot();
+    });
+} else {
     window.rcChatbot = new RCTechChatbot();
-});
+}

@@ -645,7 +645,27 @@ module.exports = server;
 
 // Only start standalone HTTP listener when executed directly (e.g. node server.js)
 if (require.main === module) {
-    server.listen(PORT, () => {
-        console.log(`RC Techno Solutions server is running at http://localhost:${PORT}/`);
+    let currentPort = parseInt(PORT, 10) || 3000;
+
+    function startListening(port) {
+        currentPort = port;
+        server.listen(port, () => {
+            console.log(`RC Techno Solutions server is running at http://localhost:${port}/`);
+        });
+    }
+
+    server.on('error', (err) => {
+        if (err.code === 'EADDRINUSE') {
+            const nextPort = currentPort + 1;
+            console.log(`⚠️ Port ${currentPort} is currently in use. Trying port ${nextPort}...`);
+            setTimeout(() => {
+                server.close();
+                startListening(nextPort);
+            }, 200);
+        } else {
+            console.error('Server error:', err);
+        }
     });
+
+    startListening(currentPort);
 }

@@ -953,140 +953,6 @@ document.addEventListener('DOMContentLoaded', () => {
         animate();
     }
 
-    /* --- Accessibility Read Aloud (TTS) --- */
-    let isTTSMode = false;
-    let currentSpeech = null;
-    let currentlyHighlighted = null;
-    
-    const enableTTSBtn = document.getElementById('enableTTSBtn');
-    const ttsControlPanel = document.getElementById('ttsControlPanel');
-    const closeTTSBtn = document.getElementById('closeTTSBtn');
-    const ttsPauseBtn = document.getElementById('ttsPauseBtn');
-    const ttsResumeBtn = document.getElementById('ttsResumeBtn');
-    const ttsStopBtn = document.getElementById('ttsStopBtn');
-    const ttsVoiceSelect = document.getElementById('ttsVoice');
-    const ttsRateInput = document.getElementById('ttsRate');
-    
-    let voices = [];
-    
-    function populateVoices() {
-        if (!window.speechSynthesis) return;
-        voices = window.speechSynthesis.getVoices();
-        if (ttsVoiceSelect) {
-            ttsVoiceSelect.innerHTML = '';
-            voices.forEach((voice, i) => {
-                const option = document.createElement('option');
-                option.textContent = `${voice.name} (${voice.lang})`;
-                option.value = i;
-                ttsVoiceSelect.appendChild(option);
-            });
-        }
-    }
-    
-    populateVoices();
-    if (window.speechSynthesis && window.speechSynthesis.onvoiceschanged !== undefined) {
-        window.speechSynthesis.onvoiceschanged = populateVoices;
-    }
-    
-    if (enableTTSBtn) {
-        enableTTSBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            isTTSMode = true;
-            document.body.classList.add('tts-mode-active');
-            ttsControlPanel.classList.add('show');
-        });
-    }
-    
-    if (closeTTSBtn) {
-        closeTTSBtn.addEventListener('click', () => {
-            isTTSMode = false;
-            document.body.classList.remove('tts-mode-active');
-            ttsControlPanel.classList.remove('show');
-            window.speechSynthesis.cancel();
-            removeHighlight();
-        });
-    }
-    
-    function removeHighlight() {
-        if (currentlyHighlighted) {
-            currentlyHighlighted.classList.remove('tts-highlight');
-            currentlyHighlighted = null;
-        }
-    }
-    
-    let hoverTimeout;
-    
-    document.addEventListener('mouseover', (e) => {
-        if (!isTTSMode) return;
-        
-        if (ttsControlPanel.contains(e.target) || (enableTTSBtn && enableTTSBtn.contains(e.target))) return;
-        
-        const validTags = ['P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'A', 'BUTTON', 'SPAN', 'LI', 'LABEL'];
-        let targetElement = e.target;
-        
-        // If they hovered an icon or inner element, try to find the closest valid tag
-        if (!validTags.includes(targetElement.tagName)) {
-             targetElement = targetElement.closest(validTags.join(','));
-        }
-        
-        if (!targetElement) return;
-        
-        const textToSpeak = targetElement.innerText || targetElement.textContent;
-        if (!textToSpeak || !textToSpeak.trim()) return;
-        
-        clearTimeout(hoverTimeout);
-        hoverTimeout = setTimeout(() => {
-            window.speechSynthesis.cancel();
-            removeHighlight();
-            
-            currentSpeech = new SpeechSynthesisUtterance(textToSpeak);
-            
-            const selectedVoice = voices[ttsVoiceSelect.value];
-            if (selectedVoice) currentSpeech.voice = selectedVoice;
-            currentSpeech.rate = parseFloat(ttsRateInput.value) || 1;
-            
-            currentSpeech.onstart = () => {
-                targetElement.classList.add('tts-highlight');
-                currentlyHighlighted = targetElement;
-                ttsPauseBtn.style.display = 'block';
-                ttsResumeBtn.style.display = 'none';
-            };
-            
-            currentSpeech.onend = () => removeHighlight();
-            currentSpeech.onerror = () => removeHighlight();
-            
-            window.speechSynthesis.speak(currentSpeech);
-        }, 300); // 300ms delay to prevent spamming while moving mouse
-    });
-    
-    document.addEventListener('mouseout', (e) => {
-        if (!isTTSMode) return;
-        clearTimeout(hoverTimeout);
-    }); 
-    
-    if (ttsPauseBtn) {
-        ttsPauseBtn.addEventListener('click', () => {
-            window.speechSynthesis.pause();
-            ttsPauseBtn.style.display = 'none';
-            ttsResumeBtn.style.display = 'block';
-        });
-    }
-    
-    if (ttsResumeBtn) {
-        ttsResumeBtn.addEventListener('click', () => {
-            window.speechSynthesis.resume();
-            ttsPauseBtn.style.display = 'block';
-            ttsResumeBtn.style.display = 'none';
-        });
-    }
-    
-        if (ttsStopBtn) {
-        ttsStopBtn.addEventListener('click', () => {
-            window.speechSynthesis.cancel();
-            removeHighlight();
-        });
-    }
-
     /* --- Enterprise Light / White Theme Mode Enforcement --- */
     document.documentElement.setAttribute('data-theme', 'light');
     localStorage.setItem('rc_theme', 'light');
@@ -1350,159 +1216,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* --- Background Video Audio & Universal Voice Assistant Controller --- */
+    /* --- Background Video Autoplay Controller (Muted) --- */
     const heroSection = document.getElementById('home');
     const heroBgVideo = document.getElementById('heroBgVideo') || document.querySelector('.hero-bg-video');
-    const soundToggle = document.getElementById('heroSoundToggle');
 
-    if (soundToggle) {
-        const soundIcon = soundToggle.querySelector('.sound-icon');
-        const soundText = soundToggle.querySelector('.sound-text');
-        const soundWave = soundToggle.querySelector('.sound-wave-anim');
-        let isVoiceActive = false;
+    if (heroBgVideo) {
+        heroBgVideo.muted = true;
+        heroBgVideo.volume = 0;
 
-        function updateSoundUI(isActive) {
-            if (!isActive) {
-                soundToggle.classList.add('muted');
-                if (soundIcon) soundIcon.className = 'fas fa-volume-mute sound-icon';
-                if (soundText) soundText.textContent = 'Voice: OFF';
-                if (soundWave) soundWave.classList.remove('active');
-            } else {
-                soundToggle.classList.remove('muted');
-                if (soundIcon) soundIcon.className = 'fas fa-volume-up sound-icon';
-                if (soundText) soundText.textContent = 'Voice: ON';
-                if (soundWave) soundWave.classList.add('active');
-            }
-        }
-
-        if (heroBgVideo) {
-            let userWantsSound = false;
-            let isScrolledAway = false;
-
-            // Video Initialization (Muted Autoplay for 100% Mobile & Desktop Support)
-            function startHeroVideo() {
-                if (isScrolledAway) return;
-                heroBgVideo.muted = true;
-                updateSoundUI(false);
-
-                const playPromise = heroBgVideo.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(() => {
-                        heroBgVideo.muted = true;
-                        heroBgVideo.play().catch(() => {});
-                    });
-                }
-
-                ['loadeddata', 'canplay', 'loadedmetadata'].forEach(evt => {
-                    heroBgVideo.addEventListener(evt, () => {
-                        if (heroBgVideo.paused && !isScrolledAway) {
-                            heroBgVideo.play().catch(() => {});
-                        }
-                    }, { once: true });
+        function startHeroVideo() {
+            heroBgVideo.muted = true;
+            const playPromise = heroBgVideo.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    heroBgVideo.muted = true;
+                    heroBgVideo.play().catch(() => {});
                 });
             }
 
-            startHeroVideo();
-
-            // Toggle Video Audio
-            soundToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (heroBgVideo.muted) {
-                    userWantsSound = true;
-                    heroBgVideo.muted = false;
-                    heroBgVideo.volume = 1.0;
-                    heroBgVideo.play().then(() => {
-                        updateSoundUI(true);
-                        if (window.rcTechChatbot) window.rcTechChatbot.isVoiceMuted = false;
-                        window.showRCToast?.("🔊 Video Voice: ON");
-                    }).catch((err) => {
-                        console.warn('Unmute error:', err);
-                        heroBgVideo.muted = true;
-                        updateSoundUI(false);
-                    });
-                } else {
-                    userWantsSound = false;
-                    heroBgVideo.muted = true;
-                    updateSoundUI(false);
-                    if (window.rcTechChatbot) window.rcTechChatbot.isVoiceMuted = true;
-                    window.showRCToast?.("🔇 Video Voice: OFF");
-                }
+            ['loadeddata', 'canplay', 'loadedmetadata'].forEach(evt => {
+                heroBgVideo.addEventListener(evt, () => {
+                    if (heroBgVideo.paused) {
+                        heroBgVideo.play().catch(() => {});
+                    }
+                }, { once: true });
             });
+        }
 
-            // Automatically mute/pause video when user scrolls away from Home section
-            function handleHeroVisibility(inView) {
-                if (inView) {
-                    isScrolledAway = false;
-                    heroBgVideo.play().catch(() => {});
-                    if (userWantsSound) {
-                        heroBgVideo.muted = false;
-                        heroBgVideo.volume = 1.0;
-                        updateSoundUI(true);
+        startHeroVideo();
+
+        // Automatically pause video when user scrolls away from Home section to save resources
+        if (heroSection && 'IntersectionObserver' in window) {
+            const heroObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        heroBgVideo.play().catch(() => {});
                     } else {
-                        heroBgVideo.muted = true;
-                        updateSoundUI(false);
-                    }
-                } else {
-                    if (window.scrollY > 200) {
-                        isScrolledAway = true;
                         heroBgVideo.pause();
-                        heroBgVideo.muted = true;
-                        updateSoundUI(false);
                     }
-                }
-            }
-
-            if (heroSection && 'IntersectionObserver' in window) {
-                const heroObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            handleHeroVisibility(true);
-                        } else if (window.scrollY > 200) {
-                            handleHeroVisibility(false);
-                        }
-                    });
-                }, { threshold: [0, 0.1, 0.5] });
-                heroObserver.observe(heroSection);
-            }
-
-            window.addEventListener('scroll', () => {
-                if (!heroSection) return;
-                const heroRect = heroSection.getBoundingClientRect();
-                if (heroRect.bottom <= 50 && window.scrollY > 200 && !isScrolledAway) {
-                    handleHeroVisibility(false);
-                } else if (heroRect.bottom > 50 && isScrolledAway) {
-                    handleHeroVisibility(true);
-                }
-            }, { passive: true });
-
-        } else {
-            // Subpages without video: Toggle Speech Synthesis Voice Assistant
-            updateSoundUI(false);
-            soundToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                isVoiceActive = !isVoiceActive;
-                updateSoundUI(isVoiceActive);
-
-                if (window.rcTechChatbot) {
-                    window.rcTechChatbot.isVoiceMuted = !isVoiceActive;
-                }
-
-                if (isVoiceActive) {
-                    window.showRCToast?.("🔊 Voice Assistant: ON");
-                    if ('speechSynthesis' in window) {
-                        window.speechSynthesis.cancel();
-                        const pageTitle = document.title.split('|')[0].trim();
-                        const utterance = new SpeechSynthesisUtterance(`Voice assistance enabled for ${pageTitle} at RC Techno Solutions.`);
-                        utterance.rate = 1.05;
-                        window.speechSynthesis.speak(utterance);
-                    }
-                } else {
-                    window.showRCToast?.("🔇 Voice Assistant: OFF");
-                    if ('speechSynthesis' in window) {
-                        window.speechSynthesis.cancel();
-                    }
-                }
-            });
+                });
+            }, { threshold: [0, 0.1] });
+            heroObserver.observe(heroSection);
         }
     }
 

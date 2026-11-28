@@ -1566,18 +1566,13 @@ header.sticky .hamburger { color: var(--clr-text-dark); }
     }
 }
 
-/* Accessibility TTS */
-.tts-mode-active {
-    cursor: help !important;
+/* Voice Assistance Disabled */
+.hero-sound-toggle,
+#heroSoundToggle,
+.rc-chat-voice-toggle,
+.rc-chat-mic-btn {
+    display: none !important;
 }
-.tts-mode-active * {
-    cursor: help !important;
-}
-.tts-highlight {
-    background-color: #fef08a !important;
-    color: #1e293b !important;
-    outline: 2px solid #eab308 !important;
-    border-radius: 4px;
     transition: background-color 0.2s;
 }
 .tts-control-panel {
