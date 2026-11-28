@@ -4631,9 +4631,9 @@ html, body {
         background: rgba(255, 255, 255, 0.06);
     }
 
-    /* Give body padding so content isn't obscured by bottom bar */
+    /* Clean mobile body padding */
     body {
-        padding-bottom: 70px !important;
+        padding-bottom: 0 !important;
     }
 
     /* Move back to top & chatbot toggle slightly above bottom bar */
@@ -5406,12 +5406,15 @@ html, body {
     }
 
     body {
-        padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+        padding-bottom: 0 !important;
         box-sizing: border-box !important;
     }
 
-    .footer {
-        padding-bottom: 86px !important;
+    .footer,
+    .footer-new,
+    .footer-elevated {
+        padding-bottom: 24px !important;
+        margin-bottom: 0 !important;
     }
 
     .modal-overlay,
@@ -6874,11 +6877,14 @@ html, body {
    ========================================================================== */
 @media (max-width: 768px) {
     /* 1. Footer Container & Padding */
-    .footer {
+    .footer,
+    .footer-new,
+    .footer-elevated {
         padding-top: 40px !important;
         padding-left: 16px !important;
         padding-right: 16px !important;
-        padding-bottom: calc(86px + env(safe-area-inset-bottom, 0px)) !important;
+        padding-bottom: 24px !important;
+        margin-bottom: 0 !important;
         box-sizing: border-box !important;
         overflow-x: hidden !important;
     }
@@ -14612,6 +14618,8 @@ html, body {
         flex-direction: column !important;
         text-align: center !important;
         gap: 10px !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
     }
 }
 

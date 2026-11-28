@@ -1253,11 +1253,14 @@ input, textarea, select {
    ========================================================================== */
 @media (max-width: 768px) {
     body {
-        padding-bottom: calc(74px + env(safe-area-inset-bottom, 0px)) !important;
+        padding-bottom: 0 !important;
     }
 
-    .footer {
-        padding-bottom: 84px !important;
+    .footer,
+    .footer-new,
+    .footer-elevated {
+        padding-bottom: 24px !important;
+        margin-bottom: 0 !important;
     }
 
     /* Bento & Mission Cards */
