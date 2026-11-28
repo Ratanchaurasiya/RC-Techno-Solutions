@@ -551,7 +551,7 @@
     line-height: 1.45 !important;
     margin-bottom: 12px !important;
     min-height: 38px;
-    flex-grow: 1;
+    flex-grow: 0 !important;
 }
 
 [data-theme="dark"] .portfolio-info p,
